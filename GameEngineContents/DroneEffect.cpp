@@ -47,7 +47,7 @@ void DroneEffect::Start()
 
 
 	}
-	m_Info.Dammage = 1.f;
+	m_Info.Dammage = 1;
 
 
 

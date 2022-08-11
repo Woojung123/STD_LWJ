@@ -45,7 +45,7 @@ void Storm::Start()
 		Renderer->AnimationBindEnd("storm", &Storm::AttEnd, this);
 	}
 
-	m_Info.Dammage = 1.f;
+	m_Info.Dammage = 1;
 
 	{
 		Collision = CreateComponent<GameEngineCollision>();

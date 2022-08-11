@@ -44,7 +44,7 @@ void ArconBul::Start()
 		Renderer->AnimationBindEnd("ArconHit", &ArconBul::AttEnd, this);
 	}
 
-	m_Info.Dammage = 1.f;
+	m_Info.Dammage = 1;
 
 	{
 		Collision = CreateComponent<GameEngineCollision>();

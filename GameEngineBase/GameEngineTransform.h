@@ -325,16 +325,18 @@ private:
 			Data.WorldScaling = Data.LocalScaling;
 		}
 
-		CollisionScaleSetting();
+		
 
 		Data.LocalScalingMatrix.Scale(Data.LocalScaling);
 		CalculateWorld();
+
 		for (GameEngineTransform* Child : Childs)
 		{
 			Child->CalculateWorldScale(Child->Data.LocalScaling);
 			Child->CalculateWorldPosition(Child->Data.LocalPosition);
 		}
 
+		CollisionDataSetting();
 	}
 	void CalculateWorldRotation(const float4& _Local)
 	{
@@ -350,7 +352,7 @@ private:
 			Data.WorldRotation = Data.LocalRotation;
 		}
 
-		CollisionRotationSetting();
+		
 
 		Data.LocalRotationMatrix.RotationDegree(Data.LocalRotation);
 		CalculateWorld();
@@ -359,6 +361,8 @@ private:
 			Child->CalculateWorldRotation(Child->Data.LocalRotation);
 			Child->CalculateWorldPosition(Child->Data.LocalPosition);
 		}
+
+		CollisionDataSetting();
 	}
 
 	void CalculateWorldPosition(const float4& _Local)
@@ -375,7 +379,7 @@ private:
 			Data.WorldPosition = Data.LocalPosition;
 		}
 
-		CollisionPositionSetting();
+		
 
 		Data.LocalPositionMatrix.Position(Data.LocalPosition);
 		CalculateWorld();
@@ -383,6 +387,8 @@ private:
 		{
 			Child->CalculateWorldPosition(Child->Data.LocalPosition);
 		}
+
+		CollisionDataSetting();
 	}
 
 	CollisionData CollisionDataObject;

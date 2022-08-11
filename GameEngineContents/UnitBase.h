@@ -21,7 +21,12 @@ public:
 public:
 	UINFO	m_Info;
 
+
+
 	bool	m_bClickCheck;
 	GameEngineCollision* Collision;
 
+
+	GameEngineTextureRenderer* AttRenderer;
+	GameEngineTextureRenderer* ClickRenderer;
 };

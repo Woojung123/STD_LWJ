@@ -61,6 +61,22 @@ void TestUnit::Start()
 		//Collision->Off();
 	}
 
+
+
+	{
+		ClickRenderer = CreateComponent<GameEngineTextureRenderer>();
+		ClickRenderer->SetTexture("Select3.png");
+		ClickRenderer->ScaleToTexture();
+		ClickRenderer->GetTransform().SetLocalPosition({ 0.f,-5.f,1.f });
+	}
+
+	{
+		AttRenderer = CreateComponent<GameEngineTextureRenderer>();
+		AttRenderer->SetTexture("SelectAtt.png");
+		AttRenderer->GetTransform().SetLocalScale({ 300.f,300.f,1.f });
+
+	}
+
 }
 
 void TestUnit::Update(float _DeltaTime)
@@ -69,10 +85,14 @@ void TestUnit::Update(float _DeltaTime)
 	if (m_bClickCheck)
 	{
 		MainUI->On();
+		ClickRenderer->On();
+		AttRenderer->On();
 	}
 	else
 	{
 		MainUI->Off();
+		ClickRenderer->Off();
+		AttRenderer->Off();
 	}
 	std::list<GameEngineActor*> Group = GetLevel()->GetGroup(OBJECTORDER::Monster);
 

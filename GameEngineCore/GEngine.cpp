@@ -31,7 +31,10 @@ void GEngine::CollisionDebugOff()
 {
 	CollisionDebug = false;
 }
-
+GameEngineLevel* GEngine::GetCurrentLevel()
+{
+	return GameEngineCore::GetCurLevel();
+}
 void GEngine::ChangeLevel(std::string _Name)
 {
 	GameEngineCore::ChangeLevel(_Name);

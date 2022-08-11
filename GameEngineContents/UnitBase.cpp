@@ -5,6 +5,8 @@
 UnitBase::UnitBase() 
 		: m_Info({ 0 })
 	, m_bClickCheck(false)
+	, ClickRenderer(nullptr)
+	, AttRenderer(nullptr)
 {
 }
 

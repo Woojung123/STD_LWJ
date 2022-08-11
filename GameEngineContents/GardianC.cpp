@@ -126,6 +126,21 @@ void GardianC::Start()
 		//Collision->Off();
 	}
 
+	{
+		ClickRenderer = CreateComponent<GameEngineTextureRenderer>();
+		ClickRenderer->SetTexture("Select2.png");
+		ClickRenderer->ScaleToTexture();
+		ClickRenderer->GetTransform().SetLocalPosition({ 0.f,-5.f,1.f });
+	}
+
+	{
+		AttRenderer = CreateComponent<GameEngineTextureRenderer>();
+		AttRenderer->SetTexture("SelectAtt.png");
+		AttRenderer->GetTransform().SetLocalScale({ 500.f,500.f,1.f });
+
+	}
+
+
 }
 
 void GardianC::Update(float _DeltaTime)
@@ -133,11 +148,17 @@ void GardianC::Update(float _DeltaTime)
 	if (m_bClickCheck)
 	{
 		MainUI->On();
+		ClickRenderer->On();
+		AttRenderer->On();
 	}
 	else
 	{
 		MainUI->Off();
+		ClickRenderer->Off();
+		AttRenderer->Off();
 	}
+
+
 	std::list<GameEngineActor*> Group = GetLevel()->GetGroup(OBJECTORDER::Monster);
 
 	int Monsize = (int)(Group.size());

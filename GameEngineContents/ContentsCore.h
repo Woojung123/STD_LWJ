@@ -16,6 +16,8 @@ public:
 	ContentsCore& operator=(const ContentsCore& _Other) = delete;
 	ContentsCore& operator=(ContentsCore&& _Other) noexcept = delete;
 
+	float4 StartWindowSize() override { return float4{ 800, 600.0f }; };
+	float4 StartWindowPosition() override { return { 300,100 }; };
 
 	std::string GetWindowTitle() override
 	{

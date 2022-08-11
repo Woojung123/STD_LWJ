@@ -19,6 +19,8 @@ ProbeS::ProbeS()
 	, ListLastCheck(false)
 	, m_Dir({ 0 })
 	, BAniChange(false)
+	, AuraRenderer(nullptr)
+	, MainUI(nullptr)
 
 {
 }
@@ -94,6 +96,23 @@ void ProbeS::Start()
 		//Collision->Off();
 	}
 
+
+	{
+		ClickRenderer = CreateComponent<GameEngineTextureRenderer>();
+		ClickRenderer->SetTexture("Select1.png");
+		ClickRenderer->ScaleToTexture();
+		ClickRenderer->GetTransform().SetLocalPosition({ 0.f,-5.f,1.f });
+	}
+
+	{
+		AttRenderer = CreateComponent<GameEngineTextureRenderer>();
+		AttRenderer->SetTexture("SelectAtt.png");
+		AttRenderer->GetTransform().SetLocalScale({ 600.f,600.f,1.f });
+
+	}
+
+
+
 }
 
 void ProbeS::Update(float _DeltaTime)
@@ -101,11 +120,19 @@ void ProbeS::Update(float _DeltaTime)
 	if (m_bClickCheck)
 	{
 		MainUI->On();
+		ClickRenderer->On();
+		AttRenderer->On();
 	}
 	else
 	{
 		MainUI->Off();
+		ClickRenderer->Off();
+		AttRenderer->Off();
 	}
+
+
+
+
 	std::list<GameEngineActor*> Group = GetLevel()->GetGroup(OBJECTORDER::Monster);
 
 	int Monsize = (int)Group.size();
@@ -143,7 +170,7 @@ void ProbeS::Update(float _DeltaTime)
 				TestUni = GetLevel()->CreateActor<SwarmBullet>(OBJECTORDER::Bullet);
 				TestUni->GetTransform().SetWorldPosition(MyPos);
 				TestUni->SetTarGet(TarGet);
-				TestUni->m_Info.Dammage = 90.f;
+				TestUni->m_Info.Dammage = 90;
 
 
 			}

@@ -4,6 +4,7 @@
 
 enum class OBJECTORDER
 {
+	TileMap,
 	Player,
 	Monster,
 	BackGround,

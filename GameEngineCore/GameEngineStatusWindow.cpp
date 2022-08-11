@@ -2,6 +2,7 @@
 #include "GameEngineStatusWindow.h"
 #include "GameEngineRenderTarget.h"
 #include "GEngine.h"
+#include "GameEngineCameraActor.h"
 
 void GameEngineImageShotWindow::RenderTextureSetting(ImTextureID _RenderTexture, ImVec2 _Size)
 {
@@ -46,7 +47,24 @@ void GameEngineStatusWindow::OnGUI(GameEngineLevel* _Level, float _DeltaTime)
 		GEngine::CollisionDebugSwitch();
 	}
 
+	if (true == ImGui::Button("FreeCameaOnOff"))
+	{
+		// ;
+		GEngine::GetCurrentLevel()->GetMainCameraActor()->FreeCameraModeOnOff();
+	}
 
+	ImGui::Text("Level Select");
+	for (std::pair<std::string, GameEngineLevel*> Pair : GameEngineCore::AllLevels)
+	{
+		if (true == ImGui::Button(Pair.first.c_str()))
+		{
+			GameEngineCore::ChangeLevel(Pair.first);
+		}
+
+		ImGui::SameLine();
+	}
+
+	ImGui::NewLine();
 	std::string AllRenderTarget = "AllRenderTarget";
 	ImGui::Text(AllRenderTarget.c_str());
 
