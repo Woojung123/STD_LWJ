@@ -145,10 +145,8 @@
     <CopyFileToFolders Include="ThirdParty\bin\fmodL_vc.lib">
       <Filter>ThirdParty\Lib</Filter>
     </CopyFileToFolders>
-  </ItemGroup>
-  <ItemGroup>
-    <Library Include="ThirdParty\bin\fmod_vc.lib">
+    <CopyFileToFolders Include="ThirdParty\bin\fmod_vc.lib">
       <Filter>ThirdParty\Lib</Filter>
-    </Library>
+    </CopyFileToFolders>
   </ItemGroup>
 </Project>
