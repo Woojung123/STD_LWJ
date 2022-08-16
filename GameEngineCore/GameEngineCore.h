@@ -29,8 +29,8 @@ public:
 
 protected:
 	virtual std::string GetWindowTitle() { return "MainWindow"; }
-	virtual float4 StartWindowSize() { return { 800.0f, 600.0f }; };
-	virtual float4 StartWindowPosition() { return { 300,100 }; };
+	virtual float4 StartWindowSize() { return { 1280.0f, 720.0f }; };
+	virtual float4 StartWindowPosition() { return { -2000,0 }; };
 
 	// 너희들이 간섭할수 있는 내용.
 	virtual void Start() = 0;
@@ -47,6 +47,11 @@ protected:
 	static GameEngineLevel* CreateLevel(const std::string& _Name)
 	{
 		std::string UpperName = GameEngineString::ToUpperReturn(_Name);
+		if (AllLevels.end() != AllLevels.find(UpperName))
+		{
+			MsgBoxAssert("존재하는 레벨을 또 만들려고 했습니다");
+		}
+
 		GameEngineLevel* NewLevel = new LevelType();
 		InitializeLevel(NewLevel, UpperName);
 		return NewLevel;

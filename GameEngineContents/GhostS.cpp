@@ -21,6 +21,8 @@ GhostS::GhostS()
 	, m_Dir({ 0 })
 	, BAniChange(false)
 	, BulletType(0)
+	,AuraRenderer(nullptr)
+	,MainUI(nullptr)
 
 {
 }

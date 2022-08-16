@@ -18,6 +18,7 @@ MarinC::MarinC()
 	, ListLastCheck(false)
 	, m_Dir({ 0 })
 	, BAniChange(false)
+	, MainUI(nullptr)
 {
 }
 

@@ -32,6 +32,15 @@ void FrameAnimation::Update(float _Delta)
 
 	if (Info.Inter <= Info.FrameTime)
 	{
+		if (Info.CurFrame == (Info.Frames.size() - 1)
+			&& false == bOnceEnd
+			&& nullptr != End)
+		{
+			End(Info);
+			bOnceEnd = true;
+			bOnceStart = false;
+		}
+
 		++Info.CurFrame;
 		if (nullptr != Frame)
 		{
@@ -40,12 +49,6 @@ void FrameAnimation::Update(float _Delta)
 
 		if (Info.CurFrame >= Info.Frames.size())
 		{
-			if (false == bOnceEnd && nullptr != End)
-			{
-				End(Info);
-				bOnceEnd = true;
-				bOnceStart = false;
-			}
 
 			if (true == Info.Loop)
 			{
@@ -53,7 +56,7 @@ void FrameAnimation::Update(float _Delta)
 			}
 			else
 			{
-				Info.CurFrame = Info.Frames.size() - 1;
+				Info.CurFrame = static_cast<unsigned int>(Info.Frames.size()) - 1;
 			}
 		}
 
@@ -239,8 +242,6 @@ void GameEngineTextureRenderer::CreateFrameAnimationFolder(const std::string& _A
 		{
 			NewAni.Info.Frames.push_back(i);
 		}
-		//NewAni.Info.Start = 0;
-		//NewAni.Info.End = static_cast<unsigned int>(NewAni.FolderTexture->GetTextureCount() - 1);
 	}
 }
 
@@ -278,10 +279,18 @@ void GameEngineTextureRenderer::ChangeFrameAnimation(const std::string& _Animati
 		if (nullptr != CurAni->Texture)
 		{
 			SetTexture(CurAni->Texture, CurAni->Info.Frames[CurAni->Info.CurFrame]);
+			if (ScaleMode == SCALEMODE::IMAGE)
+			{
+				ScaleToCutTexture(CurAni->Info.CurFrame);
+			}
 		}
 		else if (nullptr != CurAni->FolderTexture)
 		{
 			SetTexture(CurAni->FolderTexture->GetTexture(CurAni->Info.Frames[CurAni->Info.CurFrame]));
+			if (ScaleMode == SCALEMODE::IMAGE)
+			{
+				ScaleToTexture();
+			}
 		}
 	}
 }

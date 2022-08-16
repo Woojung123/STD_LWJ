@@ -32,8 +32,8 @@ void StageMainCamera::Update(float _DeltaTime)
 		return;
 	}
 
-	float MouseScreenPosX = GetLevel()->GetMainCamera()->GetScreenPosition().x;
-	float MouseScreenPosY = GetLevel()->GetMainCamera()->GetScreenPosition().y;
+	float MouseScreenPosX = GetLevel()->GetMainCamera()->GetMouseScreenPosition().x;
+	float MouseScreenPosY = GetLevel()->GetMainCamera()->GetMouseScreenPosition().y;
 
 
 	//카메라 이동

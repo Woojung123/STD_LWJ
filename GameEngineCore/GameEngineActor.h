@@ -59,22 +59,27 @@ public:
 		IsLevelOver = true;
 	}
 
+	void ActorUpdate(float _DeltaTime);
+
+	bool IsRoot()
+	{
+		return nullptr == GetParent();
+	}
+
 protected:
 	virtual void Start() override;
 	virtual void Update(float _DeltaTime) override;
 	virtual void End() override;
 
+
 private:
-	void ActorUpdate(float _DeltaTime);
-
-	class GameEngineLevel* ParentLevel;
-
 	void SetLevel(GameEngineLevel* _ParentLevel)
 	{
 		ParentLevel = _ParentLevel;
 	}
 
 	bool IsLevelOver;
-	
+
+	class GameEngineLevel* ParentLevel;
 };
 

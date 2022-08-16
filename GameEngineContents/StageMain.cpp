@@ -474,7 +474,7 @@ void StageMain::Stage1(float _DeltaTime)
 
 		{
 			corsairMon* TestUni = CreateActor<corsairMon>(OBJECTORDER::Monster);
-			TestUni->m_Info.m_Hp = 6000;
+			TestUni->m_Info.m_Hp = 12000;
 			TestUni->m_Info.Gold = 8;
 			auto	iter = CheckPoint.begin();
 			auto	iterEnd = CheckPoint.end();

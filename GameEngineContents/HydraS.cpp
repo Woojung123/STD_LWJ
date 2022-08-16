@@ -18,6 +18,8 @@ HydraS::HydraS()
 	, ListLastCheck(false)
 	, m_Dir({ 0 })
 	, BAniChange(false)
+	, AuraRenderer(nullptr)
+	, MainUI(nullptr)
 {
 }
 
