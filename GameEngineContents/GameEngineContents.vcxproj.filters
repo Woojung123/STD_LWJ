@@ -49,20 +49,8 @@
     <Filter Include="00.Actor\04.Bullet\00.DraBall">
       <UniqueIdentifier>{7827a957-4254-41da-85fa-56c2ac7e4b5f}</UniqueIdentifier>
     </Filter>
-    <Filter Include="00.Actor\01.Unit\02.Player\00.Level1">
-      <UniqueIdentifier>{3d15b492-4ff2-47be-af5d-f8358f5460db}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="00.Actor\01.Unit\02.Player\00.Level1\00.Test">
-      <UniqueIdentifier>{bf7966c5-c7f3-49a6-9c9c-d5b9e11d48ef}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="00.Actor\01.Unit\02.Player\00.Level1\01.Ghost">
-      <UniqueIdentifier>{f0f89b96-f8ca-4327-b172-b80e41038dd9}</UniqueIdentifier>
-    </Filter>
     <Filter Include="00.Actor\04.Bullet\01.Marin/Ghost">
       <UniqueIdentifier>{4f71be3c-2886-4d1e-9265-6275ca1164c0}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="00.Actor\01.Unit\02.Player\00.Level1\02.Marin">
-      <UniqueIdentifier>{57f188b5-d8c8-4c97-93d6-5a3272f926a3}</UniqueIdentifier>
     </Filter>
     <Filter Include="00.Actor\05.DeathEffect">
       <UniqueIdentifier>{dc4164f9-b174-402f-b9fe-ffc786e827c8}</UniqueIdentifier>
@@ -70,26 +58,11 @@
     <Filter Include="00.Actor\04.Bullet\02.Sunken">
       <UniqueIdentifier>{030e77b7-421d-438d-9e86-15471826f928}</UniqueIdentifier>
     </Filter>
-    <Filter Include="00.Actor\01.Unit\02.Player\00.Level1\03.Zealot">
-      <UniqueIdentifier>{10bc7f46-325a-4592-9d7f-07c9a4f96b58}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="00.Actor\01.Unit\02.Player\00.Level1\04.Hydra">
-      <UniqueIdentifier>{1019544b-61a5-453e-844d-65594d163345}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="00.Actor\01.Unit\02.Player\00.Level1\05.Corsair">
-      <UniqueIdentifier>{d8df063f-02a2-423a-862f-ff665e7c781c}</UniqueIdentifier>
-    </Filter>
     <Filter Include="00.Actor\02.UI\01.Stage">
       <UniqueIdentifier>{2768479a-1b5f-417a-8754-aa3701ac9e7a}</UniqueIdentifier>
     </Filter>
     <Filter Include="00.Actor\02.UI\01.Stage\00.Test">
       <UniqueIdentifier>{b80c6af1-8394-41b7-ab0a-ddf13d5186b8}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="00.Actor\01.Unit\02.Player\01.Level2">
-      <UniqueIdentifier>{38f379e3-fe88-4bcf-aec5-6896ad7d8410}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="00.Actor\01.Unit\02.Player\00.Level1\06.Zergling">
-      <UniqueIdentifier>{4340d336-2bec-492d-9056-7755f9f7afd2}</UniqueIdentifier>
     </Filter>
     <Filter Include="00.Actor\04.Bullet\03.Spore">
       <UniqueIdentifier>{cf1c75ed-94dd-4e6c-b476-b8b41f9ddbb4}</UniqueIdentifier>
@@ -115,47 +88,11 @@
     <Filter Include="00.Actor\04.Bullet\05.poison">
       <UniqueIdentifier>{6bac375a-99fa-43fc-94fe-33f8ad9320ca}</UniqueIdentifier>
     </Filter>
-    <Filter Include="00.Actor\01.Unit\02.Player\01.Level2\00.HighT">
-      <UniqueIdentifier>{01023071-a845-49d1-a16b-8da69cc8573a}</UniqueIdentifier>
-    </Filter>
     <Filter Include="00.Actor\04.Bullet\06.Storm">
       <UniqueIdentifier>{e618770d-b638-407b-aefd-c5356e3561ec}</UniqueIdentifier>
     </Filter>
-    <Filter Include="00.Actor\01.Unit\02.Player\01.Level2\01.Photo">
-      <UniqueIdentifier>{5d0643d0-472a-472a-9f24-973e2c69a3bc}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="00.Actor\01.Unit\02.Player\01.Level2\02.UltraB">
-      <UniqueIdentifier>{9271a8cf-966a-45d7-aa94-9e4e7bf13a2b}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="00.Actor\01.Unit\02.Player\02.Level3">
-      <UniqueIdentifier>{17de90e7-0557-4a72-9518-1ff7ef1cda1a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="00.Actor\01.Unit\02.Player\02.Level3\00.Mutal">
-      <UniqueIdentifier>{9e3b3a44-8aaa-4978-8b9b-fa34817382bf}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="00.Actor\01.Unit\02.Player\01.Level2\03.Arbitor">
-      <UniqueIdentifier>{f3a83d3e-3c23-4f94-a613-d8d7291c9b14}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="00.Actor\01.Unit\02.Player\01.Level2\04.DarkT">
-      <UniqueIdentifier>{456aa6af-b226-4297-80e7-2313c8b274ec}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="00.Actor\01.Unit\02.Player\01.Level2\05.SunkenC">
-      <UniqueIdentifier>{bcda6e33-7d1c-402e-9802-763934672eaf}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="00.Actor\01.Unit\02.Player\02.Level3\01.Gardian">
-      <UniqueIdentifier>{a4257f07-719c-4137-9938-676ab931954b}</UniqueIdentifier>
-    </Filter>
     <Filter Include="00.Actor\04.Bullet\07.MutBull">
       <UniqueIdentifier>{6b361e45-ea3d-4061-b7fd-21ef6f890659}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="00.Actor\01.Unit\02.Player\02.Level3\02.Carrier">
-      <UniqueIdentifier>{6fc63178-eb91-4c39-81d8-dff544f039d9}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="00.Actor\01.Unit\02.Player\02.Level3\03.River">
-      <UniqueIdentifier>{57f64bdf-22e9-44ee-adc1-ae31da6e4891}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="00.Actor\01.Unit\02.Player\02.Level3\04.Arcon">
-      <UniqueIdentifier>{40a197bf-0bb2-48f4-bd5b-3dd2576c0b68}</UniqueIdentifier>
     </Filter>
     <Filter Include="00.Actor\04.Bullet\08.ArconBullet">
       <UniqueIdentifier>{0294ac63-a1f5-46fd-8d10-50999d40e6f1}</UniqueIdentifier>
@@ -163,23 +100,8 @@
     <Filter Include="00.Actor\04.Bullet\09.RiverBoom">
       <UniqueIdentifier>{a410e25c-9316-41dd-9420-d5b9d222371b}</UniqueIdentifier>
     </Filter>
-    <Filter Include="00.Actor\01.Unit\02.Player\03.Level4">
-      <UniqueIdentifier>{bc8a07d4-fdfc-42a6-a550-b015d6541b93}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="00.Actor\01.Unit\02.Player\03.Level4\00.GostS">
-      <UniqueIdentifier>{f37fc2d9-34e5-405f-a14a-2a5a4a67c8d1}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="00.Actor\01.Unit\02.Player\03.Level4\01.DroneS">
-      <UniqueIdentifier>{5e5ed334-6e81-4504-a865-8cc33204adfc}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="00.Actor\01.Unit\02.Player\03.Level4\02.ProbeS">
-      <UniqueIdentifier>{2ab38d94-f06c-4e99-8733-888fa8eebcb1}</UniqueIdentifier>
-    </Filter>
     <Filter Include="00.Actor\04.Bullet\10.CorSplash">
       <UniqueIdentifier>{93063fcd-30fe-4cf2-a0c0-38a1e26082c1}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="00.Actor\01.Unit\02.Player\03.Level4\03.hydraS">
-      <UniqueIdentifier>{899e3c56-a955-45d8-84c7-ed8ea608b6e5}</UniqueIdentifier>
     </Filter>
     <Filter Include="00.Actor\04.Bullet\11.SGhostBullet">
       <UniqueIdentifier>{0a2130b8-d6ad-4a6b-8876-5a200a2c21ce}</UniqueIdentifier>
@@ -208,6 +130,102 @@
     <Filter Include="00.Actor\06.MainMouse">
       <UniqueIdentifier>{ded64b7c-0cf1-413d-8dc2-a211b6278e26}</UniqueIdentifier>
     </Filter>
+    <Filter Include="00.Actor\01.Unit\02.Player\00.Tower">
+      <UniqueIdentifier>{8dd7e19e-e050-41f9-86fc-8547d9a6f49b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="00.Actor\01.Unit\02.Player\00.Tower\00.Level1">
+      <UniqueIdentifier>{3d15b492-4ff2-47be-af5d-f8358f5460db}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="00.Actor\01.Unit\02.Player\00.Tower\00.Level1\00.Test">
+      <UniqueIdentifier>{bf7966c5-c7f3-49a6-9c9c-d5b9e11d48ef}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="00.Actor\01.Unit\02.Player\00.Tower\00.Level1\01.Ghost">
+      <UniqueIdentifier>{f0f89b96-f8ca-4327-b172-b80e41038dd9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="00.Actor\01.Unit\02.Player\00.Tower\00.Level1\02.Marin">
+      <UniqueIdentifier>{57f188b5-d8c8-4c97-93d6-5a3272f926a3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="00.Actor\01.Unit\02.Player\00.Tower\00.Level1\03.Zealot">
+      <UniqueIdentifier>{10bc7f46-325a-4592-9d7f-07c9a4f96b58}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="00.Actor\01.Unit\02.Player\00.Tower\00.Level1\04.Hydra">
+      <UniqueIdentifier>{1019544b-61a5-453e-844d-65594d163345}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="00.Actor\01.Unit\02.Player\00.Tower\00.Level1\05.Corsair">
+      <UniqueIdentifier>{d8df063f-02a2-423a-862f-ff665e7c781c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="00.Actor\01.Unit\02.Player\00.Tower\00.Level1\06.Zergling">
+      <UniqueIdentifier>{4340d336-2bec-492d-9056-7755f9f7afd2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="00.Actor\01.Unit\02.Player\00.Tower\01.Level2">
+      <UniqueIdentifier>{38f379e3-fe88-4bcf-aec5-6896ad7d8410}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="00.Actor\01.Unit\02.Player\00.Tower\01.Level2\00.HighT">
+      <UniqueIdentifier>{01023071-a845-49d1-a16b-8da69cc8573a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="00.Actor\01.Unit\02.Player\00.Tower\01.Level2\01.Photo">
+      <UniqueIdentifier>{5d0643d0-472a-472a-9f24-973e2c69a3bc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="00.Actor\01.Unit\02.Player\00.Tower\01.Level2\02.UltraB">
+      <UniqueIdentifier>{9271a8cf-966a-45d7-aa94-9e4e7bf13a2b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="00.Actor\01.Unit\02.Player\00.Tower\01.Level2\03.Arbitor">
+      <UniqueIdentifier>{f3a83d3e-3c23-4f94-a613-d8d7291c9b14}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="00.Actor\01.Unit\02.Player\00.Tower\01.Level2\04.DarkT">
+      <UniqueIdentifier>{456aa6af-b226-4297-80e7-2313c8b274ec}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="00.Actor\01.Unit\02.Player\00.Tower\01.Level2\05.SunkenC">
+      <UniqueIdentifier>{bcda6e33-7d1c-402e-9802-763934672eaf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="00.Actor\01.Unit\02.Player\00.Tower\02.Level3">
+      <UniqueIdentifier>{17de90e7-0557-4a72-9518-1ff7ef1cda1a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="00.Actor\01.Unit\02.Player\00.Tower\02.Level3\00.Mutal">
+      <UniqueIdentifier>{9e3b3a44-8aaa-4978-8b9b-fa34817382bf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="00.Actor\01.Unit\02.Player\00.Tower\02.Level3\01.Gardian">
+      <UniqueIdentifier>{a4257f07-719c-4137-9938-676ab931954b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="00.Actor\01.Unit\02.Player\00.Tower\02.Level3\02.Carrier">
+      <UniqueIdentifier>{6fc63178-eb91-4c39-81d8-dff544f039d9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="00.Actor\01.Unit\02.Player\00.Tower\02.Level3\03.River">
+      <UniqueIdentifier>{57f64bdf-22e9-44ee-adc1-ae31da6e4891}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="00.Actor\01.Unit\02.Player\00.Tower\02.Level3\04.Arcon">
+      <UniqueIdentifier>{40a197bf-0bb2-48f4-bd5b-3dd2576c0b68}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="00.Actor\01.Unit\02.Player\00.Tower\03.Level4">
+      <UniqueIdentifier>{bc8a07d4-fdfc-42a6-a550-b015d6541b93}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="00.Actor\01.Unit\02.Player\00.Tower\03.Level4\00.GostS">
+      <UniqueIdentifier>{f37fc2d9-34e5-405f-a14a-2a5a4a67c8d1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="00.Actor\01.Unit\02.Player\00.Tower\03.Level4\01.DroneS">
+      <UniqueIdentifier>{5e5ed334-6e81-4504-a865-8cc33204adfc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="00.Actor\01.Unit\02.Player\00.Tower\03.Level4\02.ProbeS">
+      <UniqueIdentifier>{2ab38d94-f06c-4e99-8733-888fa8eebcb1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="00.Actor\01.Unit\02.Player\00.Tower\03.Level4\03.hydraS">
+      <UniqueIdentifier>{899e3c56-a955-45d8-84c7-ed8ea608b6e5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="00.Actor\01.Unit\02.Player\01.Build">
+      <UniqueIdentifier>{d6946477-4b53-4adb-9561-dc69ffbfcf39}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="00.Actor\01.Unit\02.Player\01.Build\00.UpgradeC">
+      <UniqueIdentifier>{28ba7b72-2c70-4ad1-88b9-d98a40a3b297}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="00.Actor\01.Unit\02.Player\01.Build\01.UpgradeB">
+      <UniqueIdentifier>{f13794fd-ed2f-4ffc-8d18-d534d4c3bd17}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="00.Actor\01.Unit\02.Player\01.Build\02.UpgradeA">
+      <UniqueIdentifier>{0fdf2064-b3a6-4c3e-a058-f91820337a86}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="00.Actor\01.Unit\02.Player\01.Build\03.UpgradeS">
+      <UniqueIdentifier>{73eb388b-7e4b-4fa8-a63c-33cd9ca32e25}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ContentsCore.h">
@@ -233,7 +251,7 @@
       <Filter>00.Actor\03.MainCamera</Filter>
     </ClInclude>
     <ClInclude Include="TestUnit.h">
-      <Filter>00.Actor\01.Unit\02.Player\00.Level1\00.Test</Filter>
+      <Filter>00.Actor\01.Unit\02.Player\00.Tower\00.Level1\00.Test</Filter>
     </ClInclude>
     <ClInclude Include="LoginUI.h">
       <Filter>00.Actor\02.UI\00.Logo</Filter>
@@ -257,13 +275,13 @@
       <Filter>00.Actor\04.Bullet\00.DraBall</Filter>
     </ClInclude>
     <ClInclude Include="GhostC.h">
-      <Filter>00.Actor\01.Unit\02.Player\00.Level1\01.Ghost</Filter>
+      <Filter>00.Actor\01.Unit\02.Player\00.Tower\00.Level1\01.Ghost</Filter>
     </ClInclude>
     <ClInclude Include="TerranBaseBullet.h">
       <Filter>00.Actor\04.Bullet\01.Marin/Ghost</Filter>
     </ClInclude>
     <ClInclude Include="MarinC.h">
-      <Filter>00.Actor\01.Unit\02.Player\00.Level1\02.Marin</Filter>
+      <Filter>00.Actor\01.Unit\02.Player\00.Tower\00.Level1\02.Marin</Filter>
     </ClInclude>
     <ClInclude Include="ZergDeath.h">
       <Filter>00.Actor\05.DeathEffect</Filter>
@@ -275,22 +293,22 @@
       <Filter>00.Actor\04.Bullet\02.Sunken</Filter>
     </ClInclude>
     <ClInclude Include="ZealotC.h">
-      <Filter>00.Actor\01.Unit\02.Player\00.Level1\03.Zealot</Filter>
+      <Filter>00.Actor\01.Unit\02.Player\00.Tower\00.Level1\03.Zealot</Filter>
     </ClInclude>
     <ClInclude Include="HydraC.h">
-      <Filter>00.Actor\01.Unit\02.Player\00.Level1\04.Hydra</Filter>
+      <Filter>00.Actor\01.Unit\02.Player\00.Tower\00.Level1\04.Hydra</Filter>
     </ClInclude>
     <ClInclude Include="CorsairC.h">
-      <Filter>00.Actor\01.Unit\02.Player\00.Level1\05.Corsair</Filter>
+      <Filter>00.Actor\01.Unit\02.Player\00.Tower\00.Level1\05.Corsair</Filter>
     </ClInclude>
     <ClInclude Include="GardianC.h">
-      <Filter>00.Actor\01.Unit\02.Player\02.Level3\01.Gardian</Filter>
+      <Filter>00.Actor\01.Unit\02.Player\00.Tower\02.Level3\01.Gardian</Filter>
     </ClInclude>
     <ClInclude Include="TestUI.h">
       <Filter>00.Actor\02.UI\01.Stage\00.Test</Filter>
     </ClInclude>
     <ClInclude Include="ZerglingC.h">
-      <Filter>00.Actor\01.Unit\02.Player\00.Level1\06.Zergling</Filter>
+      <Filter>00.Actor\01.Unit\02.Player\00.Tower\00.Level1\06.Zergling</Filter>
     </ClInclude>
     <ClInclude Include="Spore.h">
       <Filter>00.Actor\04.Bullet\03.Spore</Filter>
@@ -326,28 +344,28 @@
       <Filter>00.Actor\01.Unit</Filter>
     </ClInclude>
     <ClInclude Include="HighT.h">
-      <Filter>00.Actor\01.Unit\02.Player\01.Level2\00.HighT</Filter>
+      <Filter>00.Actor\01.Unit\02.Player\00.Tower\01.Level2\00.HighT</Filter>
     </ClInclude>
     <ClInclude Include="Storm.h">
       <Filter>00.Actor\04.Bullet\06.Storm</Filter>
     </ClInclude>
     <ClInclude Include="CannonB.h">
-      <Filter>00.Actor\01.Unit\02.Player\01.Level2\01.Photo</Filter>
+      <Filter>00.Actor\01.Unit\02.Player\00.Tower\01.Level2\01.Photo</Filter>
     </ClInclude>
     <ClInclude Include="UltraC.h">
-      <Filter>00.Actor\01.Unit\02.Player\01.Level2\02.UltraB</Filter>
+      <Filter>00.Actor\01.Unit\02.Player\00.Tower\01.Level2\02.UltraB</Filter>
     </ClInclude>
     <ClInclude Include="SunkenC.h">
-      <Filter>00.Actor\01.Unit\02.Player\01.Level2\05.SunkenC</Filter>
+      <Filter>00.Actor\01.Unit\02.Player\00.Tower\01.Level2\05.SunkenC</Filter>
     </ClInclude>
     <ClInclude Include="DarkTB.h">
-      <Filter>00.Actor\01.Unit\02.Player\01.Level2\04.DarkT</Filter>
+      <Filter>00.Actor\01.Unit\02.Player\00.Tower\01.Level2\04.DarkT</Filter>
     </ClInclude>
     <ClInclude Include="ArbitorB.h">
-      <Filter>00.Actor\01.Unit\02.Player\01.Level2\03.Arbitor</Filter>
+      <Filter>00.Actor\01.Unit\02.Player\00.Tower\01.Level2\03.Arbitor</Filter>
     </ClInclude>
     <ClInclude Include="MutalA.h">
-      <Filter>00.Actor\01.Unit\02.Player\02.Level3\00.Mutal</Filter>
+      <Filter>00.Actor\01.Unit\02.Player\00.Tower\02.Level3\00.Mutal</Filter>
     </ClInclude>
     <ClInclude Include="mutalBullet.h">
       <Filter>00.Actor\04.Bullet\07.MutBull</Filter>
@@ -356,13 +374,13 @@
       <Filter>00.Actor\04.Bullet\07.MutBull</Filter>
     </ClInclude>
     <ClInclude Include="Carrier.h">
-      <Filter>00.Actor\01.Unit\02.Player\02.Level3\02.Carrier</Filter>
+      <Filter>00.Actor\01.Unit\02.Player\00.Tower\02.Level3\02.Carrier</Filter>
     </ClInclude>
     <ClInclude Include="River.h">
-      <Filter>00.Actor\01.Unit\02.Player\02.Level3\03.River</Filter>
+      <Filter>00.Actor\01.Unit\02.Player\00.Tower\02.Level3\03.River</Filter>
     </ClInclude>
     <ClInclude Include="Arcon.h">
-      <Filter>00.Actor\01.Unit\02.Player\02.Level3\04.Arcon</Filter>
+      <Filter>00.Actor\01.Unit\02.Player\00.Tower\02.Level3\04.Arcon</Filter>
     </ClInclude>
     <ClInclude Include="ArconBul.h">
       <Filter>00.Actor\04.Bullet\08.ArconBullet</Filter>
@@ -380,7 +398,7 @@
       <Filter>00.Actor\04.Bullet\10.CorSplash</Filter>
     </ClInclude>
     <ClInclude Include="GhostS.h">
-      <Filter>00.Actor\01.Unit\02.Player\03.Level4\00.GostS</Filter>
+      <Filter>00.Actor\01.Unit\02.Player\00.Tower\03.Level4\00.GostS</Filter>
     </ClInclude>
     <ClInclude Include="SGbullet.h">
       <Filter>00.Actor\04.Bullet\11.SGhostBullet</Filter>
@@ -395,7 +413,7 @@
       <Filter>00.Actor\04.Bullet\11.SGhostBullet\02.ExBig</Filter>
     </ClInclude>
     <ClInclude Include="DroneS.h">
-      <Filter>00.Actor\01.Unit\02.Player\03.Level4\01.DroneS</Filter>
+      <Filter>00.Actor\01.Unit\02.Player\00.Tower\03.Level4\01.DroneS</Filter>
     </ClInclude>
     <ClInclude Include="DroneBullet.h">
       <Filter>00.Actor\04.Bullet\12.SDroneBullet</Filter>
@@ -410,10 +428,10 @@
       <Filter>00.Actor\04.Bullet\13.SwarmS</Filter>
     </ClInclude>
     <ClInclude Include="ProbeS.h">
-      <Filter>00.Actor\01.Unit\02.Player\03.Level4\02.ProbeS</Filter>
+      <Filter>00.Actor\01.Unit\02.Player\00.Tower\03.Level4\02.ProbeS</Filter>
     </ClInclude>
     <ClInclude Include="HydraS.h">
-      <Filter>00.Actor\01.Unit\02.Player\03.Level4\03.hydraS</Filter>
+      <Filter>00.Actor\01.Unit\02.Player\00.Tower\03.Level4\03.hydraS</Filter>
     </ClInclude>
     <ClInclude Include="Plaegue.h">
       <Filter>00.Actor\04.Bullet\14.Plaegue</Filter>
@@ -425,70 +443,94 @@
       <Filter>00.Actor\06.MainMouse</Filter>
     </ClInclude>
     <ClInclude Include="DragoonCUI.h">
-      <Filter>00.Actor\01.Unit\02.Player\00.Level1\00.Test</Filter>
+      <Filter>00.Actor\01.Unit\02.Player\00.Tower\00.Level1\00.Test</Filter>
     </ClInclude>
     <ClInclude Include="GhostCUI.h">
-      <Filter>00.Actor\01.Unit\02.Player\00.Level1\01.Ghost</Filter>
+      <Filter>00.Actor\01.Unit\02.Player\00.Tower\00.Level1\01.Ghost</Filter>
     </ClInclude>
     <ClInclude Include="MarinCUI.h">
-      <Filter>00.Actor\01.Unit\02.Player\00.Level1\02.Marin</Filter>
+      <Filter>00.Actor\01.Unit\02.Player\00.Tower\00.Level1\02.Marin</Filter>
     </ClInclude>
     <ClInclude Include="ZealotCUI.h">
-      <Filter>00.Actor\01.Unit\02.Player\00.Level1\03.Zealot</Filter>
+      <Filter>00.Actor\01.Unit\02.Player\00.Tower\00.Level1\03.Zealot</Filter>
     </ClInclude>
     <ClInclude Include="HydraCUI.h">
-      <Filter>00.Actor\01.Unit\02.Player\00.Level1\04.Hydra</Filter>
+      <Filter>00.Actor\01.Unit\02.Player\00.Tower\00.Level1\04.Hydra</Filter>
     </ClInclude>
     <ClInclude Include="CorsairCUI.h">
-      <Filter>00.Actor\01.Unit\02.Player\00.Level1\05.Corsair</Filter>
+      <Filter>00.Actor\01.Unit\02.Player\00.Tower\00.Level1\05.Corsair</Filter>
     </ClInclude>
     <ClInclude Include="ZerglingCUI.h">
-      <Filter>00.Actor\01.Unit\02.Player\00.Level1\06.Zergling</Filter>
+      <Filter>00.Actor\01.Unit\02.Player\00.Tower\00.Level1\06.Zergling</Filter>
     </ClInclude>
     <ClInclude Include="HighTUI.h">
-      <Filter>00.Actor\01.Unit\02.Player\01.Level2\00.HighT</Filter>
+      <Filter>00.Actor\01.Unit\02.Player\00.Tower\01.Level2\00.HighT</Filter>
     </ClInclude>
     <ClInclude Include="CannonUI.h">
-      <Filter>00.Actor\01.Unit\02.Player\01.Level2\01.Photo</Filter>
+      <Filter>00.Actor\01.Unit\02.Player\00.Tower\01.Level2\01.Photo</Filter>
     </ClInclude>
     <ClInclude Include="UltraCUI.h">
-      <Filter>00.Actor\01.Unit\02.Player\01.Level2\02.UltraB</Filter>
+      <Filter>00.Actor\01.Unit\02.Player\00.Tower\01.Level2\02.UltraB</Filter>
     </ClInclude>
     <ClInclude Include="ArbitorBUI.h">
-      <Filter>00.Actor\01.Unit\02.Player\01.Level2\03.Arbitor</Filter>
+      <Filter>00.Actor\01.Unit\02.Player\00.Tower\01.Level2\03.Arbitor</Filter>
     </ClInclude>
     <ClInclude Include="DarkTBUI.h">
-      <Filter>00.Actor\01.Unit\02.Player\01.Level2\04.DarkT</Filter>
+      <Filter>00.Actor\01.Unit\02.Player\00.Tower\01.Level2\04.DarkT</Filter>
     </ClInclude>
     <ClInclude Include="SunkenCUI.h">
-      <Filter>00.Actor\01.Unit\02.Player\01.Level2\05.SunkenC</Filter>
+      <Filter>00.Actor\01.Unit\02.Player\00.Tower\01.Level2\05.SunkenC</Filter>
     </ClInclude>
     <ClInclude Include="MutalAUI.h">
-      <Filter>00.Actor\01.Unit\02.Player\02.Level3\00.Mutal</Filter>
+      <Filter>00.Actor\01.Unit\02.Player\00.Tower\02.Level3\00.Mutal</Filter>
     </ClInclude>
     <ClInclude Include="GardianAUI.h">
-      <Filter>00.Actor\01.Unit\02.Player\02.Level3\01.Gardian</Filter>
+      <Filter>00.Actor\01.Unit\02.Player\00.Tower\02.Level3\01.Gardian</Filter>
     </ClInclude>
     <ClInclude Include="CarrierAUI.h">
-      <Filter>00.Actor\01.Unit\02.Player\02.Level3\02.Carrier</Filter>
+      <Filter>00.Actor\01.Unit\02.Player\00.Tower\02.Level3\02.Carrier</Filter>
     </ClInclude>
     <ClInclude Include="RiverAUI.h">
-      <Filter>00.Actor\01.Unit\02.Player\02.Level3\03.River</Filter>
+      <Filter>00.Actor\01.Unit\02.Player\00.Tower\02.Level3\03.River</Filter>
     </ClInclude>
     <ClInclude Include="ArconAUI.h">
-      <Filter>00.Actor\01.Unit\02.Player\02.Level3\04.Arcon</Filter>
+      <Filter>00.Actor\01.Unit\02.Player\00.Tower\02.Level3\04.Arcon</Filter>
     </ClInclude>
     <ClInclude Include="GhostSUI.h">
-      <Filter>00.Actor\01.Unit\02.Player\03.Level4\00.GostS</Filter>
+      <Filter>00.Actor\01.Unit\02.Player\00.Tower\03.Level4\00.GostS</Filter>
     </ClInclude>
     <ClInclude Include="DroneSUI.h">
-      <Filter>00.Actor\01.Unit\02.Player\03.Level4\01.DroneS</Filter>
+      <Filter>00.Actor\01.Unit\02.Player\00.Tower\03.Level4\01.DroneS</Filter>
     </ClInclude>
     <ClInclude Include="ProbeSUI.h">
-      <Filter>00.Actor\01.Unit\02.Player\03.Level4\02.ProbeS</Filter>
+      <Filter>00.Actor\01.Unit\02.Player\00.Tower\03.Level4\02.ProbeS</Filter>
     </ClInclude>
     <ClInclude Include="HydraSUI.h">
-      <Filter>00.Actor\01.Unit\02.Player\03.Level4\03.hydraS</Filter>
+      <Filter>00.Actor\01.Unit\02.Player\00.Tower\03.Level4\03.hydraS</Filter>
+    </ClInclude>
+    <ClInclude Include="UpgradeC.h">
+      <Filter>00.Actor\01.Unit\02.Player\01.Build\00.UpgradeC</Filter>
+    </ClInclude>
+    <ClInclude Include="UpgradeB.h">
+      <Filter>00.Actor\01.Unit\02.Player\01.Build\01.UpgradeB</Filter>
+    </ClInclude>
+    <ClInclude Include="UpgradeA.h">
+      <Filter>00.Actor\01.Unit\02.Player\01.Build\02.UpgradeA</Filter>
+    </ClInclude>
+    <ClInclude Include="UpgradeS.h">
+      <Filter>00.Actor\01.Unit\02.Player\01.Build\03.UpgradeS</Filter>
+    </ClInclude>
+    <ClInclude Include="UpgradeCUI.h">
+      <Filter>00.Actor\01.Unit\02.Player\01.Build\00.UpgradeC</Filter>
+    </ClInclude>
+    <ClInclude Include="UpgradeBUI.h">
+      <Filter>00.Actor\01.Unit\02.Player\01.Build\01.UpgradeB</Filter>
+    </ClInclude>
+    <ClInclude Include="UpgradeAUI.h">
+      <Filter>00.Actor\01.Unit\02.Player\01.Build\02.UpgradeA</Filter>
+    </ClInclude>
+    <ClInclude Include="UpgradeSUI.h">
+      <Filter>00.Actor\01.Unit\02.Player\01.Build\03.UpgradeS</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -512,7 +554,7 @@
       <Filter>00.Actor\03.MainCamera</Filter>
     </ClCompile>
     <ClCompile Include="TestUnit.cpp">
-      <Filter>00.Actor\01.Unit\02.Player\00.Level1\00.Test</Filter>
+      <Filter>00.Actor\01.Unit\02.Player\00.Tower\00.Level1\00.Test</Filter>
     </ClCompile>
     <ClCompile Include="LoginUI.cpp">
       <Filter>00.Actor\02.UI\00.Logo</Filter>
@@ -536,13 +578,13 @@
       <Filter>00.Actor\04.Bullet\00.DraBall</Filter>
     </ClCompile>
     <ClCompile Include="GhostC.cpp">
-      <Filter>00.Actor\01.Unit\02.Player\00.Level1\01.Ghost</Filter>
+      <Filter>00.Actor\01.Unit\02.Player\00.Tower\00.Level1\01.Ghost</Filter>
     </ClCompile>
     <ClCompile Include="TerranBaseBullet.cpp">
       <Filter>00.Actor\04.Bullet\01.Marin/Ghost</Filter>
     </ClCompile>
     <ClCompile Include="MarinC.cpp">
-      <Filter>00.Actor\01.Unit\02.Player\00.Level1\02.Marin</Filter>
+      <Filter>00.Actor\01.Unit\02.Player\00.Tower\00.Level1\02.Marin</Filter>
     </ClCompile>
     <ClCompile Include="ZergDeath.cpp">
       <Filter>00.Actor\05.DeathEffect</Filter>
@@ -554,22 +596,22 @@
       <Filter>00.Actor\04.Bullet\02.Sunken</Filter>
     </ClCompile>
     <ClCompile Include="ZealotC.cpp">
-      <Filter>00.Actor\01.Unit\02.Player\00.Level1\03.Zealot</Filter>
+      <Filter>00.Actor\01.Unit\02.Player\00.Tower\00.Level1\03.Zealot</Filter>
     </ClCompile>
     <ClCompile Include="CorsairC.cpp">
-      <Filter>00.Actor\01.Unit\02.Player\00.Level1\05.Corsair</Filter>
+      <Filter>00.Actor\01.Unit\02.Player\00.Tower\00.Level1\05.Corsair</Filter>
     </ClCompile>
     <ClCompile Include="GardianC.cpp">
-      <Filter>00.Actor\01.Unit\02.Player\02.Level3\01.Gardian</Filter>
+      <Filter>00.Actor\01.Unit\02.Player\00.Tower\02.Level3\01.Gardian</Filter>
     </ClCompile>
     <ClCompile Include="TestUI.cpp">
       <Filter>00.Actor\02.UI\01.Stage\00.Test</Filter>
     </ClCompile>
     <ClCompile Include="HydraC.cpp">
-      <Filter>00.Actor\01.Unit\02.Player\00.Level1\04.Hydra</Filter>
+      <Filter>00.Actor\01.Unit\02.Player\00.Tower\00.Level1\04.Hydra</Filter>
     </ClCompile>
     <ClCompile Include="ZerglingC.cpp">
-      <Filter>00.Actor\01.Unit\02.Player\00.Level1\06.Zergling</Filter>
+      <Filter>00.Actor\01.Unit\02.Player\00.Tower\00.Level1\06.Zergling</Filter>
     </ClCompile>
     <ClCompile Include="Spore.cpp">
       <Filter>00.Actor\04.Bullet\03.Spore</Filter>
@@ -605,28 +647,28 @@
       <Filter>00.Actor\01.Unit</Filter>
     </ClCompile>
     <ClCompile Include="HighT.cpp">
-      <Filter>00.Actor\01.Unit\02.Player\01.Level2\00.HighT</Filter>
+      <Filter>00.Actor\01.Unit\02.Player\00.Tower\01.Level2\00.HighT</Filter>
     </ClCompile>
     <ClCompile Include="Storm.cpp">
       <Filter>00.Actor\04.Bullet\06.Storm</Filter>
     </ClCompile>
     <ClCompile Include="CannonB.cpp">
-      <Filter>00.Actor\01.Unit\02.Player\01.Level2\01.Photo</Filter>
+      <Filter>00.Actor\01.Unit\02.Player\00.Tower\01.Level2\01.Photo</Filter>
     </ClCompile>
     <ClCompile Include="UltraC.cpp">
-      <Filter>00.Actor\01.Unit\02.Player\01.Level2\02.UltraB</Filter>
+      <Filter>00.Actor\01.Unit\02.Player\00.Tower\01.Level2\02.UltraB</Filter>
     </ClCompile>
     <ClCompile Include="SunkenC.cpp">
-      <Filter>00.Actor\01.Unit\02.Player\01.Level2\05.SunkenC</Filter>
+      <Filter>00.Actor\01.Unit\02.Player\00.Tower\01.Level2\05.SunkenC</Filter>
     </ClCompile>
     <ClCompile Include="DarkTB.cpp">
-      <Filter>00.Actor\01.Unit\02.Player\01.Level2\04.DarkT</Filter>
+      <Filter>00.Actor\01.Unit\02.Player\00.Tower\01.Level2\04.DarkT</Filter>
     </ClCompile>
     <ClCompile Include="ArbitorB.cpp">
-      <Filter>00.Actor\01.Unit\02.Player\01.Level2\03.Arbitor</Filter>
+      <Filter>00.Actor\01.Unit\02.Player\00.Tower\01.Level2\03.Arbitor</Filter>
     </ClCompile>
     <ClCompile Include="MutalA.cpp">
-      <Filter>00.Actor\01.Unit\02.Player\02.Level3\00.Mutal</Filter>
+      <Filter>00.Actor\01.Unit\02.Player\00.Tower\02.Level3\00.Mutal</Filter>
     </ClCompile>
     <ClCompile Include="mutalBullet.cpp">
       <Filter>00.Actor\04.Bullet\07.MutBull</Filter>
@@ -635,13 +677,13 @@
       <Filter>00.Actor\04.Bullet\07.MutBull</Filter>
     </ClCompile>
     <ClCompile Include="Carrier.cpp">
-      <Filter>00.Actor\01.Unit\02.Player\02.Level3\02.Carrier</Filter>
+      <Filter>00.Actor\01.Unit\02.Player\00.Tower\02.Level3\02.Carrier</Filter>
     </ClCompile>
     <ClCompile Include="River.cpp">
-      <Filter>00.Actor\01.Unit\02.Player\02.Level3\03.River</Filter>
+      <Filter>00.Actor\01.Unit\02.Player\00.Tower\02.Level3\03.River</Filter>
     </ClCompile>
     <ClCompile Include="Arcon.cpp">
-      <Filter>00.Actor\01.Unit\02.Player\02.Level3\04.Arcon</Filter>
+      <Filter>00.Actor\01.Unit\02.Player\00.Tower\02.Level3\04.Arcon</Filter>
     </ClCompile>
     <ClCompile Include="ArconBul.cpp">
       <Filter>00.Actor\04.Bullet\08.ArconBullet</Filter>
@@ -659,7 +701,7 @@
       <Filter>00.Actor\04.Bullet\10.CorSplash</Filter>
     </ClCompile>
     <ClCompile Include="GhostS.cpp">
-      <Filter>00.Actor\01.Unit\02.Player\03.Level4\00.GostS</Filter>
+      <Filter>00.Actor\01.Unit\02.Player\00.Tower\03.Level4\00.GostS</Filter>
     </ClCompile>
     <ClCompile Include="SGbullet.cpp">
       <Filter>00.Actor\04.Bullet\11.SGhostBullet</Filter>
@@ -674,7 +716,7 @@
       <Filter>00.Actor\04.Bullet\11.SGhostBullet\02.ExBig</Filter>
     </ClCompile>
     <ClCompile Include="DroneS.cpp">
-      <Filter>00.Actor\01.Unit\02.Player\03.Level4\01.DroneS</Filter>
+      <Filter>00.Actor\01.Unit\02.Player\00.Tower\03.Level4\01.DroneS</Filter>
     </ClCompile>
     <ClCompile Include="DroneBullet.cpp">
       <Filter>00.Actor\04.Bullet\12.SDroneBullet</Filter>
@@ -689,10 +731,10 @@
       <Filter>00.Actor\04.Bullet\13.SwarmS</Filter>
     </ClCompile>
     <ClCompile Include="ProbeS.cpp">
-      <Filter>00.Actor\01.Unit\02.Player\03.Level4\02.ProbeS</Filter>
+      <Filter>00.Actor\01.Unit\02.Player\00.Tower\03.Level4\02.ProbeS</Filter>
     </ClCompile>
     <ClCompile Include="HydraS.cpp">
-      <Filter>00.Actor\01.Unit\02.Player\03.Level4\03.hydraS</Filter>
+      <Filter>00.Actor\01.Unit\02.Player\00.Tower\03.Level4\03.hydraS</Filter>
     </ClCompile>
     <ClCompile Include="Plaegue.cpp">
       <Filter>00.Actor\04.Bullet\14.Plaegue</Filter>
@@ -704,70 +746,94 @@
       <Filter>00.Actor\06.MainMouse</Filter>
     </ClCompile>
     <ClCompile Include="DragoonCUI.cpp">
-      <Filter>00.Actor\01.Unit\02.Player\00.Level1\00.Test</Filter>
+      <Filter>00.Actor\01.Unit\02.Player\00.Tower\00.Level1\00.Test</Filter>
     </ClCompile>
     <ClCompile Include="GhostCUI.cpp">
-      <Filter>00.Actor\01.Unit\02.Player\00.Level1\01.Ghost</Filter>
+      <Filter>00.Actor\01.Unit\02.Player\00.Tower\00.Level1\01.Ghost</Filter>
     </ClCompile>
     <ClCompile Include="MarinCUI.cpp">
-      <Filter>00.Actor\01.Unit\02.Player\00.Level1\02.Marin</Filter>
+      <Filter>00.Actor\01.Unit\02.Player\00.Tower\00.Level1\02.Marin</Filter>
     </ClCompile>
     <ClCompile Include="ZealotCUI.cpp">
-      <Filter>00.Actor\01.Unit\02.Player\00.Level1\03.Zealot</Filter>
+      <Filter>00.Actor\01.Unit\02.Player\00.Tower\00.Level1\03.Zealot</Filter>
     </ClCompile>
     <ClCompile Include="HydraCUI.cpp">
-      <Filter>00.Actor\01.Unit\02.Player\00.Level1\04.Hydra</Filter>
+      <Filter>00.Actor\01.Unit\02.Player\00.Tower\00.Level1\04.Hydra</Filter>
     </ClCompile>
     <ClCompile Include="CorsairCUI.cpp">
-      <Filter>00.Actor\01.Unit\02.Player\00.Level1\05.Corsair</Filter>
+      <Filter>00.Actor\01.Unit\02.Player\00.Tower\00.Level1\05.Corsair</Filter>
     </ClCompile>
     <ClCompile Include="ZerglingCUI.cpp">
-      <Filter>00.Actor\01.Unit\02.Player\00.Level1\06.Zergling</Filter>
+      <Filter>00.Actor\01.Unit\02.Player\00.Tower\00.Level1\06.Zergling</Filter>
     </ClCompile>
     <ClCompile Include="HighTUI.cpp">
-      <Filter>00.Actor\01.Unit\02.Player\01.Level2\00.HighT</Filter>
+      <Filter>00.Actor\01.Unit\02.Player\00.Tower\01.Level2\00.HighT</Filter>
     </ClCompile>
     <ClCompile Include="CannonUI.cpp">
-      <Filter>00.Actor\01.Unit\02.Player\01.Level2\01.Photo</Filter>
+      <Filter>00.Actor\01.Unit\02.Player\00.Tower\01.Level2\01.Photo</Filter>
     </ClCompile>
     <ClCompile Include="UltraCUI.cpp">
-      <Filter>00.Actor\01.Unit\02.Player\01.Level2\02.UltraB</Filter>
+      <Filter>00.Actor\01.Unit\02.Player\00.Tower\01.Level2\02.UltraB</Filter>
     </ClCompile>
     <ClCompile Include="ArbitorBUI.cpp">
-      <Filter>00.Actor\01.Unit\02.Player\01.Level2\03.Arbitor</Filter>
+      <Filter>00.Actor\01.Unit\02.Player\00.Tower\01.Level2\03.Arbitor</Filter>
     </ClCompile>
     <ClCompile Include="DarkTBUI.cpp">
-      <Filter>00.Actor\01.Unit\02.Player\01.Level2\04.DarkT</Filter>
+      <Filter>00.Actor\01.Unit\02.Player\00.Tower\01.Level2\04.DarkT</Filter>
     </ClCompile>
     <ClCompile Include="SunkenCUI.cpp">
-      <Filter>00.Actor\01.Unit\02.Player\01.Level2\05.SunkenC</Filter>
+      <Filter>00.Actor\01.Unit\02.Player\00.Tower\01.Level2\05.SunkenC</Filter>
     </ClCompile>
     <ClCompile Include="MutalAUI.cpp">
-      <Filter>00.Actor\01.Unit\02.Player\02.Level3\00.Mutal</Filter>
+      <Filter>00.Actor\01.Unit\02.Player\00.Tower\02.Level3\00.Mutal</Filter>
     </ClCompile>
     <ClCompile Include="GardianAUI.cpp">
-      <Filter>00.Actor\01.Unit\02.Player\02.Level3\01.Gardian</Filter>
+      <Filter>00.Actor\01.Unit\02.Player\00.Tower\02.Level3\01.Gardian</Filter>
     </ClCompile>
     <ClCompile Include="CarrierAUI.cpp">
-      <Filter>00.Actor\01.Unit\02.Player\02.Level3\02.Carrier</Filter>
+      <Filter>00.Actor\01.Unit\02.Player\00.Tower\02.Level3\02.Carrier</Filter>
     </ClCompile>
     <ClCompile Include="RiverAUI.cpp">
-      <Filter>00.Actor\01.Unit\02.Player\02.Level3\03.River</Filter>
+      <Filter>00.Actor\01.Unit\02.Player\00.Tower\02.Level3\03.River</Filter>
     </ClCompile>
     <ClCompile Include="ArconAUI.cpp">
-      <Filter>00.Actor\01.Unit\02.Player\02.Level3\04.Arcon</Filter>
+      <Filter>00.Actor\01.Unit\02.Player\00.Tower\02.Level3\04.Arcon</Filter>
     </ClCompile>
     <ClCompile Include="GhostSUI.cpp">
-      <Filter>00.Actor\01.Unit\02.Player\03.Level4\00.GostS</Filter>
+      <Filter>00.Actor\01.Unit\02.Player\00.Tower\03.Level4\00.GostS</Filter>
     </ClCompile>
     <ClCompile Include="DroneSUI.cpp">
-      <Filter>00.Actor\01.Unit\02.Player\03.Level4\01.DroneS</Filter>
+      <Filter>00.Actor\01.Unit\02.Player\00.Tower\03.Level4\01.DroneS</Filter>
     </ClCompile>
     <ClCompile Include="ProbeSUI.cpp">
-      <Filter>00.Actor\01.Unit\02.Player\03.Level4\02.ProbeS</Filter>
+      <Filter>00.Actor\01.Unit\02.Player\00.Tower\03.Level4\02.ProbeS</Filter>
     </ClCompile>
     <ClCompile Include="HydraSUI.cpp">
-      <Filter>00.Actor\01.Unit\02.Player\03.Level4\03.hydraS</Filter>
+      <Filter>00.Actor\01.Unit\02.Player\00.Tower\03.Level4\03.hydraS</Filter>
+    </ClCompile>
+    <ClCompile Include="UpgradeC.cpp">
+      <Filter>00.Actor\01.Unit\02.Player\01.Build\00.UpgradeC</Filter>
+    </ClCompile>
+    <ClCompile Include="UpgradeB.cpp">
+      <Filter>00.Actor\01.Unit\02.Player\01.Build\01.UpgradeB</Filter>
+    </ClCompile>
+    <ClCompile Include="UpgradeA.cpp">
+      <Filter>00.Actor\01.Unit\02.Player\01.Build\02.UpgradeA</Filter>
+    </ClCompile>
+    <ClCompile Include="UpgradeS.cpp">
+      <Filter>00.Actor\01.Unit\02.Player\01.Build\03.UpgradeS</Filter>
+    </ClCompile>
+    <ClCompile Include="UpgradeCUI.cpp">
+      <Filter>00.Actor\01.Unit\02.Player\01.Build\00.UpgradeC</Filter>
+    </ClCompile>
+    <ClCompile Include="UpgradeBUI.cpp">
+      <Filter>00.Actor\01.Unit\02.Player\01.Build\01.UpgradeB</Filter>
+    </ClCompile>
+    <ClCompile Include="UpgradeAUI.cpp">
+      <Filter>00.Actor\01.Unit\02.Player\01.Build\02.UpgradeA</Filter>
+    </ClCompile>
+    <ClCompile Include="UpgradeSUI.cpp">
+      <Filter>00.Actor\01.Unit\02.Player\01.Build\03.UpgradeS</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

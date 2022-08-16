@@ -36,6 +36,10 @@
 #include "ProbeS.h"
 #include "HydraS.h"
 
+#include "UpgradeC.h"
+#include "UpgradeB.h"
+#include "UpgradeA.h"
+#include "UpgradeS.h"
 
 
 
@@ -273,7 +277,25 @@ void StageMain::Start()
 		TestUni->GetTransform().SetWorldPosition({ -870.f,130.f,0.f });
 	}
 	
-	
+	{
+		UpgradeC* TestUni = CreateActor<UpgradeC>(OBJECTORDER::Player);
+		TestUni->GetTransform().SetWorldPosition({ -508.f,617.f,0.f });
+	}
+
+	{
+		UpgradeB* TestUni = CreateActor<UpgradeB>(OBJECTORDER::Player);
+		TestUni->GetTransform().SetWorldPosition({ -353.f,591.f,0.f });
+	}
+
+	{
+		UpgradeA* TestUni = CreateActor<UpgradeA>(OBJECTORDER::Player);
+		TestUni->GetTransform().SetWorldPosition({ -508.f,505.f,0.f });
+	}
+
+	{
+		UpgradeS* TestUni = CreateActor<UpgradeS>(OBJECTORDER::Player);
+		TestUni->GetTransform().SetWorldPosition({ -372.f,445.f,0.f });
+	}
 
 
 	

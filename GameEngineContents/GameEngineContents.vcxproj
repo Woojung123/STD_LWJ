@@ -510,6 +510,38 @@
       <SubType>
       </SubType>
     </ClInclude>
+    <ClInclude Include="UpgradeA.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="UpgradeAUI.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="UpgradeB.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="UpgradeBUI.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="UpgradeC.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="UpgradeCUI.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="UpgradeS.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="UpgradeSUI.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
     <ClInclude Include="ZealotC.h">
       <SubType>
       </SubType>
@@ -883,6 +915,38 @@
       </SubType>
     </ClCompile>
     <ClCompile Include="UnitBase.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
+    <ClCompile Include="UpgradeA.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
+    <ClCompile Include="UpgradeAUI.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
+    <ClCompile Include="UpgradeB.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
+    <ClCompile Include="UpgradeBUI.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
+    <ClCompile Include="UpgradeC.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
+    <ClCompile Include="UpgradeCUI.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
+    <ClCompile Include="UpgradeS.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
+    <ClCompile Include="UpgradeSUI.cpp">
       <SubType>
       </SubType>
     </ClCompile>

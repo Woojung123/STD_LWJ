@@ -94,6 +94,64 @@ void ContentsCore::Start()
 
 
 	}
+
+	//업글사진 1번
+	{
+		GameEngineDirectory Dir;
+		Dir.MoveParentToExitsChildDirectory("ConstantResources");
+		Dir.Move("ConstantResources");
+		Dir.Move("Texture");
+		Dir.Move("UpgradeUI");
+
+		std::vector<GameEngineFile> Shaders = Dir.GetAllFile();
+
+		for (size_t i = 0; i < Shaders.size(); i++)
+		{
+			GameEngineTexture::Load(Shaders[i].GetFullPath());
+		}
+
+	}
+
+
+	//건물 1번
+	{
+		GameEngineDirectory Dir;
+		Dir.MoveParentToExitsChildDirectory("ConstantResources");
+		Dir.Move("ConstantResources");
+		Dir.Move("Texture");
+		Dir.Move("Upgrade");
+
+		std::vector<GameEngineFile> Shaders = Dir.GetAllFile();
+
+		for (size_t i = 0; i < Shaders.size(); i++)
+		{
+			GameEngineTexture::Load(Shaders[i].GetFullPath());
+		}
+
+	}
+
+
+	//건물 2번
+	{
+		GameEngineDirectory Dir;
+
+		Dir.MoveParentToExitsChildDirectory("ConstantResources");
+		Dir.Move("ConstantResources");
+		Dir.Move("Texture");
+		Dir.Move("Upgrade");
+
+
+		Dir.Move("g_spire");
+		GameEngineFolderTexture::Load(Dir.GetFullPath());
+
+		Dir.Move("../chamber");
+		GameEngineFolderTexture::Load(Dir.GetFullPath());
+
+
+	}
+
+
+
 	//ui1번
 	{
 		GameEngineDirectory Dir;
