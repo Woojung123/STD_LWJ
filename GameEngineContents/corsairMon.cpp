@@ -4,8 +4,6 @@
 #include "StageMain.h"
 #include "ProDeath.h"
 
-
-//#include "GlobalContentsValue.h"
 #include <GameEngineBase/GameEngineInput.h>
 #include <GameEngineCore/GameEngineDefaultRenderer.h>
 
@@ -42,6 +40,34 @@ void corsairMon::Start()
 
 	}
 
+
+	{
+		ShadowRenderer = CreateComponent<GameEngineTextureRenderer>();
+		ShadowRenderer->GetTransform().SetLocalScale({ 60.f,60.f,1.f });
+		GetTransform().SetWorldPosition({ -1348.f,617.f,0.f });
+
+		ShadowRenderer->CreateFrameAnimationFolder("corsairMoveD", FrameAnimation_DESC("corsairMoveD", 0.1f, true));
+		ShadowRenderer->CreateFrameAnimationFolder("corsairMoveL", FrameAnimation_DESC("corsairMoveL", 0.1f, true));
+		ShadowRenderer->CreateFrameAnimationFolder("corsairMoveR", FrameAnimation_DESC("corsairMoveR", 0.1f, true));
+		ShadowRenderer->CreateFrameAnimationFolder("corsairMoveU", FrameAnimation_DESC("corsairMoveU", 0.1f, true));
+
+
+		ShadowRenderer->ChangeFrameAnimation("corsairMoveD");
+
+
+
+		ShadowRenderer->GetColorData().MulColor.r = 0.f;
+		ShadowRenderer->GetColorData().MulColor.g = 0.f;
+		ShadowRenderer->GetColorData().MulColor.b = 0.f;
+		ShadowRenderer->GetColorData().MulColor.a = 0.5f;
+
+
+		float4 SLocalPos = ShadowRenderer->GetTransform().GetLocalPosition();
+		SLocalPos.y -= 25.f;
+		SLocalPos.z += 0.5f;
+		ShadowRenderer->GetTransform().SetLocalPosition(SLocalPos);
+
+	}
 
 	{
 		Collision = CreateComponent<GameEngineCollision>();
@@ -138,22 +164,27 @@ void corsairMon::ChangeAni(float4 _Gopoint, float4 _WorldPos)
 	if (_Gopoint.y < _WorldPos.y)
 		m_fAngle = 360.f - m_fAngle;
 
-
+	
 	if (m_fAngle >= 45.f && m_fAngle < 135.f)
 	{
 		Renderer->ChangeFrameAnimation("corsairMoveU");
+		ShadowRenderer->ChangeFrameAnimation("corsairMoveU");
+
 	}
 	else if (m_fAngle >= 135.f && m_fAngle <= 225.f)
 	{
 		Renderer->ChangeFrameAnimation("corsairMoveL");
+		ShadowRenderer->ChangeFrameAnimation("corsairMoveL");
 	}
 	else if (m_fAngle >= 225.f && m_fAngle <= 315.f)
 	{
 		Renderer->ChangeFrameAnimation("corsairMoveD");
+		ShadowRenderer->ChangeFrameAnimation("corsairMoveD");
 	}
 	else if (m_fAngle >= 315.f || m_fAngle <= 45.f)
 	{
 		Renderer->ChangeFrameAnimation("corsairMoveR");
+		ShadowRenderer->ChangeFrameAnimation("corsairMoveR");
 	}
 
 

@@ -5,6 +5,7 @@
 #include "GlobalContentsValue.h"
 
 // Ό³Έν :
+class Builder;
 class GameEngineTextureRenderer;
 class GameEngineCollision;
 class MainMouse : public GameEngineActor
@@ -31,9 +32,15 @@ public:
 public:
 
 
+	bool BuildCheck;
+	bool PlusCheck;
+
+	Builder* m_Builder;
+	bool BuildColorCheck;
+
 	void ClickReset();
 	GameEngineTextureRenderer* Renderer;
-
+	GameEngineTextureRenderer* BuildRenderer;
 	GameEngineCollision* Collision;
 
 };

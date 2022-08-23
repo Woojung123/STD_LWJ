@@ -15,6 +15,37 @@ enum class OBJECTORDER
 	UI = 1000,
 };
 
+enum class UNITTYPE
+{
+	DraC,
+	GhostC,
+	MarinC,
+	ZealotC,
+	HydraC,
+	CorsairC,
+	ZerglingC,
+	HighTB,
+	PhotoB,
+	UltraB,
+	ArbitorB,
+	DarkTB,
+	SunkenB,
+	MutalA,
+	GardianA,
+	CarrierA,
+	RiverA,
+	ArconA,
+	GhostS,
+	DroneS,
+	ProbeS,
+	HydraS,
+	Builder,
+	NULLTYPE
+
+
+};
+
+
 
 typedef struct UnitInfo
 {

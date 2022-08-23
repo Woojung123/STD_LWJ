@@ -90,6 +90,48 @@ void Carrier::Start()
 	}
 
 
+	{
+		ShadowRenderer = CreateComponent<GameEngineTextureRenderer>();
+		ShadowRenderer->GetTransform().SetLocalScale({ 96.f,96.f,1.f });
+		GetTransform().SetWorldPosition({ -990.f,310.f,0.f });
+
+
+		ShadowRenderer->CreateFrameAnimationFolder("CarrierMove0", FrameAnimation_DESC("CarrierMove0", 0.1f));
+		ShadowRenderer->CreateFrameAnimationFolder("CarrierMove1", FrameAnimation_DESC("CarrierMove1", 0.1f));
+		ShadowRenderer->CreateFrameAnimationFolder("CarrierMove2", FrameAnimation_DESC("CarrierMove2", 0.1f));
+		ShadowRenderer->CreateFrameAnimationFolder("CarrierMove3", FrameAnimation_DESC("CarrierMove3", 0.1f));
+		ShadowRenderer->CreateFrameAnimationFolder("CarrierMove4", FrameAnimation_DESC("CarrierMove4", 0.1f));
+		ShadowRenderer->CreateFrameAnimationFolder("CarrierMove5", FrameAnimation_DESC("CarrierMove5", 0.1f));
+		ShadowRenderer->CreateFrameAnimationFolder("CarrierMove6", FrameAnimation_DESC("CarrierMove6", 0.1f));
+		ShadowRenderer->CreateFrameAnimationFolder("CarrierMove7", FrameAnimation_DESC("CarrierMove7", 0.1f));
+		ShadowRenderer->CreateFrameAnimationFolder("CarrierMove8", FrameAnimation_DESC("CarrierMove8", 0.1f));
+		ShadowRenderer->CreateFrameAnimationFolder("CarrierMove9", FrameAnimation_DESC("CarrierMove9", 0.1f));
+		ShadowRenderer->CreateFrameAnimationFolder("CarrierMove10", FrameAnimation_DESC("CarrierMove10", 0.1f));
+		ShadowRenderer->CreateFrameAnimationFolder("CarrierMove11", FrameAnimation_DESC("CarrierMove11", 0.1f));
+		ShadowRenderer->CreateFrameAnimationFolder("CarrierMove12", FrameAnimation_DESC("CarrierMove12", 0.1f));
+		ShadowRenderer->CreateFrameAnimationFolder("CarrierMove13", FrameAnimation_DESC("CarrierMove13", 0.1f));
+		ShadowRenderer->CreateFrameAnimationFolder("CarrierMove14", FrameAnimation_DESC("CarrierMove14", 0.1f));
+		ShadowRenderer->CreateFrameAnimationFolder("CarrierMove15", FrameAnimation_DESC("CarrierMove15", 0.1f));
+
+
+		ShadowRenderer->ChangeFrameAnimation("CarrierMove12");
+
+
+		ShadowRenderer->GetColorData().MulColor.r = 0.f;
+		ShadowRenderer->GetColorData().MulColor.g = 0.f;
+		ShadowRenderer->GetColorData().MulColor.b = 0.f;
+		ShadowRenderer->GetColorData().MulColor.a = 0.5f;
+
+
+		float4 SLocalPos = ShadowRenderer->GetTransform().GetLocalPosition();
+		SLocalPos.y -= 25.f;
+		SLocalPos.z += 0.5f;
+		ShadowRenderer->GetTransform().SetLocalPosition(SLocalPos);
+
+
+	}
+
+
 
 	{
 
@@ -276,81 +318,97 @@ void Carrier::ChangeAni(float4 _Gopoint, float4 _WorldPos)
 	if (m_fAngle >= 349.f || m_fAngle < 11.5f)
 	{
 		Renderer->ChangeFrameAnimation("CarrierMove0");
+		ShadowRenderer->ChangeFrameAnimation("CarrierMove0");
 	}
 
 	if (m_fAngle >= 11.5 && m_fAngle < 34.f)
 	{
 		Renderer->ChangeFrameAnimation("CarrierMove1");
+		ShadowRenderer->ChangeFrameAnimation("CarrierMove1");
 	}
 
 	if (m_fAngle >= 34.f && m_fAngle < 56.5f)
 	{
 		Renderer->ChangeFrameAnimation("CarrierMove2");
+		ShadowRenderer->ChangeFrameAnimation("CarrierMove2");
 	}
 
 	if (m_fAngle >= 56.5f && m_fAngle < 79.f)
 	{
 		Renderer->ChangeFrameAnimation("CarrierMove3");
+		ShadowRenderer->ChangeFrameAnimation("CarrierMove3");
 	}
 
 	if (m_fAngle >= 79.f && m_fAngle < 101.5f)
 	{
 		Renderer->ChangeFrameAnimation("CarrierMove4");
+		ShadowRenderer->ChangeFrameAnimation("CarrierMove4");
 	}
 
 	if (m_fAngle >= 101.5f && m_fAngle < 124.f)
 	{
 		Renderer->ChangeFrameAnimation("CarrierMove5");
+		ShadowRenderer->ChangeFrameAnimation("CarrierMove5");
 	}
 
 	if (m_fAngle >= 124.f && m_fAngle < 146.5f)
 	{
 		Renderer->ChangeFrameAnimation("CarrierMove6");
+		ShadowRenderer->ChangeFrameAnimation("CarrierMove6");
 	}
 
 	if (m_fAngle >= 146.5f && m_fAngle < 169.f)
 	{
 		Renderer->ChangeFrameAnimation("CarrierMove7");
+		ShadowRenderer->ChangeFrameAnimation("CarrierMove7");
 	}
 
 	if (m_fAngle >= 169.f && m_fAngle < 191.5f)
 	{
 		Renderer->ChangeFrameAnimation("CarrierMove8");
+		ShadowRenderer->ChangeFrameAnimation("CarrierMove8");
 	}
 
 	if (m_fAngle >= 191.5f && m_fAngle < 214.f)
 	{
 		Renderer->ChangeFrameAnimation("CarrierMove9");
+		ShadowRenderer->ChangeFrameAnimation("CarrierMove9");
 	}
 
 	if (m_fAngle >= 214.f && m_fAngle < 236.5f)
 	{
 		Renderer->ChangeFrameAnimation("CarrierMove10");
+		ShadowRenderer->ChangeFrameAnimation("CarrierMove10");
 	}
 
 	if (m_fAngle > 236.5f && m_fAngle < 259.f)
 	{
 		Renderer->ChangeFrameAnimation("CarrierMove11");
+		ShadowRenderer->ChangeFrameAnimation("CarrierMove11");
 	}
 
 	if (m_fAngle >= 259.f && m_fAngle < 281.5f) //Down
 	{
 		Renderer->ChangeFrameAnimation("CarrierMove12");
+		ShadowRenderer->ChangeFrameAnimation("CarrierMove12");
 	}
 
 	if (m_fAngle >= 281.5f && m_fAngle < 304.f)
 	{
 		Renderer->ChangeFrameAnimation("CarrierMove13");
+		ShadowRenderer->ChangeFrameAnimation("CarrierMove13");
 	}
 
 	if (m_fAngle >= 304.5f && m_fAngle < 326.5f)
 	{
 		Renderer->ChangeFrameAnimation("CarrierMove14");
+		ShadowRenderer->ChangeFrameAnimation("CarrierMove14");
 	}
 
 	if (m_fAngle >= 326.5f && m_fAngle < 349.f)
 	{
 		Renderer->ChangeFrameAnimation("CarrierMove15");
+		ShadowRenderer->ChangeFrameAnimation("CarrierMove15");
 	}
 
 

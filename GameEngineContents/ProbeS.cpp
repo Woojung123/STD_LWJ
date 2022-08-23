@@ -33,7 +33,7 @@ void ProbeS::AttEnd(const FrameAnimation_DESC& _Info)
 {
 	AttCheck = true;
 	Renderer->ChangeFrameAnimation("ProbeMove12");
-
+	ShadowRenderer->ChangeFrameAnimation("ProbeMove12");
 }
 
 
@@ -69,6 +69,51 @@ void ProbeS::Start()
 
 
 	}
+
+
+	{
+		ShadowRenderer = CreateComponent<GameEngineTextureRenderer>();
+		ShadowRenderer->GetTransform().SetLocalScale({ 32.f,32.f,1.f });
+		ShadowRenderer->GetTransform().SetLocalPosition({ 0.f,0.f,-2.f });
+
+
+		ShadowRenderer->CreateFrameAnimationFolder("ProbeMove0", FrameAnimation_DESC("ProbeMove0", 0.1f));
+		ShadowRenderer->CreateFrameAnimationFolder("ProbeMove1", FrameAnimation_DESC("ProbeMove1", 0.1f));
+		ShadowRenderer->CreateFrameAnimationFolder("ProbeMove2", FrameAnimation_DESC("ProbeMove2", 0.1f));
+		ShadowRenderer->CreateFrameAnimationFolder("ProbeMove3", FrameAnimation_DESC("ProbeMove3", 0.1f));
+		ShadowRenderer->CreateFrameAnimationFolder("ProbeMove4", FrameAnimation_DESC("ProbeMove4", 0.1f));
+		ShadowRenderer->CreateFrameAnimationFolder("ProbeMove5", FrameAnimation_DESC("ProbeMove5", 0.1f));
+		ShadowRenderer->CreateFrameAnimationFolder("ProbeMove6", FrameAnimation_DESC("ProbeMove6", 0.1f));
+		ShadowRenderer->CreateFrameAnimationFolder("ProbeMove7", FrameAnimation_DESC("ProbeMove7", 0.1f));
+		ShadowRenderer->CreateFrameAnimationFolder("ProbeMove8", FrameAnimation_DESC("ProbeMove8", 0.1f));
+		ShadowRenderer->CreateFrameAnimationFolder("ProbeMove9", FrameAnimation_DESC("ProbeMove9", 0.1f));
+		ShadowRenderer->CreateFrameAnimationFolder("ProbeMove10", FrameAnimation_DESC("ProbeMove10", 0.1f));
+		ShadowRenderer->CreateFrameAnimationFolder("ProbeMove11", FrameAnimation_DESC("ProbeMove11", 0.1f));
+		ShadowRenderer->CreateFrameAnimationFolder("ProbeMove12", FrameAnimation_DESC("ProbeMove12", 0.1f));
+		ShadowRenderer->CreateFrameAnimationFolder("ProbeMove13", FrameAnimation_DESC("ProbeMove13", 0.1f));
+		ShadowRenderer->CreateFrameAnimationFolder("ProbeMove14", FrameAnimation_DESC("ProbeMove14", 0.1f));
+		ShadowRenderer->CreateFrameAnimationFolder("ProbeMove15", FrameAnimation_DESC("ProbeMove15", 0.1f));
+
+
+		ShadowRenderer->ChangeFrameAnimation("ProbeMove12");
+
+		ShadowRenderer->GetColorData().MulColor.r = 0.f;
+		ShadowRenderer->GetColorData().MulColor.g = 0.f;
+		ShadowRenderer->GetColorData().MulColor.b = 0.f;
+		ShadowRenderer->GetColorData().MulColor.a = 0.5f;
+
+
+		float4 SLocalPos = ShadowRenderer->GetTransform().GetLocalPosition();
+		SLocalPos.y -= 5.f;
+		SLocalPos.x -= 5.f;
+		SLocalPos.z += 0.5f;
+		ShadowRenderer->GetTransform().SetLocalPosition(SLocalPos);
+
+
+	}
+
+
+
 
 
 	{
@@ -213,81 +258,97 @@ void ProbeS::ChangeAni(float4 _Gopoint, float4 _WorldPos)
 	if (m_fAngle >= 349.f || m_fAngle < 11.5f)
 	{
 		Renderer->ChangeFrameAnimation("ProbeMove0");
+		ShadowRenderer->ChangeFrameAnimation("ProbeMove0");
 	}
 
 	if (m_fAngle >= 11.5 && m_fAngle < 34.f)
 	{
 		Renderer->ChangeFrameAnimation("ProbeMove1");
+		ShadowRenderer->ChangeFrameAnimation("ProbeMove1");
 	}
 
 	if (m_fAngle >= 34.f && m_fAngle < 56.5f)
 	{
 		Renderer->ChangeFrameAnimation("ProbeMove2");
+		ShadowRenderer->ChangeFrameAnimation("ProbeMove2");
 	}
 
 	if (m_fAngle >= 56.5f && m_fAngle < 79.f)
 	{
 		Renderer->ChangeFrameAnimation("ProbeMove3");
+		ShadowRenderer->ChangeFrameAnimation("ProbeMove3");
 	}
 
 	if (m_fAngle >= 79.f && m_fAngle < 101.5f)
 	{
 		Renderer->ChangeFrameAnimation("ProbeMove4");
+		ShadowRenderer->ChangeFrameAnimation("ProbeMove4");
 	}
 
 	if (m_fAngle >= 101.5f && m_fAngle < 124.f)
 	{
 		Renderer->ChangeFrameAnimation("ProbeMove5");
+		ShadowRenderer->ChangeFrameAnimation("ProbeMove5");
 	}
 
 	if (m_fAngle >= 124.f && m_fAngle < 146.5f)
 	{
 		Renderer->ChangeFrameAnimation("ProbeMove6");
+		ShadowRenderer->ChangeFrameAnimation("ProbeMove6");
 	}
 
 	if (m_fAngle >= 146.5f && m_fAngle < 169.f)
 	{
 		Renderer->ChangeFrameAnimation("ProbeMove7");
+		ShadowRenderer->ChangeFrameAnimation("ProbeMove7");
 	}
 
 	if (m_fAngle >= 169.f && m_fAngle < 191.5f)
 	{
 		Renderer->ChangeFrameAnimation("ProbeMove8");
+		ShadowRenderer->ChangeFrameAnimation("ProbeMove8");
 	}
 
 	if (m_fAngle >= 191.5f && m_fAngle < 214.f)
 	{
 		Renderer->ChangeFrameAnimation("ProbeMove9");
+		ShadowRenderer->ChangeFrameAnimation("ProbeMove9");
 	}
 
 	if (m_fAngle >= 214.f && m_fAngle < 236.5f)
 	{
 		Renderer->ChangeFrameAnimation("ProbeMove10");
+		ShadowRenderer->ChangeFrameAnimation("ProbeMove10");
 	}
 
 	if (m_fAngle > 236.5f && m_fAngle < 259.f)
 	{
 		Renderer->ChangeFrameAnimation("ProbeMove11");
+		ShadowRenderer->ChangeFrameAnimation("ProbeMove11");
 	}
 
 	if (m_fAngle >= 259.f && m_fAngle < 281.5f) //Down
 	{
 		Renderer->ChangeFrameAnimation("ProbeMove12");
+		ShadowRenderer->ChangeFrameAnimation("ProbeMove12");
 	}
 
 	if (m_fAngle >= 281.5f && m_fAngle < 304.f)
 	{
 		Renderer->ChangeFrameAnimation("ProbeMove13");
+		ShadowRenderer->ChangeFrameAnimation("ProbeMove13");
 	}
 
 	if (m_fAngle >= 304.5f && m_fAngle < 326.5f)
 	{
 		Renderer->ChangeFrameAnimation("ProbeMove14");
+		ShadowRenderer->ChangeFrameAnimation("ProbeMove14");
 	}
 
 	if (m_fAngle >= 326.5f && m_fAngle < 349.f)
 	{
 		Renderer->ChangeFrameAnimation("ProbeMove15");
+		ShadowRenderer->ChangeFrameAnimation("ProbeMove15");
 	}
 
 

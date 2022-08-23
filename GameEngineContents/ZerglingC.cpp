@@ -31,7 +31,7 @@ void ZerglingC::AttEnd(const FrameAnimation_DESC& _Info)
 {
 	AttCheck = true;
 	Renderer->ChangeFrameAnimation("zerglingMove12");
-
+	ShadowRenderer->ChangeFrameAnimation("zerglingMove12");
 }
 
 
@@ -85,6 +85,51 @@ void ZerglingC::Start()
 		Renderer->AnimationBindEnd("zerglingAttack15", &ZerglingC::AttEnd, this);
 
 	}
+
+
+	{
+		ShadowRenderer = CreateComponent<GameEngineTextureRenderer>();
+		ShadowRenderer->GetTransform().SetLocalScale({ 128.f,128.f,1.f });
+
+
+		ShadowRenderer->CreateFrameAnimationFolder("zerglingAttack0", FrameAnimation_DESC("zerglingAttack0", 0.1f));
+		ShadowRenderer->CreateFrameAnimationFolder("zerglingAttack1", FrameAnimation_DESC("zerglingAttack1", 0.1f));
+		ShadowRenderer->CreateFrameAnimationFolder("zerglingAttack2", FrameAnimation_DESC("zerglingAttack2", 0.1f));
+		ShadowRenderer->CreateFrameAnimationFolder("zerglingAttack3", FrameAnimation_DESC("zerglingAttack3", 0.1f));
+		ShadowRenderer->CreateFrameAnimationFolder("zerglingAttack4", FrameAnimation_DESC("zerglingAttack4", 0.1f));
+		ShadowRenderer->CreateFrameAnimationFolder("zerglingAttack5", FrameAnimation_DESC("zerglingAttack5", 0.1f));
+		ShadowRenderer->CreateFrameAnimationFolder("zerglingAttack6", FrameAnimation_DESC("zerglingAttack6", 0.1f));
+		ShadowRenderer->CreateFrameAnimationFolder("zerglingAttack7", FrameAnimation_DESC("zerglingAttack7", 0.1f));
+		ShadowRenderer->CreateFrameAnimationFolder("zerglingAttack8", FrameAnimation_DESC("zerglingAttack8", 0.1f));
+		ShadowRenderer->CreateFrameAnimationFolder("zerglingAttack9", FrameAnimation_DESC("zerglingAttack9", 0.1f));
+		ShadowRenderer->CreateFrameAnimationFolder("zerglingAttack10", FrameAnimation_DESC("zerglingAttack10", 0.1f));
+		ShadowRenderer->CreateFrameAnimationFolder("zerglingAttack11", FrameAnimation_DESC("zerglingAttack11", 0.1f));
+		ShadowRenderer->CreateFrameAnimationFolder("zerglingAttack12", FrameAnimation_DESC("zerglingAttack12", 0.1f));
+		ShadowRenderer->CreateFrameAnimationFolder("zerglingAttack13", FrameAnimation_DESC("zerglingAttack13", 0.1f));
+		ShadowRenderer->CreateFrameAnimationFolder("zerglingAttack14", FrameAnimation_DESC("zerglingAttack14", 0.1f));
+		ShadowRenderer->CreateFrameAnimationFolder("zerglingAttack15", FrameAnimation_DESC("zerglingAttack15", 0.1f));
+
+		ShadowRenderer->CreateFrameAnimationFolder("zerglingMove12", FrameAnimation_DESC("zerglingMove12", 0.1f));
+
+		ShadowRenderer->ChangeFrameAnimation("zerglingMove12");
+
+
+
+		ShadowRenderer->GetColorData().MulColor.r = 0.f;
+		ShadowRenderer->GetColorData().MulColor.g = 0.f;
+		ShadowRenderer->GetColorData().MulColor.b = 0.f;
+		ShadowRenderer->GetColorData().MulColor.a = 0.5f;
+
+
+		float4 SLocalPos = ShadowRenderer->GetTransform().GetLocalPosition();
+		SLocalPos.y -= 5.f;
+		SLocalPos.x -= 5.f;
+		SLocalPos.z += 1.f;
+		ShadowRenderer->GetTransform().SetLocalPosition(SLocalPos);
+
+
+	}
+
 
 
 	MainUI = GetLevel()->CreateActor<ZerglingCUI>(OBJECTORDER::UI);
@@ -178,6 +223,7 @@ void ZerglingC::Update(float _DeltaTime)
 			AttCheck = false;
 			BAniChange = false;
 			Renderer->ChangeFrameAnimation("zerglingMove12");
+			ShadowRenderer->ChangeFrameAnimation("zerglingMove12");
 			AttTime = 0.f;
 		}
 
@@ -208,81 +254,97 @@ void ZerglingC::ChangeAni(float4 _Gopoint, float4 _WorldPos)
 	if (m_fAngle >= 349.f || m_fAngle < 11.5f)
 	{
 		Renderer->ChangeFrameAnimation("zerglingAttack0");
+		ShadowRenderer->ChangeFrameAnimation("zerglingAttack0");
 	}
 
 	if (m_fAngle >= 11.5 && m_fAngle < 34.f)
 	{
 		Renderer->ChangeFrameAnimation("zerglingAttack1");
+		ShadowRenderer->ChangeFrameAnimation("zerglingAttack1");
 	}
 
 	if (m_fAngle >= 34.f && m_fAngle < 56.5f)
 	{
 		Renderer->ChangeFrameAnimation("zerglingAttack2");
+		ShadowRenderer->ChangeFrameAnimation("zerglingAttack2");
 	}
 
 	if (m_fAngle >= 56.5f && m_fAngle < 79.f)
 	{
 		Renderer->ChangeFrameAnimation("zerglingAttack3");
+		ShadowRenderer->ChangeFrameAnimation("zerglingAttack3");
 	}
 
 	if (m_fAngle >= 79.f && m_fAngle < 101.5f)
 	{
 		Renderer->ChangeFrameAnimation("zerglingAttack4");
+		ShadowRenderer->ChangeFrameAnimation("zerglingAttack4");
 	}
 
 	if (m_fAngle >= 101.5f && m_fAngle < 124.f)
 	{
 		Renderer->ChangeFrameAnimation("zerglingAttack5");
+		ShadowRenderer->ChangeFrameAnimation("zerglingAttack5");
 	}
 
 	if (m_fAngle >= 124.f && m_fAngle < 146.5f)
 	{
 		Renderer->ChangeFrameAnimation("zerglingAttack6");
+		ShadowRenderer->ChangeFrameAnimation("zerglingAttack6");
 	}
 
 	if (m_fAngle >= 146.5f && m_fAngle < 169.f)
 	{
 		Renderer->ChangeFrameAnimation("zerglingAttack7");
+		ShadowRenderer->ChangeFrameAnimation("zerglingAttack7");
 	}
 
 	if (m_fAngle >= 169.f && m_fAngle < 191.5f)
 	{
 		Renderer->ChangeFrameAnimation("zerglingAttack8");
+		ShadowRenderer->ChangeFrameAnimation("zerglingAttack8");
 	}
 
 	if (m_fAngle >= 191.5f && m_fAngle < 214.f)
 	{
 		Renderer->ChangeFrameAnimation("zerglingAttack9");
+		ShadowRenderer->ChangeFrameAnimation("zerglingAttack9");
 	}
 
 	if (m_fAngle >= 214.f && m_fAngle < 236.5f)
 	{
 		Renderer->ChangeFrameAnimation("zerglingAttack10");
+		ShadowRenderer->ChangeFrameAnimation("zerglingAttack10");
 	}
 
 	if (m_fAngle > 236.5f && m_fAngle < 259.f)
 	{
 		Renderer->ChangeFrameAnimation("zerglingAttack11");
+		ShadowRenderer->ChangeFrameAnimation("zerglingAttack11");
 	}
 
 	if (m_fAngle >= 259.f && m_fAngle < 281.5f) //Down
 	{
 		Renderer->ChangeFrameAnimation("zerglingAttack12");
+		ShadowRenderer->ChangeFrameAnimation("zerglingAttack12");
 	}
 
 	if (m_fAngle >= 281.5f && m_fAngle < 304.f)
 	{
 		Renderer->ChangeFrameAnimation("zerglingAttack13");
+		ShadowRenderer->ChangeFrameAnimation("zerglingAttack13");
 	}
 
 	if (m_fAngle >= 304.5f && m_fAngle < 326.5f)
 	{
 		Renderer->ChangeFrameAnimation("zerglingAttack14");
+		ShadowRenderer->ChangeFrameAnimation("zerglingAttack14");
 	}
 
 	if (m_fAngle >= 326.5f && m_fAngle < 349.f)
 	{
 		Renderer->ChangeFrameAnimation("zerglingAttack15");
+		ShadowRenderer->ChangeFrameAnimation("zerglingAttack15");
 	}
 
 

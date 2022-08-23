@@ -32,6 +32,7 @@ void GhostC::AttEnd(const FrameAnimation_DESC& _Info)
 {
 	AttCheck = true;
 	Renderer->ChangeFrameAnimation("ChostStand");
+	ShadowRenderer->ChangeFrameAnimation("ChostStand");
 
 }
 
@@ -85,6 +86,47 @@ void GhostC::Start()
 
 	}
 
+	{
+		ShadowRenderer = CreateComponent<GameEngineTextureRenderer>();
+		ShadowRenderer->GetTransform().SetLocalScale({ 64.f,64.f,1.f });
+
+
+		ShadowRenderer->CreateFrameAnimationFolder("GhostAttack0", FrameAnimation_DESC("GhostAttack0", 0.1f));
+		ShadowRenderer->CreateFrameAnimationFolder("GhostAttack1", FrameAnimation_DESC("GhostAttack1", 0.1f));
+		ShadowRenderer->CreateFrameAnimationFolder("GhostAttack2", FrameAnimation_DESC("GhostAttack2", 0.1f));
+		ShadowRenderer->CreateFrameAnimationFolder("GhostAttack3", FrameAnimation_DESC("GhostAttack3", 0.1f));
+		ShadowRenderer->CreateFrameAnimationFolder("GhostAttack4", FrameAnimation_DESC("GhostAttack4", 0.1f));
+		ShadowRenderer->CreateFrameAnimationFolder("GhostAttack5", FrameAnimation_DESC("GhostAttack5", 0.1f));
+		ShadowRenderer->CreateFrameAnimationFolder("GhostAttack6", FrameAnimation_DESC("GhostAttack6", 0.1f));
+		ShadowRenderer->CreateFrameAnimationFolder("GhostAttack7", FrameAnimation_DESC("GhostAttack7", 0.1f));
+		ShadowRenderer->CreateFrameAnimationFolder("GhostAttack8", FrameAnimation_DESC("GhostAttack8", 0.1f));
+		ShadowRenderer->CreateFrameAnimationFolder("GhostAttack9", FrameAnimation_DESC("GhostAttack9", 0.1f));
+		ShadowRenderer->CreateFrameAnimationFolder("GhostAttack10", FrameAnimation_DESC("GhostAttack10", 0.1f));
+		ShadowRenderer->CreateFrameAnimationFolder("GhostAttack11", FrameAnimation_DESC("GhostAttack11", 0.1f));
+		ShadowRenderer->CreateFrameAnimationFolder("GhostAttack12", FrameAnimation_DESC("GhostAttack12", 0.1f));
+		ShadowRenderer->CreateFrameAnimationFolder("GhostAttack13", FrameAnimation_DESC("GhostAttack13", 0.1f));
+		ShadowRenderer->CreateFrameAnimationFolder("GhostAttack14", FrameAnimation_DESC("GhostAttack14", 0.1f));
+		ShadowRenderer->CreateFrameAnimationFolder("GhostAttack15", FrameAnimation_DESC("GhostAttack15", 0.1f));
+		ShadowRenderer->CreateFrameAnimationFolder("ChostStand", FrameAnimation_DESC("ChostStand", 0.1f));
+
+
+		ShadowRenderer->ChangeFrameAnimation("ChostStand");
+
+		ShadowRenderer->GetColorData().MulColor.r = 0.f;
+		ShadowRenderer->GetColorData().MulColor.g = 0.f;
+		ShadowRenderer->GetColorData().MulColor.b = 0.f;
+		ShadowRenderer->GetColorData().MulColor.a = 0.5f;
+
+
+		float4 SLocalPos = ShadowRenderer->GetTransform().GetLocalPosition();
+		SLocalPos.y -= 5.f;
+		SLocalPos.x -= 5.f;
+		SLocalPos.z += 1.f;
+		ShadowRenderer->GetTransform().SetLocalPosition(SLocalPos);
+
+	}
+
+
 	MainUI = GetLevel()->CreateActor<GhostCUI>(OBJECTORDER::UI);
 
 	{
@@ -115,6 +157,8 @@ void GhostC::Start()
 
 void GhostC::Update(float _DeltaTime)
 {
+
+	
 
 	if (m_bClickCheck)
 	{
@@ -183,6 +227,7 @@ void GhostC::Update(float _DeltaTime)
 		{
 			AttCheck = false;
 			BAniChange = false;
+			ShadowRenderer->ChangeFrameAnimation("ChostStand");
 			Renderer->ChangeFrameAnimation("ChostStand");
 			AttTime = 0.f;
 		}
@@ -214,81 +259,97 @@ void GhostC::ChangeAni(float4 _Gopoint, float4 _WorldPos)
 	if (m_fAngle >= 349.f || m_fAngle < 11.5f)
 	{
 		Renderer->ChangeFrameAnimation("GhostAttack0");
+		ShadowRenderer->ChangeFrameAnimation("GhostAttack0");
 	}
 
 	if (m_fAngle >= 11.5 && m_fAngle < 34.f)
 	{
 		Renderer->ChangeFrameAnimation("GhostAttack1");
+		ShadowRenderer->ChangeFrameAnimation("GhostAttack1");
 	}
 
 	if (m_fAngle >= 34.f && m_fAngle < 56.5f)
 	{
 		Renderer->ChangeFrameAnimation("GhostAttack2");
+		ShadowRenderer->ChangeFrameAnimation("GhostAttack2");
 	}
 
 	if (m_fAngle >= 56.5f && m_fAngle < 79.f)
 	{
 		Renderer->ChangeFrameAnimation("GhostAttack3");
+		ShadowRenderer->ChangeFrameAnimation("GhostAttack3");
 	}
 
 	if (m_fAngle >= 79.f && m_fAngle < 101.5f)
 	{
 		Renderer->ChangeFrameAnimation("GhostAttack4");
+		ShadowRenderer->ChangeFrameAnimation("GhostAttack4");
 	}
 
 	if (m_fAngle >= 101.5f && m_fAngle < 124.f)
 	{
 		Renderer->ChangeFrameAnimation("GhostAttack5");
+		ShadowRenderer->ChangeFrameAnimation("GhostAttack5");
 	}
 
 	if (m_fAngle >= 124.f && m_fAngle < 146.5f)
 	{
 		Renderer->ChangeFrameAnimation("GhostAttack6");
+		ShadowRenderer->ChangeFrameAnimation("GhostAttack6");
 	}
 
 	if (m_fAngle >= 146.5f && m_fAngle < 169.f)
 	{
 		Renderer->ChangeFrameAnimation("GhostAttack7");
+		ShadowRenderer->ChangeFrameAnimation("GhostAttack7");
 	}
 
 	if (m_fAngle >= 169.f && m_fAngle < 191.5f)
 	{
 		Renderer->ChangeFrameAnimation("GhostAttack8");
+		ShadowRenderer->ChangeFrameAnimation("GhostAttack8");
 	}
 
 	if (m_fAngle >= 191.5f && m_fAngle < 214.f)
 	{
 		Renderer->ChangeFrameAnimation("GhostAttack9");
+		ShadowRenderer->ChangeFrameAnimation("GhostAttack9");
 	}
 
 	if (m_fAngle >= 214.f && m_fAngle < 236.5f)
 	{
 		Renderer->ChangeFrameAnimation("GhostAttack10");
+		ShadowRenderer->ChangeFrameAnimation("GhostAttack10");
 	}
 
 	if (m_fAngle > 236.5f && m_fAngle < 259.f)
 	{
 		Renderer->ChangeFrameAnimation("GhostAttack11");
+		ShadowRenderer->ChangeFrameAnimation("GhostAttack11");
 	}
 
 	if (m_fAngle >= 259.f && m_fAngle < 281.5f) //Down
 	{
 		Renderer->ChangeFrameAnimation("GhostAttack12");
+		ShadowRenderer->ChangeFrameAnimation("GhostAttack12");
 	}
 
 	if (m_fAngle >= 281.5f && m_fAngle < 304.f)
 	{
 		Renderer->ChangeFrameAnimation("GhostAttack13");
+		ShadowRenderer->ChangeFrameAnimation("GhostAttack13");
 	}
 
 	if (m_fAngle >= 304.5f && m_fAngle < 326.5f)
 	{
 		Renderer->ChangeFrameAnimation("GhostAttack14");
+		ShadowRenderer->ChangeFrameAnimation("GhostAttack14");
 	}
 
 	if (m_fAngle >= 326.5f && m_fAngle < 349.f)
 	{
 		Renderer->ChangeFrameAnimation("GhostAttack15");
+		ShadowRenderer->ChangeFrameAnimation("GhostAttack15");
 	}
 
 

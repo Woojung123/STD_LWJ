@@ -226,6 +226,12 @@
     <Filter Include="00.Actor\01.Unit\02.Player\01.Build\03.UpgradeS">
       <UniqueIdentifier>{73eb388b-7e4b-4fa8-a63c-33cd9ca32e25}</UniqueIdentifier>
     </Filter>
+    <Filter Include="00.Actor\01.Unit\02.Player\02.Builder">
+      <UniqueIdentifier>{f2d61d74-03d1-4c7b-a96a-c4f1eb3f98e9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="00.Actor\01.Unit\03.Tile">
+      <UniqueIdentifier>{571c5bca-ae98-4545-9af8-b0a9ace4cd0a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ContentsCore.h">
@@ -532,6 +538,15 @@
     <ClInclude Include="UpgradeSUI.h">
       <Filter>00.Actor\01.Unit\02.Player\01.Build\03.UpgradeS</Filter>
     </ClInclude>
+    <ClInclude Include="Builder.h">
+      <Filter>00.Actor\01.Unit\02.Player\02.Builder</Filter>
+    </ClInclude>
+    <ClInclude Include="Tileobject.h">
+      <Filter>00.Actor\01.Unit\03.Tile</Filter>
+    </ClInclude>
+    <ClInclude Include="BuildImage.h">
+      <Filter>00.Actor\01.Unit\02.Player\02.Builder</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ContentsCore.cpp">
@@ -834,6 +849,15 @@
     </ClCompile>
     <ClCompile Include="UpgradeSUI.cpp">
       <Filter>00.Actor\01.Unit\02.Player\01.Build\03.UpgradeS</Filter>
+    </ClCompile>
+    <ClCompile Include="Builder.cpp">
+      <Filter>00.Actor\01.Unit\02.Player\02.Builder</Filter>
+    </ClCompile>
+    <ClCompile Include="Tileobject.cpp">
+      <Filter>00.Actor\01.Unit\03.Tile</Filter>
+    </ClCompile>
+    <ClCompile Include="BuildImage.cpp">
+      <Filter>00.Actor\01.Unit\02.Player\02.Builder</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -30,7 +30,7 @@ void MarinC::AttEnd(const FrameAnimation_DESC& _Info)
 {
 	AttCheck = true;
 	Renderer->ChangeFrameAnimation("MarrineStand");
-
+	ShadowRenderer->ChangeFrameAnimation("MarrineStand");
 }
 
 
@@ -87,6 +87,49 @@ void MarinC::Start()
 
 	}
 	
+	{
+		ShadowRenderer = CreateComponent<GameEngineTextureRenderer>();
+		ShadowRenderer->GetTransform().SetLocalScale({ 50.f,50.f,1.f });
+
+
+
+		ShadowRenderer->CreateFrameAnimationFolder("MarineAttack0", FrameAnimation_DESC("MarineAttack0", 0.1f));
+		ShadowRenderer->CreateFrameAnimationFolder("MarineAttack1", FrameAnimation_DESC("MarineAttack1", 0.1f));
+		ShadowRenderer->CreateFrameAnimationFolder("MarineAttack2", FrameAnimation_DESC("MarineAttack2", 0.1f));
+		ShadowRenderer->CreateFrameAnimationFolder("MarineAttack3", FrameAnimation_DESC("MarineAttack3", 0.1f));
+		ShadowRenderer->CreateFrameAnimationFolder("MarineAttack4", FrameAnimation_DESC("MarineAttack4", 0.1f));
+		ShadowRenderer->CreateFrameAnimationFolder("MarineAttack5", FrameAnimation_DESC("MarineAttack5", 0.1f));
+		ShadowRenderer->CreateFrameAnimationFolder("MarineAttack6", FrameAnimation_DESC("MarineAttack6", 0.1f));
+		ShadowRenderer->CreateFrameAnimationFolder("MarineAttack7", FrameAnimation_DESC("MarineAttack7", 0.1f));
+		ShadowRenderer->CreateFrameAnimationFolder("MarineAttack8", FrameAnimation_DESC("MarineAttack8", 0.1f));
+		ShadowRenderer->CreateFrameAnimationFolder("MarineAttack9", FrameAnimation_DESC("MarineAttack9", 0.1f));
+		ShadowRenderer->CreateFrameAnimationFolder("MarineAttack10", FrameAnimation_DESC("MarineAttack10", 0.1f));
+		ShadowRenderer->CreateFrameAnimationFolder("MarineAttack11", FrameAnimation_DESC("MarineAttack11", 0.1f));
+		ShadowRenderer->CreateFrameAnimationFolder("MarineAttack12", FrameAnimation_DESC("MarineAttack12", 0.1f));
+		ShadowRenderer->CreateFrameAnimationFolder("MarineAttack13", FrameAnimation_DESC("MarineAttack13", 0.1f));
+		ShadowRenderer->CreateFrameAnimationFolder("MarineAttack14", FrameAnimation_DESC("MarineAttack14", 0.1f));
+		ShadowRenderer->CreateFrameAnimationFolder("MarineAttack15", FrameAnimation_DESC("MarineAttack15", 0.1f));
+		ShadowRenderer->CreateFrameAnimationFolder("MarrineStand", FrameAnimation_DESC("MarrineStand", 0.1f));
+
+
+		ShadowRenderer->ChangeFrameAnimation("MarrineStand");
+
+
+		ShadowRenderer->GetColorData().MulColor.r = 0.f;
+		ShadowRenderer->GetColorData().MulColor.g = 0.f;
+		ShadowRenderer->GetColorData().MulColor.b = 0.f;
+		ShadowRenderer->GetColorData().MulColor.a = 0.5f;
+
+
+		float4 SLocalPos = ShadowRenderer->GetTransform().GetLocalPosition();
+		SLocalPos.y -= 5.f;
+		SLocalPos.x -= 5.f;
+		SLocalPos.z += 1.f;
+		ShadowRenderer->GetTransform().SetLocalPosition(SLocalPos);
+
+	}
+
+
 
 	MainUI = GetLevel()->CreateActor<MarinCUI>(OBJECTORDER::UI);
 
@@ -182,6 +225,7 @@ void MarinC::Update(float _DeltaTime)
 			AttCheck = false;
 			BAniChange = false;
 			Renderer->ChangeFrameAnimation("MarrineStand");
+			ShadowRenderer->ChangeFrameAnimation("MarrineStand");
 			AttTime = 0.f;
 		}
 
@@ -212,81 +256,100 @@ void MarinC::ChangeAni(float4 _Gopoint, float4 _WorldPos)
 	if (m_fAngle >= 349.f || m_fAngle < 11.5f)
 	{
 		Renderer->ChangeFrameAnimation("MarineAttack0");
+		ShadowRenderer->ChangeFrameAnimation("MarineAttack0");
+
 	}
 
 	if (m_fAngle >= 11.5 && m_fAngle < 34.f)
 	{
 		Renderer->ChangeFrameAnimation("MarineAttack1");
+		ShadowRenderer->ChangeFrameAnimation("MarineAttack1");
+
 	}
 
 	if (m_fAngle >= 34.f && m_fAngle < 56.5f)
 	{
 		Renderer->ChangeFrameAnimation("MarineAttack2");
+		ShadowRenderer->ChangeFrameAnimation("MarineAttack2");
+
 	}
 
 	if (m_fAngle >= 56.5f && m_fAngle < 79.f)
 	{
 		Renderer->ChangeFrameAnimation("MarineAttack3");
+		ShadowRenderer->ChangeFrameAnimation("MarineAttack3");
 	}
 
 	if (m_fAngle >= 79.f && m_fAngle < 101.5f)
 	{
 		Renderer->ChangeFrameAnimation("MarineAttack4");
+		ShadowRenderer->ChangeFrameAnimation("MarineAttack4");
 	}
 
 	if (m_fAngle >= 101.5f && m_fAngle < 124.f)
 	{
 		Renderer->ChangeFrameAnimation("MarineAttack5");
+		ShadowRenderer->ChangeFrameAnimation("MarineAttack5");
 	}
 
 	if (m_fAngle >= 124.f && m_fAngle < 146.5f)
 	{
 		Renderer->ChangeFrameAnimation("MarineAttack6");
+		ShadowRenderer->ChangeFrameAnimation("MarineAttack6");
 	}
 
 	if (m_fAngle >= 146.5f && m_fAngle < 169.f)
 	{
 		Renderer->ChangeFrameAnimation("MarineAttack7");
+		ShadowRenderer->ChangeFrameAnimation("MarineAttack7");
 	}
 
 	if (m_fAngle >= 169.f && m_fAngle < 191.5f)
 	{
 		Renderer->ChangeFrameAnimation("MarineAttack8");
+		ShadowRenderer->ChangeFrameAnimation("MarineAttack8");
 	}
 
 	if (m_fAngle >= 191.5f && m_fAngle < 214.f)
 	{
 		Renderer->ChangeFrameAnimation("MarineAttack9");
+		ShadowRenderer->ChangeFrameAnimation("MarineAttack9");
 	}
 
 	if (m_fAngle >= 214.f && m_fAngle < 236.5f)
 	{
 		Renderer->ChangeFrameAnimation("MarineAttack10");
+		ShadowRenderer->ChangeFrameAnimation("MarineAttack10");
 	}
 
 	if (m_fAngle > 236.5f && m_fAngle < 259.f)
 	{
 		Renderer->ChangeFrameAnimation("MarineAttack11");
+		ShadowRenderer->ChangeFrameAnimation("MarineAttack11");
 	}
 
 	if (m_fAngle >= 259.f && m_fAngle < 281.5f) //Down
 	{
 		Renderer->ChangeFrameAnimation("MarineAttack12");
+		ShadowRenderer->ChangeFrameAnimation("MarineAttack12");
 	}
 
 	if (m_fAngle >= 281.5f && m_fAngle < 304.f)
 	{
 		Renderer->ChangeFrameAnimation("MarineAttack13");
+		ShadowRenderer->ChangeFrameAnimation("MarineAttack13");
 	}
 
 	if (m_fAngle >= 304.5f && m_fAngle < 326.5f)
 	{
 		Renderer->ChangeFrameAnimation("MarineAttack14");
+		ShadowRenderer->ChangeFrameAnimation("MarineAttack14");
 	}
 
 	if (m_fAngle >= 326.5f && m_fAngle < 349.f)
 	{
 		Renderer->ChangeFrameAnimation("MarineAttack15");
+		ShadowRenderer->ChangeFrameAnimation("MarineAttack15");
 	}
 
 

@@ -29,7 +29,7 @@ void TestUnit::AttEnd(const FrameAnimation_DESC& _Info)
 {
 	AttCheck = true;
 	Renderer->ChangeFrameAnimation("DragonStand");
-
+	ShadowRenderer->ChangeFrameAnimation("DragonStand");
 
 }
 
@@ -50,6 +50,35 @@ void TestUnit::Start()
 		Renderer->AnimationBindEnd("DragonAttack15", &TestUnit::AttEnd, this);
 
 	}
+
+
+	{
+		ShadowRenderer = CreateComponent<GameEngineTextureRenderer>();
+		ShadowRenderer->GetTransform().SetLocalScale({ 96.f,96.f,1.f });
+
+
+		ShadowRenderer->CreateFrameAnimationFolder("DragonStand", FrameAnimation_DESC("DragonStand0", 0.1f));
+		ShadowRenderer->CreateFrameAnimationFolder("DragonAttack15", FrameAnimation_DESC("DragonAttack15", 0.1f));
+
+		ShadowRenderer->ChangeFrameAnimation("DragonStand");
+
+		ShadowRenderer->AnimationBindEnd("DragonAttack15", &TestUnit::AttEnd, this);
+
+		ShadowRenderer->GetColorData().MulColor.r = 0.f;
+		ShadowRenderer->GetColorData().MulColor.g = 0.f;
+		ShadowRenderer->GetColorData().MulColor.b = 0.f;
+		ShadowRenderer->GetColorData().MulColor.a = 0.5f;
+
+
+		float4 SLocalPos = ShadowRenderer->GetTransform().GetLocalPosition();
+		SLocalPos.y -= 5.f;
+		SLocalPos.x -= 5.f;
+		SLocalPos.z += 1.f;
+		ShadowRenderer->GetTransform().SetLocalPosition(SLocalPos);
+
+	}
+
+
 
 
 	MainUI = GetLevel()->CreateActor<DragoonCUI>(OBJECTORDER::UI);
@@ -115,7 +144,7 @@ void TestUnit::Update(float _DeltaTime)
 		if (MonLen <= Reach)
 		{
 			Renderer->ChangeFrameAnimation("DragonAttack15");
-			
+			ShadowRenderer->ChangeFrameAnimation("DragonAttack15");
 			if (AttCheck)
 			{
 				AttCheck = false;
@@ -139,6 +168,7 @@ void TestUnit::Update(float _DeltaTime)
 		if (MonCount == Monsize)
 		{
 			Renderer->ChangeFrameAnimation("DragonStand");
+			ShadowRenderer->ChangeFrameAnimation("DragonStand");
 			AttTime =0.f;
 		}
 

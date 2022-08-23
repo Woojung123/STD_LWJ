@@ -41,6 +41,33 @@ void Overload::Start()
 
 	}
 
+
+	{
+		ShadowRenderer = CreateComponent<GameEngineTextureRenderer>();
+		ShadowRenderer->GetTransform().SetLocalScale({ 84.f,84.f,1.f });
+		GetTransform().SetWorldPosition({ -1348.f,617.f,0.f });
+
+		ShadowRenderer->CreateFrameAnimationFolder("overloadD", FrameAnimation_DESC("overloadD", 0.1f, true));
+		ShadowRenderer->CreateFrameAnimationFolder("overloadL", FrameAnimation_DESC("overloadL", 0.1f, true));
+		ShadowRenderer->CreateFrameAnimationFolder("overloadR", FrameAnimation_DESC("overloadR", 0.1f, true));
+		ShadowRenderer->CreateFrameAnimationFolder("overloadU", FrameAnimation_DESC("overloadU", 0.1f, true));
+
+
+		ShadowRenderer->ChangeFrameAnimation("overloadD");
+
+		ShadowRenderer->GetColorData().MulColor.r = 0.f;
+		ShadowRenderer->GetColorData().MulColor.g = 0.f;
+		ShadowRenderer->GetColorData().MulColor.b = 0.f;
+		ShadowRenderer->GetColorData().MulColor.a = 0.5f;
+
+
+		float4 SLocalPos = ShadowRenderer->GetTransform().GetLocalPosition();
+		SLocalPos.y -= 25.f;
+		SLocalPos.z += 1.f;
+		ShadowRenderer->GetTransform().SetLocalPosition(SLocalPos);
+	}
+
+
 	{
 		Collision = CreateComponent<GameEngineCollision>();
 		Collision->GetTransform().SetLocalScale({ 60.0f, 60.0f, 1.0f });
@@ -137,18 +164,22 @@ void Overload::ChangeAni(float4 _Gopoint, float4 _WorldPos)
 	if (m_fAngle >= 45.f && m_fAngle < 135.f)
 	{
 		Renderer->ChangeFrameAnimation("overloadU");
+		ShadowRenderer->ChangeFrameAnimation("overloadU");
 	}
 	else if (m_fAngle >= 135.f && m_fAngle <= 225.f)
 	{
 		Renderer->ChangeFrameAnimation("overloadL");
+		ShadowRenderer->ChangeFrameAnimation("overloadL");
 	}
 	else if (m_fAngle >= 225.f && m_fAngle <= 315.f)
 	{
 		Renderer->ChangeFrameAnimation("overloadD");
+		ShadowRenderer->ChangeFrameAnimation("overloadD");
 	}
 	else if (m_fAngle >= 315.f || m_fAngle <= 45.f)
 	{
 		Renderer->ChangeFrameAnimation("overloadR");
+		ShadowRenderer->ChangeFrameAnimation("overloadR");
 	}
 
 

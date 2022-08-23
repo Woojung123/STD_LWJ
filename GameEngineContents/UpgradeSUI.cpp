@@ -15,7 +15,7 @@ void UpgradeSUI::Start()
 {
 	{
 		GameEngineUIRenderer* Renderer = CreateComponent<GameEngineUIRenderer>();
-		Renderer->SetTexture("Adu.png");
+		Renderer->SetTexture("Aun.png");
 		Renderer->ScaleToTexture();
 		//Renderer->GetTransform().SetLocalScale({ 100, 20, 1 });
 		Renderer->GetTransform().SetLocalPosition({ -170.f,-240.f, -250.f });

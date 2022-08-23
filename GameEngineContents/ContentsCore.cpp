@@ -286,6 +286,129 @@ void ContentsCore::Start()
 
 	//유닛 
 	// 오브젝트
+	// 
+	// 
+	// 
+	// 
+
+		//커세어메이커0
+	{
+		GameEngineDirectory Dir;
+
+		Dir.MoveParentToExitsChildDirectory("ConstantResources");
+		Dir.Move("ConstantResources");
+		Dir.Move("Texture");
+		Dir.Move("Multi");
+		Dir.Move("Unit");
+		Dir.Move("protoss");
+		Dir.Move("Buildcorsair");
+
+
+		Dir.Move("BcorsairMove0");
+
+		GameEngineFolderTexture::Load(Dir.GetFullPath());
+
+		Dir.Move("../BcorsairMove1");
+
+		GameEngineFolderTexture::Load(Dir.GetFullPath());
+
+
+		Dir.Move("../BcorsairMove2");
+
+		GameEngineFolderTexture::Load(Dir.GetFullPath());
+
+		Dir.Move("../BcorsairMove3");
+
+		GameEngineFolderTexture::Load(Dir.GetFullPath());
+
+		Dir.Move("../BcorsairMove4");
+
+		GameEngineFolderTexture::Load(Dir.GetFullPath());
+
+		Dir.Move("../BcorsairMove5");
+
+		GameEngineFolderTexture::Load(Dir.GetFullPath());
+
+	}
+
+
+	//커세어메이커1
+	{
+		GameEngineDirectory Dir;
+
+		Dir.MoveParentToExitsChildDirectory("ConstantResources");
+		Dir.Move("ConstantResources");
+		Dir.Move("Texture");
+		Dir.Move("Multi");
+		Dir.Move("Unit");
+		Dir.Move("protoss");
+		Dir.Move("Buildcorsair");
+
+
+		Dir.Move("BcorsairMove6");
+
+		GameEngineFolderTexture::Load(Dir.GetFullPath());
+
+		Dir.Move("../BcorsairMove7");
+
+		GameEngineFolderTexture::Load(Dir.GetFullPath());
+
+		Dir.Move("../BcorsairMove8");
+
+		GameEngineFolderTexture::Load(Dir.GetFullPath());
+
+		Dir.Move("../BcorsairMove9");
+
+		GameEngineFolderTexture::Load(Dir.GetFullPath());
+
+		Dir.Move("../BcorsairMove10");
+
+		GameEngineFolderTexture::Load(Dir.GetFullPath());
+
+
+	}
+
+
+
+
+	//커세어메이커2
+
+	{
+		GameEngineDirectory Dir;
+
+		Dir.MoveParentToExitsChildDirectory("ConstantResources");
+		Dir.Move("ConstantResources");
+		Dir.Move("Texture");
+		Dir.Move("Multi");
+		Dir.Move("Unit");
+		Dir.Move("protoss");
+		Dir.Move("Buildcorsair");
+
+		Dir.Move("BcorsairMove11");
+
+		GameEngineFolderTexture::Load(Dir.GetFullPath());
+
+		Dir.Move("../BcorsairMove12");
+
+		GameEngineFolderTexture::Load(Dir.GetFullPath());
+
+		Dir.Move("../BcorsairMove13");
+
+		GameEngineFolderTexture::Load(Dir.GetFullPath());
+
+
+		Dir.Move("../BcorsairMove14");
+
+		GameEngineFolderTexture::Load(Dir.GetFullPath());
+
+		Dir.Move("../BcorsairMove15");
+
+		GameEngineFolderTexture::Load(Dir.GetFullPath());
+
+
+
+	}
+
 	//드라군
 	{
 		GameEngineDirectory Dir;

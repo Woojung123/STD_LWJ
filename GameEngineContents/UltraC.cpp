@@ -86,6 +86,48 @@ void UltraC::Start()
 	}
 
 	{
+		ShadowRenderer = CreateComponent<GameEngineTextureRenderer>();
+		ShadowRenderer->GetTransform().SetLocalScale({ 128.f,128.f,1.f });
+
+
+		ShadowRenderer->CreateFrameAnimationFolder("ultraAttack0", FrameAnimation_DESC("ultraAttack0", 0.1f));
+		ShadowRenderer->CreateFrameAnimationFolder("ultraAttack1", FrameAnimation_DESC("ultraAttack1", 0.1f));
+		ShadowRenderer->CreateFrameAnimationFolder("ultraAttack2", FrameAnimation_DESC("ultraAttack2", 0.1f));
+		ShadowRenderer->CreateFrameAnimationFolder("ultraAttack3", FrameAnimation_DESC("ultraAttack3", 0.1f));
+		ShadowRenderer->CreateFrameAnimationFolder("ultraAttack4", FrameAnimation_DESC("ultraAttack4", 0.1f));
+		ShadowRenderer->CreateFrameAnimationFolder("ultraAttack5", FrameAnimation_DESC("ultraAttack5", 0.1f));
+		ShadowRenderer->CreateFrameAnimationFolder("ultraAttack6", FrameAnimation_DESC("ultraAttack6", 0.1f));
+		ShadowRenderer->CreateFrameAnimationFolder("ultraAttack7", FrameAnimation_DESC("ultraAttack7", 0.1f));
+		ShadowRenderer->CreateFrameAnimationFolder("ultraAttack8", FrameAnimation_DESC("ultraAttack8", 0.1f));
+		ShadowRenderer->CreateFrameAnimationFolder("ultraAttack9", FrameAnimation_DESC("ultraAttack9", 0.1f));
+		ShadowRenderer->CreateFrameAnimationFolder("ultraAttack10", FrameAnimation_DESC("ultraAttack10", 0.1f));
+		ShadowRenderer->CreateFrameAnimationFolder("ultraAttack11", FrameAnimation_DESC("ultraAttack11", 0.1f));
+		ShadowRenderer->CreateFrameAnimationFolder("ultraAttack12", FrameAnimation_DESC("ultraAttack12", 0.1f));
+		ShadowRenderer->CreateFrameAnimationFolder("ultraAttack13", FrameAnimation_DESC("ultraAttack13", 0.1f));
+		ShadowRenderer->CreateFrameAnimationFolder("ultraAttack14", FrameAnimation_DESC("ultraAttack14", 0.1f));
+		ShadowRenderer->CreateFrameAnimationFolder("ultraAttack15", FrameAnimation_DESC("ultraAttack15", 0.1f));
+
+		ShadowRenderer->CreateFrameAnimationFolder("ultraStand", FrameAnimation_DESC("ultraStand", 0.1f));
+
+		ShadowRenderer->ChangeFrameAnimation("ultraStand");
+
+		ShadowRenderer->GetColorData().MulColor.r = 0.f;
+		ShadowRenderer->GetColorData().MulColor.g = 0.f;
+		ShadowRenderer->GetColorData().MulColor.b = 0.f;
+		ShadowRenderer->GetColorData().MulColor.a = 0.5f;
+
+
+		float4 SLocalPos = ShadowRenderer->GetTransform().GetLocalPosition();
+		SLocalPos.y -= 5.f;
+		SLocalPos.x -= 5.f;
+		SLocalPos.z += 0.5f;
+		ShadowRenderer->GetTransform().SetLocalPosition(SLocalPos);
+	
+
+	}
+
+
+	{
 		BiconRenderer = CreateComponent<GameEngineTextureRenderer>();
 		BiconRenderer->SetTexture("beacon.png");
 		BiconRenderer->ScaleToTexture();

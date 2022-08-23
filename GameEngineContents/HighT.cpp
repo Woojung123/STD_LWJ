@@ -34,6 +34,7 @@ void HighT::AttEnd(const FrameAnimation_DESC& _Info)
 {
 	//AttCheck = true;
 	Renderer->ChangeFrameAnimation("hitemplerMove12");
+	ShadowRenderer->ChangeFrameAnimation("hitemplerMove12");
 	BATTDelayTime = true;
 
 }
@@ -85,6 +86,46 @@ void HighT::Start()
 		Renderer->AnimationBindEnd("hitemplerAttack13", &HighT::AttEnd, this);
 		Renderer->AnimationBindEnd("hitemplerAttack14", &HighT::AttEnd, this);
 		Renderer->AnimationBindEnd("hitemplerAttack15", &HighT::AttEnd, this);
+
+	}
+
+
+	{
+		ShadowRenderer = CreateComponent<GameEngineTextureRenderer>();
+		ShadowRenderer->GetTransform().SetLocalScale({ 128.f,128.f,1.f });
+
+		ShadowRenderer->CreateFrameAnimationFolder("hitemplerAttack0", FrameAnimation_DESC("hitemplerAttack0", 0.1f));
+		ShadowRenderer->CreateFrameAnimationFolder("hitemplerAttack1", FrameAnimation_DESC("hitemplerAttack1", 0.1f));
+		ShadowRenderer->CreateFrameAnimationFolder("hitemplerAttack2", FrameAnimation_DESC("hitemplerAttack2", 0.1f));
+		ShadowRenderer->CreateFrameAnimationFolder("hitemplerAttack3", FrameAnimation_DESC("hitemplerAttack3", 0.1f));
+		ShadowRenderer->CreateFrameAnimationFolder("hitemplerAttack4", FrameAnimation_DESC("hitemplerAttack4", 0.1f));
+		ShadowRenderer->CreateFrameAnimationFolder("hitemplerAttack5", FrameAnimation_DESC("hitemplerAttack5", 0.1f));
+		ShadowRenderer->CreateFrameAnimationFolder("hitemplerAttack6", FrameAnimation_DESC("hitemplerAttack6", 0.1f));
+		ShadowRenderer->CreateFrameAnimationFolder("hitemplerAttack7", FrameAnimation_DESC("hitemplerAttack7", 0.1f));
+		ShadowRenderer->CreateFrameAnimationFolder("hitemplerAttack8", FrameAnimation_DESC("hitemplerAttack8", 0.1f));
+		ShadowRenderer->CreateFrameAnimationFolder("hitemplerAttack9", FrameAnimation_DESC("hitemplerAttack9", 0.1f));
+		ShadowRenderer->CreateFrameAnimationFolder("hitemplerAttack10", FrameAnimation_DESC("hitemplerAttack10", 0.1f));
+		ShadowRenderer->CreateFrameAnimationFolder("hitemplerAttack11", FrameAnimation_DESC("hitemplerAttack11", 0.1f));
+		ShadowRenderer->CreateFrameAnimationFolder("hitemplerAttack12", FrameAnimation_DESC("hitemplerAttack12", 0.1f));
+		ShadowRenderer->CreateFrameAnimationFolder("hitemplerAttack13", FrameAnimation_DESC("hitemplerAttack13", 0.1f));
+		ShadowRenderer->CreateFrameAnimationFolder("hitemplerAttack14", FrameAnimation_DESC("hitemplerAttack14", 0.1f));
+		ShadowRenderer->CreateFrameAnimationFolder("hitemplerAttack15", FrameAnimation_DESC("hitemplerAttack15", 0.1f));
+
+		ShadowRenderer->CreateFrameAnimationFolder("hitemplerMove12", FrameAnimation_DESC("hitemplerMove12", 0.1f));
+
+		ShadowRenderer->ChangeFrameAnimation("hitemplerMove12");
+
+		ShadowRenderer->GetColorData().MulColor.r = 0.f;
+		ShadowRenderer->GetColorData().MulColor.g = 0.f;
+		ShadowRenderer->GetColorData().MulColor.b = 0.f;
+		ShadowRenderer->GetColorData().MulColor.a = 0.5f;
+
+
+		float4 SLocalPos = ShadowRenderer->GetTransform().GetLocalPosition();
+		SLocalPos.y -= 5.f;
+		SLocalPos.x -= 5.f;
+		SLocalPos.z += 0.5f;
+		ShadowRenderer->GetTransform().SetLocalPosition(SLocalPos);
 
 	}
 
@@ -210,6 +251,7 @@ void HighT::Update(float _DeltaTime)
 			AttCheck = false;
 			BAniChange = false;
 			Renderer->ChangeFrameAnimation("hitemplerMove12");
+			ShadowRenderer->ChangeFrameAnimation("hitemplerMove12");
 			AttTime = 0.f;
 		}
 
@@ -240,81 +282,97 @@ void HighT::ChangeAni(float4 _Gopoint, float4 _WorldPos)
 	if (m_fAngle >= 349.f || m_fAngle < 11.5f)
 	{
 		Renderer->ChangeFrameAnimation("hitemplerAttack0");
+		ShadowRenderer->ChangeFrameAnimation("hitemplerAttack0");
 	}
 
 	if (m_fAngle >= 11.5 && m_fAngle < 34.f)
 	{
 		Renderer->ChangeFrameAnimation("hitemplerAttack1");
+		ShadowRenderer->ChangeFrameAnimation("hitemplerAttack1");
 	}
 
 	if (m_fAngle >= 34.f && m_fAngle < 56.5f)
 	{
 		Renderer->ChangeFrameAnimation("hitemplerAttack2");
+		ShadowRenderer->ChangeFrameAnimation("hitemplerAttack2");
 	}
 
 	if (m_fAngle >= 56.5f && m_fAngle < 79.f)
 	{
 		Renderer->ChangeFrameAnimation("hitemplerAttack3");
+		ShadowRenderer->ChangeFrameAnimation("hitemplerAttack3");
 	}
 
 	if (m_fAngle >= 79.f && m_fAngle < 101.5f)
 	{
 		Renderer->ChangeFrameAnimation("hitemplerAttack4");
+		ShadowRenderer->ChangeFrameAnimation("hitemplerAttack4");
 	}
 
 	if (m_fAngle >= 101.5f && m_fAngle < 124.f)
 	{
 		Renderer->ChangeFrameAnimation("hitemplerAttack5");
+		ShadowRenderer->ChangeFrameAnimation("hitemplerAttack5");
 	}
 
 	if (m_fAngle >= 124.f && m_fAngle < 146.5f)
 	{
 		Renderer->ChangeFrameAnimation("hitemplerAttack6");
+		ShadowRenderer->ChangeFrameAnimation("hitemplerAttack6");
 	}
 
 	if (m_fAngle >= 146.5f && m_fAngle < 169.f)
 	{
 		Renderer->ChangeFrameAnimation("hitemplerAttack7");
+		ShadowRenderer->ChangeFrameAnimation("hitemplerAttack7");
 	}
 
 	if (m_fAngle >= 169.f && m_fAngle < 191.5f)
 	{
 		Renderer->ChangeFrameAnimation("hitemplerAttack8");
+		ShadowRenderer->ChangeFrameAnimation("hitemplerAttack8");
 	}
 
 	if (m_fAngle >= 191.5f && m_fAngle < 214.f)
 	{
 		Renderer->ChangeFrameAnimation("hitemplerAttack9");
+		ShadowRenderer->ChangeFrameAnimation("hitemplerAttack9");
 	}
 
 	if (m_fAngle >= 214.f && m_fAngle < 236.5f)
 	{
 		Renderer->ChangeFrameAnimation("hitemplerAttack10");
+		ShadowRenderer->ChangeFrameAnimation("hitemplerAttack10");
 	}
 
 	if (m_fAngle > 236.5f && m_fAngle < 259.f)
 	{
 		Renderer->ChangeFrameAnimation("hitemplerAttack11");
+		ShadowRenderer->ChangeFrameAnimation("hitemplerAttack11");
 	}
 
 	if (m_fAngle >= 259.f && m_fAngle < 281.5f) //Down
 	{
 		Renderer->ChangeFrameAnimation("hitemplerAttack12");
+		ShadowRenderer->ChangeFrameAnimation("hitemplerAttack12");
 	}
 
 	if (m_fAngle >= 281.5f && m_fAngle < 304.f)
 	{
 		Renderer->ChangeFrameAnimation("hitemplerAttack13");
+		ShadowRenderer->ChangeFrameAnimation("hitemplerAttack13");
 	}
 
 	if (m_fAngle >= 304.5f && m_fAngle < 326.5f)
 	{
 		Renderer->ChangeFrameAnimation("hitemplerAttack14");
+		ShadowRenderer->ChangeFrameAnimation("hitemplerAttack14");
 	}
 
 	if (m_fAngle >= 326.5f && m_fAngle < 349.f)
 	{
 		Renderer->ChangeFrameAnimation("hitemplerAttack15");
+		ShadowRenderer->ChangeFrameAnimation("hitemplerAttack15");
 	}
 
 

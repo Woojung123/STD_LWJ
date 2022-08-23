@@ -1,8 +1,8 @@
 #pragma once
 #include <string>
 #include <list>
-#include "GameEngineTime.h"
-#include "GameEngineDebugObject.h"
+#include <GameEngineBase/GameEngineTime.h>
+#include <GameEngineBase/GameEngineDebugObject.h>
 
 
 class GameEngineUpdateObject : public GameEngineDebugObject
@@ -18,6 +18,7 @@ public:
 	GameEngineUpdateObject& operator=(const GameEngineUpdateObject& _Other) = delete;
 	GameEngineUpdateObject& operator=(GameEngineUpdateObject&& _Other) noexcept = delete;
 
+
 	inline bool& IsUpdateRef()
 	{
 		return IsUpdate_;
@@ -26,16 +27,19 @@ public:
 	inline void On()
 	{
 		IsUpdate_ = true;
+		AllOnEvent();
 	}
 
 	inline void Off()
 	{
 		IsUpdate_ = false;
+		AllOffEvent();
 	}
 
 	inline void OnOffSwitch()
 	{
 		IsUpdate_ = !IsUpdate_;
+		IsUpdate_ == true ? OnEvent() : OffEvent();
 	}
 
 	inline bool IsUpdate()
@@ -151,15 +155,19 @@ public:
 	// 이 오브젝트가 프레임구조안에서 돌고 있다.
 	virtual void Update(float _DeltaTime) = 0;
 
-
 	void AllUpdate(float _DeltaTime);
 
 
-	void AllOnEvent();
-
-	void AllOffEvent();
+	virtual void LevelStartEvent() {}
+	virtual void LevelEndEvent() { }
 
 protected:
+	void AllLevelStartEvent();
+	void AllLevelEndEvent();
+
+	void AllOnEvent();
+	void AllOffEvent();
+
 	// 이 오브젝트가 동작을 하기 시작했다.
 	virtual void OnEvent() {}//레벨체인지 스타트
 												//레벨에선 이런개념 액터나 컴포넌트도 갖고있다.
@@ -173,7 +181,6 @@ protected:
 	virtual void End() = 0;
 
 	virtual void ReleaseObject(std::list<GameEngineUpdateObject*>& _RelaseList);
-
 
 	template<typename ConvertType>
 	std::list<ConvertType*> GetConvertChilds()
@@ -192,9 +199,10 @@ protected:
 		return NewList;
 	}
 
-
-
 	std::list<GameEngineUpdateObject*> Childs;
+
+
+
 
 private:
 	int Order_;

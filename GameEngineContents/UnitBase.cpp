@@ -7,6 +7,8 @@ UnitBase::UnitBase()
 	, m_bClickCheck(false)
 	, ClickRenderer(nullptr)
 	, AttRenderer(nullptr)
+	, ShadowRenderer(nullptr)
+	, m_Type(UNITTYPE::NULLTYPE)
 {
 }
 

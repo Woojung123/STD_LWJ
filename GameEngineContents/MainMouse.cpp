@@ -4,6 +4,11 @@
 #include "MainMouse.h"
 #include "StageMainCamera.h"
 #include"UnitBase.h"
+#include "Builder.h"
+
+#include "BuildImage.h"
+
+
 
 
 MainMouse::MainMouse()
@@ -24,9 +29,9 @@ void MainMouse::Start()
 	WorldPos.z = -151.f;
 	GetTransform().SetWorldPosition(WorldPos);
 
-
-
-
+	BuildColorCheck = false;
+	BuildCheck = false;
+	PlusCheck = false;
 	{
 		Collision = CreateComponent<GameEngineCollision>();
 		Collision->GetTransform().SetLocalScale({ 1.f, 1.f, 1.0f });
@@ -34,20 +39,26 @@ void MainMouse::Start()
 	}
 
 	{
-		GameEngineTextureRenderer* Renderer = CreateComponent<GameEngineTextureRenderer>();
+		Renderer = CreateComponent<GameEngineTextureRenderer>();
 		Renderer->SetTexture("PlayerMonMini.png");
 		Renderer->ScaleToTexture();
 
-		//Renderer->ChangeCamera(CAMERAORDER::UICAMERA);
 	}
 
 
+	{
+		BuildRenderer = CreateComponent<GameEngineTextureRenderer>();
+		BuildRenderer->SetTexture("PylonBuild.png");
+		BuildRenderer->ScaleToTexture();
+
+	}
 	
-		GameEngineInput::GetInst()->CreateKey("LeftClick", VK_LBUTTON);
-	
+	GameEngineInput::GetInst()->CreateKey("LeftClick", VK_LBUTTON);
+
 
 
 }
+
 
 
 void MainMouse::Update(float _DeltaTime)
@@ -60,23 +71,58 @@ void MainMouse::Update(float _DeltaTime)
 	GetTransform().SetWorldPosition(WorldPos);
 
 
-	
 
-
-
-
-	//Collision->IsCollision(CollisionType::CT_OBB2D, OBJECTORDER::Monster, CollisionType::CT_OBB2D,
-	//	std::bind(&MainMouse::AllCollision, this, std::placeholders::_1, std::placeholders::_2)
-	//);
+	if (BuildCheck)
+	{
+		BuildRenderer->On();
+	}
+	else
+	{
+		BuildRenderer->Off();
+	}
 
 	Collision->IsCollision(CollisionType::CT_OBB2D, OBJECTORDER::Player, CollisionType::CT_OBB2D,
 		std::bind(&MainMouse::AllCollision, this, std::placeholders::_1, std::placeholders::_2)
 	);
 
-	//Collision->IsCollision(CollisionType::CT_OBB2D, OBJECTORDER::UI, CollisionType::CT_OBB2D,
-	//	std::bind(&MainMouse::UICollision, this, std::placeholders::_1, std::placeholders::_2)
-	//);
+	if (true == Collision->IsCollision(CollisionType::CT_OBB2D, OBJECTORDER::Player, CollisionType::CT_OBB2D))
+	{
+		BuildColorCheck = true;
 
+	}
+	else
+	{
+		if (true == GameEngineInput::GetInst()->IsDown("LeftClick"))
+		{
+			ClickReset();
+		}
+		BuildColorCheck = false;
+	}
+
+
+	
+	Collision->IsCollision(CollisionType::CT_OBB2D, OBJECTORDER::TileMap, CollisionType::CT_OBB2D,
+		std::bind(&MainMouse::PlayerCollision, this, std::placeholders::_1, std::placeholders::_2)
+	);
+
+
+	if (true == Collision->IsCollision(CollisionType::CT_OBB2D, OBJECTORDER::TileMap, CollisionType::CT_OBB2D))
+	{
+		
+	
+	}
+	else
+	{
+		if (true == GameEngineInput::GetInst()->IsDown("LeftClick"))
+		{
+			BuildCheck = false;
+			PlusCheck = false;
+		}
+
+		BuildRenderer->GetTransform().SetWorldPosition(GetTransform().GetWorldPosition());
+		BuildRenderer->GetColorData().MulColor = { 1.f,0.f,0.f,0.5f };
+
+	}
 
 
 }
@@ -91,6 +137,36 @@ bool MainMouse::MonsterCollision(GameEngineCollision* _This, GameEngineCollision
 
 bool MainMouse::PlayerCollision(GameEngineCollision* _This, GameEngineCollision* _Other)
 {
+
+	BuildRenderer->GetTransform().SetWorldPosition(_Other->GetTransform().GetWorldPosition());
+		
+
+	if (!BuildColorCheck)
+	{
+		BuildRenderer->GetColorData().MulColor = { 0.f,1.f,0.f,0.5f };
+		if (true == GameEngineInput::GetInst()->IsDown("LeftClick"))
+		{
+			if (BuildCheck)
+			{
+				BuildCheck = false;
+				PlusCheck = false;
+				m_Builder->BuildCheck = true;
+				m_Builder->BuildPos = BuildRenderer->GetTransform().GetWorldPosition();
+
+
+				
+			}
+		
+			
+
+
+
+		}
+
+
+	}
+	
+	
 	return false;
 }
 
@@ -107,30 +183,148 @@ bool MainMouse::AllCollision(GameEngineCollision* _This, GameEngineCollision* _O
 
 	if (true == GameEngineInput::GetInst()->IsDown("LeftClick"))
 	{
-		ClickReset();
 
+		UNITTYPE _type = ((UnitBase*)_Other->GetActor())->m_Type;
+
+		ClickReset();
+		int Typecount = 0;
+		int Deletcount = 0;
+		if (PlusCheck)
+		{
+
+			//타워 몇개인지 체크
+			{
+				std::list<GameEngineActor*> Group = GetLevel()->GetGroup(OBJECTORDER::Player);
+
+
+				auto	iter = Group.begin();
+				auto	iterEnd = Group.end();
+
+				for (; iter != iterEnd; ++iter)
+				{
+					if (_type != UNITTYPE::NULLTYPE)
+					{
+						if (_type == ((UnitBase*)(*iter))->m_Type)
+						{
+							++Typecount;
+
+						}
+
+					}
+				
+
+
+				}
+
+			}
+			
+			if (_type == UNITTYPE::ProbeS || _type == UNITTYPE::HydraS || _type == UNITTYPE::GhostS
+				|| _type == UNITTYPE::DroneS )
+			{
+				Typecount = 0;
+			}
+
+
+			//타워 삭제
+			if (Typecount >= 3)
+			{
+
+				std::list<GameEngineActor*> Group = GetLevel()->GetGroup(OBJECTORDER::Player);
+
+
+				auto	iter = Group.begin();
+				auto	iterEnd = Group.end();
+
+				for (; iter != iterEnd; ++iter)
+				{
+
+					if (((UnitBase*)_Other->GetActor()) != ((UnitBase*)(*iter)))
+					{
+						if (((UnitBase*)_Other->GetActor())->m_Type == ((UnitBase*)(*iter))->m_Type)
+						{
+							
+							(*iter)->Death();
+							++Deletcount;
+
+							if (Deletcount == 2)
+								break;
+
+						}
+
+					}
+
+
+				}
+
+
+				_Other->GetActor()->Death();
+			
+				if (_type == UNITTYPE::ZerglingC || _type == UNITTYPE::CorsairC || _type == UNITTYPE::DraC
+					|| _type == UNITTYPE::GhostC || _type == UNITTYPE::HydraC
+					|| _type == UNITTYPE::MarinC || _type == UNITTYPE::ZealotC)
+				{
+
+					m_Builder->BuildCheck = true;
+					m_Builder->BuildMake = true;
+					m_Builder->GradeType = 1;
+					m_Builder->BuildPos = BuildRenderer->GetTransform().GetWorldPosition();
+
+				}
+
+
+				if (_type == UNITTYPE::ArbitorB || _type == UNITTYPE::DarkTB 
+					|| _type == UNITTYPE::HighTB || _type == UNITTYPE::PhotoB
+					|| _type == UNITTYPE::SunkenB || _type == UNITTYPE::UltraB)
+				{
+
+					m_Builder->BuildCheck = true;
+					m_Builder->BuildMake = true;
+					m_Builder->GradeType = 2;
+					m_Builder->BuildPos = BuildRenderer->GetTransform().GetWorldPosition();
+
+				}
+
+
+				if (_type == UNITTYPE::ArconA || _type == UNITTYPE::CarrierA || _type == UNITTYPE::GardianA
+					|| _type == UNITTYPE::MutalA || _type == UNITTYPE::RiverA)
+				{
+
+					m_Builder->BuildCheck = true;
+					m_Builder->BuildMake = true;
+					m_Builder->GradeType = 3;
+					m_Builder->BuildPos = BuildRenderer->GetTransform().GetWorldPosition();
+
+				}
+
+
+
+
+
+
+			}
+		}
+	
+		BuildCheck = false;
+		PlusCheck = false;
 		((UnitBase*)_Other->GetActor())->m_bClickCheck = true;
 
+		
+
+
+
+
+
 	}
+
+	BuildRenderer->GetColorData().MulColor = { 1.f,0.f,0.f,0.5f };
+
+
 	return false;
 }
 
 void MainMouse::ClickReset()
 {
-	//{
-	//	std::list<GameEngineActor*> Group = GetLevel()->GetGroup(OBJECTORDER::Monster);
 
-
-	//	auto	iter = Group.begin();
-	//	auto	iterEnd = Group.end();
-
-	//	for (; iter != iterEnd; ++iter)
-	//	{
-	//		((UnitBase*)(*iter))->m_bClickCheck = false;
-	//	}
-
-
-	//}
 
 	{
 		std::list<GameEngineActor*> Group = GetLevel()->GetGroup(OBJECTORDER::Player);

@@ -32,6 +32,7 @@ void SunkenC::AttEnd(const FrameAnimation_DESC& _Info)
 {
 	AttCheck = true;
 	Renderer->ChangeFrameAnimation("sunkenStand");
+	ShadowRenderer->ChangeFrameAnimation("sunkenStand");
 }
 
 void SunkenC::Start()
@@ -51,6 +52,36 @@ void SunkenC::Start()
 		Renderer->AnimationBindEnd("sunkenAtt", &SunkenC::AttEnd, this);
 
 	}
+
+
+	{
+		ShadowRenderer = CreateComponent<GameEngineTextureRenderer>();
+		ShadowRenderer->GetTransform().SetLocalScale({ 128.f,128.f,1.f });
+
+
+		ShadowRenderer->CreateFrameAnimationFolder("sunkenStand", FrameAnimation_DESC("sunkenStand", 0.1f));
+		ShadowRenderer->CreateFrameAnimationFolder("sunkenAtt", FrameAnimation_DESC("sunkenAtt", 0.1f, false));
+
+		ShadowRenderer->ChangeFrameAnimation("sunkenStand");
+
+		ShadowRenderer->AnimationBindEnd("sunkenAtt", &SunkenC::AttEnd, this);
+
+
+		ShadowRenderer->GetColorData().MulColor.r = 0.f;
+		ShadowRenderer->GetColorData().MulColor.g = 0.f;
+		ShadowRenderer->GetColorData().MulColor.b = 0.f;
+		ShadowRenderer->GetColorData().MulColor.a = 0.5f;
+
+
+		float4 SLocalPos = ShadowRenderer->GetTransform().GetLocalPosition();
+		SLocalPos.y -= 5.f;
+		SLocalPos.x -= 5.f;
+		SLocalPos.z += 0.5f;
+		ShadowRenderer->GetTransform().SetLocalPosition(SLocalPos);
+
+
+	}
+
 
 	{
 		BiconRenderer = CreateComponent<GameEngineTextureRenderer>();
@@ -128,6 +159,7 @@ void SunkenC::Update(float _DeltaTime)
 		{
 			++AttCount;
 			Renderer->ChangeFrameAnimation("sunkenAtt");
+			ShadowRenderer->ChangeFrameAnimation("sunkenAtt");
 
 			if (AttCheck)
 			{
@@ -156,6 +188,8 @@ void SunkenC::Update(float _DeltaTime)
 		if (MonCount == Monsize)
 		{
 			Renderer->ChangeFrameAnimation("sunkenStand");
+			ShadowRenderer->ChangeFrameAnimation("sunkenStand");
+
 			AttTime = 0.f;
 			AttCountMax = 3;
 			AttCount = 0;

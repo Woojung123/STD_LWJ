@@ -42,6 +42,34 @@ void ScoutMon::Start()
 	}
 
 	{
+		ShadowRenderer = CreateComponent<GameEngineTextureRenderer>();
+		ShadowRenderer->GetTransform().SetLocalScale({ 72.f,72.f,1.f });
+		GetTransform().SetWorldPosition({ -1348.f,617.f,0.f });
+
+		ShadowRenderer->CreateFrameAnimationFolder("ScoutMoveD", FrameAnimation_DESC("ScoutMoveD", 0.1f, true));
+		ShadowRenderer->CreateFrameAnimationFolder("ScoutMoveL", FrameAnimation_DESC("ScoutMoveL", 0.1f, true));
+		ShadowRenderer->CreateFrameAnimationFolder("ScoutMoveR", FrameAnimation_DESC("ScoutMoveR", 0.1f, true));
+		ShadowRenderer->CreateFrameAnimationFolder("ScoutMoveU", FrameAnimation_DESC("ScoutMoveU", 0.1f, true));
+
+
+		ShadowRenderer->ChangeFrameAnimation("ScoutMoveD");
+
+		ShadowRenderer->GetColorData().MulColor.r = 0.f;
+		ShadowRenderer->GetColorData().MulColor.g = 0.f;
+		ShadowRenderer->GetColorData().MulColor.b = 0.f;
+		ShadowRenderer->GetColorData().MulColor.a = 0.5f;
+
+
+		float4 SLocalPos = ShadowRenderer->GetTransform().GetLocalPosition();
+		SLocalPos.y -= 25.f;
+		SLocalPos.z += 1.f;
+		ShadowRenderer->GetTransform().SetLocalPosition(SLocalPos);
+
+	}
+
+
+
+	{
 		Collision = CreateComponent<GameEngineCollision>();
 		Collision->GetTransform().SetLocalScale({ 60.0f, 60.0f, 1.0f });
 		Collision->ChangeOrder(OBJECTORDER::Monster);
@@ -135,18 +163,22 @@ void ScoutMon::ChangeAni(float4 _Gopoint, float4 _WorldPos)
 	if (m_fAngle >= 45.f && m_fAngle < 135.f)
 	{
 		Renderer->ChangeFrameAnimation("ScoutMoveU");
+		ShadowRenderer->ChangeFrameAnimation("ScoutMoveU");
 	}
 	else if (m_fAngle >= 135.f && m_fAngle <= 225.f)
 	{
 		Renderer->ChangeFrameAnimation("ScoutMoveL");
+		ShadowRenderer->ChangeFrameAnimation("ScoutMoveL");
 	}
 	else if (m_fAngle >= 225.f && m_fAngle <= 315.f)
 	{
 		Renderer->ChangeFrameAnimation("ScoutMoveD");
+		ShadowRenderer->ChangeFrameAnimation("ScoutMoveD");
 	}
 	else if (m_fAngle >= 315.f || m_fAngle <= 45.f)
 	{
 		Renderer->ChangeFrameAnimation("ScoutMoveR");
+		ShadowRenderer->ChangeFrameAnimation("ScoutMoveR");
 	}
 
 

@@ -30,7 +30,7 @@ void ZealotC::AttEnd(const FrameAnimation_DESC& _Info)
 {
 	AttCheck = true;
 	Renderer->ChangeFrameAnimation("zelotStand12");
-
+	ShadowRenderer->ChangeFrameAnimation("zelotStand12");
 }
 
 
@@ -86,6 +86,48 @@ void ZealotC::Start()
 	}
 
 	
+	{
+		ShadowRenderer = CreateComponent<GameEngineTextureRenderer>();
+		ShadowRenderer->GetTransform().SetLocalScale({ 128.f,128.f,1.f });
+
+
+
+		ShadowRenderer->CreateFrameAnimationFolder("zelotAttack0", FrameAnimation_DESC("zelotAttack0", 0.1f));
+		ShadowRenderer->CreateFrameAnimationFolder("zelotAttack1", FrameAnimation_DESC("zelotAttack1", 0.1f));
+		ShadowRenderer->CreateFrameAnimationFolder("zelotAttack2", FrameAnimation_DESC("zelotAttack2", 0.1f));
+		ShadowRenderer->CreateFrameAnimationFolder("zelotAttack3", FrameAnimation_DESC("zelotAttack3", 0.1f));
+		ShadowRenderer->CreateFrameAnimationFolder("zelotAttack4", FrameAnimation_DESC("zelotAttack4", 0.1f));
+		ShadowRenderer->CreateFrameAnimationFolder("zelotAttack5", FrameAnimation_DESC("zelotAttack5", 0.1f));
+		ShadowRenderer->CreateFrameAnimationFolder("zelotAttack6", FrameAnimation_DESC("zelotAttack6", 0.1f));
+		ShadowRenderer->CreateFrameAnimationFolder("zelotAttack7", FrameAnimation_DESC("zelotAttack7", 0.1f));
+		ShadowRenderer->CreateFrameAnimationFolder("zelotAttack8", FrameAnimation_DESC("zelotAttack8", 0.1f));
+		ShadowRenderer->CreateFrameAnimationFolder("zelotAttack9", FrameAnimation_DESC("zelotAttack9", 0.1f));
+		ShadowRenderer->CreateFrameAnimationFolder("zelotAttack10", FrameAnimation_DESC("zelotAttack10", 0.1f));
+		ShadowRenderer->CreateFrameAnimationFolder("zelotAttack11", FrameAnimation_DESC("zelotAttack11", 0.1f));
+		ShadowRenderer->CreateFrameAnimationFolder("zelotAttack12", FrameAnimation_DESC("zelotAttack12", 0.1f));
+		ShadowRenderer->CreateFrameAnimationFolder("zelotAttack13", FrameAnimation_DESC("zelotAttack13", 0.1f));
+		ShadowRenderer->CreateFrameAnimationFolder("zelotAttack14", FrameAnimation_DESC("zelotAttack14", 0.1f));
+		ShadowRenderer->CreateFrameAnimationFolder("zelotAttack15", FrameAnimation_DESC("zelotAttack15", 0.1f));
+
+		ShadowRenderer->CreateFrameAnimationFolder("zelotStand12", FrameAnimation_DESC("zelotStand12", 0.1f));
+
+		ShadowRenderer->ChangeFrameAnimation("zelotStand12");
+
+		ShadowRenderer->GetColorData().MulColor.r = 0.f;
+		ShadowRenderer->GetColorData().MulColor.g = 0.f;
+		ShadowRenderer->GetColorData().MulColor.b = 0.f;
+		ShadowRenderer->GetColorData().MulColor.a = 0.5f;
+
+
+		float4 SLocalPos = ShadowRenderer->GetTransform().GetLocalPosition();
+		SLocalPos.y -= 5.f;
+		SLocalPos.x -= 5.f;
+		SLocalPos.z += 1.f;
+		ShadowRenderer->GetTransform().SetLocalPosition(SLocalPos);
+	}
+
+
+
 
 	MainUI = GetLevel()->CreateActor<ZealotCUI>(OBJECTORDER::UI);
 
@@ -181,6 +223,7 @@ void ZealotC::Update(float _DeltaTime)
 			AttCheck = false;
 			BAniChange = false;
 			Renderer->ChangeFrameAnimation("zelotStand12");
+			ShadowRenderer->ChangeFrameAnimation("zelotStand12");
 			AttTime = 0.f;
 		}
 
@@ -211,81 +254,97 @@ void ZealotC::ChangeAni(float4 _Gopoint, float4 _WorldPos)
 	if (m_fAngle >= 349.f || m_fAngle < 11.5f)
 	{
 		Renderer->ChangeFrameAnimation("zelotAttack0");
+		ShadowRenderer->ChangeFrameAnimation("zelotAttack0");
 	}
 
 	if (m_fAngle >= 11.5 && m_fAngle < 34.f)
 	{
 		Renderer->ChangeFrameAnimation("zelotAttack1");
+		ShadowRenderer->ChangeFrameAnimation("zelotAttack1");
 	}
 
 	if (m_fAngle >= 34.f && m_fAngle < 56.5f)
 	{
 		Renderer->ChangeFrameAnimation("zelotAttack2");
+		ShadowRenderer->ChangeFrameAnimation("zelotAttack2");
 	}
 
 	if (m_fAngle >= 56.5f && m_fAngle < 79.f)
 	{
 		Renderer->ChangeFrameAnimation("zelotAttack3");
+		ShadowRenderer->ChangeFrameAnimation("zelotAttack3");
 	}
 
 	if (m_fAngle >= 79.f && m_fAngle < 101.5f)
 	{
 		Renderer->ChangeFrameAnimation("zelotAttack4");
+		ShadowRenderer->ChangeFrameAnimation("zelotAttack4");
 	}
 
 	if (m_fAngle >= 101.5f && m_fAngle < 124.f)
 	{
 		Renderer->ChangeFrameAnimation("zelotAttack5");
+		ShadowRenderer->ChangeFrameAnimation("zelotAttack5");
 	}
 
 	if (m_fAngle >= 124.f && m_fAngle < 146.5f)
 	{
 		Renderer->ChangeFrameAnimation("zelotAttack6");
+		ShadowRenderer->ChangeFrameAnimation("zelotAttack6");
 	}
 
 	if (m_fAngle >= 146.5f && m_fAngle < 169.f)
 	{
 		Renderer->ChangeFrameAnimation("zelotAttack7");
+		ShadowRenderer->ChangeFrameAnimation("zelotAttack7");
 	}
 
 	if (m_fAngle >= 169.f && m_fAngle < 191.5f)
 	{
 		Renderer->ChangeFrameAnimation("zelotAttack8");
+		ShadowRenderer->ChangeFrameAnimation("zelotAttack8");
 	}
 
 	if (m_fAngle >= 191.5f && m_fAngle < 214.f)
 	{
 		Renderer->ChangeFrameAnimation("zelotAttack9");
+		ShadowRenderer->ChangeFrameAnimation("zelotAttack9");
 	}
 
 	if (m_fAngle >= 214.f && m_fAngle < 236.5f)
 	{
 		Renderer->ChangeFrameAnimation("zelotAttack10");
+		ShadowRenderer->ChangeFrameAnimation("zelotAttack10");
 	}
 
 	if (m_fAngle > 236.5f && m_fAngle < 259.f)
 	{
 		Renderer->ChangeFrameAnimation("zelotAttack11");
+		ShadowRenderer->ChangeFrameAnimation("zelotAttack11");
 	}
 
 	if (m_fAngle >= 259.f && m_fAngle < 281.5f) //Down
 	{
 		Renderer->ChangeFrameAnimation("zelotAttack12");
+		ShadowRenderer->ChangeFrameAnimation("zelotAttack12");
 	}
 
 	if (m_fAngle >= 281.5f && m_fAngle < 304.f)
 	{
 		Renderer->ChangeFrameAnimation("zelotAttack13");
+		ShadowRenderer->ChangeFrameAnimation("zelotAttack13");
 	}
 
 	if (m_fAngle >= 304.5f && m_fAngle < 326.5f)
 	{
 		Renderer->ChangeFrameAnimation("zelotAttack14");
+		ShadowRenderer->ChangeFrameAnimation("zelotAttack14");
 	}
 
 	if (m_fAngle >= 326.5f && m_fAngle < 349.f)
 	{
 		Renderer->ChangeFrameAnimation("zelotAttack15");
+		ShadowRenderer->ChangeFrameAnimation("zelotAttack15");
 	}
 
 

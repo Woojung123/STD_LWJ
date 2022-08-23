@@ -14,6 +14,7 @@
 #include "DivaolerMon.h"
 #include "corsairMon.h"
 #include "ScoutMon.h"
+
 #include "GhostC.h"
 #include "MarinC.h"
 #include "ZealotC.h"
@@ -35,6 +36,14 @@
 #include "DroneS.h"
 #include "ProbeS.h"
 #include "HydraS.h"
+
+#include "Tileobject.h"
+
+
+
+
+#include "Builder.h"
+
 
 #include "UpgradeC.h"
 #include "UpgradeB.h"
@@ -77,12 +86,6 @@ void StageMain::Start()
 
 
 
-	/*{
-		GameEngineCameraActor* actor = CreateActor<GameEngineCameraActor>();
-		actor->GetCameraComponent()->SetProjecstionMode(CAMERAPROJECTIONMODE::Orthographic);
-		actor->GetTransform().SetLocalPosition({ 0.0f, 0.0f, -500.0f });
-	}*/
-
 
 	{
 		TestUI* NewPlayer = CreateActor<TestUI>(OBJECTORDER::UI);
@@ -92,16 +95,18 @@ void StageMain::Start()
 		MiniMap* NewPlayer = CreateActor<MiniMap>(OBJECTORDER::UI);
 	}
 	
-	{
-		MainMouse* NewPlayer = CreateActor<MainMouse>(OBJECTORDER::Mouse);
-	}
-
-
+	
+	MainMouse* MaMouse = CreateActor<MainMouse>(OBJECTORDER::Mouse);
 	
 
+	
+	Builder* mBuilder = CreateActor<Builder>(OBJECTORDER::Player);
+	mBuilder->GetTransform().SetWorldPosition({ -1017.f,336.f,0.f });
+	mBuilder->m_MainMouse = MaMouse;
+	MaMouse->m_Builder = mBuilder;
+
 	MapPoint MapP;
-	/*MapP.TurnPoint = float4(-1348.f, 617.f,1.f,0.f);
-	CheckPoint.push_back(MapP);*/
+
 
 	MapP.TurnPoint = float4(-1348.f, 424.f, 1.f, 0.f);
 	CheckPoint.push_back(MapP);
@@ -154,156 +159,519 @@ void StageMain::Start()
 		NewMainCamera = CreateActor<StageMainCamera>(OBJECTORDER::Camera);
 	}
 
-	{
-		TestUnit* TestUni = CreateActor<TestUnit>(OBJECTORDER::Player);
-		TestUni->GetTransform().SetWorldPosition({ -1050.f,370.f,0.f });
-	}
-	
-	{
-		GhostC* TestUni = CreateActor<GhostC>(OBJECTORDER::Player);
-		TestUni->GetTransform().SetWorldPosition({ -990.f,370.f,0.f });
-	}
-
-	{
-		MarinC* TestUni = CreateActor<MarinC>(OBJECTORDER::Player);
-		TestUni->GetTransform().SetWorldPosition({ -990.f,310.f,0.f });
-	}
-
-	{
-		ZealotC* TestUni = CreateActor<ZealotC>(OBJECTORDER::Player);
-		TestUni->GetTransform().SetWorldPosition({ -1050.f,310.f,0.f });
-	}
-
-	{
-		CorsairC* TestUni = CreateActor<CorsairC>(OBJECTORDER::Player);
-		TestUni->GetTransform().SetWorldPosition({ -1050.f,190.f,0.f });
-	}
-
-
-	{
-		HydraC* TestUni = CreateActor<HydraC>(OBJECTORDER::Player);
-		TestUni->GetTransform().SetWorldPosition({ -990.f,190.f,0.f });
-	}
-
-
-	{
-		ZerglingC* TestUni = CreateActor<ZerglingC>(OBJECTORDER::Player);
-		TestUni->GetTransform().SetWorldPosition({ -870.f,370.f,0.f });
-	}
-
-	{
-		GardianC* TestUni = CreateActor<GardianC>(OBJECTORDER::Player);
-		TestUni->GetTransform().SetWorldPosition({ -870.f,310.f,0.f });
-	}
-	
-	
-	{
-		HighT* TestUni = CreateActor<HighT>(OBJECTORDER::Player);
-		TestUni->GetTransform().SetWorldPosition({ -810.f,310.f,0.f });
-	}
-
-
-	{
-		CannonB* TestUni = CreateActor<CannonB>(OBJECTORDER::Player);
-		TestUni->GetTransform().SetWorldPosition({ -1170.f,370.f,0.f });
-	}
-
-	{
-		UltraC* TestUni = CreateActor<UltraC>(OBJECTORDER::Player);
-		TestUni->GetTransform().SetWorldPosition({ -1170.f,310.f,0.f });
-	}
-
-	{
-		SunkenC* TestUni = CreateActor<SunkenC>(OBJECTORDER::Player);
-		TestUni->GetTransform().SetWorldPosition({ -1230.f,310.f,0.f });
-	}
-
-	{
-		DarkTB* TestUni = CreateActor<DarkTB>(OBJECTORDER::Player);
-		TestUni->GetTransform().SetWorldPosition({ -1230.f,370.f,0.f });
-	}
-
-	
-	{
-		ArbitorB* TestUni = CreateActor<ArbitorB>(OBJECTORDER::Player);
-		TestUni->GetTransform().SetWorldPosition({ -1290.f,370.f,0.f });
-	}
-
-
-
-	{
-		MutalA* TestUni = CreateActor<MutalA>(OBJECTORDER::Player);
-		TestUni->GetTransform().SetWorldPosition({ -1290.f,310.f,0.f });
-	}
 
 
 	
+
+	//중간
 	{
-		Arcon* TestUni = CreateActor<Arcon>(OBJECTORDER::Player);
-		TestUni->GetTransform().SetWorldPosition({ -810.f,370.f,0.f });
+		Tileobject* TestUni = CreateActor<Tileobject>(OBJECTORDER::TileMap);
+		TestUni->GetTransform().SetWorldPosition({ -1046.f,361.f,0.f });
+	}
+
+	{
+		Tileobject* TestUni = CreateActor<Tileobject>(OBJECTORDER::TileMap);
+		TestUni->GetTransform().SetWorldPosition({ -986.f,361.f,0.f });
+	}
+
+	{
+		Tileobject* TestUni = CreateActor<Tileobject>(OBJECTORDER::TileMap);
+		TestUni->GetTransform().SetWorldPosition({ -1046.f,301.f,0.f });
+	}
+
+	{
+		Tileobject* TestUni = CreateActor<Tileobject>(OBJECTORDER::TileMap);
+		TestUni->GetTransform().SetWorldPosition({ -986.f,301.f,0.f });
+	}
+
+
+	//아래중간
+
+	{
+		Tileobject* TestUni = CreateActor<Tileobject>(OBJECTORDER::TileMap);
+		TestUni->GetTransform().SetWorldPosition({ -1046.f,181.f,0.f });
+	}
+
+	{
+		Tileobject* TestUni = CreateActor<Tileobject>(OBJECTORDER::TileMap);
+		TestUni->GetTransform().SetWorldPosition({ -986.f,181.f,0.f });
+	}
+
+	{
+		Tileobject* TestUni = CreateActor<Tileobject>(OBJECTORDER::TileMap);
+		TestUni->GetTransform().SetWorldPosition({ -1046.f,121.f,0.f });
+	}
+
+	{
+		Tileobject* TestUni = CreateActor<Tileobject>(OBJECTORDER::TileMap);
+		TestUni->GetTransform().SetWorldPosition({ -986.f,121.f,0.f });
+	}
+
+
+
+
+	//위에중간
+
+	{
+		Tileobject* TestUni = CreateActor<Tileobject>(OBJECTORDER::TileMap);
+		TestUni->GetTransform().SetWorldPosition({ -1046.f,541.f,0.f });
+	}
+
+	{
+		Tileobject* TestUni = CreateActor<Tileobject>(OBJECTORDER::TileMap);
+		TestUni->GetTransform().SetWorldPosition({ -986.f,541.f,0.f });
+	}
+
+	{
+		Tileobject* TestUni = CreateActor<Tileobject>(OBJECTORDER::TileMap);
+		TestUni->GetTransform().SetWorldPosition({ -1046.f,481.f,0.f });
+	}
+
+	{
+		Tileobject* TestUni = CreateActor<Tileobject>(OBJECTORDER::TileMap);
+		TestUni->GetTransform().SetWorldPosition({ -986.f,481.f,0.f });
+	}
+
+
+
+
+
+
+
+
+	// 오른쪽 중간
+	{
+		Tileobject* TestUni = CreateActor<Tileobject>(OBJECTORDER::TileMap);
+		TestUni->GetTransform().SetWorldPosition({ -866.f,361.f,0.f });
+	}
+
+	{
+		Tileobject* TestUni = CreateActor<Tileobject>(OBJECTORDER::TileMap);
+		TestUni->GetTransform().SetWorldPosition({ -806.f,361.f,0.f });
+	}
+
+	{
+		Tileobject* TestUni = CreateActor<Tileobject>(OBJECTORDER::TileMap);
+		TestUni->GetTransform().SetWorldPosition({ -866.f,301.f,0.f });
+	}
+
+	{
+		Tileobject* TestUni = CreateActor<Tileobject>(OBJECTORDER::TileMap);
+		TestUni->GetTransform().SetWorldPosition({ -806.f,301.f,0.f });
 	}
 
 
 	{
-		River* TestUni = CreateActor<River>(OBJECTORDER::Player);
-		TestUni->GetTransform().SetWorldPosition({ -750.f,370.f,0.f });
+		Tileobject* TestUni = CreateActor<Tileobject>(OBJECTORDER::TileMap);
+		TestUni->GetTransform().SetWorldPosition({ -746.f,361.f,0.f });
 	}
 
 	{
-		Carrier* TestUni = CreateActor<Carrier>(OBJECTORDER::Player);
-		TestUni->GetTransform().SetWorldPosition({ -750.f,310.f,0.f });
+		Tileobject* TestUni = CreateActor<Tileobject>(OBJECTORDER::TileMap);
+		TestUni->GetTransform().SetWorldPosition({ -746.f,301.f,0.f });
+	}
+
+
+
+
+	//위에오른쪽
+
+	{
+		Tileobject* TestUni = CreateActor<Tileobject>(OBJECTORDER::TileMap);
+		TestUni->GetTransform().SetWorldPosition({ -866.f,541.f,0.f });
 	}
 
 	{
-		GhostS* TestUni = CreateActor<GhostS>(OBJECTORDER::Player);
-		TestUni->GetTransform().SetWorldPosition({ -810.f,190.f,0.f });
+		Tileobject* TestUni = CreateActor<Tileobject>(OBJECTORDER::TileMap);
+		TestUni->GetTransform().SetWorldPosition({ -806.f,541.f,0.f });
+	}
+
+	{
+		Tileobject* TestUni = CreateActor<Tileobject>(OBJECTORDER::TileMap);
+		TestUni->GetTransform().SetWorldPosition({ -746.f,541.f,0.f });
 	}
 
 
 	{
-		DroneS* TestUni = CreateActor<DroneS>(OBJECTORDER::Player);
-		TestUni->GetTransform().SetWorldPosition({ -750.f,190.f,0.f });
-	}
-	
-
-	{
-		ProbeS* TestUni = CreateActor<ProbeS>(OBJECTORDER::Player);
-		TestUni->GetTransform().SetWorldPosition({ -870.f,190.f,0.f });
-	}
-
-
-	{
-		HydraS* TestUni = CreateActor<HydraS>(OBJECTORDER::Player);
-		TestUni->GetTransform().SetWorldPosition({ -870.f,130.f,0.f });
-	}
-	
-	{
-		UpgradeC* TestUni = CreateActor<UpgradeC>(OBJECTORDER::Player);
-		TestUni->GetTransform().SetWorldPosition({ -508.f,617.f,0.f });
+		Tileobject* TestUni = CreateActor<Tileobject>(OBJECTORDER::TileMap);
+		TestUni->GetTransform().SetWorldPosition({ -866.f,481.f,0.f });
 	}
 
 	{
-		UpgradeB* TestUni = CreateActor<UpgradeB>(OBJECTORDER::Player);
-		TestUni->GetTransform().SetWorldPosition({ -353.f,591.f,0.f });
+		Tileobject* TestUni = CreateActor<Tileobject>(OBJECTORDER::TileMap);
+		TestUni->GetTransform().SetWorldPosition({ -806.f,481.f,0.f });
 	}
 
 	{
-		UpgradeA* TestUni = CreateActor<UpgradeA>(OBJECTORDER::Player);
-		TestUni->GetTransform().SetWorldPosition({ -508.f,505.f,0.f });
+		Tileobject* TestUni = CreateActor<Tileobject>(OBJECTORDER::TileMap);
+		TestUni->GetTransform().SetWorldPosition({ -746.f,481.f,0.f });
+	}
+
+
+
+
+
+
+
+
+	//아래 오른쪽
+
+	{
+		Tileobject* TestUni = CreateActor<Tileobject>(OBJECTORDER::TileMap);
+		TestUni->GetTransform().SetWorldPosition({ -866.f,181.f,0.f });
 	}
 
 	{
-		UpgradeS* TestUni = CreateActor<UpgradeS>(OBJECTORDER::Player);
-		TestUni->GetTransform().SetWorldPosition({ -372.f,445.f,0.f });
+		Tileobject* TestUni = CreateActor<Tileobject>(OBJECTORDER::TileMap);
+		TestUni->GetTransform().SetWorldPosition({ -806.f,181.f,0.f });
+	}
+
+	{
+		Tileobject* TestUni = CreateActor<Tileobject>(OBJECTORDER::TileMap);
+		TestUni->GetTransform().SetWorldPosition({ -746.f,181.f,0.f });
 	}
 
 
-	
+
+	{
+		Tileobject* TestUni = CreateActor<Tileobject>(OBJECTORDER::TileMap);
+		TestUni->GetTransform().SetWorldPosition({ -866.f,121.f,0.f });
+	}
+
+	{
+		Tileobject* TestUni = CreateActor<Tileobject>(OBJECTORDER::TileMap);
+		TestUni->GetTransform().SetWorldPosition({ -806.f,121.f,0.f });
+	}
+
+
+	{
+		Tileobject* TestUni = CreateActor<Tileobject>(OBJECTORDER::TileMap);
+		TestUni->GetTransform().SetWorldPosition({ -746.f,121.f,0.f });
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	//왼쪽 중간ㄱ
+
+	{
+		Tileobject* TestUni = CreateActor<Tileobject>(OBJECTORDER::TileMap);
+		TestUni->GetTransform().SetWorldPosition({ -1226.f,361.f,0.f });
+	}
+
+	{
+		Tileobject* TestUni = CreateActor<Tileobject>(OBJECTORDER::TileMap);
+		TestUni->GetTransform().SetWorldPosition({ -1286.f,361.f,0.f });
+	}
+
+	{
+		Tileobject* TestUni = CreateActor<Tileobject>(OBJECTORDER::TileMap);
+		TestUni->GetTransform().SetWorldPosition({ -1346,361.f,0.f });
+	}
+
+	{
+		Tileobject* TestUni = CreateActor<Tileobject>(OBJECTORDER::TileMap);
+		TestUni->GetTransform().SetWorldPosition({ -1166.f,361.f,0.f });
+	}
+
+
+
+	{
+		Tileobject* TestUni = CreateActor<Tileobject>(OBJECTORDER::TileMap);
+		TestUni->GetTransform().SetWorldPosition({ -1226.f,301.f,0.f });
+	}
+
+	{
+		Tileobject* TestUni = CreateActor<Tileobject>(OBJECTORDER::TileMap);
+		TestUni->GetTransform().SetWorldPosition({ -1286.f,301.f,0.f });
+	}
+
+	{
+		Tileobject* TestUni = CreateActor<Tileobject>(OBJECTORDER::TileMap);
+		TestUni->GetTransform().SetWorldPosition({ -1346,301.f,0.f });
+	}
+
+	{
+		Tileobject* TestUni = CreateActor<Tileobject>(OBJECTORDER::TileMap);
+		TestUni->GetTransform().SetWorldPosition({ -1166.f,301.f,0.f });
+	}
+
+
+
+	//아래중간
+
+	{
+		Tileobject* TestUni = CreateActor<Tileobject>(OBJECTORDER::TileMap);
+		TestUni->GetTransform().SetWorldPosition({ -1286.f,181.f,0.f });
+	}
+
+	{
+		Tileobject* TestUni = CreateActor<Tileobject>(OBJECTORDER::TileMap);
+		TestUni->GetTransform().SetWorldPosition({ -1226.f,181.f,0.f });
+	}
+
+	{
+		Tileobject* TestUni = CreateActor<Tileobject>(OBJECTORDER::TileMap);
+		TestUni->GetTransform().SetWorldPosition({ -1166.f,181.f,0.f });
+	}
+
+	{
+		Tileobject* TestUni = CreateActor<Tileobject>(OBJECTORDER::TileMap);
+		TestUni->GetTransform().SetWorldPosition({ -1226.f,121.f,0.f });
+	}
+
+	{
+		Tileobject* TestUni = CreateActor<Tileobject>(OBJECTORDER::TileMap);
+		TestUni->GetTransform().SetWorldPosition({ -1286.f,121.f,0.f });
+	}
+
+	{
+		Tileobject* TestUni = CreateActor<Tileobject>(OBJECTORDER::TileMap);
+		TestUni->GetTransform().SetWorldPosition({ -1166.f,121.f,0.f });
+	}
+
+
+	//위에중간
+
+	{
+		Tileobject* TestUni = CreateActor<Tileobject>(OBJECTORDER::TileMap);
+		TestUni->GetTransform().SetWorldPosition({ -1286.f,541.f,0.f });
+	}
+
+	{
+		Tileobject* TestUni = CreateActor<Tileobject>(OBJECTORDER::TileMap);
+		TestUni->GetTransform().SetWorldPosition({ -1166.f,541.f,0.f });
+	}
+
+	{
+		Tileobject* TestUni = CreateActor<Tileobject>(OBJECTORDER::TileMap);
+		TestUni->GetTransform().SetWorldPosition({ -1226.f,541.f,0.f });
+	}
+
+
+	{
+		Tileobject* TestUni = CreateActor<Tileobject>(OBJECTORDER::TileMap);
+		TestUni->GetTransform().SetWorldPosition({ -1286.f,481.f,0.f });
+	}
+
+	{
+		Tileobject* TestUni = CreateActor<Tileobject>(OBJECTORDER::TileMap);
+		TestUni->GetTransform().SetWorldPosition({ -1166.f,481.f,0.f });
+	}
+
+	{
+		Tileobject* TestUni = CreateActor<Tileobject>(OBJECTORDER::TileMap);
+		TestUni->GetTransform().SetWorldPosition({ -1226.f,481.f,0.f });
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	//{
+	//	TestUnit* TestUni = CreateActor<TestUnit>(OBJECTORDER::Player);
+	//	TestUni->GetTransform().SetWorldPosition({ -1050.f,370.f,0.f });
+	//}
+	//
+	//{
+	//	GhostC* TestUni = CreateActor<GhostC>(OBJECTORDER::Player);
+	//	TestUni->GetTransform().SetWorldPosition({ -990.f,370.f,0.f });
+	//}
+
+	//{
+	//	MarinC* TestUni = CreateActor<MarinC>(OBJECTORDER::Player);
+	//	TestUni->GetTransform().SetWorldPosition({ -990.f,310.f,0.f });
+	//}
+
+	//{
+	//	ZealotC* TestUni = CreateActor<ZealotC>(OBJECTORDER::Player);
+	//	TestUni->GetTransform().SetWorldPosition({ -1050.f,310.f,0.f });
+	//}
+
+	//{
+	//	CorsairC* TestUni = CreateActor<CorsairC>(OBJECTORDER::Player);
+	//	TestUni->GetTransform().SetWorldPosition({ -1050.f,190.f,0.f });
+	//}
+
+
+	//{
+	//	HydraC* TestUni = CreateActor<HydraC>(OBJECTORDER::Player);
+	//	TestUni->GetTransform().SetWorldPosition({ -990.f,190.f,0.f });
+	//}
+
+
+	//{
+	//	ZerglingC* TestUni = CreateActor<ZerglingC>(OBJECTORDER::Player);
+	//	TestUni->GetTransform().SetWorldPosition({ -870.f,370.f,0.f });
+	//}
+
+	//{
+	//	GardianC* TestUni = CreateActor<GardianC>(OBJECTORDER::Player);
+	//	TestUni->GetTransform().SetWorldPosition({ -870.f,310.f,0.f });
+	//}
+	//
+	//
+	//{
+	//	HighT* TestUni = CreateActor<HighT>(OBJECTORDER::Player);
+	//	TestUni->GetTransform().SetWorldPosition({ -810.f,310.f,0.f });
+	//}
+
+
+	//{
+	//	CannonB* TestUni = CreateActor<CannonB>(OBJECTORDER::Player);
+	//	TestUni->GetTransform().SetWorldPosition({ -1170.f,370.f,0.f });
+	//}
+
+	//{
+	//	UltraC* TestUni = CreateActor<UltraC>(OBJECTORDER::Player);
+	//	TestUni->GetTransform().SetWorldPosition({ -1170.f,310.f,0.f });
+	//}
+
+	//{
+	//	SunkenC* TestUni = CreateActor<SunkenC>(OBJECTORDER::Player);
+	//	TestUni->GetTransform().SetWorldPosition({ -1230.f,310.f,0.f });
+	//}
+
+	//{
+	//	DarkTB* TestUni = CreateActor<DarkTB>(OBJECTORDER::Player);
+	//	TestUni->GetTransform().SetWorldPosition({ -1230.f,370.f,0.f });
+	//}
+
+	//
+	//{
+	//	ArbitorB* TestUni = CreateActor<ArbitorB>(OBJECTORDER::Player);
+	//	TestUni->GetTransform().SetWorldPosition({ -1290.f,370.f,0.f });
+	//}
+
+
+
+	//{
+	//	MutalA* TestUni = CreateActor<MutalA>(OBJECTORDER::Player);
+	//	TestUni->GetTransform().SetWorldPosition({ -1290.f,310.f,0.f });
+	//}
+
+
+	//
+	//{
+	//	Arcon* TestUni = CreateActor<Arcon>(OBJECTORDER::Player);
+	//	TestUni->GetTransform().SetWorldPosition({ -810.f,370.f,0.f });
+	//}
+
+
+	//{
+	//	River* TestUni = CreateActor<River>(OBJECTORDER::Player);
+	//	TestUni->GetTransform().SetWorldPosition({ -750.f,370.f,0.f });
+	//}
+
+	//{
+	//	Carrier* TestUni = CreateActor<Carrier>(OBJECTORDER::Player);
+	//	TestUni->GetTransform().SetWorldPosition({ -750.f,310.f,0.f });
+	//}
+
+	//{
+	//	GhostS* TestUni = CreateActor<GhostS>(OBJECTORDER::Player);
+	//	TestUni->GetTransform().SetWorldPosition({ -810.f,190.f,0.f });
+	//}
+
+
+	//{
+	//	DroneS* TestUni = CreateActor<DroneS>(OBJECTORDER::Player);
+	//	TestUni->GetTransform().SetWorldPosition({ -750.f,190.f,0.f });
+	//}
+	//
+
+	//{
+	//	ProbeS* TestUni = CreateActor<ProbeS>(OBJECTORDER::Player);
+	//	TestUni->GetTransform().SetWorldPosition({ -870.f,190.f,0.f });
+	//}
+
+
+	//{
+	//	HydraS* TestUni = CreateActor<HydraS>(OBJECTORDER::Player);
+	//	TestUni->GetTransform().SetWorldPosition({ -870.f,130.f,0.f });
+	//}
+	//
+	//{
+	//	UpgradeC* TestUni = CreateActor<UpgradeC>(OBJECTORDER::Player);
+	//	TestUni->GetTransform().SetWorldPosition({ -508.f,617.f,0.f });
+	//}
+
+	//{
+	//	UpgradeB* TestUni = CreateActor<UpgradeB>(OBJECTORDER::Player);
+	//	TestUni->GetTransform().SetWorldPosition({ -353.f,591.f,0.f });
+	//}
+
+	//{
+	//	UpgradeA* TestUni = CreateActor<UpgradeA>(OBJECTORDER::Player);
+	//	TestUni->GetTransform().SetWorldPosition({ -508.f,505.f,0.f });
+	//}
+
+	//{
+	//	UpgradeS* TestUni = CreateActor<UpgradeS>(OBJECTORDER::Player);
+	//	TestUni->GetTransform().SetWorldPosition({ -372.f,445.f,0.f });
+	//}
+
+
+	//GameEngineStatusWindow::AddDebugRenderTarget("BackBuffer", GameEngineDevice::GetBackBuffer());
+	//GameEngineStatusWindow::AddDebugRenderTarget("MainCamera", GetMainCamera()->GetCameraRenderTarget());
+	//GameEngineStatusWindow::AddDebugRenderTarget("UICamera", GetUICamera()->GetCameraRenderTarget());
+
+
+
 
 
 }
 void StageMain::Update(float _DeltaTime)
 {
+
+
 
 
 	if (GameEngineInput::GetInst()->IsDown("FreeCameaOnOff"))

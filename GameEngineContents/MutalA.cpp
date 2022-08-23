@@ -91,6 +91,50 @@ void MutalA::Start()
 	}
 
 
+	{
+		ShadowRenderer = CreateComponent<GameEngineTextureRenderer>();
+		ShadowRenderer->GetTransform().SetLocalScale({ 96.f,96.f,1.f });
+		GetTransform().SetWorldPosition({ -990.f,310.f,0.f });
+
+
+		ShadowRenderer->CreateFrameAnimationFolder("mutalMove0", FrameAnimation_DESC("mutalMove0", 0.1f));
+		ShadowRenderer->CreateFrameAnimationFolder("mutalMove1", FrameAnimation_DESC("mutalMove1", 0.1f));
+		ShadowRenderer->CreateFrameAnimationFolder("mutalMove2", FrameAnimation_DESC("mutalMove2", 0.1f));
+		ShadowRenderer->CreateFrameAnimationFolder("mutalMove3", FrameAnimation_DESC("mutalMove3", 0.1f));
+		ShadowRenderer->CreateFrameAnimationFolder("mutalMove4", FrameAnimation_DESC("mutalMove4", 0.1f));
+		ShadowRenderer->CreateFrameAnimationFolder("mutalMove5", FrameAnimation_DESC("mutalMove5", 0.1f));
+		ShadowRenderer->CreateFrameAnimationFolder("mutalMove6", FrameAnimation_DESC("mutalMove6", 0.1f));
+		ShadowRenderer->CreateFrameAnimationFolder("mutalMove7", FrameAnimation_DESC("mutalMove7", 0.1f));
+		ShadowRenderer->CreateFrameAnimationFolder("mutalMove8", FrameAnimation_DESC("mutalMove8", 0.1f));
+		ShadowRenderer->CreateFrameAnimationFolder("mutalMove9", FrameAnimation_DESC("mutalMove9", 0.1f));
+		ShadowRenderer->CreateFrameAnimationFolder("mutalMove10", FrameAnimation_DESC("mutalMove10", 0.1f));
+		ShadowRenderer->CreateFrameAnimationFolder("mutalMove11", FrameAnimation_DESC("mutalMove11", 0.1f));
+		ShadowRenderer->CreateFrameAnimationFolder("mutalMove12", FrameAnimation_DESC("mutalMove12", 0.1f));
+		ShadowRenderer->CreateFrameAnimationFolder("mutalMove13", FrameAnimation_DESC("mutalMove13", 0.1f));
+		ShadowRenderer->CreateFrameAnimationFolder("mutalMove14", FrameAnimation_DESC("mutalMove14", 0.1f));
+		ShadowRenderer->CreateFrameAnimationFolder("mutalMove15", FrameAnimation_DESC("mutalMove15", 0.1f));
+
+
+		ShadowRenderer->ChangeFrameAnimation("mutalMove12");
+
+
+		ShadowRenderer->GetColorData().MulColor.r = 0.f;
+		ShadowRenderer->GetColorData().MulColor.g = 0.f;
+		ShadowRenderer->GetColorData().MulColor.b = 0.f;
+		ShadowRenderer->GetColorData().MulColor.a = 0.5f;
+
+
+		float4 SLocalPos = ShadowRenderer->GetTransform().GetLocalPosition();
+		SLocalPos.y -= 25.f;
+		SLocalPos.z += 0.5f;
+		ShadowRenderer->GetTransform().SetLocalPosition(SLocalPos);
+
+
+	}
+
+
+
+
 
 	{
 
@@ -276,81 +320,97 @@ void MutalA::ChangeAni(float4 _Gopoint, float4 _WorldPos)
 	if (m_fAngle >= 349.f || m_fAngle < 11.5f)
 	{
 		Renderer->ChangeFrameAnimation("mutalMove0");
+		ShadowRenderer->ChangeFrameAnimation("mutalMove0");
 	}
 
 	if (m_fAngle >= 11.5 && m_fAngle < 34.f)
 	{
 		Renderer->ChangeFrameAnimation("mutalMove1");
+		ShadowRenderer->ChangeFrameAnimation("mutalMove1");
 	}
 
 	if (m_fAngle >= 34.f && m_fAngle < 56.5f)
 	{
 		Renderer->ChangeFrameAnimation("mutalMove2");
+		ShadowRenderer->ChangeFrameAnimation("mutalMove2");
 	}
 
 	if (m_fAngle >= 56.5f && m_fAngle < 79.f)
 	{
 		Renderer->ChangeFrameAnimation("mutalMove3");
+		ShadowRenderer->ChangeFrameAnimation("mutalMove3");
 	}
 
 	if (m_fAngle >= 79.f && m_fAngle < 101.5f)
 	{
 		Renderer->ChangeFrameAnimation("mutalMove4");
+		ShadowRenderer->ChangeFrameAnimation("mutalMove4");
 	}
 
 	if (m_fAngle >= 101.5f && m_fAngle < 124.f)
 	{
 		Renderer->ChangeFrameAnimation("mutalMove5");
+		ShadowRenderer->ChangeFrameAnimation("mutalMove5");
 	}
 
 	if (m_fAngle >= 124.f && m_fAngle < 146.5f)
 	{
 		Renderer->ChangeFrameAnimation("mutalMove6");
+		ShadowRenderer->ChangeFrameAnimation("mutalMove6");
 	}
 
 	if (m_fAngle >= 146.5f && m_fAngle < 169.f)
 	{
 		Renderer->ChangeFrameAnimation("mutalMove7");
+		ShadowRenderer->ChangeFrameAnimation("mutalMove7");
 	}
 
 	if (m_fAngle >= 169.f && m_fAngle < 191.5f)
 	{
 		Renderer->ChangeFrameAnimation("mutalMove8");
+		ShadowRenderer->ChangeFrameAnimation("mutalMove8");
 	}
 
 	if (m_fAngle >= 191.5f && m_fAngle < 214.f)
 	{
 		Renderer->ChangeFrameAnimation("mutalMove9");
+		ShadowRenderer->ChangeFrameAnimation("mutalMove9");
 	}
 
 	if (m_fAngle >= 214.f && m_fAngle < 236.5f)
 	{
 		Renderer->ChangeFrameAnimation("mutalMove10");
+		ShadowRenderer->ChangeFrameAnimation("mutalMove10");
 	}
 
 	if (m_fAngle > 236.5f && m_fAngle < 259.f)
 	{
 		Renderer->ChangeFrameAnimation("mutalMove11");
+		ShadowRenderer->ChangeFrameAnimation("mutalMove11");
 	}
 
 	if (m_fAngle >= 259.f && m_fAngle < 281.5f) //Down
 	{
 		Renderer->ChangeFrameAnimation("mutalMove12");
+		ShadowRenderer->ChangeFrameAnimation("mutalMove12");
 	}
 
 	if (m_fAngle >= 281.5f && m_fAngle < 304.f)
 	{
 		Renderer->ChangeFrameAnimation("mutalMove13");
+		ShadowRenderer->ChangeFrameAnimation("mutalMove13");
 	}
 
 	if (m_fAngle >= 304.5f && m_fAngle < 326.5f)
 	{
 		Renderer->ChangeFrameAnimation("mutalMove14");
+		ShadowRenderer->ChangeFrameAnimation("mutalMove14");
 	}
 
 	if (m_fAngle >= 326.5f && m_fAngle < 349.f)
 	{
 		Renderer->ChangeFrameAnimation("mutalMove15");
+		ShadowRenderer->ChangeFrameAnimation("mutalMove15");
 	}
 
 

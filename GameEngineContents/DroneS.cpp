@@ -32,7 +32,7 @@ void DroneS::AttEnd(const FrameAnimation_DESC& _Info)
 {
 	AttCheck = true;
 	Renderer->ChangeFrameAnimation("DroneMove12");
-
+	ShadowRenderer->ChangeFrameAnimation("DroneMove12");
 }
 
 
@@ -88,18 +88,50 @@ void DroneS::Start()
 
 	}
 
-	//{
+	{
+		ShadowRenderer = CreateComponent<GameEngineTextureRenderer>();
+		ShadowRenderer->GetTransform().SetLocalScale({ 128.f,128.f,1.f });
+	
+		ShadowRenderer->CreateFrameAnimationFolder("DroneAttack0", FrameAnimation_DESC("DroneAttack0", 0.1f));
+		ShadowRenderer->CreateFrameAnimationFolder("DroneAttack1", FrameAnimation_DESC("DroneAttack1", 0.1f));
+		ShadowRenderer->CreateFrameAnimationFolder("DroneAttack2", FrameAnimation_DESC("DroneAttack2", 0.1f));
+		ShadowRenderer->CreateFrameAnimationFolder("DroneAttack3", FrameAnimation_DESC("DroneAttack3", 0.1f));
+		ShadowRenderer->CreateFrameAnimationFolder("DroneAttack4", FrameAnimation_DESC("DroneAttack4", 0.1f));
+		ShadowRenderer->CreateFrameAnimationFolder("DroneAttack5", FrameAnimation_DESC("DroneAttack5", 0.1f));
+		ShadowRenderer->CreateFrameAnimationFolder("DroneAttack6", FrameAnimation_DESC("DroneAttack6", 0.1f));
+		ShadowRenderer->CreateFrameAnimationFolder("DroneAttack7", FrameAnimation_DESC("DroneAttack7", 0.1f));
+		ShadowRenderer->CreateFrameAnimationFolder("DroneAttack8", FrameAnimation_DESC("DroneAttack8", 0.1f));
+		ShadowRenderer->CreateFrameAnimationFolder("DroneAttack9", FrameAnimation_DESC("DroneAttack9", 0.1f));
+		ShadowRenderer->CreateFrameAnimationFolder("DroneAttack10", FrameAnimation_DESC("DroneAttack10", 0.1f));
+		ShadowRenderer->CreateFrameAnimationFolder("DroneAttack11", FrameAnimation_DESC("DroneAttack11", 0.1f));
+		ShadowRenderer->CreateFrameAnimationFolder("DroneAttack12", FrameAnimation_DESC("DroneAttack12", 0.1f));
+		ShadowRenderer->CreateFrameAnimationFolder("DroneAttack13", FrameAnimation_DESC("DroneAttack13", 0.1f));
+		ShadowRenderer->CreateFrameAnimationFolder("DroneAttack14", FrameAnimation_DESC("DroneAttack14", 0.1f));
+		ShadowRenderer->CreateFrameAnimationFolder("DroneAttack15", FrameAnimation_DESC("DroneAttack15", 0.1f));
+		ShadowRenderer->CreateFrameAnimationFolder("DroneMove12", FrameAnimation_DESC("DroneMove12", 0.1f));
 
-	//	AuraRenderer = CreateComponent<GameEngineTextureRenderer>();
-	//	AuraRenderer->CreateFrameAnimationFolder("aulora0", FrameAnimation_DESC("aulora0", 0.1f));
-	//	AuraRenderer->ChangeFrameAnimation("aulora0");
-	//	AuraRenderer->GetTransform().SetLocalScale({ 120.f,120.f,1.f });
-	//	float4 RenderWorldPos = AuraRenderer->GetTransform().GetWorldPosition();
 
-	//	AuraRenderer->GetTransform().SetWorldPosition(RenderWorldPos);
+		ShadowRenderer->ChangeFrameAnimation("DroneMove12");
 
 
-	//}
+
+		ShadowRenderer->GetColorData().MulColor.r = 0.f;
+		ShadowRenderer->GetColorData().MulColor.g = 0.f;
+		ShadowRenderer->GetColorData().MulColor.b = 0.f;
+		ShadowRenderer->GetColorData().MulColor.a = 0.5f;
+
+
+		float4 SLocalPos = ShadowRenderer->GetTransform().GetLocalPosition();
+		SLocalPos.y -= 5.f;
+		SLocalPos.x -= 5.f;
+		SLocalPos.z += 0.5f;
+		ShadowRenderer->GetTransform().SetLocalPosition(SLocalPos);
+
+
+	}
+
+
+
 	{
 
 		AuraRenderer = CreateComponent<GameEngineTextureRenderer>();
@@ -212,6 +244,7 @@ void DroneS::Update(float _DeltaTime)
 			AttCheck = false;
 			BAniChange = false;
 			Renderer->ChangeFrameAnimation("DroneMove12");
+			ShadowRenderer->ChangeFrameAnimation("DroneMove12");
 			AttTime = 0.f;
 			
 		}
@@ -243,81 +276,100 @@ void DroneS::ChangeAni(float4 _Gopoint, float4 _WorldPos)
 	if (m_fAngle >= 349.f || m_fAngle < 11.5f)
 	{
 		Renderer->ChangeFrameAnimation("DroneAttack0");
+		ShadowRenderer->ChangeFrameAnimation("DroneAttack0");
 	}
 
 	if (m_fAngle >= 11.5 && m_fAngle < 34.f)
 	{
 		Renderer->ChangeFrameAnimation("DroneAttack1");
+		ShadowRenderer->ChangeFrameAnimation("DroneAttack1");
 	}
 
 	if (m_fAngle >= 34.f && m_fAngle < 56.5f)
 	{
 		Renderer->ChangeFrameAnimation("DroneAttack2");
+		ShadowRenderer->ChangeFrameAnimation("DroneAttack2");
 	}
 
 	if (m_fAngle >= 56.5f && m_fAngle < 79.f)
 	{
 		Renderer->ChangeFrameAnimation("DroneAttack3");
+		ShadowRenderer->ChangeFrameAnimation("DroneAttack3");
 	}
 
 	if (m_fAngle >= 79.f && m_fAngle < 101.5f)
 	{
 		Renderer->ChangeFrameAnimation("DroneAttack4");
+		ShadowRenderer->ChangeFrameAnimation("DroneAttack4");
 	}
 
 	if (m_fAngle >= 101.5f && m_fAngle < 124.f)
 	{
 		Renderer->ChangeFrameAnimation("DroneAttack5");
+		ShadowRenderer->ChangeFrameAnimation("DroneAttack5");
+
 	}
+
 
 	if (m_fAngle >= 124.f && m_fAngle < 146.5f)
 	{
 		Renderer->ChangeFrameAnimation("DroneAttack6");
+		ShadowRenderer->ChangeFrameAnimation("DroneAttack6");
 	}
 
 	if (m_fAngle >= 146.5f && m_fAngle < 169.f)
 	{
 		Renderer->ChangeFrameAnimation("DroneAttack7");
+		ShadowRenderer->ChangeFrameAnimation("DroneAttack7");
+
 	}
 
 	if (m_fAngle >= 169.f && m_fAngle < 191.5f)
 	{
 		Renderer->ChangeFrameAnimation("DroneAttack8");
+		ShadowRenderer->ChangeFrameAnimation("DroneAttack8");
 	}
 
 	if (m_fAngle >= 191.5f && m_fAngle < 214.f)
 	{
 		Renderer->ChangeFrameAnimation("DroneAttack9");
+		ShadowRenderer->ChangeFrameAnimation("DroneAttack9");
 	}
 
 	if (m_fAngle >= 214.f && m_fAngle < 236.5f)
 	{
 		Renderer->ChangeFrameAnimation("DroneAttack10");
+		ShadowRenderer->ChangeFrameAnimation("DroneAttack10");
 	}
 
 	if (m_fAngle > 236.5f && m_fAngle < 259.f)
 	{
 		Renderer->ChangeFrameAnimation("DroneAttack11");
+		ShadowRenderer->ChangeFrameAnimation("DroneAttack11");
 	}
 
 	if (m_fAngle >= 259.f && m_fAngle < 281.5f) //Down
 	{
 		Renderer->ChangeFrameAnimation("DroneAttack12");
+		ShadowRenderer->ChangeFrameAnimation("DroneAttack12");
 	}
 
 	if (m_fAngle >= 281.5f && m_fAngle < 304.f)
 	{
 		Renderer->ChangeFrameAnimation("DroneAttack13");
+		ShadowRenderer->ChangeFrameAnimation("DroneAttack13");
 	}
 
 	if (m_fAngle >= 304.5f && m_fAngle < 326.5f)
 	{
 		Renderer->ChangeFrameAnimation("DroneAttack14");
+		ShadowRenderer->ChangeFrameAnimation("DroneAttack14");
 	}
 
 	if (m_fAngle >= 326.5f && m_fAngle < 349.f)
 	{
 		Renderer->ChangeFrameAnimation("DroneAttack15");
+		ShadowRenderer->ChangeFrameAnimation("DroneAttack15");
 	}
 
 

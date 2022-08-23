@@ -44,6 +44,32 @@ void UltraMon::Start()
 	}
 
 	{
+		ShadowRenderer = CreateComponent<GameEngineTextureRenderer>();
+		ShadowRenderer->GetTransform().SetLocalScale({ 128.f,128.f,1.f });
+		GetTransform().SetWorldPosition({ -1348.f,617.f,0.f });
+
+		ShadowRenderer->CreateFrameAnimationFolder("ultraMoveD", FrameAnimation_DESC("ultraMoveD", 0.1f, true));
+		ShadowRenderer->CreateFrameAnimationFolder("ultraMoveL", FrameAnimation_DESC("ultraMoveL", 0.1f, true));
+		ShadowRenderer->CreateFrameAnimationFolder("ultraMoveR", FrameAnimation_DESC("ultraMoveR", 0.1f, true));
+		ShadowRenderer->CreateFrameAnimationFolder("ultraMoveU", FrameAnimation_DESC("ultraMoveU", 0.1f, true));
+
+
+		ShadowRenderer->ChangeFrameAnimation("ultraMoveD");
+
+		ShadowRenderer->GetColorData().MulColor.r = 0.f;
+		ShadowRenderer->GetColorData().MulColor.g = 0.f;
+		ShadowRenderer->GetColorData().MulColor.b = 0.f;
+		ShadowRenderer->GetColorData().MulColor.a = 0.5f;
+
+
+		float4 SLocalPos = ShadowRenderer->GetTransform().GetLocalPosition();
+		SLocalPos.y -= 5.f;
+		SLocalPos.z += 1.f;
+		ShadowRenderer->GetTransform().SetLocalPosition(SLocalPos);
+	}
+
+
+	{
 		Collision = CreateComponent<GameEngineCollision>();
 		Collision->GetTransform().SetLocalScale({ 60.0f, 60.0f, 1.0f });
 		Collision->ChangeOrder(OBJECTORDER::Monster);
@@ -136,18 +162,22 @@ void UltraMon::ChangeAni(float4 _Gopoint, float4 _WorldPos)
 	if (m_fAngle >= 45.f && m_fAngle < 135.f)
 	{
 		Renderer->ChangeFrameAnimation("ultraMoveU");
+		ShadowRenderer->ChangeFrameAnimation("ultraMoveU");
 	}
 	else if (m_fAngle >= 135.f && m_fAngle <= 225.f)
 	{
 		Renderer->ChangeFrameAnimation("ultraMoveL");
+		ShadowRenderer->ChangeFrameAnimation("ultraMoveL");
 	}
 	else if (m_fAngle >= 225.f && m_fAngle <= 315.f)
 	{
 		Renderer->ChangeFrameAnimation("ultraMoveD");
+		ShadowRenderer->ChangeFrameAnimation("ultraMoveD");
 	}
 	else if (m_fAngle >= 315.f || m_fAngle <= 45.f)
 	{
 		Renderer->ChangeFrameAnimation("ultraMoveR");
+		ShadowRenderer->ChangeFrameAnimation("ultraMoveR");
 	}
 
 

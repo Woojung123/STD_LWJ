@@ -38,7 +38,7 @@ public:
 	}
 
 	
-
+	
 private:
 	void Move(float _DeltaTime);
 	void ChangeAni(float4 _Gopoint, float4 _WorldPos);

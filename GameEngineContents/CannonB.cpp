@@ -34,6 +34,7 @@ CannonB::~CannonB()
 void CannonB::AttEnd(const FrameAnimation_DESC& _Info)
 {
 	AttCheck = true;
+	ShadowRenderer->ChangeFrameAnimation("CannonStand");
 	Renderer->ChangeFrameAnimation("CannonStand");
 }
 
@@ -54,6 +55,33 @@ void CannonB::Start()
 		Renderer->AnimationBindEnd("CannonAtt", &CannonB::AttEnd, this);
 
 	}
+
+	{
+		ShadowRenderer = CreateComponent<GameEngineTextureRenderer>();
+		ShadowRenderer->GetTransform().SetLocalScale({ 64.f,128.f,1.f });
+
+
+		ShadowRenderer->CreateFrameAnimationFolder("CannonStand", FrameAnimation_DESC("CannonStand", 0.1f));
+		ShadowRenderer->CreateFrameAnimationFolder("CannonAtt", FrameAnimation_DESC("CannonAtt", 0.1f));
+
+		ShadowRenderer->ChangeFrameAnimation("CannonStand");
+
+		ShadowRenderer->AnimationBindEnd("CannonAtt", &CannonB::AttEnd, this);
+
+		ShadowRenderer->GetColorData().MulColor.r = 0.f;
+		ShadowRenderer->GetColorData().MulColor.g = 0.f;
+		ShadowRenderer->GetColorData().MulColor.b = 0.f;
+		ShadowRenderer->GetColorData().MulColor.a = 0.5f;
+
+
+		float4 SLocalPos = ShadowRenderer->GetTransform().GetLocalPosition();
+		SLocalPos.y -= 5.f;
+		SLocalPos.x -= 5.f;
+		SLocalPos.z += 0.5f;
+		ShadowRenderer->GetTransform().SetLocalPosition(SLocalPos);
+
+	}
+
 
 	{
 		BiconRenderer = CreateComponent<GameEngineTextureRenderer>();
@@ -130,6 +158,7 @@ void CannonB::Update(float _DeltaTime)
 		{
 			++AttCount;
 			Renderer->ChangeFrameAnimation("CannonAtt");
+			ShadowRenderer->ChangeFrameAnimation("CannonAtt");
 			
 			if (AttCheck)
 			{
@@ -165,6 +194,7 @@ void CannonB::Update(float _DeltaTime)
 		if (MonCount == Monsize)
 		{
 			Renderer->ChangeFrameAnimation("CannonStand");
+			ShadowRenderer->ChangeFrameAnimation("CannonStand");
 			AttTime = 0.f;
 			AttCountMax = 3;
 			AttCount = 0;

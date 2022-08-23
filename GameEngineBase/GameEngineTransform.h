@@ -2,7 +2,6 @@
 #include "GameEngineMath.h"
 #include <DirectXCollision.h>
 #include <GameEngineBase/GameEngineDebugObject.h>
-#include <GameEngineBase/GameEngineUpdateObject.h>
 #include <list>
 
 enum class CollisionType
@@ -88,6 +87,12 @@ public:
 
 
 public:
+	inline void AddLocalScale(const float4& _Value)
+	{
+		SetLocalScale(Data.LocalScaling + _Value);
+	}
+
+
 	inline void SetLocalScale(const float4& _Value)
 	{
 		CalculateWorldScale(_Value);

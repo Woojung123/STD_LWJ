@@ -20,13 +20,13 @@ public:
 
 public:
 	UINFO	m_Info;
-
+	UNITTYPE m_Type;
 
 
 	bool	m_bClickCheck;
 	GameEngineCollision* Collision;
 
-
+	GameEngineTextureRenderer* ShadowRenderer;
 	GameEngineTextureRenderer* AttRenderer;
 	GameEngineTextureRenderer* ClickRenderer;
 };

@@ -32,6 +32,7 @@ void DarkTB::AttEnd(const FrameAnimation_DESC& _Info)
 {
 	AttCheck = true;
 	Renderer->ChangeFrameAnimation("DarkTStand12");
+	ShadowRenderer->ChangeFrameAnimation("DarkTStand12");
 }
 
 void DarkTB::Start()
@@ -86,6 +87,53 @@ void DarkTB::Start()
 		Renderer->GetColorData().MulColor.a = 0.5f;
 
 	}
+
+
+	{
+		ShadowRenderer = CreateComponent<GameEngineTextureRenderer>();
+		ShadowRenderer->GetTransform().SetLocalScale({ 64.f,64.f,1.f });
+
+
+		ShadowRenderer->CreateFrameAnimationFolder("DarkTAttack0", FrameAnimation_DESC("DarkTAttack0", 0.1f));
+		ShadowRenderer->CreateFrameAnimationFolder("DarkTAttack1", FrameAnimation_DESC("DarkTAttack1", 0.1f));
+		ShadowRenderer->CreateFrameAnimationFolder("DarkTAttack2", FrameAnimation_DESC("DarkTAttack2", 0.1f));
+		ShadowRenderer->CreateFrameAnimationFolder("DarkTAttack3", FrameAnimation_DESC("DarkTAttack3", 0.1f));
+		ShadowRenderer->CreateFrameAnimationFolder("DarkTAttack4", FrameAnimation_DESC("DarkTAttack4", 0.1f));
+		ShadowRenderer->CreateFrameAnimationFolder("DarkTAttack5", FrameAnimation_DESC("DarkTAttack5", 0.1f));
+		ShadowRenderer->CreateFrameAnimationFolder("DarkTAttack6", FrameAnimation_DESC("DarkTAttack6", 0.1f));
+		ShadowRenderer->CreateFrameAnimationFolder("DarkTAttack7", FrameAnimation_DESC("DarkTAttack7", 0.1f));
+		ShadowRenderer->CreateFrameAnimationFolder("DarkTAttack8", FrameAnimation_DESC("DarkTAttack8", 0.1f));
+		ShadowRenderer->CreateFrameAnimationFolder("DarkTAttack9", FrameAnimation_DESC("DarkTAttack9", 0.1f));
+		ShadowRenderer->CreateFrameAnimationFolder("DarkTAttack10", FrameAnimation_DESC("DarkTAttack10", 0.1f));
+		ShadowRenderer->CreateFrameAnimationFolder("DarkTAttack11", FrameAnimation_DESC("DarkTAttack11", 0.1f));
+		ShadowRenderer->CreateFrameAnimationFolder("DarkTAttack12", FrameAnimation_DESC("DarkTAttack12", 0.1f));
+		ShadowRenderer->CreateFrameAnimationFolder("DarkTAttack13", FrameAnimation_DESC("DarkTAttack13", 0.1f));
+		ShadowRenderer->CreateFrameAnimationFolder("DarkTAttack14", FrameAnimation_DESC("DarkTAttack14", 0.1f));
+		ShadowRenderer->CreateFrameAnimationFolder("DarkTAttack15", FrameAnimation_DESC("DarkTAttack15", 0.1f));
+
+		ShadowRenderer->CreateFrameAnimationFolder("DarkTStand12", FrameAnimation_DESC("DarkTStand12", 0.1f));
+
+		ShadowRenderer->ChangeFrameAnimation("DarkTStand12");
+
+
+	
+
+		ShadowRenderer->GetColorData().MulColor.r = 0.f;
+		ShadowRenderer->GetColorData().MulColor.g = 0.f;
+		ShadowRenderer->GetColorData().MulColor.b = 0.f;
+		ShadowRenderer->GetColorData().MulColor.a = 0.5f;
+
+
+		float4 SLocalPos = ShadowRenderer->GetTransform().GetLocalPosition();
+		SLocalPos.y -= 25.f;
+		SLocalPos.z += 0.1f;
+		ShadowRenderer->GetTransform().SetLocalPosition(SLocalPos);
+
+
+
+
+	}
+
 
 	{
 		BiconRenderer = CreateComponent<GameEngineTextureRenderer>();
@@ -187,6 +235,7 @@ void DarkTB::Update(float _DeltaTime)
 			AttCheck = false;
 			BAniChange = false;
 			Renderer->ChangeFrameAnimation("DarkTStand12");
+			ShadowRenderer->ChangeFrameAnimation("DarkTStand12");
 			AttTime = 0.f;
 		}
 
@@ -216,81 +265,97 @@ void DarkTB::ChangeAni(float4 _Gopoint, float4 _WorldPos)
 
 	if (m_fAngle >= 349.f || m_fAngle < 11.5f)
 	{
+		ShadowRenderer->ChangeFrameAnimation("DarkTAttack0");
 		Renderer->ChangeFrameAnimation("DarkTAttack0");
 	}
 
 	if (m_fAngle >= 11.5 && m_fAngle < 34.f)
 	{
+		ShadowRenderer->ChangeFrameAnimation("DarkTAttack1");
 		Renderer->ChangeFrameAnimation("DarkTAttack1");
 	}
 
 	if (m_fAngle >= 34.f && m_fAngle < 56.5f)
 	{
+		ShadowRenderer->ChangeFrameAnimation("DarkTAttack2");
 		Renderer->ChangeFrameAnimation("DarkTAttack2");
 	}
 
 	if (m_fAngle >= 56.5f && m_fAngle < 79.f)
 	{
+		ShadowRenderer->ChangeFrameAnimation("DarkTAttack3");
 		Renderer->ChangeFrameAnimation("DarkTAttack3");
 	}
 
 	if (m_fAngle >= 79.f && m_fAngle < 101.5f)
 	{
+		ShadowRenderer->ChangeFrameAnimation("DarkTAttack4");
 		Renderer->ChangeFrameAnimation("DarkTAttack4");
 	}
 
 	if (m_fAngle >= 101.5f && m_fAngle < 124.f)
 	{
+		ShadowRenderer->ChangeFrameAnimation("DarkTAttack5");
 		Renderer->ChangeFrameAnimation("DarkTAttack5");
 	}
 
 	if (m_fAngle >= 124.f && m_fAngle < 146.5f)
 	{
+		ShadowRenderer->ChangeFrameAnimation("DarkTAttack6");
 		Renderer->ChangeFrameAnimation("DarkTAttack6");
 	}
 
 	if (m_fAngle >= 146.5f && m_fAngle < 169.f)
 	{
+		ShadowRenderer->ChangeFrameAnimation("DarkTAttack7");
 		Renderer->ChangeFrameAnimation("DarkTAttack7");
 	}
 
 	if (m_fAngle >= 169.f && m_fAngle < 191.5f)
 	{
+		ShadowRenderer->ChangeFrameAnimation("DarkTAttack8");
 		Renderer->ChangeFrameAnimation("DarkTAttack8");
 	}
 
 	if (m_fAngle >= 191.5f && m_fAngle < 214.f)
 	{
+		ShadowRenderer->ChangeFrameAnimation("DarkTAttack9");
 		Renderer->ChangeFrameAnimation("DarkTAttack9");
 	}
 
 	if (m_fAngle >= 214.f && m_fAngle < 236.5f)
 	{
+		ShadowRenderer->ChangeFrameAnimation("DarkTAttack10");
 		Renderer->ChangeFrameAnimation("DarkTAttack10");
 	}
 
 	if (m_fAngle > 236.5f && m_fAngle < 259.f)
 	{
+		ShadowRenderer->ChangeFrameAnimation("DarkTAttack11");
 		Renderer->ChangeFrameAnimation("DarkTAttack11");
 	}
 
 	if (m_fAngle >= 259.f && m_fAngle < 281.5f) //Down
 	{
+		ShadowRenderer->ChangeFrameAnimation("DarkTAttack12");
 		Renderer->ChangeFrameAnimation("DarkTAttack12");
 	}
 
 	if (m_fAngle >= 281.5f && m_fAngle < 304.f)
 	{
+		ShadowRenderer->ChangeFrameAnimation("DarkTAttack13");
 		Renderer->ChangeFrameAnimation("DarkTAttack13");
 	}
 
 	if (m_fAngle >= 304.5f && m_fAngle < 326.5f)
 	{
+		ShadowRenderer->ChangeFrameAnimation("DarkTAttack14");
 		Renderer->ChangeFrameAnimation("DarkTAttack14");
 	}
 
 	if (m_fAngle >= 326.5f && m_fAngle < 349.f)
 	{
+		ShadowRenderer->ChangeFrameAnimation("DarkTAttack15");
 		Renderer->ChangeFrameAnimation("DarkTAttack15");
 	}
 
