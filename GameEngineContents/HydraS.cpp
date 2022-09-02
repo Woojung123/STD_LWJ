@@ -6,6 +6,7 @@
 #include "GlobalContentsValue.h"
 #include"Plaegue.h"
 #include "HydraSUI.h"
+#include "MiniMapPlayer.h"
 
 HydraS::HydraS()
 	: Speed(50.0f)
@@ -167,10 +168,14 @@ void HydraS::Start()
 
 	}
 
+	MiniPlayUnit = GetLevel()->CreateActor<MiniMapPlayer>(OBJECTORDER::UI);
+
 }
 
 void HydraS::Update(float _DeltaTime)
 {
+	MiniPlayUnit->UnitPos = GetTransform().GetWorldPosition();
+
 	if (m_bClickCheck)
 	{
 		MainUI->On();

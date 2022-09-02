@@ -6,6 +6,7 @@
 #include <GameEngineCore/GameEngineLevel.h>
 #include "GlobalContentsValue.h"
 #include "UltraCUI.h"
+#include "MiniMapPlayer.h"
 
 
 UltraC::UltraC()
@@ -158,11 +159,17 @@ void UltraC::Start()
 
 	}
 
+	MiniPlayUnit = GetLevel()->CreateActor<MiniMapPlayer>(OBJECTORDER::UI);
+
+
 
 }
 
 void UltraC::Update(float _DeltaTime)
 {
+
+	MiniPlayUnit->UnitPos = GetTransform().GetWorldPosition();
+
 	if (m_bClickCheck)
 	{
 		MainUI->On();

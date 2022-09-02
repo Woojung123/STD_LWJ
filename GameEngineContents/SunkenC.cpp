@@ -6,6 +6,7 @@
 #include "GlobalContentsValue.h"
 #include"Sunken.h"
 #include "SunkenCUI.h"
+#include "MiniMapPlayer.h"
 
 
 SunkenC::SunkenC()
@@ -115,11 +116,15 @@ void SunkenC::Start()
 
 	}
 
+	MiniPlayUnit = GetLevel()->CreateActor<MiniMapPlayer>(OBJECTORDER::UI);
+
 
 }
 
 void SunkenC::Update(float _DeltaTime)
 {
+	MiniPlayUnit->UnitPos = GetTransform().GetWorldPosition();
+
 	if (m_bClickCheck)
 	{
 		MainUI->On();

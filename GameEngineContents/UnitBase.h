@@ -4,6 +4,8 @@
 #include "GlobalContentsValue.h"
 
 // Ό³Έν :
+class MiniMapUnit;
+class MiniMapPlayer;
 class GameEngineCollision;
 class UnitBase : public GameEngineActor
 {
@@ -21,8 +23,8 @@ public:
 public:
 	UINFO	m_Info;
 	UNITTYPE m_Type;
-
-
+	MiniMapUnit* MiniUnit;
+	MiniMapPlayer* MiniPlayUnit;
 	bool	m_bClickCheck;
 	GameEngineCollision* Collision;
 

@@ -342,7 +342,19 @@
       <SubType>
       </SubType>
     </ClInclude>
+    <ClInclude Include="MiniCamera.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
     <ClInclude Include="MiniMap.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="MiniMapPlayer.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="MiniMapUnit.h">
       <SubType>
       </SubType>
     </ClInclude>
@@ -503,6 +515,10 @@
       </SubType>
     </ClInclude>
     <ClInclude Include="Tileobject.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="UIMouse.h">
       <SubType>
       </SubType>
     </ClInclude>
@@ -760,7 +776,19 @@
       <SubType>
       </SubType>
     </ClCompile>
+    <ClCompile Include="MiniCamera.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
     <ClCompile Include="MiniMap.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
+    <ClCompile Include="MiniMapPlayer.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
+    <ClCompile Include="MiniMapUnit.cpp">
       <SubType>
       </SubType>
     </ClCompile>
@@ -923,6 +951,10 @@
       </SubType>
     </ClCompile>
     <ClCompile Include="Tileobject.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
+    <ClCompile Include="UIMouse.cpp">
       <SubType>
       </SubType>
     </ClCompile>

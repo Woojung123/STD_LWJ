@@ -6,6 +6,7 @@
 #include "GlobalContentsValue.h"
 #include"Sunken.h"
 #include "ZealotCUI.h"
+#include "MiniMapPlayer.h"
 
 
 ZealotC::ZealotC()
@@ -153,10 +154,15 @@ void ZealotC::Start()
 	}
 
 
+	MiniPlayUnit = GetLevel()->CreateActor<MiniMapPlayer>(OBJECTORDER::UI);
+
+
+
 }
 
 void ZealotC::Update(float _DeltaTime)
 {
+	MiniPlayUnit->UnitPos = GetTransform().GetWorldPosition();
 
 	if (m_bClickCheck)
 	{

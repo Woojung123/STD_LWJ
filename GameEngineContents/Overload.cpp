@@ -3,6 +3,7 @@
 #include "Overload.h"
 #include "StageMain.h"
 #include "ZergDeath.h"
+#include "MiniMapUnit.h"
 
 
 
@@ -73,17 +74,21 @@ void Overload::Start()
 		Collision->GetTransform().SetLocalScale({ 60.0f, 60.0f, 1.0f });
 		Collision->ChangeOrder(OBJECTORDER::Monster);
 	}
-	
+
+	MiniUnit = GetLevel()->CreateActor<MiniMapUnit>(OBJECTORDER::UI);
+
 }
 
 void Overload::Update(float _DeltaTime)
 {
+	MiniUnit->UnitPos = GetTransform().GetWorldPosition();
 
 	if (m_Info.m_Hp <= 0)
 	{
 		DeathEff = GetLevel()->CreateActor<ZergDeath>(OBJECTORDER::Effect);
 		DeathEff->GetTransform().SetWorldPosition(GetTransform().GetWorldPosition());
 		Death();
+		MiniUnit->Death();
 	}
 
 

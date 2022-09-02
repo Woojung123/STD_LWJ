@@ -4,6 +4,7 @@
 #include "UltraMon.h"
 #include "StageMain.h"
 #include "ZergDeath.h"
+#include "MiniMapUnit.h"
 
 
 
@@ -75,17 +76,23 @@ void UltraMon::Start()
 		Collision->ChangeOrder(OBJECTORDER::Monster);
 	}
 
+	MiniUnit = GetLevel()->CreateActor<MiniMapUnit>(OBJECTORDER::UI);
+
 
 }
 
 void UltraMon::Update(float _DeltaTime)
 {
 
+	MiniUnit->UnitPos = GetTransform().GetWorldPosition();
+
+
 	if (m_Info.m_Hp <= 0)
 	{
 		DeathEff = GetLevel()->CreateActor<ZergDeath>(OBJECTORDER::Effect);
 		DeathEff->GetTransform().SetWorldPosition(GetTransform().GetWorldPosition());
 		Death();
+		MiniUnit->Death();
 	}
 
 

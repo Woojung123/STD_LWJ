@@ -3,6 +3,7 @@
 #include <GameEngineCore/CoreMinimal.h>
 
 // Ό³Έν :
+class MiniCamera;
 class GameEngineTextureRenderer;
 class StageMainCamera : public GameEngineActor
 {
@@ -16,6 +17,9 @@ public:
 	StageMainCamera(StageMainCamera&& _Other) noexcept = delete;
 	StageMainCamera& operator=(const StageMainCamera& _Other) = delete;
 	StageMainCamera& operator=(StageMainCamera&& _Other) noexcept = delete;
+
+
+	MiniCamera* MiniCameraUI;
 
 protected:
 	void Start() override;

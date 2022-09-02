@@ -7,6 +7,7 @@
 #include "GlobalContentsValue.h"
 #include"ArconBul.h"
 #include "ArconAUI.h"
+#include "MiniMapPlayer.h"
 
 
 Arcon::Arcon()
@@ -175,11 +176,15 @@ void Arcon::Start()
 
 	}
 
+	MiniPlayUnit = GetLevel()->CreateActor<MiniMapPlayer>(OBJECTORDER::UI);
+
 
 }
 
 void Arcon::Update(float _DeltaTime)
 {
+	MiniPlayUnit->UnitPos = GetTransform().GetWorldPosition();
+
 	if (m_bClickCheck)
 	{
 		MainUI->On();

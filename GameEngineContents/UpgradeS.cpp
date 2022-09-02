@@ -5,6 +5,7 @@
 #include "GlobalContentsValue.h"
 #include"DraBall.h"
 #include "UpgradeSUI.h"
+#include "MiniMapPlayer.h"
 
 
 
@@ -85,12 +86,17 @@ void UpgradeS::Start()
 
 
 
+	MiniPlayUnit = GetLevel()->CreateActor<MiniMapPlayer>(OBJECTORDER::UI);
+
 
 
 }
 
 void UpgradeS::Update(float _DeltaTime)
 {
+
+	MiniPlayUnit->UnitPos = GetTransform().GetWorldPosition();
+
 	if (m_bClickCheck)
 	{
 		MainUI->On();

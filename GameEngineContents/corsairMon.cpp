@@ -3,6 +3,7 @@
 #include "corsairMon.h"
 #include "StageMain.h"
 #include "ProDeath.h"
+#include "MiniMapUnit.h"
 
 #include <GameEngineBase/GameEngineInput.h>
 #include <GameEngineCore/GameEngineDefaultRenderer.h>
@@ -76,14 +77,21 @@ void corsairMon::Start()
 	}
 
 
+	MiniUnit = GetLevel()->CreateActor<MiniMapUnit>(OBJECTORDER::UI);
+
 }
 
 void corsairMon::Update(float _DeltaTime)
 {
+
+	MiniUnit->UnitPos = GetTransform().GetWorldPosition();
+
+
 	if (m_Info.m_Hp <= 0)
 	{
 		DeathEff = GetLevel()->CreateActor<ProDeath>(OBJECTORDER::Effect);
 		DeathEff->GetTransform().SetWorldPosition(GetTransform().GetWorldPosition());
+		MiniUnit->Death();
 		Death();
 	}
 

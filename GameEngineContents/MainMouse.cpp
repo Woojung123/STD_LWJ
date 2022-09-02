@@ -8,6 +8,8 @@
 
 #include "BuildImage.h"
 
+#include "MiniMapPlayer.h"
+
 
 
 
@@ -54,7 +56,7 @@ void MainMouse::Start()
 	}
 	
 	GameEngineInput::GetInst()->CreateKey("LeftClick", VK_LBUTTON);
-
+	GameEngineInput::GetInst()->CreateKey("BuilderClick", '1');
 
 
 }
@@ -69,6 +71,29 @@ void MainMouse::Update(float _DeltaTime)
 	WorldPos.y = GetLevel()->GetMainCamera()->GetMouseWorldPosition().y;
 	WorldPos.z = -151.f;
 	GetTransform().SetWorldPosition(WorldPos);
+
+	if (true == GameEngineInput::GetInst()->IsDown("BuilderClick"))
+	{
+
+		ClickReset();
+		std::list<GameEngineActor*> Group = GetLevel()->GetGroup(OBJECTORDER::Player);
+
+
+		auto	iter = Group.begin();
+		auto	iterEnd = Group.end();
+
+		for (; iter != iterEnd; ++iter)
+		{
+			if (((UnitBase*)(*iter))->m_Type == UNITTYPE::Builder)
+			{
+				((UnitBase*)(*iter))->m_bClickCheck = true;
+			}
+
+		}
+
+	}
+
+
 
 
 
@@ -244,6 +269,7 @@ bool MainMouse::AllCollision(GameEngineCollision* _This, GameEngineCollision* _O
 						{
 							
 							(*iter)->Death();
+							((UnitBase*)(*iter))->MiniPlayUnit->Death();
 							++Deletcount;
 
 							if (Deletcount == 2)
@@ -258,7 +284,7 @@ bool MainMouse::AllCollision(GameEngineCollision* _This, GameEngineCollision* _O
 
 
 				_Other->GetActor()->Death();
-			
+				((UnitBase*)_Other->GetActor())->MiniPlayUnit->Death();
 				if (_type == UNITTYPE::ZerglingC || _type == UNITTYPE::CorsairC || _type == UNITTYPE::DraC
 					|| _type == UNITTYPE::GhostC || _type == UNITTYPE::HydraC
 					|| _type == UNITTYPE::MarinC || _type == UNITTYPE::ZealotC)

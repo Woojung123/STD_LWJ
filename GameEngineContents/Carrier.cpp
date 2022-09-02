@@ -6,6 +6,7 @@
 #include "GlobalContentsValue.h"
 #include"mutalBullet.h"
 #include "CarrierAUI.h"
+#include "MiniMapPlayer.h"
 
 Carrier::Carrier()
 	: Speed(50.0f)
@@ -181,10 +182,15 @@ void Carrier::Start()
 
 	}
 
+	MiniPlayUnit = GetLevel()->CreateActor<MiniMapPlayer>(OBJECTORDER::UI);
+
+
 }
 
 void Carrier::Update(float _DeltaTime)
 {
+	MiniPlayUnit->UnitPos = GetTransform().GetWorldPosition();
+
 	if (m_bClickCheck)
 	{
 		MainUI->On();

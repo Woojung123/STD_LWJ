@@ -7,6 +7,7 @@
 #include "GlobalContentsValue.h"
 #include"mutalBullet.h"
 #include "MutalAUI.h"
+#include "MiniMapPlayer.h"
 
 MutalA::MutalA()
 	: Speed(50.0f)
@@ -184,10 +185,17 @@ void MutalA::Start()
 		AttRenderer->GetTransform().SetLocalScale({ 500.f,500.f,1.f });
 
 	}
+
+	MiniPlayUnit = GetLevel()->CreateActor<MiniMapPlayer>(OBJECTORDER::UI);
+
+
+
 }
 
 void MutalA::Update(float _DeltaTime)
 {
+	MiniPlayUnit->UnitPos = GetTransform().GetWorldPosition();
+
 	if (m_bClickCheck)
 	{
 		MainUI->On();

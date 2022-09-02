@@ -5,6 +5,7 @@
 #include "GlobalContentsValue.h"
 #include"TerranBaseBullet.h"
 #include "MarinCUI.h"
+#include "MiniMapPlayer.h"
 
 
 MarinC::MarinC()
@@ -155,10 +156,16 @@ void MarinC::Start()
 
 	}
 
+	MiniPlayUnit = GetLevel()->CreateActor<MiniMapPlayer>(OBJECTORDER::UI);
+
+
 }
 
 void MarinC::Update(float _DeltaTime)
 {
+	MiniPlayUnit->UnitPos = GetTransform().GetWorldPosition();
+
+
 	if (m_bClickCheck)
 	{
 		MainUI->On();

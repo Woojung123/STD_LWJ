@@ -8,6 +8,7 @@
 #include"DraBall.h"
 #include "CannonUI.h"
 
+#include "MiniMapPlayer.h"
 
 
 
@@ -115,11 +116,19 @@ void CannonB::Start()
 	}
 
 
+	MiniPlayUnit = GetLevel()->CreateActor<MiniMapPlayer>(OBJECTORDER::UI);
+
+
 
 }
 
 void CannonB::Update(float _DeltaTime)
 {
+
+
+	MiniPlayUnit->UnitPos = GetTransform().GetWorldPosition();
+
+
 	if (m_bClickCheck)
 	{
 		MainUI->On();

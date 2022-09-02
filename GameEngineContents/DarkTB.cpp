@@ -6,6 +6,7 @@
 #include <GameEngineCore/GameEngineLevel.h>
 #include "GlobalContentsValue.h"
 #include "DarkTBUI.h"
+#include "MiniMapPlayer.h"
 
 DarkTB::DarkTB()
 	: Speed(50.0f)
@@ -166,10 +167,16 @@ void DarkTB::Start()
 		AttRenderer->GetTransform().SetLocalScale({ 400.f,400.f,1.f });
 
 	}
+
+	MiniPlayUnit = GetLevel()->CreateActor<MiniMapPlayer>(OBJECTORDER::UI);
+
+
 }
 
 void DarkTB::Update(float _DeltaTime)
 {
+	MiniPlayUnit->UnitPos = GetTransform().GetWorldPosition();
+
 	if (m_bClickCheck)
 	{
 		MainUI->On();

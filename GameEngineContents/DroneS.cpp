@@ -5,6 +5,7 @@
 #include "GlobalContentsValue.h"
 #include"DroneBullet.h"
 #include "DroneSUI.h"
+#include "MiniMapPlayer.h"
 
 DroneS::DroneS()
 	: Speed(50.0f)
@@ -174,11 +175,16 @@ void DroneS::Start()
 	}
 
 
+	MiniPlayUnit = GetLevel()->CreateActor<MiniMapPlayer>(OBJECTORDER::UI);
+
+
 
 }
 
 void DroneS::Update(float _DeltaTime)
 {
+	MiniPlayUnit->UnitPos = GetTransform().GetWorldPosition();
+
 	if (m_bClickCheck)
 	{
 		MainUI->On();

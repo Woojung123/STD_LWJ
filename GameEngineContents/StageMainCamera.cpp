@@ -3,6 +3,7 @@
 #include "PreCompile.h"
 #include "StageMainCamera.h"
 #include <GameEngineBase/GameEngineInput.h>
+#include "MiniCamera.h"
 
 
 StageMainCamera::StageMainCamera()
@@ -19,6 +20,7 @@ void StageMainCamera::Start()
 {
 
 	
+	MiniCameraUI = GetLevel()->CreateActor<MiniCamera>(OBJECTORDER::UI);
 
 
 	GetTransform().SetWorldMove({-1000.f,350.f,0.f});
@@ -27,6 +29,8 @@ void StageMainCamera::Start()
 void StageMainCamera::Update(float _DeltaTime)
 {
 	
+	MiniCameraUI->UnitPos = GetTransform().GetWorldPosition();
+
 	if (true == GetLevel()->GetMainCameraActor()->IsFreeCameraMode())
 	{
 		return;

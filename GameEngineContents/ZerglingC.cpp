@@ -6,6 +6,7 @@
 #include "GlobalContentsValue.h"
 #include"Sunken.h"
 #include "ZerglingCUI.h"
+#include "MiniMapPlayer.h"
 
 
 ZerglingC::ZerglingC()
@@ -154,10 +155,16 @@ void ZerglingC::Start()
 		AttRenderer->GetTransform().SetLocalScale({ 300.f,300.f,1.f });
 
 	}
+
+	MiniPlayUnit = GetLevel()->CreateActor<MiniMapPlayer>(OBJECTORDER::UI);
+
+
 }
 
 void ZerglingC::Update(float _DeltaTime)
 {
+
+	MiniPlayUnit->UnitPos = GetTransform().GetWorldPosition();
 
 
 	if (m_bClickCheck)

@@ -7,6 +7,7 @@
 #include "GlobalContentsValue.h"
 #include"SwarmBullet.h"
 #include "ProbeSUI.h"
+#include "MiniMapPlayer.h"
 
 ProbeS::ProbeS()
 	: Speed(50.0f)
@@ -157,11 +158,16 @@ void ProbeS::Start()
 	}
 
 
+	MiniPlayUnit = GetLevel()->CreateActor<MiniMapPlayer>(OBJECTORDER::UI);
+
+
 
 }
 
 void ProbeS::Update(float _DeltaTime)
 {
+	MiniPlayUnit->UnitPos = GetTransform().GetWorldPosition();
+
 	if (m_bClickCheck)
 	{
 		MainUI->On();

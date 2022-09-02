@@ -6,6 +6,7 @@
 #include"Storm.h"
 #include "HighTUI.h"
 
+#include "MiniMapPlayer.h"
 
 
 HighT::HighT()
@@ -162,12 +163,16 @@ void HighT::Start()
 
 	}
 
+	MiniPlayUnit = GetLevel()->CreateActor<MiniMapPlayer>(OBJECTORDER::UI);
+
 
 }
 
 void HighT::Update(float _DeltaTime)
 {
-	
+
+	MiniPlayUnit->UnitPos = GetTransform().GetWorldPosition();
+
 	if (m_bClickCheck)
 	{
 		MainUI->On();

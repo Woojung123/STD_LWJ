@@ -7,6 +7,7 @@
 #include "GlobalContentsValue.h"
 #include"BloodBullet.h"
 #include "GhostCUI.h"
+#include "MiniMapPlayer.h"
 
 
 GhostC::GhostC()
@@ -152,13 +153,15 @@ void GhostC::Start()
 
 
 	}
+	MiniPlayUnit = GetLevel()->CreateActor<MiniMapPlayer>(OBJECTORDER::UI);
 
 }
 
 void GhostC::Update(float _DeltaTime)
 {
 
-	
+	MiniPlayUnit->UnitPos = GetTransform().GetWorldPosition();
+
 
 	if (m_bClickCheck)
 	{

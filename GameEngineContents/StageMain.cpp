@@ -38,6 +38,7 @@
 #include "HydraS.h"
 
 #include "Tileobject.h"
+#include "UIMouse.h"
 
 
 
@@ -95,6 +96,12 @@ void StageMain::Start()
 		MiniMap* NewPlayer = CreateActor<MiniMap>(OBJECTORDER::UI);
 	}
 	
+	{
+		UIMouse* NewPlayer = CreateActor<UIMouse>(OBJECTORDER::UI);
+	}
+
+
+	
 	
 	MainMouse* MaMouse = CreateActor<MainMouse>(OBJECTORDER::Mouse);
 	
@@ -103,9 +110,15 @@ void StageMain::Start()
 	Builder* mBuilder = CreateActor<Builder>(OBJECTORDER::Player);
 	mBuilder->GetTransform().SetWorldPosition({ -1017.f,336.f,0.f });
 	mBuilder->m_MainMouse = MaMouse;
+	mBuilder->m_Type = UNITTYPE::Builder;
 	MaMouse->m_Builder = mBuilder;
 
 	MapPoint MapP;
+
+
+
+
+
 
 
 	MapP.TurnPoint = float4(-1348.f, 424.f, 1.f, 0.f);
@@ -638,25 +651,25 @@ void StageMain::Start()
 	//	TestUni->GetTransform().SetWorldPosition({ -870.f,130.f,0.f });
 	//}
 	//
-	//{
-	//	UpgradeC* TestUni = CreateActor<UpgradeC>(OBJECTORDER::Player);
-	//	TestUni->GetTransform().SetWorldPosition({ -508.f,617.f,0.f });
-	//}
+	{
+		UpgradeC* TestUni = CreateActor<UpgradeC>(OBJECTORDER::Player);
+		TestUni->GetTransform().SetWorldPosition({ -508.f,617.f,0.f });
+	}
 
-	//{
-	//	UpgradeB* TestUni = CreateActor<UpgradeB>(OBJECTORDER::Player);
-	//	TestUni->GetTransform().SetWorldPosition({ -353.f,591.f,0.f });
-	//}
+	{
+		UpgradeB* TestUni = CreateActor<UpgradeB>(OBJECTORDER::Player);
+		TestUni->GetTransform().SetWorldPosition({ -353.f,591.f,0.f });
+	}
 
-	//{
-	//	UpgradeA* TestUni = CreateActor<UpgradeA>(OBJECTORDER::Player);
-	//	TestUni->GetTransform().SetWorldPosition({ -508.f,505.f,0.f });
-	//}
+	{
+		UpgradeA* TestUni = CreateActor<UpgradeA>(OBJECTORDER::Player);
+		TestUni->GetTransform().SetWorldPosition({ -508.f,505.f,0.f });
+	}
 
-	//{
-	//	UpgradeS* TestUni = CreateActor<UpgradeS>(OBJECTORDER::Player);
-	//	TestUni->GetTransform().SetWorldPosition({ -372.f,445.f,0.f });
-	//}
+	{
+		UpgradeS* TestUni = CreateActor<UpgradeS>(OBJECTORDER::Player);
+		TestUni->GetTransform().SetWorldPosition({ -372.f,445.f,0.f });
+	}
 
 
 	//GameEngineStatusWindow::AddDebugRenderTarget("BackBuffer", GameEngineDevice::GetBackBuffer());

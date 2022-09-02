@@ -2816,6 +2816,38 @@ void ContentsCore::Start()
 
 	}
 
+	//마우스
+	{
+		GameEngineDirectory Dir;
+
+		Dir.MoveParentToExitsChildDirectory("ConstantResources");
+		Dir.Move("ConstantResources");
+		Dir.Move("Texture");
+		Dir.Move("Mouse");
+
+
+		Dir.Move("Normal");
+		GameEngineFolderTexture::Load(Dir.GetFullPath());
+
+
+		Dir.Move("../ScrollD");
+		GameEngineFolderTexture::Load(Dir.GetFullPath());
+
+		Dir.Move("../ScrollL");
+		GameEngineFolderTexture::Load(Dir.GetFullPath());
+
+		Dir.Move("../ScrollR");
+		GameEngineFolderTexture::Load(Dir.GetFullPath());
+
+		Dir.Move("../ScrollU");
+		GameEngineFolderTexture::Load(Dir.GetFullPath());
+
+		Dir.Move("../MagAlly");
+		GameEngineFolderTexture::Load(Dir.GetFullPath());
+
+
+	}
+
 
 	//프로토스 죽음 이펙트
 	{

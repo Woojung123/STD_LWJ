@@ -7,6 +7,7 @@
 #include "GlobalContentsValue.h"
 #include"Spore.h"
 #include "GardianAUI.h"
+#include "MiniMapPlayer.h"
 
 GardianC::GardianC()
 	: Speed(50.0f)
@@ -180,11 +181,16 @@ void GardianC::Start()
 
 	}
 
+	MiniPlayUnit = GetLevel()->CreateActor<MiniMapPlayer>(OBJECTORDER::UI);
+
+
 
 }
 
 void GardianC::Update(float _DeltaTime)
 {
+	MiniPlayUnit->UnitPos = GetTransform().GetWorldPosition();
+
 	if (m_bClickCheck)
 	{
 		MainUI->On();

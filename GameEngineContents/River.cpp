@@ -6,6 +6,7 @@
 #include "GlobalContentsValue.h"
 #include"RiverBullet.h"
 #include "RiverAUI.h"
+#include "MiniMapPlayer.h"
 
 River::River()
 	: Speed(50.0f)
@@ -173,10 +174,15 @@ void River::Start()
 
 	}
 
+	MiniPlayUnit = GetLevel()->CreateActor<MiniMapPlayer>(OBJECTORDER::UI);
+
+
 }
 
 void River::Update(float _DeltaTime)
 {
+	MiniPlayUnit->UnitPos = GetTransform().GetWorldPosition();
+
 	if (m_bClickCheck)
 	{
 		MainUI->On();

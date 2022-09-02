@@ -3,6 +3,7 @@
 #include "ScoutMon.h"
 #include "StageMain.h"
 #include "ProDeath.h"
+#include "MiniMapUnit.h"
 
 
 #include <GameEngineBase/GameEngineInput.h>
@@ -75,16 +76,20 @@ void ScoutMon::Start()
 		Collision->ChangeOrder(OBJECTORDER::Monster);
 	}
 
+	MiniUnit = GetLevel()->CreateActor<MiniMapUnit>(OBJECTORDER::UI);
+
 }
 
 void ScoutMon::Update(float _DeltaTime)
 {
+	MiniUnit->UnitPos = GetTransform().GetWorldPosition();
 
 	if (m_Info.m_Hp <= 0)
 	{
 		DeathEff = GetLevel()->CreateActor<ProDeath>(OBJECTORDER::Effect);
 		DeathEff->GetTransform().SetWorldPosition(GetTransform().GetWorldPosition());
 		Death();
+		MiniUnit->Death();
 	}
 
 	Move(_DeltaTime);

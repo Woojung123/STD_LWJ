@@ -8,6 +8,7 @@
 #include"CorSplash.h"
 #include "CorsairCUI.h"
 
+#include "MiniMapPlayer.h"
 
 CorsairC::CorsairC()
 	: Speed(50.0f)
@@ -151,11 +152,16 @@ void CorsairC::Start()
 		AttRenderer->GetTransform().SetLocalScale({ 300.f,300.f,1.f });
 
 	}
+	MiniPlayUnit = GetLevel()->CreateActor<MiniMapPlayer>(OBJECTORDER::UI);
+
 
 }
 
 void CorsairC::Update(float _DeltaTime)
 {
+
+	MiniPlayUnit->UnitPos = GetTransform().GetWorldPosition();
+
 	if (m_bClickCheck)
 	{
 		MainUI->On();

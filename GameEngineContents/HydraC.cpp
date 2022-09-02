@@ -7,6 +7,7 @@
 #include "GlobalContentsValue.h"
 #include"Sunken.h"
 #include "HydraCUI.h"
+#include "MiniMapPlayer.h"
 
 
 HydraC::HydraC()
@@ -148,12 +149,16 @@ void HydraC::Start()
 		AttRenderer->GetTransform().SetLocalScale({ 300.f,300.f,1.f });
 
 	}
+	MiniPlayUnit = GetLevel()->CreateActor<MiniMapPlayer>(OBJECTORDER::UI);
 
 
 }
 
 void HydraC::Update(float _DeltaTime)
 {
+	MiniPlayUnit->UnitPos = GetTransform().GetWorldPosition();
+
+
 	if (m_bClickCheck)
 	{
 		MainUI->On();

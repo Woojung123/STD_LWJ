@@ -7,6 +7,7 @@
 #include"BloodBullet.h"
 
 #include "ArbitorBUI.h"
+#include "MiniMapPlayer.h"
 
 
 
@@ -145,10 +146,17 @@ void ArbitorB::Start()
 	}
 
 
+	MiniPlayUnit = GetLevel()->CreateActor<MiniMapPlayer>(OBJECTORDER::UI);
+
+
 }
 
 void ArbitorB::Update(float _DeltaTime)
 {
+
+
+	MiniPlayUnit->UnitPos = GetTransform().GetWorldPosition();
+
 	if (m_bClickCheck)
 	{
 		MainUI->On();

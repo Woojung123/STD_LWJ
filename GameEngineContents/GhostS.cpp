@@ -7,6 +7,7 @@
 #include "GlobalContentsValue.h"
 #include"SGbullet.h"
 #include "GhostSUI.h"
+#include "MiniMapPlayer.h"
 
 
 GhostS::GhostS()
@@ -175,11 +176,16 @@ void GhostS::Start()
 	}
 
 
+	MiniPlayUnit = GetLevel()->CreateActor<MiniMapPlayer>(OBJECTORDER::UI);
+
+
 
 }
 
 void GhostS::Update(float _DeltaTime)
 {
+	MiniPlayUnit->UnitPos = GetTransform().GetWorldPosition();
+
 	if (m_bClickCheck)
 	{
 		MainUI->On();

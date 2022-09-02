@@ -6,6 +6,7 @@
 #include "GlobalContentsValue.h"
 #include"DraBall.h"
 #include "DragoonCUI.h"
+#include "MiniMapPlayer.h"
 
 
 TestUnit::TestUnit()
@@ -106,10 +107,16 @@ void TestUnit::Start()
 
 	}
 
+
+	MiniPlayUnit = GetLevel()->CreateActor<MiniMapPlayer>(OBJECTORDER::UI);
+	
+
 }
 
 void TestUnit::Update(float _DeltaTime)
 {
+
+	MiniPlayUnit->UnitPos = GetTransform().GetWorldPosition();
 
 	if (m_bClickCheck)
 	{
