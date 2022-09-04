@@ -3,6 +3,7 @@
 #include <GameEngineCore/GameEngineActor.h>
 
 // Ό³Έν :
+
 class UIMouse : public GameEngineActor
 {
 public:
@@ -16,8 +17,10 @@ public:
 	UIMouse& operator=(const UIMouse& _Other) = delete;
 	UIMouse& operator=(UIMouse&& _Other) noexcept = delete;
 public:
+	
 	float4 UnitPos;
 	GameEngineUIRenderer* Renderer;
+	GameEngineCollision* Collision;
 protected:
 	void Start() override;
 	void Update(float _DeltaTime);

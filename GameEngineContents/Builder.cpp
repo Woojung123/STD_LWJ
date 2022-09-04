@@ -5,7 +5,7 @@
 #include <GameEngineCore/GameEngineLevel.h>
 #include "GlobalContentsValue.h"
 #include"CorSplash.h"
-#include "CorsairCUI.h"
+#include "BuilderUI.h"
 #include "MainMouse.h"
 
 
@@ -132,8 +132,8 @@ void Builder::Start()
 	}
 
 
-	MainUI = GetLevel()->CreateActor<CorsairCUI>(OBJECTORDER::UI);
-
+	MainUI = GetLevel()->CreateActor<BuilderUI>(OBJECTORDER::UI);
+	MainUI->m_Builder = this;
 	{
 		Collision = CreateComponent<GameEngineCollision>();
 		Collision->GetTransform().SetLocalScale({ 60.0f, 60.0f, 1.0f });

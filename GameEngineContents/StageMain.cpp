@@ -96,9 +96,10 @@ void StageMain::Start()
 		MiniMap* NewPlayer = CreateActor<MiniMap>(OBJECTORDER::UI);
 	}
 	
-	{
-		UIMouse* NewPlayer = CreateActor<UIMouse>(OBJECTORDER::UI);
-	}
+
+		UIMouse* C_UIMouse = CreateActor<UIMouse>(OBJECTORDER::UI);
+
+
 
 
 	
@@ -112,7 +113,7 @@ void StageMain::Start()
 	mBuilder->m_MainMouse = MaMouse;
 	mBuilder->m_Type = UNITTYPE::Builder;
 	MaMouse->m_Builder = mBuilder;
-
+	
 	MapPoint MapP;
 
 

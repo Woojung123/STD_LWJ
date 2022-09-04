@@ -4,7 +4,7 @@
 #include "UnitBase.h"
 // Ό³Έν :
 class MainMouse;
-class CorsairCUI;
+class BuilderUI;
 class SwarmBullet;
 class GameEngineTextureRenderer;
 class Builder : public UnitBase
@@ -30,7 +30,7 @@ protected:
 	float4 WorldPos = {};
 	float4 MyPos = {};
 	void AttEnd(const FrameAnimation_DESC& _Info);
-	CorsairCUI* MainUI;
+	BuilderUI* MainUI;
 	//TerranBaseBullet
 
 

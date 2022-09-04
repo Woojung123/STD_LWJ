@@ -25,7 +25,13 @@ void UIMouse::Start()
 	Renderer->CreateFrameAnimationFolder("ScrollU", FrameAnimation_DESC("ScrollU", 0.1f));
 	Renderer->CreateFrameAnimationFolder("MagAlly", FrameAnimation_DESC("MagAlly", 0.1f));
 
+	{
+		Collision = CreateComponent<GameEngineCollision>();
+		Collision->GetTransform().SetLocalScale({1.f, 1.f, 1.f });
+		Collision->ChangeOrder(OBJECTORDER::MouseUI);
 
+
+	}
 
 	ShowCursor(false);
 
@@ -79,7 +85,7 @@ void UIMouse::Update(float _DeltaTime)
 
 
 	Renderer->GetTransform().SetLocalPosition(MousePos);
-
+	Collision->GetTransform().SetLocalPosition(MousePos);
 
 
 

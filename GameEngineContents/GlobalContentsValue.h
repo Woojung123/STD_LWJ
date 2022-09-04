@@ -12,6 +12,7 @@ enum class OBJECTORDER
 	Bullet,
 	Effect,
 	Mouse,
+	MouseUI,
 	UI = 1000,
 };
 
