@@ -20,6 +20,7 @@ ZealotC::ZealotC()
 	, ListLastCheck(false)
 	, m_Dir({ 0 })
 	, BAniChange(false)
+	, MainUI(nullptr)
 {
 }
 
@@ -158,6 +159,12 @@ void ZealotC::Start()
 
 
 
+	AttRenderer->Off();
+	ClickRenderer->Off();
+	MainUI->Off();
+
+
+
 }
 
 void ZealotC::Update(float _DeltaTime)
@@ -216,7 +223,7 @@ void ZealotC::Update(float _DeltaTime)
 				TestUni = GetLevel()->CreateActor<Sunken>(OBJECTORDER::Bullet);
 				TestUni->GetTransform().SetWorldPosition(TarGetPos);
 				TestUni->TarGet = TarGet;
-
+				TestUni->m_Info.Dammage = TestUni->m_Info.Dammage + UnitBase::CProUpgrade;
 			}
 
 

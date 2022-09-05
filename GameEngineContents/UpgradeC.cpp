@@ -21,6 +21,8 @@ UpgradeC::UpgradeC()
 	, ListLastCheck(false)
 	, AttCount(0)
 	, AttCountMax(5)
+	,MainUI(nullptr)
+
 {
 }
 
@@ -80,6 +82,8 @@ void UpgradeC::Start()
 
 
 	MainUI = GetLevel()->CreateActor<UpgradeCUI>(OBJECTORDER::UI);
+	MainUI->SetUpC(this);
+
 
 	{
 		Collision = CreateComponent<GameEngineCollision>();

@@ -24,6 +24,7 @@ CannonB::CannonB()
 	, ListLastCheck(false)
 	, AttCount(0)
 	, AttCountMax(5)
+	,MainUI(nullptr)
 {
 }
 
@@ -120,6 +121,12 @@ void CannonB::Start()
 
 
 
+	AttRenderer->Off();
+	ClickRenderer->Off();
+	MainUI->Off();
+
+
+
 }
 
 void CannonB::Update(float _DeltaTime)
@@ -178,7 +185,7 @@ void CannonB::Update(float _DeltaTime)
 				TestUni->GetTransform().SetWorldPosition(MyPos);
 				TestUni->SetTarGet(TarGet);
 				TestUni->m_Info.Dammage = 40;
-				
+				TestUni->m_Info.Dammage = TestUni->m_Info.Dammage + UnitBase::BProUpgrade;
 
 
 			}

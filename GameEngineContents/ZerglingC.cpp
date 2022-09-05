@@ -20,6 +20,7 @@ ZerglingC::ZerglingC()
 	, ListLastCheck(false)
 	, m_Dir({ 0 })
 	, BAniChange(false)
+	, MainUI(0)
 {
 }
 
@@ -159,6 +160,12 @@ void ZerglingC::Start()
 	MiniPlayUnit = GetLevel()->CreateActor<MiniMapPlayer>(OBJECTORDER::UI);
 
 
+
+	AttRenderer->Off();
+	ClickRenderer->Off();
+	MainUI->Off();
+
+
 }
 
 void ZerglingC::Update(float _DeltaTime)
@@ -220,6 +227,7 @@ void ZerglingC::Update(float _DeltaTime)
 				TestUni = GetLevel()->CreateActor<Sunken>(OBJECTORDER::Bullet);
 				TestUni->GetTransform().SetWorldPosition(TarGetPos);
 				TestUni->TarGet = TarGet;
+				TestUni->m_Info.Dammage = TestUni->m_Info.Dammage + UnitBase::CZergUpgrade;
 			}
 			break;
 		}

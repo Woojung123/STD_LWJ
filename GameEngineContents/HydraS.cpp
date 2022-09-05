@@ -170,6 +170,12 @@ void HydraS::Start()
 
 	MiniPlayUnit = GetLevel()->CreateActor<MiniMapPlayer>(OBJECTORDER::UI);
 
+
+	AttRenderer->Off();
+	ClickRenderer->Off();
+	MainUI->Off();
+
+
 }
 
 void HydraS::Update(float _DeltaTime)

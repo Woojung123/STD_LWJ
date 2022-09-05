@@ -5,6 +5,7 @@
 #include "GlobalContentsValue.h"
 
 // Ό³Έν :
+class UnitBase;
 class Builder;
 class GameEngineTextureRenderer;
 class GameEngineCollision;
@@ -29,18 +30,26 @@ public:
 	bool PlayerCollision(GameEngineCollision* _This, GameEngineCollision* _Other);
 	bool UICollision(GameEngineCollision* _This, GameEngineCollision* _Other);
 	bool AllCollision(GameEngineCollision* _This, GameEngineCollision* _Other);
+	bool MDragCollision(GameEngineCollision* _This, GameEngineCollision* _Other);
 public:
-
-
+	std::vector<UnitBase*> vec_DragUnit;
+	bool StartDragCheck;
 	bool BuildCheck;
 	bool PlusCheck;
 
 	Builder* m_Builder;
 	bool BuildColorCheck;
 
+	float4 m_DragStartPos;
+	float4 m_DragEndPos;
+
 	void ClickReset();
 	GameEngineTextureRenderer* Renderer;
 	GameEngineTextureRenderer* BuildRenderer;
+	GameEngineTextureRenderer* DragRenderer;
+
 	GameEngineCollision* Collision;
+	GameEngineCollision* DragCollision;
+
 
 };

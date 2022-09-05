@@ -18,6 +18,7 @@ TestUnit::TestUnit()
 	, AttTimeMax(0.8f)
 	, AttTime(0.f)
 	, ListLastCheck(false)
+	, MainUI(0)
 {
 }
 
@@ -104,12 +105,20 @@ void TestUnit::Start()
 		AttRenderer = CreateComponent<GameEngineTextureRenderer>();
 		AttRenderer->SetTexture("SelectAtt.png");
 		AttRenderer->GetTransform().SetLocalScale({ 300.f,300.f,1.f });
-
+		
 	}
 
 
 	MiniPlayUnit = GetLevel()->CreateActor<MiniMapPlayer>(OBJECTORDER::UI);
 	
+
+
+	AttRenderer->Off();
+	ClickRenderer->Off();
+	MainUI->Off();
+
+
+
 
 }
 
@@ -159,7 +168,7 @@ void TestUnit::Update(float _DeltaTime)
 				TestUni = GetLevel()->CreateActor<DraBall>(OBJECTORDER::Bullet);
 				TestUni->GetTransform().SetWorldPosition(MyPos);
 				TestUni->SetTarGet(TarGet);
-				
+				TestUni->m_Info.Dammage = TestUni->m_Info.Dammage + UnitBase::CProUpgrade;
 				
 			
 

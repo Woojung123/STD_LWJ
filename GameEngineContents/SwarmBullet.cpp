@@ -70,7 +70,7 @@ void SwarmBullet::Update(float _DeltaTime)
 			////DraBallEff
 			SwarmEffect* TestUni = GetLevel()->CreateActor<SwarmEffect>(OBJECTORDER::Effect);
 			TestUni->GetTransform().SetWorldPosition(MyPos);
-			((UnitBase*)TarGet)->m_Info.m_Hp -= m_Info.Dammage;;
+			((UnitBase*)TarGet)->m_Info.m_Hp -= m_Info.Dammage + UnitBase::SZergUpgrade;
 			Death();
 		}
 

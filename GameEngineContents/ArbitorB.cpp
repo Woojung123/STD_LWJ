@@ -149,6 +149,12 @@ void ArbitorB::Start()
 	MiniPlayUnit = GetLevel()->CreateActor<MiniMapPlayer>(OBJECTORDER::UI);
 
 
+
+	AttRenderer->Off();
+	ClickRenderer->Off();
+	MainUI->Off();
+
+
 }
 
 void ArbitorB::Update(float _DeltaTime)
@@ -208,8 +214,8 @@ void ArbitorB::Update(float _DeltaTime)
 				TestUni = GetLevel()->CreateActor<BloodBullet>(OBJECTORDER::Bullet);
 				TestUni->GetTransform().SetWorldPosition(MyPos);
 				TestUni->SetTarGet(TarGet);
-				TestUni->m_Info.Dammage = 90;
-
+				TestUni->m_Info.Dammage = 90 ;
+				TestUni->m_Info.Dammage = TestUni->m_Info.Dammage + UnitBase::BProUpgrade;
 
 			}
 

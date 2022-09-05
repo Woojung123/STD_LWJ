@@ -65,7 +65,7 @@ void DroneBullet::Update(float _DeltaTime)
 			////DraBallEff
 			DroneEffect* TestUni = GetLevel()->CreateActor<DroneEffect>(OBJECTORDER::Effect);
 			TestUni->GetTransform().SetWorldPosition(MyPos);
-			((UnitBase*)TarGet)->m_Info.m_Hp -= m_Info.Dammage;;
+			((UnitBase*)TarGet)->m_Info.m_Hp -= m_Info.Dammage + UnitBase::SZergUpgrade;
 			Death();
 		}
 

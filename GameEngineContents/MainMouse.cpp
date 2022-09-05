@@ -13,7 +13,19 @@
 
 
 
-MainMouse::MainMouse()
+MainMouse::MainMouse()	:
+	m_DragStartPos({})
+	, m_DragEndPos({})
+	, StartDragCheck(false)
+	,BuildCheck(false)
+	,BuildColorCheck(false)
+	,BuildRenderer(nullptr)
+	,Collision(nullptr)
+	,DragCollision(nullptr)
+	,DragRenderer(nullptr)
+	,m_Builder(nullptr)
+	,PlusCheck(false)
+	,Renderer(nullptr)
 {
 }
 
@@ -31,9 +43,7 @@ void MainMouse::Start()
 	WorldPos.z = -151.f;
 	GetTransform().SetWorldPosition(WorldPos);
 
-	BuildColorCheck = false;
-	BuildCheck = false;
-	PlusCheck = false;
+	
 	{
 		Collision = CreateComponent<GameEngineCollision>();
 		Collision->GetTransform().SetLocalScale({ 1.f, 1.f, 1.0f });
@@ -54,6 +64,21 @@ void MainMouse::Start()
 		BuildRenderer->ScaleToTexture();
 
 	}
+
+	{
+		DragRenderer = CreateComponent<GameEngineTextureRenderer>();
+		DragRenderer->SetTexture("Mouse.png");
+		DragRenderer->ScaleToTexture();
+		DragRenderer->GetColorData().MulColor.a = 0.5f;
+		DragRenderer->Off();
+	}
+	{
+		DragCollision = CreateComponent<GameEngineCollision>();
+		DragCollision->GetTransform().SetLocalScale({ 1.f, 1.f, 1.0f });
+		DragCollision->ChangeOrder(OBJECTORDER::MouseDrag);
+		DragCollision->Off();
+	}
+
 	
 	GameEngineInput::GetInst()->CreateKey("LeftClick", VK_LBUTTON);
 	GameEngineInput::GetInst()->CreateKey("BuilderClick", '1');
@@ -66,11 +91,15 @@ void MainMouse::Start()
 void MainMouse::Update(float _DeltaTime)
 {
 
+
+
+
 	float4 WorldPos = GetTransform().GetWorldPosition();
 	WorldPos.x = GetLevel()->GetMainCamera()->GetMouseWorldPosition().x;
 	WorldPos.y = GetLevel()->GetMainCamera()->GetMouseWorldPosition().y;
 	WorldPos.z = -151.f;
 	GetTransform().SetWorldPosition(WorldPos);
+
 
 	if (true == GameEngineInput::GetInst()->IsDown("BuilderClick"))
 	{
@@ -94,6 +123,71 @@ void MainMouse::Update(float _DeltaTime)
 	}
 
 
+	if (!StartDragCheck)
+	{
+
+		m_DragStartPos = WorldPos;
+
+	}
+
+	if (true == GameEngineInput::GetInst()->IsDown("LeftClick"))
+	{
+
+		StartDragCheck = true;
+
+	}
+
+
+	if (true == GameEngineInput::GetInst()->IsPress("LeftClick"))
+	{
+
+
+		m_DragEndPos = WorldPos;
+
+		float4 DumPos = {};
+
+		float4 DragScale = {};
+		float4 DragPos = {};
+
+		DragScale.x = m_DragEndPos.x - m_DragStartPos.x;
+		DragScale.y = m_DragStartPos.y - m_DragEndPos.y;
+
+		DragPos.x = m_DragStartPos.x + (DragScale.x/2);
+		DragPos.y = m_DragStartPos.y - (DragScale.y/2);
+		DragPos.z = -400.f;
+		DragRenderer->GetTransform().SetWorldScale(DragScale);
+		DragRenderer->GetTransform().SetWorldPosition(DragPos);
+
+		DragCollision->GetTransform().SetWorldScale(DragScale);
+		DragCollision->GetTransform().SetWorldPosition(DragPos);
+
+
+		DragRenderer->On();
+		DragCollision->On();
+
+
+	}
+
+
+	if (true == GameEngineInput::GetInst()->IsFree("LeftClick"))
+	{
+		ClickReset();
+
+
+
+		DragCollision->IsCollision(CollisionType::CT_OBB2D, OBJECTORDER::Player, CollisionType::CT_OBB2D,
+			std::bind(&MainMouse::MDragCollision, this, std::placeholders::_1, std::placeholders::_2)
+		);
+
+
+		DragRenderer->Off();
+		DragCollision->Off();
+
+	
+		StartDragCheck = false;
+	}
+
+
 
 
 
@@ -105,6 +199,10 @@ void MainMouse::Update(float _DeltaTime)
 	{
 		BuildRenderer->Off();
 	}
+
+	Collision->IsCollision(CollisionType::CT_OBB2D, OBJECTORDER::Player, CollisionType::CT_OBB2D,
+		std::bind(&MainMouse::AllCollision, this, std::placeholders::_1, std::placeholders::_2)
+	);
 
 	Collision->IsCollision(CollisionType::CT_OBB2D, OBJECTORDER::Player, CollisionType::CT_OBB2D,
 		std::bind(&MainMouse::AllCollision, this, std::placeholders::_1, std::placeholders::_2)
@@ -348,6 +446,25 @@ bool MainMouse::AllCollision(GameEngineCollision* _This, GameEngineCollision* _O
 	return false;
 }
 
+bool MainMouse::MDragCollision(GameEngineCollision* _This, GameEngineCollision* _Other)
+{
+
+	UNITTYPE _type = ((UnitBase*)_Other->GetActor())->m_Type;
+
+	
+	if(vec_DragUnit.size() < 12)
+	{
+		vec_DragUnit.push_back(((UnitBase*)_Other->GetActor()));
+		((UnitBase*)_Other->GetActor())->m_bClickCheck = true;
+	}
+
+	
+
+
+	return false;
+}
+
+
 void MainMouse::ClickReset()
 {
 
@@ -362,12 +479,13 @@ void MainMouse::ClickReset()
 		for (; iter != iterEnd; ++iter)
 		{
 			((UnitBase*)(*iter))->m_bClickCheck = false;
+			((UnitBase*)(*iter))->m_bDragCheck = false;
 		}
 
 
 	}
 
-
+	vec_DragUnit.clear();
 
 
 }

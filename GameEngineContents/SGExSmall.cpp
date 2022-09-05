@@ -57,7 +57,7 @@ bool SGExSmall::MonsterCollision(GameEngineCollision* _This, GameEngineCollision
 
 	GameEngineActor* Dest = _Other->GetActor();
 
-	((UnitBase*)Dest)->m_Info.m_Hp -= m_Info.Dammage;
+	((UnitBase*)Dest)->m_Info.m_Hp -= m_Info.Dammage + UnitBase::STerUpgrade;
 
 	return true;
 }

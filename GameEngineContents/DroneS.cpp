@@ -178,6 +178,12 @@ void DroneS::Start()
 	MiniPlayUnit = GetLevel()->CreateActor<MiniMapPlayer>(OBJECTORDER::UI);
 
 
+	AttRenderer->Off();
+	ClickRenderer->Off();
+	MainUI->Off();
+
+
+
 
 }
 

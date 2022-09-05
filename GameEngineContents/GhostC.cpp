@@ -21,7 +21,7 @@ GhostC::GhostC()
 	, ListLastCheck(false)
 	, m_Dir({0})
 	, BAniChange(false)
-
+	, MainUI(nullptr)
 {
 }
 
@@ -155,6 +155,17 @@ void GhostC::Start()
 	}
 	MiniPlayUnit = GetLevel()->CreateActor<MiniMapPlayer>(OBJECTORDER::UI);
 
+
+
+
+	AttRenderer->Off();
+	ClickRenderer->Off();
+	MainUI->Off();
+
+
+
+
+
 }
 
 void GhostC::Update(float _DeltaTime)
@@ -216,7 +227,7 @@ void GhostC::Update(float _DeltaTime)
 				TestUni = GetLevel()->CreateActor<BloodBullet>(OBJECTORDER::Bullet);
 				TestUni->GetTransform().SetWorldPosition(MyPos);
 				TestUni->SetTarGet(TarGet);
-			
+				TestUni->m_Info.Dammage = TestUni->m_Info.Dammage + UnitBase::CTerUpgrade;
 
 				
 			}

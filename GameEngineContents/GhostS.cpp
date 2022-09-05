@@ -180,6 +180,12 @@ void GhostS::Start()
 
 
 
+	AttRenderer->Off();
+	ClickRenderer->Off();
+	MainUI->Off();
+
+
+
 }
 
 void GhostS::Update(float _DeltaTime)

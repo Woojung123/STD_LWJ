@@ -13,6 +13,7 @@ enum class OBJECTORDER
 	Effect,
 	Mouse,
 	MouseUI,
+	MouseDrag,
 	UI = 1000,
 };
 

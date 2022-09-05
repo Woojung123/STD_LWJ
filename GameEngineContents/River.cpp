@@ -19,7 +19,9 @@ River::River()
 	, ListLastCheck(false)
 	, m_Dir({ 0 })
 	, BAniChange(false)
-
+	, AuraRenderer(nullptr)
+	, BiconRenderer(nullptr)
+	, MainUI(nullptr)
 {
 }
 
@@ -177,6 +179,12 @@ void River::Start()
 	MiniPlayUnit = GetLevel()->CreateActor<MiniMapPlayer>(OBJECTORDER::UI);
 
 
+	AttRenderer->Off();
+	ClickRenderer->Off();
+	MainUI->Off();
+
+
+
 }
 
 void River::Update(float _DeltaTime)
@@ -237,7 +245,7 @@ void River::Update(float _DeltaTime)
 				TestUni = GetLevel()->CreateActor<RiverBullet>(OBJECTORDER::Bullet);
 				TestUni->GetTransform().SetWorldPosition(MyPos);
 				TestUni->SetTarGet(TarGet);
-
+				TestUni->m_Info.Dammage = TestUni->m_Info.Dammage + UnitBase::AProUpgrade;
 
 
 			}

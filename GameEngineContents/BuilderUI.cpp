@@ -7,6 +7,8 @@
 
 BuilderUI::BuilderUI() :
 	 m_Builder(0)
+	,CollisionBuild(0)
+	,CollisionMake(0)
 {
 }
 
@@ -158,6 +160,7 @@ bool BuilderUI::BuildCollision(GameEngineCollision* _This, GameEngineCollision* 
 	{
 		m_Builder->m_bClickCheck = true;
 		m_Builder->m_MainMouse->BuildCheck = true;
+		m_Builder->m_MainMouse->PlusCheck = false;
 
 	}
 	
@@ -171,6 +174,7 @@ bool BuilderUI::MakeCollision(GameEngineCollision* _This, GameEngineCollision* _
 	{
 		m_Builder->m_bClickCheck = true;
 		m_Builder->m_MainMouse->PlusCheck = true;
+		m_Builder->m_MainMouse->BuildCheck = false;
 	}
 
 	

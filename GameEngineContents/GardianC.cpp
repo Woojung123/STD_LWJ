@@ -22,6 +22,9 @@ GardianC::GardianC()
 	, BAniChange(false)
 	, AttCount(0)
 	, AttCountMax(3)
+	,AuraRenderer(nullptr)
+	,BiconRenderer(nullptr)
+	,MainUI(nullptr)
 {
 }
 
@@ -184,6 +187,12 @@ void GardianC::Start()
 	MiniPlayUnit = GetLevel()->CreateActor<MiniMapPlayer>(OBJECTORDER::UI);
 
 
+	AttRenderer->Off();
+	ClickRenderer->Off();
+	MainUI->Off();
+
+
+
 
 }
 
@@ -245,6 +254,7 @@ void GardianC::Update(float _DeltaTime)
 				TestUni->GetTransform().SetWorldPosition(MyPos);
 				TestUni->SetTarGet(TarGet);
 				TestUni->m_Info.Dammage = 80;
+				TestUni->m_Info.Dammage = TestUni->m_Info.Dammage + UnitBase::AZergUpgrade;
 			}
 
 			if (AttCountMax >= (Monsize - 1))

@@ -21,6 +21,7 @@ HydraC::HydraC()
 	, ListLastCheck(false)
 	, m_Dir({ 0 })
 	,BAniChange(false)
+	, MainUI(nullptr)
 {
 }
 
@@ -152,6 +153,12 @@ void HydraC::Start()
 	MiniPlayUnit = GetLevel()->CreateActor<MiniMapPlayer>(OBJECTORDER::UI);
 
 
+	AttRenderer->Off();
+	ClickRenderer->Off();
+	MainUI->Off();
+
+
+
 }
 
 void HydraC::Update(float _DeltaTime)
@@ -211,7 +218,7 @@ void HydraC::Update(float _DeltaTime)
 				TestUni = GetLevel()->CreateActor<Sunken>(OBJECTORDER::Bullet);
 				TestUni->GetTransform().SetWorldPosition(TarGetPos);
 				TestUni->TarGet = TarGet;
-
+				TestUni->m_Info.Dammage = TestUni->m_Info.Dammage + UnitBase::CZergUpgrade;
 			}
 
 

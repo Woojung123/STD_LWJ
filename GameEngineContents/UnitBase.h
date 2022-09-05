@@ -26,7 +26,25 @@ public:
 	MiniMapUnit* MiniUnit;
 	MiniMapPlayer* MiniPlayUnit;
 	bool	m_bClickCheck;
+	bool	m_bDragCheck;
 	GameEngineCollision* Collision;
+
+	static int CZergUpgrade;
+	static int CProUpgrade;
+	static int CTerUpgrade;
+
+	static int BZergUpgrade;
+	static int BProUpgrade;
+	static int BTerUpgrade;
+
+	static int AZergUpgrade;
+	static int AProUpgrade;
+	static int ATerUpgrade;
+
+	static int SZergUpgrade;
+	static int SProUpgrade;
+	static int STerUpgrade;
+
 
 	GameEngineTextureRenderer* ShadowRenderer;
 	GameEngineTextureRenderer* AttRenderer;

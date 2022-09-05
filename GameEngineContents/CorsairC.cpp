@@ -21,6 +21,7 @@ CorsairC::CorsairC()
 	, ListLastCheck(false)
 	, m_Dir({ 0 })
 	, BAniChange(false)
+	, MainUI(0)
 {
 }
 
@@ -155,6 +156,12 @@ void CorsairC::Start()
 	MiniPlayUnit = GetLevel()->CreateActor<MiniMapPlayer>(OBJECTORDER::UI);
 
 
+	AttRenderer->Off();
+	ClickRenderer->Off();
+	MainUI->Off();
+
+
+
 }
 
 void CorsairC::Update(float _DeltaTime)
@@ -214,7 +221,7 @@ void CorsairC::Update(float _DeltaTime)
 
 				TestUni = GetLevel()->CreateActor<CorSplash>(OBJECTORDER::Bullet);
 				TestUni->GetTransform().SetWorldPosition(TarGetPos);
-				//TestUni->SetTarGet(TarGet);
+				TestUni->m_Info.Dammage = TestUni->m_Info.Dammage + UnitBase::CProUpgrade;
 
 			}
 			break;

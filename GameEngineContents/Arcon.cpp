@@ -24,6 +24,10 @@ Arcon::Arcon()
 	, BAniChange(false)
 	, AttCount(0)
 	, AttCountMax(3)
+	, AuraRenderer(nullptr)
+	, AuraRenderer2(nullptr)
+	, BiconRenderer(nullptr)
+	, MainUI(nullptr)
 {
 }
 
@@ -177,6 +181,12 @@ void Arcon::Start()
 	}
 
 	MiniPlayUnit = GetLevel()->CreateActor<MiniMapPlayer>(OBJECTORDER::UI);
+
+
+	AttRenderer->Off();
+	ClickRenderer->Off();
+	MainUI->Off();
+
 
 
 }

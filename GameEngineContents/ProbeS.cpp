@@ -162,6 +162,12 @@ void ProbeS::Start()
 
 
 
+	AttRenderer->Off();
+	ClickRenderer->Off();
+	MainUI->Off();
+
+
+
 }
 
 void ProbeS::Update(float _DeltaTime)

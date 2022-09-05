@@ -21,6 +21,7 @@ SunkenC::SunkenC()
 	, ListLastCheck(false)
 	, AttCount(0)
 	, AttCountMax(3)
+	,MainUI(nullptr)
 {
 }
 
@@ -119,6 +120,12 @@ void SunkenC::Start()
 	MiniPlayUnit = GetLevel()->CreateActor<MiniMapPlayer>(OBJECTORDER::UI);
 
 
+
+	AttRenderer->Off();
+	ClickRenderer->Off();
+	MainUI->Off();
+
+
 }
 
 void SunkenC::Update(float _DeltaTime)
@@ -170,7 +177,9 @@ void SunkenC::Update(float _DeltaTime)
 			{
 				TestUni = GetLevel()->CreateActor<Sunken>(OBJECTORDER::Bullet);
 				TestUni->GetTransform().SetWorldPosition(TarGetPos);
-				TestUni->m_Info.Dammage = 40;
+				TestUni->m_Info.Dammage = 40 + UnitBase::BZergUpgrade ;
+
+
 			}
 			//BloodBullet
 			//Spore

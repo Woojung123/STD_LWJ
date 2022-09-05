@@ -52,6 +52,8 @@ Builder::Builder()
 	,m_HydraS(0)
 	,GradeType(0)
 	,BuildMake(false)
+	,m_MainMouse(0)
+	,MainUI(0)
 {
 }
 
@@ -166,14 +168,14 @@ void Builder::Update(float _DeltaTime)
 		if (true == GameEngineInput::GetInst()->IsDown("MakeClick"))
 		{
 			m_MainMouse->BuildCheck = true;
-
+			m_MainMouse->PlusCheck = false;
 		}
 
 
 		if (true == GameEngineInput::GetInst()->IsDown("PlusClick"))
 		{
 			m_MainMouse->PlusCheck = true;
-
+			m_MainMouse->BuildCheck = false;
 		}
 
 

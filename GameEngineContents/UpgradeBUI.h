@@ -3,6 +3,7 @@
 #include <GameEngineCore/GameEngineActor.h>
 
 // Ό³Έν :
+class UpgradeB;
 class UpgradeBUI : public GameEngineActor
 {
 public:
@@ -18,10 +19,27 @@ public:
 
 protected:
 	void Start() override;
-	void Update(float _DeltaTime) {}
+	void Update(float _DeltaTime);
 	void End() {}
 
 private:
+	GameEngineCollision* Col_ProUpgrade;
+	GameEngineCollision* Col_TerUpgrade;
+	GameEngineCollision* Col_ZergUpgrade;
+
+	UpgradeB* m_UpC;
+
+
+	bool Col_Pro(GameEngineCollision* _This, GameEngineCollision* _Other);
+	bool Col_Ter(GameEngineCollision* _This, GameEngineCollision* _Other);
+	bool Col_Zerg(GameEngineCollision* _This, GameEngineCollision* _Other);
+public:
+	void SetUpC(UpgradeB* UpC)
+	{
+		m_UpC = UpC;
+	}
+
+
 
 };
 

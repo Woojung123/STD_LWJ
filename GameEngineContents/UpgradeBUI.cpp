@@ -1,8 +1,13 @@
 
 #include "PreCompile.h"
 #include "UpgradeBUI.h"
-
-UpgradeBUI::UpgradeBUI()
+#include "UnitBase.h"
+#include "UpgradeB.h"
+UpgradeBUI::UpgradeBUI() :
+	m_UpC(nullptr)
+	, Col_ProUpgrade(nullptr)
+	, Col_TerUpgrade(nullptr)
+	, Col_ZergUpgrade(nullptr)
 {
 }
 
@@ -74,5 +79,91 @@ void UpgradeBUI::Start()
 
 	}
 
+	{
+
+		Col_ProUpgrade = CreateComponent<GameEngineCollision>();
+		Col_ProUpgrade->GetTransform().SetLocalScale({ 36.f, 34.f, 1.f });
+		Col_ProUpgrade->GetTransform().SetLocalPosition({ 255.f,-170.f, -250.f });
+		Col_ProUpgrade->ChangeOrder(OBJECTORDER::UI);
+
+
+	}
+
+	{
+		Col_TerUpgrade = CreateComponent<GameEngineCollision>();
+		Col_TerUpgrade->GetTransform().SetLocalScale({ 36.f, 34.f, 1.f });
+		Col_TerUpgrade->GetTransform().SetLocalPosition({ 310.f,-170.f, -250.f });
+		Col_TerUpgrade->ChangeOrder(OBJECTORDER::UI);
+
+
+	}
+
+	{
+		Col_ZergUpgrade = CreateComponent<GameEngineCollision>();
+		Col_ZergUpgrade->GetTransform().SetLocalScale({ 36.f, 34.f, 1.f });
+		Col_ZergUpgrade->GetTransform().SetLocalPosition({ 370.f,-170.f, -250.f });
+		Col_ZergUpgrade->ChangeOrder(OBJECTORDER::UI);
+
+
+	}
+
+	
 
 }
+
+
+
+void UpgradeBUI::Update(float _DeltaTime)
+{
+
+	Col_ProUpgrade->IsCollision(CollisionType::CT_OBB2D, OBJECTORDER::MouseUI, CollisionType::CT_OBB2D,
+		std::bind(&UpgradeBUI::Col_Pro, this, std::placeholders::_1, std::placeholders::_2)
+	);
+
+
+	Col_TerUpgrade->IsCollision(CollisionType::CT_OBB2D, OBJECTORDER::MouseUI, CollisionType::CT_OBB2D,
+		std::bind(&UpgradeBUI::Col_Ter, this, std::placeholders::_1, std::placeholders::_2)
+	);
+
+	Col_ZergUpgrade->IsCollision(CollisionType::CT_OBB2D, OBJECTORDER::MouseUI, CollisionType::CT_OBB2D,
+		std::bind(&UpgradeBUI::Col_Zerg, this, std::placeholders::_1, std::placeholders::_2)
+	);
+
+}
+
+bool UpgradeBUI::Col_Pro(GameEngineCollision* _This, GameEngineCollision* _Other)
+{
+
+	if (true == GameEngineInput::GetInst()->IsDown("LCUpClick"))
+	{
+		++UnitBase::BProUpgrade;
+		m_UpC->m_bClickCheck = true;
+	}
+
+	return false;
+}
+
+bool UpgradeBUI::Col_Ter(GameEngineCollision* _This, GameEngineCollision* _Other)
+{
+
+	if (true == GameEngineInput::GetInst()->IsDown("LCUpClick"))
+	{
+		m_UpC->m_bClickCheck = true;
+		++UnitBase::BTerUpgrade;
+	}
+
+	return false;
+}
+
+bool UpgradeBUI::Col_Zerg(GameEngineCollision* _This, GameEngineCollision* _Other)
+{
+
+	if (true == GameEngineInput::GetInst()->IsDown("LCUpClick"))
+	{
+		++UnitBase::BZergUpgrade;
+		m_UpC->m_bClickCheck = true;
+	}
+
+	return false;
+}
+

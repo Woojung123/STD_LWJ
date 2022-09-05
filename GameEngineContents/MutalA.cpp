@@ -22,6 +22,9 @@ MutalA::MutalA()
 	, BAniChange(false)
 	, AttCount(0)
 	, AttCountMax(3)
+	, AuraRenderer(nullptr)
+	, BiconRenderer(nullptr)
+	, MainUI(nullptr)
 {
 }
 
@@ -190,6 +193,12 @@ void MutalA::Start()
 
 
 
+	AttRenderer->Off();
+	ClickRenderer->Off();
+	MainUI->Off();
+
+
+
 }
 
 void MutalA::Update(float _DeltaTime)
@@ -268,6 +277,8 @@ void MutalA::Update(float _DeltaTime)
 					TestUni->GetTransform().SetWorldPosition(MyPos);
 					TestUni->SetTarGet(TarGet);
 					TestUni->m_Info.Dammage = 120;
+					TestUni->m_Info.Dammage = TestUni->m_Info.Dammage + UnitBase::AZergUpgrade;
+
 
 					TestUni->TarGet = TarGet2;
 					TestUni->TarGet2 = TarGet3;

@@ -159,6 +159,12 @@ void MarinC::Start()
 	MiniPlayUnit = GetLevel()->CreateActor<MiniMapPlayer>(OBJECTORDER::UI);
 
 
+	AttRenderer->Off();
+	ClickRenderer->Off();
+	MainUI->Off();
+
+
+
 }
 
 void MarinC::Update(float _DeltaTime)
@@ -218,7 +224,7 @@ void MarinC::Update(float _DeltaTime)
 				TestUni = GetLevel()->CreateActor<TerranBaseBullet>(OBJECTORDER::Bullet);
 				TestUni->GetTransform().SetWorldPosition(TarGetPos);
 				TestUni->TarGet = TarGet;
-
+				TestUni->m_Info.Dammage = TestUni->m_Info.Dammage + UnitBase::CTerUpgrade;
 
 			}
 

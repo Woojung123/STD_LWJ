@@ -23,6 +23,7 @@ HighT::HighT()
 	, BAniChange(false)
 	, BATTDelayTime(false)
 	, FATTDelayTime(0.f)
+	, MainUI(nullptr)
 {
 }
 
@@ -166,6 +167,12 @@ void HighT::Start()
 	MiniPlayUnit = GetLevel()->CreateActor<MiniMapPlayer>(OBJECTORDER::UI);
 
 
+
+	AttRenderer->Off();
+	ClickRenderer->Off();
+	MainUI->Off();
+
+
 }
 
 void HighT::Update(float _DeltaTime)
@@ -244,7 +251,7 @@ void HighT::Update(float _DeltaTime)
 				TestUni = GetLevel()->CreateActor<Storm>(OBJECTORDER::Bullet);
 				TestUni->GetTransform().SetWorldPosition(TarGetPos);
 				TestUni->TarGet = TarGet;
-
+				TestUni->m_Info.Dammage = TestUni->m_Info.Dammage + UnitBase::BProUpgrade/10;
 			}
 
 

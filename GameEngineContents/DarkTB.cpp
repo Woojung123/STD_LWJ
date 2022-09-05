@@ -21,6 +21,7 @@ DarkTB::DarkTB()
 	, AttCountMax(5)
 	, m_Dir({ 0 })
 	, BAniChange(false)
+	,MainUI(nullptr)
 {
 }
 
@@ -171,6 +172,12 @@ void DarkTB::Start()
 	MiniPlayUnit = GetLevel()->CreateActor<MiniMapPlayer>(OBJECTORDER::UI);
 
 
+	AttRenderer->Off();
+	ClickRenderer->Off();
+	MainUI->Off();
+
+
+
 }
 
 void DarkTB::Update(float _DeltaTime)
@@ -230,7 +237,7 @@ void DarkTB::Update(float _DeltaTime)
 				AttCheck = false;
 				BAniChange = false;
 
-				((UnitBase*)TarGet)->m_Info.m_Hp -= 50;
+				((UnitBase*)TarGet)->m_Info.m_Hp -= 50 + UnitBase::BProUpgrade ;
 
 			}
 			break;
