@@ -171,7 +171,7 @@ void MainMouse::Update(float _DeltaTime)
 
 	if (true == GameEngineInput::GetInst()->IsFree("LeftClick"))
 	{
-		ClickReset();
+	//	ClickReset();
 
 
 
