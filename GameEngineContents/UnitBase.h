@@ -21,6 +21,7 @@ public:
 	UnitBase& operator=(UnitBase&& _Other) noexcept = delete;
 
 public:
+	GameEngineSoundPlayer SoundPlayer;
 	UINFO	m_Info;
 	UNITTYPE m_Type;
 	MiniMapUnit* MiniUnit;

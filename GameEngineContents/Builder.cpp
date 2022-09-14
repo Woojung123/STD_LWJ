@@ -182,8 +182,19 @@ void Builder::Update(float _DeltaTime)
 	}
 	else
 	{
-		MainUI->Off();
-		ClickRenderer->Off();
+
+
+		if (m_bDragCheck)
+		{
+			MainUI->Off();
+			ClickRenderer->On();
+			MoveCheck(_DeltaTime);
+		}
+		else
+		{
+			MainUI->Off();
+			ClickRenderer->Off();
+		}
 	}
 
 	

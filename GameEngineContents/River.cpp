@@ -39,6 +39,12 @@ void River::AttEnd(const FrameAnimation_DESC& _Info)
 void River::Start()
 {
 
+
+	SoundPlayer = GameEngineSound::SoundPlayControl("RiverSound.wav", false);
+	SoundPlayer.PlaySpeed(1.f);
+	SoundPlayer.Volume(0.1f);
+
+
 	GetTransform().SetLocalScale({ 1, 1, 1 });
 	{
 		Renderer = CreateComponent<GameEngineTextureRenderer>();
@@ -199,9 +205,18 @@ void River::Update(float _DeltaTime)
 	}
 	else
 	{
-		MainUI->Off();
-		ClickRenderer->Off();
-		AttRenderer->Off();
+		if (m_bDragCheck)
+		{
+			MainUI->Off();
+			ClickRenderer->On();
+			AttRenderer->On();
+		}
+		else
+		{
+			MainUI->Off();
+			ClickRenderer->Off();
+			AttRenderer->Off();
+		}
 	}
 
 

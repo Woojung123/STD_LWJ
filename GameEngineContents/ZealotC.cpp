@@ -38,6 +38,11 @@ void ZealotC::AttEnd(const FrameAnimation_DESC& _Info)
 
 void ZealotC::Start()
 {
+	SoundPlayer = GameEngineSound::SoundPlayControl("ZealotSound.wav", false);
+	SoundPlayer.PlaySpeed(1.f);
+	SoundPlayer.Volume(0.1f);
+
+
 
 	GetTransform().SetLocalScale({ 1, 1, 1 });
 	{
@@ -179,9 +184,19 @@ void ZealotC::Update(float _DeltaTime)
 	}
 	else
 	{
-		MainUI->Off();
-		ClickRenderer->Off();
-		AttRenderer->Off();
+
+		if (m_bDragCheck)
+		{
+			MainUI->Off();
+			ClickRenderer->On();
+			AttRenderer->On();
+		}
+		else
+		{
+			MainUI->Off();
+			ClickRenderer->Off();
+			AttRenderer->Off();
+		}
 	}
 
 

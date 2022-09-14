@@ -6,6 +6,7 @@
 
 // Ό³Έν :
 class UnitBase;
+class DragUI;
 class Builder;
 class GameEngineTextureRenderer;
 class GameEngineCollision;
@@ -36,13 +37,14 @@ public:
 	bool StartDragCheck;
 	bool BuildCheck;
 	bool PlusCheck;
-
+	DragUI* m_DragUI;
 	Builder* m_Builder;
 	bool BuildColorCheck;
 
 	float4 m_DragStartPos;
 	float4 m_DragEndPos;
 
+	void DragReset();
 	void ClickReset();
 	GameEngineTextureRenderer* Renderer;
 	GameEngineTextureRenderer* BuildRenderer;

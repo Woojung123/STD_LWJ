@@ -38,6 +38,12 @@ void TestUnit::AttEnd(const FrameAnimation_DESC& _Info)
 void TestUnit::Start()
 {
 
+	SoundPlayer = GameEngineSound::SoundPlayControl("DragoonSound.wav", false);
+	SoundPlayer.PlaySpeed(1.f);
+	SoundPlayer.Volume(0.1f);
+
+
+
 	GetTransform().SetLocalScale({ 1, 1, 1 });
 	{
 		Renderer = CreateComponent<GameEngineTextureRenderer>();
@@ -135,9 +141,21 @@ void TestUnit::Update(float _DeltaTime)
 	}
 	else
 	{
-		MainUI->Off();
-		ClickRenderer->Off();
-		AttRenderer->Off();
+
+
+		if (m_bDragCheck)
+		{
+			MainUI->Off();
+			ClickRenderer->On();
+			AttRenderer->On();
+		}
+		else
+		{
+			MainUI->Off();
+			ClickRenderer->Off();
+			AttRenderer->Off();
+		}
+		
 	}
 	std::list<GameEngineActor*> Group = GetLevel()->GetGroup(OBJECTORDER::Monster);
 

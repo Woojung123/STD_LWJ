@@ -51,9 +51,9 @@ void RiverBullet::Update(float _DeltaTime)
 	float4 MyPos = GetTransform().GetWorldPosition();
 
 
-	if (TrailTime >= 0.025f)
+	if (TrailTime >= 0.0125f)
 	{
-		TrailTime -= 0.025f;
+		TrailTime -= 0.0125f;
 
 		RiverTrail* TestUni = GetLevel()->CreateActor<RiverTrail>(OBJECTORDER::Effect);
 		TestUni->GetTransform().SetWorldPosition(MyPos);

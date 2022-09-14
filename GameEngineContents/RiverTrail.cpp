@@ -35,9 +35,10 @@ void RiverTrail::Start()
 		Renderer->GetTransform().SetLocalScale({ 64.f,64.f,1.f });
 		//Renderer->GetTransform().SetWorldPosition({ -1050.f,370.f,0.f });
 
-		Renderer->CreateFrameAnimationFolder("ScarabM", FrameAnimation_DESC("ScarabM", 0.05f));
+		Renderer->CreateFrameAnimationFolder("ScarabM", FrameAnimation_DESC("ScarabM", 0.03f));
 		Renderer->ChangeFrameAnimation("ScarabM");
 		Renderer->AnimationBindEnd("ScarabM", &RiverTrail::AttEnd, this);
+		Renderer->GetColorData().MulColor.a = 0.5f;
 	}
 }
 

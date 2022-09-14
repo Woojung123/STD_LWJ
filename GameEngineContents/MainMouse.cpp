@@ -5,7 +5,7 @@
 #include "StageMainCamera.h"
 #include"UnitBase.h"
 #include "Builder.h"
-
+#include "DragUI.h"
 #include "BuildImage.h"
 
 #include "MiniMapPlayer.h"
@@ -26,6 +26,7 @@ MainMouse::MainMouse()	:
 	,m_Builder(nullptr)
 	,PlusCheck(false)
 	,Renderer(nullptr)
+	, m_DragUI(nullptr)
 {
 }
 
@@ -84,14 +85,35 @@ void MainMouse::Start()
 	GameEngineInput::GetInst()->CreateKey("BuilderClick", '1');
 
 
+
+	m_DragUI = GetLevel()->CreateActor<DragUI>(OBJECTORDER::UI);
+	m_DragUI->m_Mouse = this;
+
+
 }
 
 
 
 void MainMouse::Update(float _DeltaTime)
 {
+	if (vec_DragUnit.size() == 1)
+	{
+		auto	iter = vec_DragUnit.begin();
+	
 
-
+		(*iter)->m_bClickCheck = true;
+	}
+	else if (vec_DragUnit.size() > 1)
+	{
+		DragReset();
+		m_DragUI->On();
+		m_DragUI->DragSize = (int)vec_DragUnit.size();
+	}
+	else
+	{
+		m_DragUI->Off();
+		m_DragUI->DragSize = 0;
+	}
 
 
 	float4 WorldPos = GetTransform().GetWorldPosition();
@@ -149,21 +171,28 @@ void MainMouse::Update(float _DeltaTime)
 		float4 DragScale = {};
 		float4 DragPos = {};
 
-		DragScale.x = m_DragEndPos.x - m_DragStartPos.x;
-		DragScale.y = m_DragStartPos.y - m_DragEndPos.y;
+		if (m_DragEndPos.x != m_DragStartPos.x || m_DragEndPos.y != m_DragStartPos.y)
+		{
+			DragScale.x = m_DragEndPos.x - m_DragStartPos.x;
+			DragScale.y = m_DragStartPos.y - m_DragEndPos.y;
 
-		DragPos.x = m_DragStartPos.x + (DragScale.x/2);
-		DragPos.y = m_DragStartPos.y - (DragScale.y/2);
-		DragPos.z = -400.f;
-		DragRenderer->GetTransform().SetWorldScale(DragScale);
-		DragRenderer->GetTransform().SetWorldPosition(DragPos);
+			DragPos.x = m_DragStartPos.x + (DragScale.x/2);
+			DragPos.y = m_DragStartPos.y - (DragScale.y/2);
+			DragPos.z = -400.f;
+			DragRenderer->GetTransform().SetWorldScale(DragScale);
+			DragRenderer->GetTransform().SetWorldPosition(DragPos);
 
-		DragCollision->GetTransform().SetWorldScale(DragScale);
-		DragCollision->GetTransform().SetWorldPosition(DragPos);
+			DragCollision->GetTransform().SetWorldScale(DragScale);
+			DragCollision->GetTransform().SetWorldPosition(DragPos);
 
 
-		DragRenderer->On();
-		DragCollision->On();
+		
+
+			DragRenderer->On();
+			DragCollision->On();
+
+		}
+		
 
 
 	}
@@ -178,6 +207,9 @@ void MainMouse::Update(float _DeltaTime)
 		DragCollision->IsCollision(CollisionType::CT_OBB2D, OBJECTORDER::Player, CollisionType::CT_OBB2D,
 			std::bind(&MainMouse::MDragCollision, this, std::placeholders::_1, std::placeholders::_2)
 		);
+
+
+	
 
 
 		DragRenderer->Off();
@@ -455,7 +487,7 @@ bool MainMouse::MDragCollision(GameEngineCollision* _This, GameEngineCollision* 
 	if(vec_DragUnit.size() < 12)
 	{
 		vec_DragUnit.push_back(((UnitBase*)_Other->GetActor()));
-		((UnitBase*)_Other->GetActor())->m_bClickCheck = true;
+		((UnitBase*)_Other->GetActor())->m_bDragCheck = true;
 	}
 
 	
@@ -464,6 +496,28 @@ bool MainMouse::MDragCollision(GameEngineCollision* _This, GameEngineCollision* 
 	return false;
 }
 
+
+void MainMouse::DragReset()
+{
+
+	{
+		std::list<GameEngineActor*> Group = GetLevel()->GetGroup(OBJECTORDER::Player);
+
+
+		auto	iter = Group.begin();
+		auto	iterEnd = Group.end();
+
+		for (; iter != iterEnd; ++iter)
+		{
+			((UnitBase*)(*iter))->m_bClickCheck = false;
+		//	((UnitBase*)(*iter))->m_bDragCheck = false;
+		}
+
+
+	}
+
+
+}
 
 void MainMouse::ClickReset()
 {

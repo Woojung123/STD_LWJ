@@ -27,7 +27,8 @@ public:
 	StageMain& operator=(const StageMain& _Other) = delete;
 	StageMain& operator=(StageMain&& _Other) noexcept = delete;
 
-	
+	GameEngineSoundPlayer BgmPlayer;
+
 	std::vector<MapPoint> CheckPoint;
 protected:
 	void Start() override;

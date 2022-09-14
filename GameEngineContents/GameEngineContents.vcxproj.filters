@@ -562,6 +562,9 @@
     <ClInclude Include="BuilderUI.h">
       <Filter>00.Actor\01.Unit\02.Player\02.Builder</Filter>
     </ClInclude>
+    <ClInclude Include="DragUI.h">
+      <Filter>00.Actor\06.MainMouse</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ContentsCore.cpp">
@@ -888,6 +891,9 @@
     </ClCompile>
     <ClCompile Include="BuilderUI.cpp">
       <Filter>00.Actor\01.Unit\02.Player\02.Builder</Filter>
+    </ClCompile>
+    <ClCompile Include="DragUI.cpp">
+      <Filter>00.Actor\06.MainMouse</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

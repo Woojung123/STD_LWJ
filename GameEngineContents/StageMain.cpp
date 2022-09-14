@@ -79,6 +79,12 @@ StageMain::~StageMain()
 void StageMain::Start()
 {
 
+	BgmPlayer = GameEngineSound::SoundPlayControl("MainSound.MP3",true);
+	BgmPlayer.PlaySpeed(1.f);
+	BgmPlayer.Volume(0.1f);
+	
+
+
 	if (false == GameEngineInput::GetInst()->IsKey("FreeCameaOnOff"))
 	{
 		GameEngineInput::GetInst()->CreateKey("FreeCameaOnOff", 'O');
@@ -497,37 +503,7 @@ void StageMain::Start()
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+	//РЏДж
 
 	//{
 	//	TestUnit* TestUni = CreateActor<TestUnit>(OBJECTORDER::Player);
@@ -652,6 +628,14 @@ void StageMain::Start()
 	//	TestUni->GetTransform().SetWorldPosition({ -870.f,130.f,0.f });
 	//}
 	//
+
+
+
+
+
+
+
+
 	{
 		UpgradeC* TestUni = CreateActor<UpgradeC>(OBJECTORDER::Player);
 		TestUni->GetTransform().SetWorldPosition({ -508.f,617.f,0.f });

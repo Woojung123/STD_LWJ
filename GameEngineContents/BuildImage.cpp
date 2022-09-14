@@ -60,7 +60,6 @@ void BuildImage::AttEnd(const FrameAnimation_DESC& _Info)
 
 
 
-
 	if (Buildingtype == 1)
 	{
 		int RandomUnit = GameEngineRandom::MainRandom.RandomInt(0, 5);
@@ -268,6 +267,14 @@ void BuildImage::AttEnd(const FrameAnimation_DESC& _Info)
 
 void BuildImage::Start()
 {
+
+
+	SoundPlayer = GameEngineSound::SoundPlayControl("TowerMakeS.wav", false);
+	SoundPlayer.PlaySpeed(1.f);
+	SoundPlayer.Volume(0.1f);
+
+
+
 
 	GetTransform().SetLocalScale({ 1, 1, 1 });
 	{

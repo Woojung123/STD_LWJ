@@ -42,6 +42,12 @@ void CorsairC::AttEnd(const FrameAnimation_DESC& _Info)
 void CorsairC::Start()
 {
 
+	SoundPlayer = GameEngineSound::SoundPlayControl("CorsairSound.wav", false);
+	SoundPlayer.PlaySpeed(1.f);
+	SoundPlayer.Volume(0.1f);
+
+
+
 	GetTransform().SetLocalScale({ 1, 1, 1 });
 	{
 		Renderer = CreateComponent<GameEngineTextureRenderer>();
@@ -177,9 +183,19 @@ void CorsairC::Update(float _DeltaTime)
 	}
 	else
 	{
-		MainUI->Off();
-		ClickRenderer->Off();
-		AttRenderer->Off();
+
+		if (m_bDragCheck)
+		{
+			MainUI->Off();
+			ClickRenderer->On();
+			AttRenderer->On();
+		}
+		else
+		{
+			MainUI->Off();
+			ClickRenderer->Off();
+			AttRenderer->Off();
+		}
 	}
 
 	std::list<GameEngineActor*> Group = GetLevel()->GetGroup(OBJECTORDER::Monster);
