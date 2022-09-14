@@ -26,7 +26,7 @@ private:
 	GameEngineCollision* Col_ProUpgrade;
 	GameEngineCollision* Col_TerUpgrade;
 	GameEngineCollision* Col_ZergUpgrade;
-
+	GameEngineSoundPlayer SoundPlayer;
 	UpgradeC* m_UpC;
 
 

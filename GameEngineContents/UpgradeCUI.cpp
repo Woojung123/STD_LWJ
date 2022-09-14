@@ -134,6 +134,11 @@ bool UpgradeCUI::Col_Pro(GameEngineCollision* _This, GameEngineCollision* _Other
 
 	if (true == GameEngineInput::GetInst()->IsDown("LCUpClick"))
 	{
+
+		SoundPlayer = GameEngineSound::SoundPlayControl("UpgradeSo.wav", false);
+		SoundPlayer.PlaySpeed(1.f);
+		SoundPlayer.Volume(0.1f);
+
 		++UnitBase::CProUpgrade;
 		m_UpC->m_bClickCheck = true;
 	}
@@ -146,6 +151,11 @@ bool UpgradeCUI::Col_Ter(GameEngineCollision* _This, GameEngineCollision* _Other
 
 	if (true == GameEngineInput::GetInst()->IsDown("LCUpClick"))
 	{
+
+		SoundPlayer = GameEngineSound::SoundPlayControl("UpgradeSo.wav", false);
+		SoundPlayer.PlaySpeed(1.f);
+		SoundPlayer.Volume(0.1f);
+
 		m_UpC->m_bClickCheck = true;
 		++UnitBase::CTerUpgrade;
 	}
@@ -158,6 +168,12 @@ bool UpgradeCUI::Col_Zerg(GameEngineCollision* _This, GameEngineCollision* _Othe
 
 	if (true == GameEngineInput::GetInst()->IsDown("LCUpClick"))
 	{
+
+		SoundPlayer = GameEngineSound::SoundPlayControl("UpgradeSo.wav", false);
+		SoundPlayer.PlaySpeed(1.f);
+		SoundPlayer.Volume(0.1f);
+
+
 		++UnitBase::CZergUpgrade;
 		m_UpC->m_bClickCheck = true;
 	}

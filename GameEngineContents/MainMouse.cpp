@@ -70,7 +70,7 @@ void MainMouse::Start()
 		DragRenderer = CreateComponent<GameEngineTextureRenderer>();
 		DragRenderer->SetTexture("Mouse.png");
 		DragRenderer->ScaleToTexture();
-		DragRenderer->GetColorData().MulColor.a = 0.5f;
+		DragRenderer->GetPixelData().MulColor.a = 0.5f;
 		DragRenderer->Off();
 	}
 	{
@@ -275,7 +275,7 @@ void MainMouse::Update(float _DeltaTime)
 		}
 
 		BuildRenderer->GetTransform().SetWorldPosition(GetTransform().GetWorldPosition());
-		BuildRenderer->GetColorData().MulColor = { 1.f,0.f,0.f,0.5f };
+		BuildRenderer->GetPixelData().MulColor = { 1.f,0.f,0.f,0.5f };
 
 	}
 
@@ -298,7 +298,7 @@ bool MainMouse::PlayerCollision(GameEngineCollision* _This, GameEngineCollision*
 
 	if (!BuildColorCheck)
 	{
-		BuildRenderer->GetColorData().MulColor = { 0.f,1.f,0.f,0.5f };
+		BuildRenderer->GetPixelData().MulColor = { 0.f,1.f,0.f,0.5f };
 		if (true == GameEngineInput::GetInst()->IsDown("LeftClick"))
 		{
 			if (BuildCheck)
@@ -472,7 +472,7 @@ bool MainMouse::AllCollision(GameEngineCollision* _This, GameEngineCollision* _O
 
 	}
 
-	BuildRenderer->GetColorData().MulColor = { 1.f,0.f,0.f,0.5f };
+	BuildRenderer->GetPixelData().MulColor = { 1.f,0.f,0.f,0.5f };
 
 
 	return false;

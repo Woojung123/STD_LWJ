@@ -124,10 +124,10 @@ void GhostS::Start()
 
 		ShadowRenderer->ChangeFrameAnimation("ChostStand");
 
-		ShadowRenderer->GetColorData().MulColor.r = 0.f;
-		ShadowRenderer->GetColorData().MulColor.g = 0.f;
-		ShadowRenderer->GetColorData().MulColor.b = 0.f;
-		ShadowRenderer->GetColorData().MulColor.a = 0.5f;
+		ShadowRenderer->GetPixelData().MulColor.r = 0.f;
+		ShadowRenderer->GetPixelData().MulColor.g = 0.f;
+		ShadowRenderer->GetPixelData().MulColor.b = 0.f;
+		ShadowRenderer->GetPixelData().MulColor.a = 0.5f;
 
 
 		float4 SLocalPos = ShadowRenderer->GetTransform().GetLocalPosition();
@@ -150,7 +150,7 @@ void GhostS::Start()
 		AuraRenderer->CreateFrameAnimationFolder("Maelstorm", FrameAnimation_DESC("Maelstorm", 0.1f));
 		AuraRenderer->ChangeFrameAnimation("Maelstorm");
 		AuraRenderer->GetTransform().SetLocalScale({ 64.f,64.f,1.f });
-		AuraRenderer->GetColorData().MulColor.a = 1.f;
+		AuraRenderer->GetPixelData().MulColor.a = 1.f;
 		AuraRenderer->GetTransform().SetLocalPosition({0.f,0.f,-1.f});
 
 	}

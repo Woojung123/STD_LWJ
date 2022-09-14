@@ -156,6 +156,15 @@
     <ClInclude Include="GameEngineUpdateObject.h">
       <Filter>Object\Component\Rendering</Filter>
     </ClInclude>
+    <ClInclude Include="GameEngineBlur.h">
+      <Filter>Object\Component\PostEffect</Filter>
+    </ClInclude>
+    <ClInclude Include="GameEngineRenderSet.h">
+      <Filter>Object\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="GameEngineStructuredBuffer.h">
+      <Filter>Resources\ShaderResources</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GameEngineActor.cpp">
@@ -303,6 +312,15 @@
     <ClCompile Include="GameEngineUpdateObject.cpp">
       <Filter>Object\Component\Rendering</Filter>
     </ClCompile>
+    <ClCompile Include="GameEngineBlur.cpp">
+      <Filter>Object\Component\PostEffect</Filter>
+    </ClCompile>
+    <ClCompile Include="GameEngineRenderSet.cpp">
+      <Filter>Object\Component</Filter>
+    </ClCompile>
+    <ClCompile Include="GameEngineStructuredBuffer.cpp">
+      <Filter>Resources\ShaderResources</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Object">
@@ -382,6 +400,9 @@
     </Filter>
     <Filter Include="Debug">
       <UniqueIdentifier>{feb739b1-4851-476e-baa8-df153ece8a38}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object\Component\PostEffect">
+      <UniqueIdentifier>{d09028dc-f174-403b-88e2-c28d67b3e935}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

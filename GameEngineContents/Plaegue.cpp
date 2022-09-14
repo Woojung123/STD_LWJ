@@ -38,7 +38,7 @@ void Plaegue::Start()
 		Renderer->CreateFrameAnimationFolder("plaegue", FrameAnimation_DESC("plaegue", 0.05f));
 		Renderer->ChangeFrameAnimation("plaegue");
 		Renderer->AnimationBindEnd("plaegue", &Plaegue::AttEnd, this);
-		Renderer->GetColorData().MulColor.a = 0.5f;
+		Renderer->GetPixelData().MulColor.a = 0.5f;
 	}
 
 	{
@@ -56,11 +56,11 @@ void Plaegue::Start()
 
 bool Plaegue::MonsterCollision(GameEngineCollision* _This, GameEngineCollision* _Other)
 {
-
+	
 
 	GameEngineActor* Dest = _Other->GetActor();
-
-	((UnitBase*)Dest)->m_Info.m_Hp -= m_Info.Dammage + UnitBase::SProUpgrade;
+	
+	((UnitBase*)Dest)->m_Info.m_Hp -= m_Info.Dammage + UnitBase::SZergUpgrade;
 
 	return true;
 }

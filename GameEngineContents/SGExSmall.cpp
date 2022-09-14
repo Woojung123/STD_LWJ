@@ -33,7 +33,7 @@ void SGExSmall::Start()
 		Renderer = CreateComponent<GameEngineTextureRenderer>();
 		Renderer->GetTransform().SetLocalScale({ 128.f,128.f,1.f });
 		//Renderer->GetTransform().SetWorldPosition({ -1050.f,370.f,0.f });
-		Renderer->GetColorData().MulColor.a = 0.5f;
+		Renderer->GetPixelData().MulColor.a = 0.5f;
 		Renderer->CreateFrameAnimationFolder("Explosion_S", FrameAnimation_DESC("Explosion_S", 0.05f));
 		Renderer->ChangeFrameAnimation("Explosion_S");
 		Renderer->AnimationBindEnd("Explosion_S", &SGExSmall::AttEnd, this);

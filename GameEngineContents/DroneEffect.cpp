@@ -34,7 +34,7 @@ void DroneEffect::Start()
 		Renderer = CreateComponent<GameEngineTextureRenderer>();
 		Renderer->GetTransform().SetLocalScale({ 128.f,128.f,1.f });
 		//Renderer->GetTransform().SetWorldPosition({ -1050.f,370.f,0.f });
-		Renderer->GetColorData().MulColor.a = 0.5f;
+		Renderer->GetPixelData().MulColor.a = 0.5f;
 		Renderer->CreateFrameAnimationFolder("Ensare", FrameAnimation_DESC("Ensare", 0.1f));
 		Renderer->ChangeFrameAnimation("Ensare");
 		Renderer->AnimationBindEnd("Ensare", &DroneEffect::AttEnd, this);
@@ -60,7 +60,7 @@ bool DroneEffect::MonsterCollision(GameEngineCollision* _This, GameEngineCollisi
 
 	GameEngineActor* Dest = _Other->GetActor();
 
-	((UnitBase*)Dest)->m_Info.m_Hp -= m_Info.Dammage;
+	((UnitBase*)Dest)->m_Info.m_Hp -= m_Info.Dammage + UnitBase::SZergUpgrade;
 
 	return true;
 }

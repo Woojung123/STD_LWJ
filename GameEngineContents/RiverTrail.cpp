@@ -38,7 +38,7 @@ void RiverTrail::Start()
 		Renderer->CreateFrameAnimationFolder("ScarabM", FrameAnimation_DESC("ScarabM", 0.03f));
 		Renderer->ChangeFrameAnimation("ScarabM");
 		Renderer->AnimationBindEnd("ScarabM", &RiverTrail::AttEnd, this);
-		Renderer->GetColorData().MulColor.a = 0.5f;
+		Renderer->GetPixelData().MulColor.a = 0.5f;
 	}
 }
 

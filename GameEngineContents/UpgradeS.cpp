@@ -52,10 +52,10 @@ void UpgradeS::Start()
 		ShadowRenderer->SetTexture("Adun.png");
 		ShadowRenderer->ScaleToTexture();
 
-		ShadowRenderer->GetColorData().MulColor.r = 0.f;
-		ShadowRenderer->GetColorData().MulColor.g = 0.f;
-		ShadowRenderer->GetColorData().MulColor.b = 0.f;
-		ShadowRenderer->GetColorData().MulColor.a = 0.5f;
+		ShadowRenderer->GetPixelData().MulColor.r = 0.f;
+		ShadowRenderer->GetPixelData().MulColor.g = 0.f;
+		ShadowRenderer->GetPixelData().MulColor.b = 0.f;
+		ShadowRenderer->GetPixelData().MulColor.a = 0.5f;
 
 
 		float4 SLocalPos = ShadowRenderer->GetTransform().GetLocalPosition();

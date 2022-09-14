@@ -40,7 +40,7 @@ void SwarmEffect::Start()
 		Renderer->CreateFrameAnimationFolder("dswarm", FrameAnimation_DESC("dswarm", 0.05f));
 		Renderer->ChangeFrameAnimation("dswarm");
 		Renderer->AnimationBindEnd("dswarm", &SwarmEffect::AttEnd, this);
-		Renderer->GetColorData().MulColor.a = 0.5f;
+		Renderer->GetPixelData().MulColor.a = 0.5f;
 	}
 
 	{
@@ -61,7 +61,7 @@ bool SwarmEffect::MonsterCollision(GameEngineCollision* _This, GameEngineCollisi
 
 	GameEngineActor* Dest = _Other->GetActor();
 
-	((UnitBase*)Dest)->m_Info.m_Hp -= m_Info.Dammage;
+	((UnitBase*)Dest)->m_Info.m_Hp -= m_Info.Dammage + UnitBase::SProUpgrade;
 
 	return true;
 }

@@ -128,7 +128,7 @@ void Arcon::Start()
 	//	AuraRenderer2->CreateFrameAnimationFolder("Maelstorm", FrameAnimation_DESC("Maelstorm", 0.1f));
 	//	AuraRenderer2->ChangeFrameAnimation("Maelstorm");
 	//	AuraRenderer2->GetTransform().SetLocalScale({ 64.f,64.f,1.f });
-	//	AuraRenderer2->GetColorData().MulColor.a = 0.6f;
+	//	AuraRenderer2->GetPixelData().MulColor.a = 0.6f;
 	//	//float4 RenderWorldPos = AuraRenderer2->GetTransform().GetWorldPosition();
 	//	AuraRenderer2->GetTransform().SetLocalPosition({ 0.f,0.f,-4.f });
 	//	//AuraRenderer2->GetTransform().SetWorldPosition(RenderWorldPos);

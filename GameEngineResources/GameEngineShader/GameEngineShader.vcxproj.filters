@@ -9,5 +9,7 @@
     <FxCompile Include="DebugTexture.hlsl" />
     <FxCompile Include="RenderOption.fx" />
     <FxCompile Include="TargetMerge.hlsl" />
+    <FxCompile Include="Blur.hlsl" />
+    <FxCompile Include="TextureAtlas_Inst.hlsl" />
   </ItemGroup>
 </Project>
