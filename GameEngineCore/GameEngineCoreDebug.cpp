@@ -141,6 +141,7 @@ namespace GameEngineDebug
 				DebugShaderResources.SetConstantBufferLink("DebugInfo", DebugData[i].Info);
 				DebugShaderResources.AllResourcesSetting();
 				DebugRenderingPipeLine->Rendering();
+				DebugShaderResources.AllResourcesReset();
 			}
 			else
 			{
@@ -149,6 +150,7 @@ namespace GameEngineDebug
 				TextureShaderResources.SetTexture("Tex", DebugData[i].Texture);
 				TextureShaderResources.AllResourcesSetting();
 				TextureRenderingPipeLine->Rendering();
+				DebugShaderResources.AllResourcesReset();
 			}
 		}
 		// DebugData.push_back(DebugRenderData());

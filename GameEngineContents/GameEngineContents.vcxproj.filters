@@ -232,6 +232,9 @@
     <Filter Include="00.Actor\01.Unit\03.Tile">
       <UniqueIdentifier>{571c5bca-ae98-4545-9af8-b0a9ace4cd0a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="00.Actor\01.Unit\02.Player\03.HPUnit">
+      <UniqueIdentifier>{ba1a265c-0849-4de1-bdc2-e07e874e1c24}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ContentsCore.h">
@@ -565,6 +568,9 @@
     <ClInclude Include="DragUI.h">
       <Filter>00.Actor\06.MainMouse</Filter>
     </ClInclude>
+    <ClInclude Include="HPUnit.h">
+      <Filter>00.Actor\01.Unit\02.Player\03.HPUnit</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ContentsCore.cpp">
@@ -894,6 +900,9 @@
     </ClCompile>
     <ClCompile Include="DragUI.cpp">
       <Filter>00.Actor\06.MainMouse</Filter>
+    </ClCompile>
+    <ClCompile Include="HPUnit.cpp">
+      <Filter>00.Actor\01.Unit\02.Player\03.HPUnit</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

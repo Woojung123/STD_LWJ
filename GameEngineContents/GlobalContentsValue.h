@@ -14,6 +14,7 @@ enum class OBJECTORDER
 	Mouse,
 	MouseUI,
 	MouseDrag,
+	Life,
 	UI = 1000,
 };
 

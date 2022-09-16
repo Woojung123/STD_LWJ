@@ -94,6 +94,16 @@ void DivaolerMon::Update(float _DeltaTime)
 		DeathEff->GetTransform().SetWorldPosition(GetTransform().GetWorldPosition());
 		Death();
 		MiniUnit->Death();
+
+		if (m_bDiecheck)
+		{
+			--m_MainStage->Player_HP;
+		}
+		else
+		{
+			m_MainStage->Player_Gold += m_Info.Gold;
+
+		}
 	}
 
 
@@ -127,6 +137,7 @@ void DivaolerMon::Move(float _DeltaTime)
 				if (iter->TurnPoint.x == -1105.f && iter->TurnPoint.y == 633.f)
 				{
 					m_Info.m_Hp = -1;
+					m_bDiecheck = true;
 				}
 				break;
 

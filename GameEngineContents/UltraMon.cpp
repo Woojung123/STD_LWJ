@@ -93,6 +93,16 @@ void UltraMon::Update(float _DeltaTime)
 		DeathEff->GetTransform().SetWorldPosition(GetTransform().GetWorldPosition());
 		Death();
 		MiniUnit->Death();
+
+		if (m_bDiecheck)
+		{
+			--m_MainStage->Player_HP;
+		}
+		else
+		{
+			m_MainStage->Player_Gold += m_Info.Gold;
+
+		}
 	}
 
 
@@ -126,6 +136,7 @@ void UltraMon::Move(float _DeltaTime)
 
 				if (iter->TurnPoint.x == -1105.f && iter->TurnPoint.y == 633.f)
 				{
+					m_bDiecheck = true;
 					m_Info.m_Hp = -1;
 				}
 				break;

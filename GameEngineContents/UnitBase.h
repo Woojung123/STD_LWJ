@@ -4,6 +4,7 @@
 #include "GlobalContentsValue.h"
 
 // Ό³Έν :
+class StageMain;
 class MiniMapUnit;
 class MiniMapPlayer;
 class GameEngineCollision;
@@ -29,6 +30,10 @@ public:
 	bool	m_bClickCheck;
 	bool	m_bDragCheck;
 	GameEngineCollision* Collision;
+
+	StageMain* m_MainStage = nullptr;
+	bool	m_bDiecheck = false;
+
 
 	static int CZergUpgrade;
 	static int CProUpgrade;

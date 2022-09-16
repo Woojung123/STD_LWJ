@@ -77,6 +77,17 @@ void corsairMon::Start()
 	}
 
 
+	{
+		MonHPRenderer = CreateComponent<GameEngineTextureRenderer>();
+		MonHPRenderer->SetTexture("Hpbar_4.png");
+		MonHPRenderer->ScaleToTexture();
+		MonHPRenderer->GetTransform().SetLocalPosition({0.f, -20.f, -50.f});
+
+
+	}
+
+
+
 	MiniUnit = GetLevel()->CreateActor<MiniMapUnit>(OBJECTORDER::UI);
 
 }
@@ -93,6 +104,17 @@ void corsairMon::Update(float _DeltaTime)
 		DeathEff->GetTransform().SetWorldPosition(GetTransform().GetWorldPosition());
 		MiniUnit->Death();
 		Death();
+
+
+		if (m_bDiecheck)
+		{
+			--m_MainStage->Player_HP;
+		}
+		else
+		{
+			m_MainStage->Player_Gold += m_Info.Gold;
+
+		}
 	}
 
 
@@ -129,7 +151,7 @@ void corsairMon::Move(float _DeltaTime)
 				{
 
 					m_Info.m_Hp = -1;
-				
+					m_bDiecheck = true;
 				}
 				break;
 

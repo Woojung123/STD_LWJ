@@ -17,6 +17,10 @@ void GameEngineTextureSetter::Setting() const
 {
 	SettingFunction();
 }
+void GameEngineTextureSetter::Reset() const
+{
+	ResetFunction();
+}
 
 void GameEngineSamplerSetter::Setting() const
 {

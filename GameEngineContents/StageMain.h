@@ -12,11 +12,13 @@ struct MapPoint
 
 
 // Ό³Έν :
+class HPUnit;
+class HPUnit;
 class StageMain : public GameEngineLevel
 {
 public:
 
-	
+
 	// constrcuter destructer
 	StageMain();
 	~StageMain();
@@ -28,12 +30,22 @@ public:
 	StageMain& operator=(StageMain&& _Other) noexcept = delete;
 
 	GameEngineSoundPlayer BgmPlayer;
-
+	HPUnit* HPRender[40] = {0};
 	std::vector<MapPoint> CheckPoint;
 protected:
 	void Start() override;
 	void Update(float _DeltaTime) override;
 	void End() override;
+
+
+public:
+	int Player_HP = 39;
+	int Player_HPRen = 39;
+
+
+	int Player_Gold = 0;
+	int Player_Gas = 0;
+
 
 private:
 	bool StartCheck;
