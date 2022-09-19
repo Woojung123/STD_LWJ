@@ -62,7 +62,7 @@ bool DroneEffect::MonsterCollision(GameEngineCollision* _This, GameEngineCollisi
 
 	((UnitBase*)Dest)->m_Info.m_Hp -= m_Info.Dammage + UnitBase::SZergUpgrade;
 
-	return true;
+	return false;
 }
 
 

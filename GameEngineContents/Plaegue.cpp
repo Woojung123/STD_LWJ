@@ -62,7 +62,7 @@ bool Plaegue::MonsterCollision(GameEngineCollision* _This, GameEngineCollision* 
 	
 	((UnitBase*)Dest)->m_Info.m_Hp -= m_Info.Dammage + UnitBase::SZergUpgrade;
 
-	return true;
+	return false;
 }
 
 

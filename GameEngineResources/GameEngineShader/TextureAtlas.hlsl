@@ -78,10 +78,15 @@ Texture2D Tex : register(t0);
 SamplerState Smp : register(s0);
 float4 TextureAtlas_PS(Output _Input) : SV_Target0
 {
-    if (_Input.Tex.x < Slice.x)
+    
+     if (Option00 == 1)
     {
-        clip(-1);
+        if (_Input.PosLocal.x + 0.5f > Slice.x)
+        {
+            clip(-1);
+        }
     }
+
 
     float4 TexColor = Tex.Sample(Smp, _Input.Tex.xy);
 
@@ -90,10 +95,6 @@ float4 TextureAtlas_PS(Output _Input) : SV_Target0
         clip(-1);
     }
 
-    if (Option00 == 1)
-    {
-        return PlusColor;
-    }
-
+  
     return (Tex.Sample(Smp, _Input.Tex.xy) * MulColor) + PlusColor;
 }

@@ -16,12 +16,12 @@ RiverTrail::RiverTrail()
 
 RiverTrail::~RiverTrail()
 {
-	Death();
+
 }
 
 void RiverTrail::AttEnd(const FrameAnimation_DESC& _Info)
 {
-	BAniChange = true;
+	Death();
 
 }
 
@@ -45,9 +45,8 @@ void RiverTrail::Start()
 void RiverTrail::Update(float _DeltaTime)
 {
 
-	if (BAniChange)
-		Death();
-
+	
+		
 
 	float4 WorldPos = GetTransform().GetWorldPosition();
 	GetTransform().SetWorldPosition({ WorldPos.x , WorldPos.y , -50.f, WorldPos.w });

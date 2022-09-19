@@ -27,7 +27,14 @@ protected:
 	void End() {}
 
 	GameEngineTextureRenderer* Renderer;
+
+
 	GameEngineTextureRenderer* MonHPRenderer;
+	GameEngineTextureRenderer* MonSHRenderer;
+	GameEngineTextureRenderer* MonFRRenderer;
+
+
+
 	ProDeath* DeathEff;
 	float4 Color;
 	float4	m_Dir;

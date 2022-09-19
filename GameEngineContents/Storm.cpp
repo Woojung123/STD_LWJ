@@ -65,7 +65,7 @@ bool Storm::MonsterCollision(GameEngineCollision* _This, GameEngineCollision* _O
 
 	((UnitBase*)Dest)->m_Info.m_Hp -= m_Info.Dammage;
 
-	return true;
+	return false;
 }
 
 void Storm::Update(float _DeltaTime)

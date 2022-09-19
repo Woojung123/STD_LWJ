@@ -63,7 +63,7 @@ bool SwarmEffect::MonsterCollision(GameEngineCollision* _This, GameEngineCollisi
 
 	((UnitBase*)Dest)->m_Info.m_Hp -= m_Info.Dammage + UnitBase::SProUpgrade;
 
-	return true;
+	return false;
 }
 
 

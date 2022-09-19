@@ -677,8 +677,23 @@ void StageMain::Start()
 
 		}
 		
+		int count = 0;
 
 
+		for (int i = 0; i <= 5; ++i)
+		{
+			for (int j = 0; j <= 5; ++j)
+			{
+
+				HPRender[count]->GetTransform().SetWorldPosition({ -550.f + i * 50.f ,100.f + j * 30.f ,0.f });
+
+				++count;
+			}
+		}
+
+		HPRender[37]->GetTransform().SetWorldPosition({-550.f,70.f,0.f});
+		HPRender[38]->GetTransform().SetWorldPosition({-500.f,70.f,0.f});
+		HPRender[39]->GetTransform().SetWorldPosition({-450.f,70.f,0.f});
 	}
 
 
@@ -893,7 +908,8 @@ void StageMain::Stage1(float _DeltaTime)
 
 		{
 			corsairMon* TestUni = CreateActor<corsairMon>(OBJECTORDER::Monster);
-			TestUni->m_Info.m_Hp = 12000;
+			TestUni->m_Info.m_Hp = 2000;
+			TestUni->m_Info.m_MaxHp = 2000;
 			TestUni->m_Info.Gold = 8;
 			TestUni->m_MainStage = this;
 
@@ -939,7 +955,8 @@ void StageMain::Stage2(float _DeltaTime)
 
 		{
 			ScoutMon* TestUni = CreateActor<ScoutMon>(OBJECTORDER::Monster);
-			TestUni->m_Info.m_Hp = 340;
+			TestUni->m_Info.m_Hp = 400;
+			TestUni->m_Info.m_MaxHp = 400;
 			TestUni->m_Info.Gold = 8;
 			TestUni->m_MainStage = this;
 			auto	iter = CheckPoint.begin();
@@ -985,7 +1002,8 @@ void StageMain::Stage3(float _DeltaTime)
 
 		{
 			DivaolerMon* TestUni = CreateActor<DivaolerMon>(OBJECTORDER::Monster);
-			TestUni->m_Info.m_Hp = 380;
+			TestUni->m_Info.m_Hp = 500;
+			TestUni->m_Info.m_MaxHp = 500;
 			TestUni->m_Info.Gold = 8;
 			TestUni->m_MainStage = this;
 			auto	iter = CheckPoint.begin();
@@ -1031,7 +1049,8 @@ void StageMain::Stage4(float _DeltaTime)
 
 		{
 			UltraMon* TestUni = CreateActor<UltraMon>(OBJECTORDER::Monster);
-			TestUni->m_Info.m_Hp = 420;
+			TestUni->m_Info.m_Hp = 600;
+			TestUni->m_Info.m_MaxHp = 600;
 			TestUni->m_Info.Gold = 8;
 			TestUni->m_MainStage = this;
 			auto	iter = CheckPoint.begin();
@@ -1077,7 +1096,8 @@ void StageMain::Stage5(float _DeltaTime)
 
 		{
 			Overload* TestUni = CreateActor<Overload>(OBJECTORDER::Monster);
-			TestUni->m_Info.m_Hp = 460;
+			TestUni->m_Info.m_Hp = 700;
+			TestUni->m_Info.m_MaxHp = 700;
 			TestUni->m_Info.Gold = 8;
 			TestUni->m_MainStage = this;
 			auto	iter = CheckPoint.begin();
@@ -1126,7 +1146,8 @@ void StageMain::Stage6(float _DeltaTime)
 
 		{
 			corsairMon* TestUni = CreateActor<corsairMon>(OBJECTORDER::Monster);
-			TestUni->m_Info.m_Hp = 1500;
+			TestUni->m_Info.m_Hp = 3000;
+			TestUni->m_Info.m_MaxHp = 3000;
 			TestUni->m_Info.Gold = 8;
 			TestUni->m_MainStage = this;
 			auto	iter = CheckPoint.begin();
@@ -1169,7 +1190,8 @@ void StageMain::Stage7(float _DeltaTime)
 
 		{
 			corsairMon* TestUni = CreateActor<corsairMon>(OBJECTORDER::Monster);
-			TestUni->m_Info.m_Hp = 700;
+			TestUni->m_Info.m_Hp = 1500;
+			TestUni->m_Info.m_MaxHp = 1500;
 			TestUni->m_Info.Gold = 8;
 			TestUni->m_MainStage = this;
 			auto	iter = CheckPoint.begin();
@@ -1215,7 +1237,8 @@ void StageMain::Stage8(float _DeltaTime)
 
 		{
 			ScoutMon* TestUni = CreateActor<ScoutMon>(OBJECTORDER::Monster);
-			TestUni->m_Info.m_Hp = 750;
+			TestUni->m_Info.m_Hp = 1650;
+			TestUni->m_Info.m_MaxHp = 1650;
 			TestUni->m_Info.Gold = 8;
 			TestUni->m_MainStage = this;
 			auto	iter = CheckPoint.begin();
@@ -1261,7 +1284,8 @@ void StageMain::Stage9(float _DeltaTime)
 
 		{
 			DivaolerMon* TestUni = CreateActor<DivaolerMon>(OBJECTORDER::Monster);
-			TestUni->m_Info.m_Hp = 800;
+			TestUni->m_Info.m_Hp = 1800;
+			TestUni->m_Info.m_MaxHp = 1800;
 			TestUni->m_Info.Gold = 8;
 			TestUni->m_MainStage = this;
 			auto	iter = CheckPoint.begin();
@@ -1307,7 +1331,8 @@ void StageMain::Stage10(float _DeltaTime)
 
 		{
 			UltraMon* TestUni = CreateActor<UltraMon>(OBJECTORDER::Monster);
-			TestUni->m_Info.m_Hp = 850;
+			TestUni->m_Info.m_Hp = 1950;
+			TestUni->m_Info.m_MaxHp = 1950;
 			TestUni->m_Info.Gold = 8;
 			TestUni->m_MainStage = this;
 			auto	iter = CheckPoint.begin();
@@ -1351,7 +1376,8 @@ void StageMain::Stage11(float _DeltaTime)
 
 		{
 			Overload* TestUni = CreateActor<Overload>(OBJECTORDER::Monster);
-			TestUni->m_Info.m_Hp = 900;
+			TestUni->m_Info.m_Hp = 2100;
+			TestUni->m_Info.m_MaxHp = 2100;
 			TestUni->m_Info.Gold = 8;
 			TestUni->m_MainStage = this;
 			auto	iter = CheckPoint.begin();
@@ -1400,7 +1426,8 @@ void StageMain::Stage12(float _DeltaTime)
 
 		{
 			ScoutMon* TestUni = CreateActor<ScoutMon>(OBJECTORDER::Monster);
-			TestUni->m_Info.m_Hp = 3000;
+			TestUni->m_Info.m_Hp = 9000;
+			TestUni->m_Info.m_MaxHp = 6000;
 			TestUni->m_Info.Gold = 8;
 			TestUni->m_MainStage = this;
 			auto	iter = CheckPoint.begin();
@@ -1447,7 +1474,8 @@ void StageMain::Stage13(float _DeltaTime)
 
 		{
 			corsairMon* TestUni = CreateActor<corsairMon>(OBJECTORDER::Monster);
-			TestUni->m_Info.m_Hp = 1300;
+			TestUni->m_Info.m_Hp = 4000;
+			TestUni->m_Info.m_MaxHp = 4000;
 			TestUni->m_Info.Gold = 8;
 			TestUni->m_MainStage = this;
 			auto	iter = CheckPoint.begin();
@@ -1493,7 +1521,8 @@ void StageMain::Stage14(float _DeltaTime)
 
 		{
 			ScoutMon* TestUni = CreateActor<ScoutMon>(OBJECTORDER::Monster);
-			TestUni->m_Info.m_Hp = 1350;
+			TestUni->m_Info.m_Hp = 4200;
+			TestUni->m_Info.m_MaxHp = 4200;
 			TestUni->m_Info.Gold = 8;
 			TestUni->m_MainStage = this;
 			auto	iter = CheckPoint.begin();
@@ -1539,7 +1568,8 @@ void StageMain::Stage15(float _DeltaTime)
 
 		{
 			DivaolerMon* TestUni = CreateActor<DivaolerMon>(OBJECTORDER::Monster);
-			TestUni->m_Info.m_Hp = 1400;
+			TestUni->m_Info.m_Hp = 4400;
+			TestUni->m_Info.m_MaxHp = 4400;
 			TestUni->m_Info.Gold = 8;
 			TestUni->m_MainStage = this;
 			auto	iter = CheckPoint.begin();
@@ -1585,7 +1615,8 @@ void StageMain::Stage16(float _DeltaTime)
 
 		{
 			UltraMon* TestUni = CreateActor<UltraMon>(OBJECTORDER::Monster);
-			TestUni->m_Info.m_Hp = 1450;
+			TestUni->m_Info.m_Hp = 4600;
+			TestUni->m_Info.m_MaxHp = 4600;
 			TestUni->m_Info.Gold = 8;
 			TestUni->m_MainStage = this;
 			auto	iter = CheckPoint.begin();
@@ -1629,7 +1660,8 @@ void StageMain::Stage17(float _DeltaTime)
 
 		{
 			Overload* TestUni = CreateActor<Overload>(OBJECTORDER::Monster);
-			TestUni->m_Info.m_Hp = 1500;
+			TestUni->m_Info.m_Hp = 5000;
+			TestUni->m_Info.m_MaxHp = 5000;
 			TestUni->m_Info.Gold = 8;
 			TestUni->m_MainStage = this;
 			auto	iter = CheckPoint.begin();
@@ -1678,7 +1710,8 @@ void StageMain::Stage18(float _DeltaTime)
 
 		{
 			DivaolerMon* TestUni = CreateActor<DivaolerMon>(OBJECTORDER::Monster);
-			TestUni->m_Info.m_Hp = 5000;
+			TestUni->m_Info.m_Hp = 15000;
+			TestUni->m_Info.m_MaxHp = 15000;
 			TestUni->m_Info.Gold = 8;
 			TestUni->m_MainStage = this;
 			auto	iter = CheckPoint.begin();
@@ -1725,7 +1758,8 @@ void StageMain::Stage19(float _DeltaTime)
 
 		{
 			corsairMon* TestUni = CreateActor<corsairMon>(OBJECTORDER::Monster);
-			TestUni->m_Info.m_Hp = 2300;
+			TestUni->m_Info.m_Hp = 10000;
+			TestUni->m_Info.m_MaxHp = 10000;
 			TestUni->m_Info.Gold = 8;
 			TestUni->m_MainStage = this;
 			auto	iter = CheckPoint.begin();
@@ -1771,7 +1805,8 @@ void StageMain::Stage20(float _DeltaTime)
 
 		{
 			ScoutMon* TestUni = CreateActor<ScoutMon>(OBJECTORDER::Monster);
-			TestUni->m_Info.m_Hp = 2350;
+			TestUni->m_Info.m_Hp = 10500;
+			TestUni->m_Info.m_MaxHp = 10500;
 			TestUni->m_Info.Gold = 8;
 			TestUni->m_MainStage = this;
 			auto	iter = CheckPoint.begin();
@@ -1817,7 +1852,8 @@ void StageMain::Stage21(float _DeltaTime)
 
 		{
 			DivaolerMon* TestUni = CreateActor<DivaolerMon>(OBJECTORDER::Monster);
-			TestUni->m_Info.m_Hp = 2400;
+			TestUni->m_Info.m_Hp = 11000;
+			TestUni->m_Info.m_MaxHp = 11000;
 			TestUni->m_Info.Gold = 8;
 			TestUni->m_MainStage = this;
 			auto	iter = CheckPoint.begin();
@@ -1863,7 +1899,8 @@ void StageMain::Stage22(float _DeltaTime)
 
 		{
 			UltraMon* TestUni = CreateActor<UltraMon>(OBJECTORDER::Monster);
-			TestUni->m_Info.m_Hp = 2450;
+			TestUni->m_Info.m_Hp = 11500;
+			TestUni->m_Info.m_MaxHp = 11500;
 			TestUni->m_Info.Gold = 8;
 			TestUni->m_MainStage = this;
 			auto	iter = CheckPoint.begin();
@@ -1909,7 +1946,8 @@ void StageMain::Stage23(float _DeltaTime)
 
 		{
 			Overload* TestUni = CreateActor<Overload>(OBJECTORDER::Monster);
-			TestUni->m_Info.m_Hp = 2500;
+			TestUni->m_Info.m_Hp = 12000;
+			TestUni->m_Info.m_MaxHp = 12000;
 			TestUni->m_Info.Gold = 8;
 			TestUni->m_MainStage = this;
 			auto	iter = CheckPoint.begin();
@@ -1957,7 +1995,8 @@ void StageMain::Stage24(float _DeltaTime)
 
 		{
 			UltraMon* TestUni = CreateActor<UltraMon>(OBJECTORDER::Monster);
-			TestUni->m_Info.m_Hp = 10000;
+			TestUni->m_Info.m_Hp = 30000;
+			TestUni->m_Info.m_MaxHp = 30000;
 			TestUni->m_Info.Gold = 8;
 			TestUni->m_MainStage = this;
 			auto	iter = CheckPoint.begin();
@@ -2006,7 +2045,8 @@ void StageMain::Stage25(float _DeltaTime)
 
 		{
 			Overload* TestUni = CreateActor<Overload>(OBJECTORDER::Monster);
-			TestUni->m_Info.m_Hp = 15000;
+			TestUni->m_Info.m_Hp = 50000;
+			TestUni->m_Info.m_MaxHp = 50000;
 			TestUni->m_Info.Gold = 8;
 			TestUni->m_MainStage = this;
 			auto	iter = CheckPoint.begin();

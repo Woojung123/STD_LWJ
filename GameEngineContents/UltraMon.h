@@ -25,6 +25,10 @@ protected:
 	void Update(float _DeltaTime);
 	void End() {}
 
+	GameEngineTextureRenderer* MonHPRenderer;
+	GameEngineTextureRenderer* MonSHRenderer;
+	GameEngineTextureRenderer* MonFRRenderer;
+
 	GameEngineTextureRenderer* Renderer;
 	ZergDeath* DeathEff;
 	float4 Color;

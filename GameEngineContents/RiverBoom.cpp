@@ -59,7 +59,7 @@ bool RiverBoom::MonsterCollision(GameEngineCollision* _This, GameEngineCollision
 
 	((UnitBase*)Dest)->m_Info.m_Hp -= m_Info.Dammage + UnitBase::AProUpgrade;
 
-	return true;
+	return false;
 }
 
 void RiverBoom::Update(float _DeltaTime)

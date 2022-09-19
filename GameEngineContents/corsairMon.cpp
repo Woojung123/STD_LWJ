@@ -82,10 +82,27 @@ void corsairMon::Start()
 		MonHPRenderer->SetTexture("Hpbar_4.png");
 		MonHPRenderer->ScaleToTexture();
 		MonHPRenderer->GetTransform().SetLocalPosition({0.f, -20.f, -50.f});
-
+		MonHPRenderer->renderOption.Option00 = 1;
+		MonHPRenderer->GetPixelData().Slice.x = 1;
 
 	}
 
+	{
+		MonSHRenderer = CreateComponent<GameEngineTextureRenderer>();
+		MonSHRenderer->SetTexture("Shield_4.png");
+		MonSHRenderer->ScaleToTexture();
+		MonSHRenderer->GetTransform().SetLocalPosition({ 0.f, -20.f, -55.f });
+		MonSHRenderer->renderOption.Option00 = 1;
+		MonSHRenderer->GetPixelData().Slice.x = 1;
+
+	}
+
+	{
+		MonFRRenderer = CreateComponent<GameEngineTextureRenderer>();
+		MonFRRenderer->SetTexture("Frame_4.png");
+		MonFRRenderer->ScaleToTexture();
+		MonFRRenderer->GetTransform().SetLocalPosition({ 0.f, -20.f, -40.f });
+	}
 
 
 	MiniUnit = GetLevel()->CreateActor<MiniMapUnit>(OBJECTORDER::UI);
@@ -94,6 +111,43 @@ void corsairMon::Start()
 
 void corsairMon::Update(float _DeltaTime)
 {
+	
+
+
+	if ((m_Info.m_MaxHp/2) <= m_Info.m_Hp)
+	{
+
+		float MHp = (float)(m_Info.m_MaxHp / 2);
+		float NHp = (float)(m_Info.m_Hp - MHp);
+
+
+
+		float HPLen = (NHp / MHp);// / 100.f;
+		HPLen = HPLen;
+		MonSHRenderer->GetPixelData().Slice.x = HPLen;
+
+	}
+	else
+	{
+
+		float HPLen = ((float)m_Info.m_Hp / (float)m_Info.m_MaxHp);// / 100.f;
+		HPLen = HPLen + HPLen;
+		MonHPRenderer->GetPixelData().Slice.x = HPLen;
+
+
+	}
+	
+
+
+
+
+//	float slicex = (HPLen * 1.5f);
+
+
+	
+
+
+	
 
 	MiniUnit->UnitPos = GetTransform().GetWorldPosition();
 

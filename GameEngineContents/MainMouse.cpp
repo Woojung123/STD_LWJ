@@ -236,9 +236,6 @@ void MainMouse::Update(float _DeltaTime)
 		std::bind(&MainMouse::AllCollision, this, std::placeholders::_1, std::placeholders::_2)
 	);
 
-	Collision->IsCollision(CollisionType::CT_OBB2D, OBJECTORDER::Player, CollisionType::CT_OBB2D,
-		std::bind(&MainMouse::AllCollision, this, std::placeholders::_1, std::placeholders::_2)
-	);
 
 	if (true == Collision->IsCollision(CollisionType::CT_OBB2D, OBJECTORDER::Player, CollisionType::CT_OBB2D))
 	{
@@ -472,7 +469,13 @@ bool MainMouse::AllCollision(GameEngineCollision* _This, GameEngineCollision* _O
 
 	}
 
-	BuildRenderer->GetPixelData().MulColor = { 1.f,0.f,0.f,0.5f };
+
+	if (((UnitBase*)(_Other->GetActor()))->m_Type != UNITTYPE::Builder)
+	{
+		BuildRenderer->GetPixelData().MulColor = { 1.f,0.f,0.f,0.5f };
+	}
+	
+	
 
 
 	return false;

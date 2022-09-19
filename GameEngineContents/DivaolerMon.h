@@ -29,6 +29,9 @@ protected:
 
 	GameEngineTextureRenderer* Renderer;
 
+	GameEngineTextureRenderer* MonHPRenderer;
+	GameEngineTextureRenderer* MonSHRenderer;
+	GameEngineTextureRenderer* MonFRRenderer;
 
 	ZergDeath* DeathEff;
 	float4 Color;

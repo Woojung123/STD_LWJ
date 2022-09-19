@@ -61,7 +61,7 @@ bool SGExBig::MonsterCollision(GameEngineCollision* _This, GameEngineCollision* 
 
 	((UnitBase*)Dest)->m_Info.m_Hp -= m_Info.Dammage + UnitBase::STerUpgrade;
 
-	return true;
+	return false;
 }
 
 
