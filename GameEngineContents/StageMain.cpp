@@ -41,6 +41,8 @@
 #include "UIMouse.h"
 #include "HPUnit.h"
 
+#include "Intercept.h"
+
 
 
 
@@ -82,7 +84,7 @@ void StageMain::Start()
 
 	BgmPlayer = GameEngineSound::SoundPlayControl("MainSound.MP3",true);
 	BgmPlayer.PlaySpeed(1.f);
-	BgmPlayer.Volume(0.1f);
+	BgmPlayer.Volume(0.5f);
 	
 
 
@@ -97,6 +99,7 @@ void StageMain::Start()
 
 	{
 		TestUI* NewPlayer = CreateActor<TestUI>(OBJECTORDER::UI);
+		NewPlayer->m_Stage = this;
 	}
 
 	{
@@ -112,7 +115,7 @@ void StageMain::Start()
 	
 	
 	MainMouse* MaMouse = CreateActor<MainMouse>(OBJECTORDER::Mouse);
-	
+	MaMouse->m_Stage = this;
 
 	
 	Builder* mBuilder = CreateActor<Builder>(OBJECTORDER::Player);
@@ -120,6 +123,7 @@ void StageMain::Start()
 	mBuilder->m_MainMouse = MaMouse;
 	mBuilder->m_Type = UNITTYPE::Builder;
 	MaMouse->m_Builder = mBuilder;
+	mBuilder->m_Stage = this;
 	
 	MapPoint MapP;
 
@@ -506,10 +510,26 @@ void StageMain::Start()
 
 	//РЏДж
 
-	//{
-	//	TestUnit* TestUni = CreateActor<TestUnit>(OBJECTORDER::Player);
-	//	TestUni->GetTransform().SetWorldPosition({ -1050.f,370.f,0.f });
-	//}
+	/*{
+		TestUnit* TestUni = CreateActor<TestUnit>(OBJECTORDER::Player);
+		TestUni->GetTransform().SetWorldPosition({ -1050.f,370.f,0.f });
+	}
+
+	{
+		TestUnit* TestUni = CreateActor<TestUnit>(OBJECTORDER::Player);
+		TestUni->GetTransform().SetWorldPosition({ -1150.f,370.f,0.f });
+	}
+
+	{
+		TestUnit* TestUni = CreateActor<TestUnit>(OBJECTORDER::Player);
+		TestUni->GetTransform().SetWorldPosition({ -950.f,370.f,0.f });
+	}
+
+	{
+		TestUnit* TestUni = CreateActor<TestUnit>(OBJECTORDER::Player);
+		TestUni->GetTransform().SetWorldPosition({ -850.f,370.f,0.f });
+	}*/
+
 	//
 	//{
 	//	GhostC* TestUni = CreateActor<GhostC>(OBJECTORDER::Player);
@@ -605,6 +625,23 @@ void StageMain::Start()
 	//	Carrier* TestUni = CreateActor<Carrier>(OBJECTORDER::Player);
 	//	TestUni->GetTransform().SetWorldPosition({ -750.f,310.f,0.f });
 	//}
+
+	/*{
+
+		Carrier* TestUni = CreateActor<Carrier>(OBJECTORDER::Player);
+		TestUni->GetTransform().SetWorldPosition({ -750.f,310.f,0.f });
+		TestUni->m_Type = UNITTYPE::CarrierA;
+
+
+
+		for (int i = 0; i <= 7; ++i)
+		{
+			TestUni->m_Intercep[i] = CreateActor<Intercept>(OBJECTORDER::Player);
+			TestUni->m_Intercep[i]->GetTransform().SetWorldPosition({ -750.f,310.f,0.f });
+			TestUni->m_Intercep[i]->m_Info.Dammage = 20 + UnitBase::AProUpgrade;
+			TestUni->m_Intercep[i]->Mycarrier = TestUni;
+		}
+	}*/
 
 	//{
 	//	GhostS* TestUni = CreateActor<GhostS>(OBJECTORDER::Player);
@@ -895,6 +932,8 @@ void StageMain::Stage1(float _DeltaTime)
 
 			if (GetGroup(OBJECTORDER::Monster).size() == 0)
 			{
+
+				Player_Gold += 250;
 				MonTime = 0.f;
 				GamePlayTime = 0.f;
 				MonCount = 0;
@@ -908,8 +947,8 @@ void StageMain::Stage1(float _DeltaTime)
 
 		{
 			corsairMon* TestUni = CreateActor<corsairMon>(OBJECTORDER::Monster);
-			TestUni->m_Info.m_Hp = 2000;
-			TestUni->m_Info.m_MaxHp = 2000;
+			TestUni->m_Info.m_Hp = 50;
+			TestUni->m_Info.m_MaxHp = 50;
 			TestUni->m_Info.Gold = 8;
 			TestUni->m_MainStage = this;
 
@@ -942,6 +981,7 @@ void StageMain::Stage2(float _DeltaTime)
 
 			if (GetGroup(OBJECTORDER::Monster).size() == 0)
 			{
+				Player_Gold += 250;
 				MonTime = 0.f;
 				GamePlayTime = 0.f;
 				MonCount = 0;
@@ -989,6 +1029,7 @@ void StageMain::Stage3(float _DeltaTime)
 
 			if (GetGroup(OBJECTORDER::Monster).size() == 0)
 			{
+				Player_Gold += 250;
 				MonTime = 0.f;
 				GamePlayTime = 0.f;
 				MonCount = 0;
@@ -1036,6 +1077,7 @@ void StageMain::Stage4(float _DeltaTime)
 
 			if (GetGroup(OBJECTORDER::Monster).size() == 0)
 			{
+				Player_Gold += 250;
 				MonTime = 0.f;
 				GamePlayTime = 0.f;
 				MonCount = 0;
@@ -1083,6 +1125,7 @@ void StageMain::Stage5(float _DeltaTime)
 
 			if (GetGroup(OBJECTORDER::Monster).size() == 0)
 			{
+				Player_Gold += 250;
 				MonTime = 0.f;
 				GamePlayTime = 0.f;
 				MonCount = 0;
@@ -1133,6 +1176,7 @@ void StageMain::Stage6(float _DeltaTime)
 
 			if (GetGroup(OBJECTORDER::Monster).size() == 0)
 			{
+				Player_Gold += 500;
 				MonTime = 0.f;
 				GamePlayTime = 0.f;
 				MonCount = 0;
@@ -1177,6 +1221,7 @@ void StageMain::Stage7(float _DeltaTime)
 
 			if (GetGroup(OBJECTORDER::Monster).size() == 0)
 			{
+				Player_Gold += 250;
 				MonTime = 0.f;
 				GamePlayTime = 0.f;
 				MonCount = 0;
@@ -1224,6 +1269,7 @@ void StageMain::Stage8(float _DeltaTime)
 
 			if (GetGroup(OBJECTORDER::Monster).size() == 0)
 			{
+				Player_Gold += 250;
 				MonTime = 0.f;
 				GamePlayTime = 0.f;
 				MonCount = 0;
@@ -1271,6 +1317,7 @@ void StageMain::Stage9(float _DeltaTime)
 
 			if (GetGroup(OBJECTORDER::Monster).size() == 0)
 			{
+				Player_Gold += 250;
 				MonTime = 0.f;
 				GamePlayTime = 0.f;
 				MonCount = 0;
@@ -1318,6 +1365,7 @@ void StageMain::Stage10(float _DeltaTime)
 
 			if (GetGroup(OBJECTORDER::Monster).size() == 0)
 			{
+				Player_Gold += 250;
 				MonTime = 0.f;
 				GamePlayTime = 0.f;
 				MonCount = 0;
@@ -1363,6 +1411,7 @@ void StageMain::Stage11(float _DeltaTime)
 
 			if (GetGroup(OBJECTORDER::Monster).size() == 0)
 			{
+				Player_Gold += 250;
 				MonTime = 0.f;
 				GamePlayTime = 0.f;
 				MonCount = 0;
@@ -1413,6 +1462,7 @@ void StageMain::Stage12(float _DeltaTime)
 
 			if (GetGroup(OBJECTORDER::Monster).size() == 0)
 			{
+				Player_Gold += 500;
 				MonTime = 0.f;
 				GamePlayTime = 0.f;
 				MonCount = 0;
@@ -1461,6 +1511,7 @@ void StageMain::Stage13(float _DeltaTime)
 
 			if (GetGroup(OBJECTORDER::Monster).size() == 0)
 			{
+				Player_Gold += 250;
 				MonTime = 0.f;
 				GamePlayTime = 0.f;
 				MonCount = 0;
@@ -1508,6 +1559,7 @@ void StageMain::Stage14(float _DeltaTime)
 
 			if (GetGroup(OBJECTORDER::Monster).size() == 0)
 			{
+				Player_Gold += 250;
 				MonTime = 0.f;
 				GamePlayTime = 0.f;
 				MonCount = 0;
@@ -1555,6 +1607,7 @@ void StageMain::Stage15(float _DeltaTime)
 
 			if (GetGroup(OBJECTORDER::Monster).size() == 0)
 			{
+				Player_Gold += 250;
 				MonTime = 0.f;
 				GamePlayTime = 0.f;
 				MonCount = 0;
@@ -1602,6 +1655,7 @@ void StageMain::Stage16(float _DeltaTime)
 
 			if (GetGroup(OBJECTORDER::Monster).size() == 0)
 			{
+				Player_Gold += 250;
 				MonTime = 0.f;
 				GamePlayTime = 0.f;
 				MonCount = 0;
@@ -1647,6 +1701,7 @@ void StageMain::Stage17(float _DeltaTime)
 
 			if (GetGroup(OBJECTORDER::Monster).size() == 0)
 			{
+				Player_Gold += 250;
 				MonTime = 0.f;
 				GamePlayTime = 0.f;
 				MonCount = 0;
@@ -1697,6 +1752,7 @@ void StageMain::Stage18(float _DeltaTime)
 
 			if (GetGroup(OBJECTORDER::Monster).size() == 0)
 			{
+				Player_Gold += 500;
 				MonTime = 0.f;
 				GamePlayTime = 0.f;
 				MonCount = 0;
@@ -1745,6 +1801,7 @@ void StageMain::Stage19(float _DeltaTime)
 
 			if (GetGroup(OBJECTORDER::Monster).size() == 0)
 			{
+				Player_Gold += 250;
 				MonTime = 0.f;
 				GamePlayTime = 0.f;
 				MonCount = 0;
@@ -1792,6 +1849,7 @@ void StageMain::Stage20(float _DeltaTime)
 
 			if (GetGroup(OBJECTORDER::Monster).size() == 0)
 			{
+				Player_Gold += 250;
 				MonTime = 0.f;
 				GamePlayTime = 0.f;
 				MonCount = 0;
@@ -1839,6 +1897,7 @@ void StageMain::Stage21(float _DeltaTime)
 
 			if (GetGroup(OBJECTORDER::Monster).size() == 0)
 			{
+				Player_Gold += 250;
 				MonTime = 0.f;
 				GamePlayTime = 0.f;
 				MonCount = 0;
@@ -1886,6 +1945,7 @@ void StageMain::Stage22(float _DeltaTime)
 
 			if (GetGroup(OBJECTORDER::Monster).size() == 0)
 			{
+				Player_Gold += 250;
 				MonTime = 0.f;
 				GamePlayTime = 0.f;
 				MonCount = 0;
@@ -1933,6 +1993,7 @@ void StageMain::Stage23(float _DeltaTime)
 
 			if (GetGroup(OBJECTORDER::Monster).size() == 0)
 			{
+				Player_Gold += 250;
 				MonTime = 0.f;
 				GamePlayTime = 0.f;
 				MonCount = 0;
@@ -1982,6 +2043,7 @@ void StageMain::Stage24(float _DeltaTime)
 
 			if (GetGroup(OBJECTORDER::Monster).size() == 0)
 			{
+				Player_Gold += 500;
 				MonTime = 0.f;
 				GamePlayTime = 0.f;
 				MonCount = 0;

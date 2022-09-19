@@ -44,7 +44,7 @@ void SunkenC::Start()
 
 	SoundPlayer = GameEngineSound::SoundPlayControl("GurdianSound.wav", false);
 	SoundPlayer.PlaySpeed(1.f);
-	SoundPlayer.Volume(0.1f);
+	SoundPlayer.Volume(0.5f);
 
 
 

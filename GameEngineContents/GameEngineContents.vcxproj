@@ -338,6 +338,7 @@
       <SubType>
       </SubType>
     </ClInclude>
+    <ClInclude Include="Intercept.h" />
     <ClInclude Include="LogoBack.h">
       <SubType>
       </SubType>
@@ -784,6 +785,7 @@
       <SubType>
       </SubType>
     </ClCompile>
+    <ClCompile Include="Intercept.cpp" />
     <ClCompile Include="LogoBack.cpp">
       <SubType>
       </SubType>

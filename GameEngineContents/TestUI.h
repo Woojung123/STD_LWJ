@@ -4,6 +4,7 @@
 #include <GameEngineCore/GameEngineActor.h>
 
 // Ό³Έν :
+class StageMain;
 class TestUI : public GameEngineActor
 {
 public:
@@ -19,10 +20,13 @@ public:
 
 protected:
 	void Start() override;
-	void Update(float _DeltaTime) {}
+	void Update(float _DeltaTime);
 	void End() {}
 
-private:
 
+public : 
+	StageMain* m_Stage;
+private:
+	GameEngineFontRenderer* Font;
 };
 

@@ -46,7 +46,7 @@ void HighT::Start()
 {
 	SoundPlayer = GameEngineSound::SoundPlayControl("HighTSound.wav", false);
 	SoundPlayer.PlaySpeed(1.f);
-	SoundPlayer.Volume(0.1f);
+	SoundPlayer.Volume(0.5f);
 
 
 	GetTransform().SetLocalScale({ 1, 1, 1 });

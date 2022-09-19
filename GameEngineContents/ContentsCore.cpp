@@ -332,7 +332,7 @@ void ContentsCore::Start()
 
 	}
 
-	//GameEngineFont::Load("±√º≠");
+	GameEngineFont::Load("±√º≠");
 
 	if (false == GameEngineInput::GetInst()->IsKey("LevelChangeKey"))
 	{
@@ -463,6 +463,131 @@ void ContentsCore::Start()
 
 
 	}
+
+
+
+
+	//¿Œ≈Õº¡
+	{
+		GameEngineDirectory Dir;
+
+		Dir.MoveParentToExitsChildDirectory("ConstantResources");
+		Dir.Move("ConstantResources");
+		Dir.Move("Texture");
+		Dir.Move("Multi");
+		Dir.Move("Unit");
+		Dir.Move("protoss");
+		Dir.Move("intercept");
+
+
+		Dir.Move("interceptMove0");
+
+		GameEngineFolderTexture::Load(Dir.GetFullPath());
+
+		Dir.Move("../interceptMove1");
+
+		GameEngineFolderTexture::Load(Dir.GetFullPath());
+
+
+		Dir.Move("../interceptMove2");
+
+		GameEngineFolderTexture::Load(Dir.GetFullPath());
+
+		Dir.Move("../interceptMove3");
+
+		GameEngineFolderTexture::Load(Dir.GetFullPath());
+
+		Dir.Move("../interceptMove4");
+
+		GameEngineFolderTexture::Load(Dir.GetFullPath());
+
+		Dir.Move("../interceptMove5");
+
+		GameEngineFolderTexture::Load(Dir.GetFullPath());
+
+	}
+
+
+	//¿Œ≈Õº¡
+	{
+		GameEngineDirectory Dir;
+
+		Dir.MoveParentToExitsChildDirectory("ConstantResources");
+		Dir.Move("ConstantResources");
+		Dir.Move("Texture");
+		Dir.Move("Multi");
+		Dir.Move("Unit");
+		Dir.Move("protoss");
+		Dir.Move("intercept");
+
+
+		Dir.Move("interceptMove6");
+
+		GameEngineFolderTexture::Load(Dir.GetFullPath());
+
+		Dir.Move("../interceptMove7");
+
+		GameEngineFolderTexture::Load(Dir.GetFullPath());
+
+		Dir.Move("../interceptMove8");
+
+		GameEngineFolderTexture::Load(Dir.GetFullPath());
+
+		Dir.Move("../interceptMove9");
+
+		GameEngineFolderTexture::Load(Dir.GetFullPath());
+
+		Dir.Move("../interceptMove10");
+
+		GameEngineFolderTexture::Load(Dir.GetFullPath());
+
+
+	}
+
+
+
+
+	//¿Œ≈Õº¡
+
+	{
+		GameEngineDirectory Dir;
+
+		Dir.MoveParentToExitsChildDirectory("ConstantResources");
+		Dir.Move("ConstantResources");
+		Dir.Move("Texture");
+		Dir.Move("Multi");
+		Dir.Move("Unit");
+		Dir.Move("protoss");
+		Dir.Move("intercept");
+
+		Dir.Move("interceptMove11");
+
+		GameEngineFolderTexture::Load(Dir.GetFullPath());
+
+		Dir.Move("../interceptMove12");
+
+		GameEngineFolderTexture::Load(Dir.GetFullPath());
+
+		Dir.Move("../interceptMove13");
+
+		GameEngineFolderTexture::Load(Dir.GetFullPath());
+
+
+		Dir.Move("../interceptMove14");
+
+		GameEngineFolderTexture::Load(Dir.GetFullPath());
+
+		Dir.Move("../interceptMove15");
+
+		GameEngineFolderTexture::Load(Dir.GetFullPath());
+
+
+
+	}
+
+
+
+
 
 	//µÂ∂Û±∫
 	{

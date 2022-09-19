@@ -33,6 +33,7 @@
 
 
 
+#include "Intercept.h"
 
 
 
@@ -133,6 +134,16 @@ void BuildImage::AttEnd(const FrameAnimation_DESC& _Info)
 			Carrier* TestUni = GetLevel()->CreateActor<Carrier>(OBJECTORDER::Player);
 			TestUni->GetTransform().SetWorldPosition(GetTransform().GetWorldPosition());
 			TestUni->m_Type = UNITTYPE::CarrierA;
+
+
+
+			for (int i = 0; i <= 7; ++i)
+			{
+				TestUni->m_Intercep[i] = GetLevel()->CreateActor<Intercept>(OBJECTORDER::Player);
+				TestUni->m_Intercep[i]->GetTransform().SetWorldPosition(GetTransform().GetWorldPosition());
+				TestUni->m_Intercep[i]->m_Info.Dammage = 30 + UnitBase::AProUpgrade;
+				TestUni->m_Intercep[i]->Mycarrier = TestUni;
+			}
 		}
 
 		if (RandomUnit == 3)
@@ -271,7 +282,7 @@ void BuildImage::Start()
 
 	SoundPlayer = GameEngineSound::SoundPlayControl("TowerMakeS.wav", false);
 	SoundPlayer.PlaySpeed(1.f);
-	SoundPlayer.Volume(0.1f);
+	SoundPlayer.Volume(0.5f);
 
 
 

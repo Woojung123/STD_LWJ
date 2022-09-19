@@ -33,6 +33,13 @@ void Sunken::AttEnd(const FrameAnimation_DESC& _Info)
 void Sunken::Start()
 {
 
+
+	SoundPlayer = GameEngineSound::SoundPlayControl("SunkenBule.wav", false);
+	SoundPlayer.PlaySpeed(1.f);
+	SoundPlayer.Volume(0.1f);
+
+
+
 	GetTransform().SetLocalScale({ 1, 1, 1 });
 	{
 		Renderer = CreateComponent<GameEngineTextureRenderer>();

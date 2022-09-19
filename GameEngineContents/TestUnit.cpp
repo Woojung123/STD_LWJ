@@ -40,7 +40,7 @@ void TestUnit::Start()
 
 	SoundPlayer = GameEngineSound::SoundPlayControl("DragoonSound.wav", false);
 	SoundPlayer.PlaySpeed(1.f);
-	SoundPlayer.Volume(0.1f);
+	SoundPlayer.Volume(0.5f);
 
 
 

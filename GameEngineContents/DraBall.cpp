@@ -43,6 +43,13 @@ void Draball2Time(const FrameAnimation_DESC& _Info, float _Time)
 void DraBall::Start()
 {
 
+
+	SoundPlayer = GameEngineSound::SoundPlayControl("DragBull.wav", false);
+	SoundPlayer.PlaySpeed(1.f);
+	SoundPlayer.Volume(0.1f);
+
+
+
 	GetTransform().SetLocalScale({ 1, 1, 1 });
 	{
 		Renderer = CreateComponent<GameEngineTextureRenderer>();
@@ -66,7 +73,7 @@ void DraBall::Update(float _DeltaTime)
 		float4 TargetPos =  TarGet->GetTransform().GetWorldPosition();
 		float4 MyPos = GetTransform().GetWorldPosition();
 
-		if (TargetPos.x <= -1400.f)
+		if (TargetPos.x <= -1400.f || TargetPos.x >= 0.f)
 		{
 			Death();
 		}

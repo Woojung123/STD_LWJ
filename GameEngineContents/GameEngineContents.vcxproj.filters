@@ -571,6 +571,9 @@
     <ClInclude Include="HPUnit.h">
       <Filter>00.Actor\01.Unit\02.Player\03.HPUnit</Filter>
     </ClInclude>
+    <ClInclude Include="Intercept.h">
+      <Filter>00.Actor\01.Unit\02.Player\00.Tower\02.Level3\02.Carrier</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ContentsCore.cpp">
@@ -903,6 +906,9 @@
     </ClCompile>
     <ClCompile Include="HPUnit.cpp">
       <Filter>00.Actor\01.Unit\02.Player\03.HPUnit</Filter>
+    </ClCompile>
+    <ClCompile Include="Intercept.cpp">
+      <Filter>00.Actor\01.Unit\02.Player\00.Tower\02.Level3\02.Carrier</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

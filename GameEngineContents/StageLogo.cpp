@@ -6,7 +6,7 @@
 #include "StartButton.h"
 #include "EixtButton.h"
 #include "SingleButton.h"
-
+#include "UIMouse.h"
 
 #include "Enums.h"
 #include <GameEngineCore/GEngine.h>
@@ -28,6 +28,9 @@ void StageLogo::Start()
 	{
 		GameEngineInput::GetInst()->CreateKey("LevelChange", 'P');
 	}
+
+	UIMouse* C_UIMouse = CreateActor<UIMouse>(OBJECTORDER::UI);
+
 
 
 	//GameEngineCameraActor* CameraActor = CreateActor<GameEngineCameraActor>();

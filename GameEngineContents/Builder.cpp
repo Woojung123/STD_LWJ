@@ -9,6 +9,7 @@
 #include "MainMouse.h"
 
 
+#include "StageMain.h"
 #include "BuildImage.h"
 
 
@@ -54,6 +55,7 @@ Builder::Builder()
 	,BuildMake(false)
 	,m_MainMouse(0)
 	,MainUI(0)
+	,m_Stage(0)
 {
 }
 
@@ -136,6 +138,8 @@ void Builder::Start()
 
 	MainUI = GetLevel()->CreateActor<BuilderUI>(OBJECTORDER::UI);
 	MainUI->m_Builder = this;
+
+
 	{
 		Collision = CreateComponent<GameEngineCollision>();
 		Collision->GetTransform().SetLocalScale({ 60.0f, 60.0f, 1.0f });
@@ -167,8 +171,11 @@ void Builder::Update(float _DeltaTime)
 
 		if (true == GameEngineInput::GetInst()->IsDown("MakeClick"))
 		{
-			m_MainMouse->BuildCheck = true;
-			m_MainMouse->PlusCheck = false;
+			if (m_Stage->Player_Gold >= 50)
+			{
+				m_MainMouse->BuildCheck = true;
+				m_MainMouse->PlusCheck = false;
+			}
 		}
 
 
@@ -276,6 +283,7 @@ void Builder::Update(float _DeltaTime)
 				TestUni->GetTransform().SetWorldPosition(BuildPos);
 				TestUni->m_Bulder = this;
 				m_bClickCheck = true;
+				m_Stage->Player_Gold -= 50;
 			}
 			
 

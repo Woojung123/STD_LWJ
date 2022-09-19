@@ -5,6 +5,9 @@
 #include "Builder.h"
 #include "MainMouse.h"
 
+#include "StageMain.h"
+
+
 BuilderUI::BuilderUI() :
 	 m_Builder(0)
 	,CollisionBuild(0)
@@ -158,9 +161,14 @@ bool BuilderUI::BuildCollision(GameEngineCollision* _This, GameEngineCollision* 
 {
 	if (true == GameEngineInput::GetInst()->IsDown("LCClick"))
 	{
-		m_Builder->m_bClickCheck = true;
-		m_Builder->m_MainMouse->BuildCheck = true;
-		m_Builder->m_MainMouse->PlusCheck = false;
+
+		if (m_Builder->m_Stage->Player_Gold >= 50)
+		{
+			m_Builder->m_bClickCheck = true;
+			m_Builder->m_MainMouse->BuildCheck = true;
+			m_Builder->m_MainMouse->PlusCheck = false;
+		}
+		
 
 	}
 	

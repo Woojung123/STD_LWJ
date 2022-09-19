@@ -7,6 +7,7 @@
 #include"mutalBullet.h"
 #include "CarrierAUI.h"
 #include "MiniMapPlayer.h"
+#include "Intercept.h"
 
 Carrier::Carrier()
 	: Speed(50.0f)
@@ -29,14 +30,18 @@ Carrier::Carrier()
 
 Carrier::~Carrier()
 {
+	for (int i = 0; i <= 7; ++i)
+	{
+		m_Intercep[i]->Death();
+	}
 }
 
 
 void Carrier::AttEnd(const FrameAnimation_DESC& _Info)
 {
-	AttCheck = true;
+	//AttCheck = true;
 	//Renderer->ChangeFrameAnimation("GardianMove12");
-	BAniChange = false;
+	//BAniChange = false;
 }
 
 
@@ -47,7 +52,7 @@ void Carrier::Start()
 
 	SoundPlayer = GameEngineSound::SoundPlayControl("CarrierSound.wav", false);
 	SoundPlayer.PlaySpeed(1.f);
-	SoundPlayer.Volume(0.1f);
+	SoundPlayer.Volume(0.5f);
 
 
 	GetTransform().SetLocalScale({ 1, 1, 1 });
@@ -75,10 +80,10 @@ void Carrier::Start()
 		Renderer->CreateFrameAnimationFolder("CarrierMove15", FrameAnimation_DESC("CarrierMove15", 0.1f));
 
 
-		Renderer->ChangeFrameAnimation("CarrierMove12");
+		Renderer->ChangeFrameAnimation("CarrierMove8");
 
 
-		Renderer->AnimationBindEnd("CarrierMove0", &Carrier::AttEnd, this);
+		/*Renderer->AnimationBindEnd("CarrierMove0", &Carrier::AttEnd, this);
 		Renderer->AnimationBindEnd("CarrierMove1", &Carrier::AttEnd, this);
 		Renderer->AnimationBindEnd("CarrierMove2", &Carrier::AttEnd, this);
 		Renderer->AnimationBindEnd("CarrierMove3", &Carrier::AttEnd, this);
@@ -93,7 +98,7 @@ void Carrier::Start()
 		Renderer->AnimationBindEnd("CarrierMove12", &Carrier::AttEnd, this);
 		Renderer->AnimationBindEnd("CarrierMove13", &Carrier::AttEnd, this);
 		Renderer->AnimationBindEnd("CarrierMove14", &Carrier::AttEnd, this);
-		Renderer->AnimationBindEnd("CarrierMove15", &Carrier::AttEnd, this);
+		Renderer->AnimationBindEnd("CarrierMove15", &Carrier::AttEnd, this);*/
 
 
 
@@ -124,7 +129,7 @@ void Carrier::Start()
 		ShadowRenderer->CreateFrameAnimationFolder("CarrierMove15", FrameAnimation_DESC("CarrierMove15", 0.1f));
 
 
-		ShadowRenderer->ChangeFrameAnimation("CarrierMove12");
+		ShadowRenderer->ChangeFrameAnimation("CarrierMove8");
 
 
 		ShadowRenderer->GetPixelData().MulColor.r = 0.f;
@@ -195,9 +200,21 @@ void Carrier::Start()
 
 
 
+
+
 	AttRenderer->Off();
 	ClickRenderer->Off();
 	MainUI->Off();
+
+	/*float4 myP = Renderer->GetTransform().GetWorldPosition();
+	for (int i = 0; i <= 7; ++ i)
+	{
+		m_Intercep[i] = GetLevel()->CreateActor<Intercept>(OBJECTORDER::Player);
+		m_Intercep[i]->GetTransform().SetWorldPosition(myP);
+		m_Intercep[i]->m_Info.Dammage = 100 + UnitBase::AProUpgrade;
+	}*/
+
+	
 
 
 }
@@ -231,16 +248,11 @@ void Carrier::Update(float _DeltaTime)
 
 	std::list<GameEngineActor*> Group = GetLevel()->GetGroup(OBJECTORDER::Monster);
 
-	int Monsize = (int)(Group.size());
-	int MonCount = 0;
-	AttCount = 0;
-	AttCountMax = 5;
+	
 	auto	iter = Group.begin();
 	auto	iterEnd = Group.end();
 	GameEngineActor* TarGet = nullptr;
-	GameEngineActor* TarGet2 = nullptr;
-	GameEngineActor* TarGet3 = nullptr;
-	GameEngineActor* TarGet4 = nullptr;
+	
 	for (; iter != iterEnd; ++iter)
 	{
 		TarGet = (*iter);
@@ -250,83 +262,52 @@ void Carrier::Update(float _DeltaTime)
 		float4 Dist = MyPos - TarGetPos;
 		float MonLen = Dist.Length();
 
-		++MonCount;
-
+	
 		if (MonLen <= Reach)
 		{
-			++AttCount;
+			interAtt = true;
 
-			if (AttCount == 1)
+			for (int i = 0; i <= 7; ++i)
 			{
-				TarGet2 = TarGet;
-			}
-			else if (AttCount == 2)
-			{
-				TarGet3 = TarGet;
-			}
-			else if (AttCount == 3)
-			{
-				TarGet4 = TarGet;
-			}
-
-			if (!BAniChange)
-			{
-				m_Dir = (TarGetPos - MyPos);
-				m_Dir.Normalize();
-
-				ChangeAni(TarGetPos, MyPos);
-				BAniChange = true;
-			}
-
-
-			if (AttCheck)
-			{
-
-				if (AttCount == 3)
-				{/*
-					TestUni = GetLevel()->CreateActor<mutalBullet>(OBJECTORDER::Bullet);
-					TestUni->GetTransform().SetWorldPosition(MyPos);
-					TestUni->SetTarGet(TarGet);
-					TestUni->m_Info.Dammage = 120;
-
-					TestUni->TarGet = TarGet2;
-					TestUni->TarGet2 = TarGet3;
-					TestUni->TarGet3 = TarGet4;*/
+				if (TarGet != nullptr)
+				{
+					m_Intercep[i]->TarGet = TarGet;
 				}
-
-			}
-
-			if (AttCountMax >= (Monsize - 1))
-			{
-				AttCountMax = (Monsize - 1);
-			}
-
-			if (AttCount >= AttCountMax)
-			{
-				AttCheck = false;
-				AttCount = 0;
-				break;
+				
 			}
 
 
+			break;
 		}
-
-
-		if (MonCount == Monsize)
+		else
 		{
-			AttCheck = false;
-			//Renderer->ChangeFrameAnimation("GardianMove12");
-			AttTime = 0.f;
-			AttCount = 0;
-			AttCountMax = 5;
+			
+			for (int i = 0; i <= 7; ++i)
+			{
+				m_Intercep[i]->TarGet = nullptr;
+			}
+
+			interAtt = false;
+
+			
 		}
+
 
 
 	}
 
 
+	if (Group.size() <= 0)
+	{
+		interAtt = false;
+		for (int i = 0; i <= 7; ++i)
+		{
+			m_Intercep[i]->TarGet = nullptr;
+		}
+	}
+
 	float4 WorldPos = GetTransform().GetWorldPosition();
-	GetTransform().SetWorldPosition({ WorldPos.x , WorldPos.y , -19.f, WorldPos.w });
+	GetTransform().SetWorldPosition({ WorldPos.x , WorldPos.y , -20.f, WorldPos.w });
 
 
 

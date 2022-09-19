@@ -43,7 +43,7 @@ public:
 	int Player_HPRen = 39;
 
 
-	int Player_Gold = 0;
+	int Player_Gold = 250;
 	int Player_Gas = 0;
 
 

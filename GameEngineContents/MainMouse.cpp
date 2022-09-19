@@ -8,6 +8,7 @@
 #include "DragUI.h"
 #include "BuildImage.h"
 
+#include "StageMain.h"
 #include "MiniMapPlayer.h"
 
 
@@ -27,6 +28,7 @@ MainMouse::MainMouse()	:
 	,PlusCheck(false)
 	,Renderer(nullptr)
 	, m_DragUI(nullptr)
+	, m_Stage(0)
 {
 }
 

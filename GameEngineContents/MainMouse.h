@@ -5,6 +5,7 @@
 #include "GlobalContentsValue.h"
 
 // Ό³Έν :
+class StageMain;
 class UnitBase;
 class DragUI;
 class Builder;
@@ -33,6 +34,7 @@ public:
 	bool AllCollision(GameEngineCollision* _This, GameEngineCollision* _Other);
 	bool MDragCollision(GameEngineCollision* _This, GameEngineCollision* _Other);
 public:
+	StageMain* m_Stage;
 	std::vector<UnitBase*> vec_DragUnit;
 	bool StartDragCheck;
 	bool BuildCheck;

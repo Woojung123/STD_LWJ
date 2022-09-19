@@ -3,24 +3,23 @@
 #include <GameEngineCore/CoreMinimal.h>
 #include "UnitBase.h"
 // Ό³Έν :
-class Intercept;
-class CarrierAUI;
+class Carrier;
 class mutalBullet;
 class GameEngineTextureRenderer;
-class Carrier : public UnitBase
+class Intercept : public UnitBase
 {
 public:
 	// constrcuter destructer
-	Carrier();
-	~Carrier();
+	Intercept();
+	~Intercept();
 
 	// delete Function
-	Carrier(const Carrier& _Other) = delete;
-	Carrier(Carrier&& _Other) noexcept = delete;
-	Carrier& operator=(const Carrier& _Other) = delete;
-	Carrier& operator=(Carrier&& _Other) noexcept = delete;
+	Intercept(const Intercept& _Other) = delete;
+	Intercept(Intercept&& _Other) noexcept = delete;
+	Intercept operator=(const Intercept& _Other) = delete;
+	Intercept& operator=(Intercept&& _Other) noexcept = delete;
 
-protected:
+public:
 	//void AttEnd(const FrameAnimation_DESC& _Info);
 	void Start() override;
 	void Update(float _DeltaTime);
@@ -29,9 +28,9 @@ protected:
 
 	void ChangeAni(float4 _Gopoint, float4 _WorldPos);
 	GameEngineTextureRenderer* Renderer;
+	GameEngineActor* TarGet;
 
-	GameEngineTextureRenderer* BiconRenderer;
-	GameEngineTextureRenderer* AuraRenderer;
+	Carrier* Mycarrier;
 	mutalBullet* TestUni;
 	float4 Color;
 	float Reach;
@@ -39,15 +38,14 @@ public:
 	float	Speed;
 	float	AttTime;
 	float	AttTimeMax;
+	float4 GoPoint;
 	float4	m_Dir;
 
-	CarrierAUI* MainUI;
-	Intercept* m_Intercep[8];
 
-	bool interAtt = false;
 
 	bool	BAniChange;
 	bool	AttCheck;
+	bool	MVcheck = true;
 	bool	ListLastCheck;
 
 

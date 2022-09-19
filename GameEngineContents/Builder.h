@@ -3,6 +3,7 @@
 #include <GameEngineCore/CoreMinimal.h>
 #include "UnitBase.h"
 // Ό³Έν :
+class StageMain;
 class MainMouse;
 class BuilderUI;
 class SwarmBullet;
@@ -20,6 +21,7 @@ public:
 	Builder& operator=(const Builder& _Other) = delete;
 	Builder& operator=(Builder&& _Other) noexcept = delete;
 
+	StageMain* m_Stage;
 protected:
 	//void AttEnd(const FrameAnimation_DESC& _Info);
 	void Start() override;

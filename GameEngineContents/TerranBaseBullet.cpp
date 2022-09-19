@@ -33,6 +33,14 @@ void TerranBaseBullet::AttEnd(const FrameAnimation_DESC& _Info)
 void TerranBaseBullet::Start()
 {
 
+
+	SoundPlayer = GameEngineSound::SoundPlayControl("marinBule.wav", false);
+	SoundPlayer.PlaySpeed(1.f);
+	SoundPlayer.Volume(0.1f);
+
+
+
+
 	GetTransform().SetLocalScale({ 1, 1, 1 });
 	{
 		Renderer = CreateComponent<GameEngineTextureRenderer>();
@@ -63,7 +71,6 @@ void TerranBaseBullet::Update(float _DeltaTime)
 	GetTransform().SetWorldPosition({ WorldPos.x , WorldPos.y , -50.f, WorldPos.w });
 
 
-	
-	//TarGet->m_In
+
 
 }

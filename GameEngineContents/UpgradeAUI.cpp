@@ -136,7 +136,7 @@ bool UpgradeAUI::Col_Pro(GameEngineCollision* _This, GameEngineCollision* _Other
 
 		SoundPlayer = GameEngineSound::SoundPlayControl("UpgradeSo.wav", false);
 		SoundPlayer.PlaySpeed(1.f);
-		SoundPlayer.Volume(0.1f);
+		SoundPlayer.Volume(0.5f);
 
 		++UnitBase::AProUpgrade;
 		m_UpC->m_bClickCheck = true;
@@ -153,7 +153,7 @@ bool UpgradeAUI::Col_Ter(GameEngineCollision* _This, GameEngineCollision* _Other
 
 		SoundPlayer = GameEngineSound::SoundPlayControl("UpgradeSo.wav", false);
 		SoundPlayer.PlaySpeed(1.f);
-		SoundPlayer.Volume(0.1f);
+		SoundPlayer.Volume(0.5f);
 
 		m_UpC->m_bClickCheck = true;
 		++UnitBase::ATerUpgrade;
@@ -170,7 +170,7 @@ bool UpgradeAUI::Col_Zerg(GameEngineCollision* _This, GameEngineCollision* _Othe
 
 		SoundPlayer = GameEngineSound::SoundPlayControl("UpgradeSo.wav", false);
 		SoundPlayer.PlaySpeed(1.f);
-		SoundPlayer.Volume(0.1f);
+		SoundPlayer.Volume(0.5f);
 
 		++UnitBase::AZergUpgrade;
 		m_UpC->m_bClickCheck = true;
