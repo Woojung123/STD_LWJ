@@ -235,6 +235,9 @@
     <Filter Include="00.Actor\01.Unit\02.Player\03.HPUnit">
       <UniqueIdentifier>{ba1a265c-0849-4de1-bdc2-e07e874e1c24}</UniqueIdentifier>
     </Filter>
+    <Filter Include="96.Tile">
+      <UniqueIdentifier>{42a4e46d-f422-48f6-bb11-a94fa069a653}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ContentsCore.h">
@@ -574,6 +577,21 @@
     <ClInclude Include="Intercept.h">
       <Filter>00.Actor\01.Unit\02.Player\00.Tower\02.Level3\02.Carrier</Filter>
     </ClInclude>
+    <ClInclude Include="EditButton.h">
+      <Filter>00.Actor\02.UI\00.Logo</Filter>
+    </ClInclude>
+    <ClInclude Include="DarkMap.h">
+      <Filter>00.Actor\00.BackGround</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\DX2D\AR40\DIRECTX\GameEngineContents\TileMapActor.h">
+      <Filter>96.Tile</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\DX2D\AR40\DIRECTX\GameEngineContents\TileMapRenderer.h">
+      <Filter>96.Tile</Filter>
+    </ClInclude>
+    <ClInclude Include="DarkTile.h">
+      <Filter>96.Tile</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ContentsCore.cpp">
@@ -909,6 +927,21 @@
     </ClCompile>
     <ClCompile Include="Intercept.cpp">
       <Filter>00.Actor\01.Unit\02.Player\00.Tower\02.Level3\02.Carrier</Filter>
+    </ClCompile>
+    <ClCompile Include="EditButton.cpp">
+      <Filter>00.Actor\02.UI\00.Logo</Filter>
+    </ClCompile>
+    <ClCompile Include="DarkMap.cpp">
+      <Filter>00.Actor\00.BackGround</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\DX2D\AR40\DIRECTX\GameEngineContents\TileMapActor.cpp">
+      <Filter>96.Tile</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\DX2D\AR40\DIRECTX\GameEngineContents\TileMapRenderer.cpp">
+      <Filter>96.Tile</Filter>
+    </ClCompile>
+    <ClCompile Include="DarkTile.cpp">
+      <Filter>96.Tile</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -12,5 +12,6 @@
     <FxCompile Include="Blur.hlsl" />
     <FxCompile Include="TextureAtlas_Inst.hlsl" />
     <FxCompile Include="ITextureAtlas.hlsl" />
+    <FxCompile Include="DarkMapShader.hlsl" />
   </ItemGroup>
 </Project>

@@ -7,6 +7,10 @@
 #include <GameEngineBase/GameEngineInput.h>
 
 #include "MainMap.h"
+#include "DarkMap.h"
+#include "DarkTile.h"
+
+
 #include "StageMainCamera.h"
 #include "TestUnit.h"
 #include "Overload.h"
@@ -107,6 +111,10 @@ void StageMain::Start()
 	}
 	
 
+	
+
+
+
 		UIMouse* C_UIMouse = CreateActor<UIMouse>(OBJECTORDER::UI);
 
 
@@ -169,7 +177,12 @@ void StageMain::Start()
 	
 	
 	
-	
+	StageMainCamera* NewMainCamera;
+
+	{
+		NewMainCamera = CreateActor<StageMainCamera>(OBJECTORDER::Camera);
+	}
+
 
 
 	MainMap* NewMainMap;
@@ -177,12 +190,32 @@ void StageMain::Start()
 		NewMainMap = CreateActor<MainMap>(OBJECTORDER::BackGround);
 	}
 
-
-	StageMainCamera* NewMainCamera;
-
+	DarkMap* NewDarkMap;
 	{
-		NewMainCamera = CreateActor<StageMainCamera>(OBJECTORDER::Camera);
+		NewDarkMap = CreateActor<DarkMap>(OBJECTORDER::BackGround);
+		NewDarkMap->m_Bulder = mBuilder;
+		NewDarkMap->MainStage = this;
 	}
+	
+	{
+		
+
+		for (int i = 0; i < 10; ++i)
+		{
+			for (int j = 0; j < 10; ++j)
+			{
+
+				DTilemap[i][j] = CreateActor<DarkTile>(OBJECTORDER::TileMap);
+				DTilemap[i][j]->GetTransform().SetWorldPosition({   (( - 1400.f) + (float)(i * 200.f))   ,   ((700.f) - (float)(j * 150.f))   });
+				DTilemap[i][j]->M_Camera = NewMainCamera;
+			}
+		}
+	
+
+
+	}
+	
+
 
 
 

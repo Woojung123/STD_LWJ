@@ -172,7 +172,7 @@ bool BuilderUI::BuildCollision(GameEngineCollision* _This, GameEngineCollision* 
 
 	}
 	
-	return false;
+	return true;
 }
 
 bool BuilderUI::MakeCollision(GameEngineCollision* _This, GameEngineCollision* _Other)
@@ -186,5 +186,5 @@ bool BuilderUI::MakeCollision(GameEngineCollision* _This, GameEngineCollision* _
 	}
 
 	
-	return false;
+	return true;
 }

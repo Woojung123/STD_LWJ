@@ -12,6 +12,7 @@ struct MapPoint
 
 
 // Ό³Έν :
+class DarkTile;
 class HPUnit;
 class HPUnit;
 class StageMain : public GameEngineLevel
@@ -42,6 +43,7 @@ public:
 	int Player_HP = 39;
 	int Player_HPRen = 39;
 
+	DarkTile* DTilemap[10][10];
 
 	int Player_Gold = 250;
 	int Player_Gas = 0;

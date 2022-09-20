@@ -54,5 +54,7 @@ float4 Texture_PS(Output _Input) : SV_Target0
         clip(-1);
     }
 
+
+  
     return Color;
 }

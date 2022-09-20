@@ -157,6 +157,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\DX2D\AR40\DIRECTX\GameEngineContents\TileMapActor.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </ClInclude>
+    <ClInclude Include="..\..\DX2D\AR40\DIRECTX\GameEngineContents\TileMapRenderer.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </ClInclude>
     <ClInclude Include="ArbitorB.h">
       <SubType>
       </SubType>
@@ -233,6 +241,7 @@
       <SubType>
       </SubType>
     </ClInclude>
+    <ClInclude Include="DarkMap.h" />
     <ClInclude Include="DarkTB.h">
       <SubType>
       </SubType>
@@ -241,6 +250,7 @@
       <SubType>
       </SubType>
     </ClInclude>
+    <ClInclude Include="DarkTile.h" />
     <ClInclude Include="DivaolerMon.h">
       <SubType>
       </SubType>
@@ -277,6 +287,7 @@
       <SubType>
       </SubType>
     </ClInclude>
+    <ClInclude Include="EditButton.h" />
     <ClInclude Include="EixtButton.h">
       <SubType>
       </SubType>
@@ -605,6 +616,14 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\DX2D\AR40\DIRECTX\GameEngineContents\TileMapActor.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\DX2D\AR40\DIRECTX\GameEngineContents\TileMapRenderer.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="ArbitorB.cpp">
       <SubType>
       </SubType>
@@ -681,6 +700,7 @@
       <SubType>
       </SubType>
     </ClCompile>
+    <ClCompile Include="DarkMap.cpp" />
     <ClCompile Include="DarkTB.cpp">
       <SubType>
       </SubType>
@@ -689,6 +709,7 @@
       <SubType>
       </SubType>
     </ClCompile>
+    <ClCompile Include="DarkTile.cpp" />
     <ClCompile Include="DivaolerMon.cpp">
       <SubType>
       </SubType>
@@ -725,6 +746,7 @@
       <SubType>
       </SubType>
     </ClCompile>
+    <ClCompile Include="EditButton.cpp" />
     <ClCompile Include="EixtButton.cpp">
       <SubType>
       </SubType>

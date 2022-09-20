@@ -7,6 +7,8 @@
 #include "EixtButton.h"
 #include "SingleButton.h"
 #include "UIMouse.h"
+#include "EditButton.h"
+
 
 #include "Enums.h"
 #include <GameEngineCore/GEngine.h>
@@ -28,6 +30,10 @@ void StageLogo::Start()
 	{
 		GameEngineInput::GetInst()->CreateKey("LevelChange", 'P');
 	}
+
+
+	GameEngineInput::GetInst()->CreateKey("LChangeClick", VK_LBUTTON);
+
 
 	UIMouse* C_UIMouse = CreateActor<UIMouse>(OBJECTORDER::UI);
 
@@ -52,7 +58,15 @@ void StageLogo::Start()
 
 	CreateActor<StartButton>(GameObjectGroup::UI);
 
+
+	CreateActor<EditButton>(GameObjectGroup::UI);
+
+
+
 	CreateActor<LoginUI>(GameObjectGroup::UI);
+
+
+	
 
 }
 

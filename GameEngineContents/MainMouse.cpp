@@ -480,7 +480,7 @@ bool MainMouse::AllCollision(GameEngineCollision* _This, GameEngineCollision* _O
 	
 
 
-	return false;
+	return true;
 }
 
 bool MainMouse::MDragCollision(GameEngineCollision* _This, GameEngineCollision* _Other)

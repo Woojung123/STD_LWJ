@@ -301,17 +301,31 @@ void ContentsCore::Start()
 		Dir.Move("Multi");
 		Dir.Move("MenuUI");
 
-		Dir.Move("MenuExitCheck");
+		Dir.Move("MenuEditor0");
+		GameEngineFolderTexture::Load(Dir.GetFullPath());
+
+		Dir.Move("../MenuEditorCheck0");
+		GameEngineFolderTexture::Load(Dir.GetFullPath());
+
+		Dir.Move("../MenuExit0");
+		GameEngineFolderTexture::Load(Dir.GetFullPath());
+
+
+		Dir.Move("../MenuExitCheck");
+		GameEngineFolderTexture::Load(Dir.GetFullPath());
+
+		Dir.Move("../MenuMultiPlayer0");
+		GameEngineFolderTexture::Load(Dir.GetFullPath());
+
+		Dir.Move("../MenuMultiPlayerCheck0");
+		GameEngineFolderTexture::Load(Dir.GetFullPath());
+
+		Dir.Move("../MenuSinglePlayer0");
 		GameEngineFolderTexture::Load(Dir.GetFullPath());
 
 		Dir.Move("../MenuSinglePlayerCheck0");
 		GameEngineFolderTexture::Load(Dir.GetFullPath());
-
-		Dir.Move("../MenuEditor0");
-		GameEngineFolderTexture::Load(Dir.GetFullPath());
-
-	/*	Dir.Move("../MenuSinglePlayer0");
-		GameEngineFolderTexture::Load(Dir.GetFullPath());*/
+	
 
 
 	}
@@ -331,6 +345,10 @@ void ContentsCore::Start()
 
 
 	}
+
+
+	GameEngineFont::Load("Starcraft");
+
 
 	GameEngineFont::Load("±Ã¼­");
 
@@ -3054,7 +3072,7 @@ void ContentsCore::Start()
 
 	CreateLevel<StageLogo>("Title");
 	CreateLevel<StageMain>("Play");
-	ChangeLevel("Play");
+	ChangeLevel("Title");
 
 	//GameEngineGUI::CreateGUIWindow<GameEngineStatusWindow>("EngineStatus", nullptr);
 

@@ -17,6 +17,7 @@ void GameEngineTextureSetter::Setting() const
 {
 	SettingFunction();
 }
+
 void GameEngineTextureSetter::Reset() const
 {
 	ResetFunction();
@@ -43,14 +44,32 @@ void GameEngineShader::AutoCompile(const std::string& _Path)
 		// size_t VSEntryIndex = AllHlslCode.find("_VS(");
 		// 7부터 찾아라 앞쪽으로
 		// 1
-		size_t FirstIndex = AllHlslCode.find_last_of(" ", VSEntryIndex);
-		// "01234567"
-		// substr(2, 3); "234"
 
-		// ' 'Color_VS 
-		std::string EntryName = AllHlslCode.substr(FirstIndex + 1, VSEntryIndex - FirstIndex - 1);
-		EntryName += "_VS";
-		GameEngineVertexShader::Load(_Path, EntryName);
+		GameEngineVertexShader* Vertex = nullptr;
+
+		{
+			size_t FirstIndex = AllHlslCode.find_last_of(" ", VSEntryIndex);
+			// "01234567"
+			// substr(2, 3); "234"
+
+			// ' 'Color_VS 
+			std::string EntryName = AllHlslCode.substr(FirstIndex + 1, VSEntryIndex - FirstIndex - 1);
+			EntryName += "_VS";
+			Vertex = GameEngineVertexShader::Load(_Path, EntryName);
+		}
+
+		if (nullptr != Vertex)
+		{
+			size_t VSInstEntryIndex = AllHlslCode.find("_VSINST(");
+			if (std::string::npos != VSInstEntryIndex)
+			{
+				size_t FirstIndex = AllHlslCode.find_last_of(" ", VSInstEntryIndex);
+				std::string EntryName = AllHlslCode.substr(FirstIndex + 1, VSInstEntryIndex - FirstIndex - 1);
+				EntryName += "_VSINST";
+
+				Vertex->InstancingShaderCompile(_Path, EntryName);
+			}
+		}
 	}
 
 	size_t PSEntryIndex = AllHlslCode.find("_PS(");
@@ -123,6 +142,14 @@ void GameEngineShader::ShaderResCheck()
 	CompileInfo->GetDesc(&Info);
 
 	D3D11_SHADER_INPUT_BIND_DESC ResInfo;
+	// D3D11_SIGNATURE_PARAMETER_DESC InputDesc;
+
+	//for (size_t i = 0; i < Info.InputParameters; i++)
+	//{
+	//	CompileInfo->GetInputParameterDesc(i, &InputDesc);
+
+	//	int a = 0;
+	//}
 
 	// Info.BoundResources 이게 이 쉐이더에서 사용된 총 리소스 양
 	for (UINT i = 0; i < Info.BoundResources; i++)

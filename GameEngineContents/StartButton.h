@@ -21,11 +21,14 @@ protected:
 	void Start() override;
 	void Update(float _DeltaTime);
 	void End() {}
+	GameEngineCollision* Collision;
+	GameEngineTextureRenderer* Renderer[2];
 
-	GameEngineTextureRenderer* Renderer;
-
-	
+	bool Collcheck(GameEngineCollision* _This, GameEngineCollision* _Other);
 
 private:
-	
+	GameEngineFontRenderer* Font;
+
+
+	float timecheck = 0.f;
 };

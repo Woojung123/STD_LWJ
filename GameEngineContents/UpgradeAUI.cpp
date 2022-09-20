@@ -142,7 +142,7 @@ bool UpgradeAUI::Col_Pro(GameEngineCollision* _This, GameEngineCollision* _Other
 		m_UpC->m_bClickCheck = true;
 	}
 
-	return false;
+	return true;
 }
 
 bool UpgradeAUI::Col_Ter(GameEngineCollision* _This, GameEngineCollision* _Other)
@@ -159,7 +159,7 @@ bool UpgradeAUI::Col_Ter(GameEngineCollision* _This, GameEngineCollision* _Other
 		++UnitBase::ATerUpgrade;
 	}
 
-	return false;
+	return true;
 }
 
 bool UpgradeAUI::Col_Zerg(GameEngineCollision* _This, GameEngineCollision* _Other)
@@ -176,5 +176,5 @@ bool UpgradeAUI::Col_Zerg(GameEngineCollision* _This, GameEngineCollision* _Othe
 		m_UpC->m_bClickCheck = true;
 	}
 
-	return false;
+	return true;
 }

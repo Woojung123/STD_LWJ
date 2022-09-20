@@ -5,18 +5,18 @@
 
 // Ό³Έν :
 class GameEngineTextureRenderer;
-class SingleButton : public GameEngineActor
+class EditButton : public GameEngineActor
 {
 public:
 	// constrcuter destructer
-	SingleButton();
-	~SingleButton();
+	EditButton();
+	~EditButton();
 
 	// delete Function
-	SingleButton(const SingleButton& _Other) = delete;
-	SingleButton(SingleButton&& _Other) noexcept = delete;
-	SingleButton& operator=(const SingleButton& _Other) = delete;
-	SingleButton& operator=(SingleButton&& _Other) noexcept = delete;
+	EditButton(const EditButton& _Other) = delete;
+	EditButton(EditButton&& _Other) noexcept = delete;
+	EditButton& operator=(const EditButton& _Other) = delete;
+	EditButton& operator=(EditButton&& _Other) noexcept = delete;
 
 protected:
 	void Start() override;
@@ -27,8 +27,9 @@ protected:
 
 	bool Collcheck(GameEngineCollision* _This, GameEngineCollision* _Other);
 
+private:
 	GameEngineFontRenderer* Font;
 	float timecheck = 0.f;
-private:
+
 
 };
