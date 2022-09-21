@@ -28,5 +28,11 @@ public :
 	StageMain* m_Stage;
 private:
 	GameEngineFontRenderer* Font;
+
+
+	GameEngineFontRenderer* VictoryFont;
+	GameEngineUIRenderer* BaseEndingRenderer;
+	GameEngineFontRenderer* OkFont;
+
 };
 

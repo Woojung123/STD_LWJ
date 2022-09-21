@@ -46,7 +46,7 @@ public:
 	PlayNormal* Bicon3;
 	bool GameStartB = false;
 	float MonHpLevel = 1.f;
-
+	bool GameFinishBool = false;
 
 public:
 	int Player_HP = 39;

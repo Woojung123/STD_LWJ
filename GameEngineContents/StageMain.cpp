@@ -98,7 +98,7 @@ void StageMain::Start()
 		GameEngineInput::GetInst()->CreateKey("FreeCameaOnOff", 'O');
 	}
 
-
+	GameEngineInput::GetInst()->CreateKey("GameFinish", '5');
 
 
 
@@ -832,7 +832,19 @@ void StageMain::Update(float _DeltaTime)
 		GetMainCameraActor()->FreeCameraModeOnOff();
 	}
 
+	if (GameEngineInput::GetInst()->IsDown("GameFinish"))
+	{
+		if (GameFinishBool)
+		{
+			GameFinishBool = !GameFinishBool;
 
+		}
+		else
+		{
+			GameFinishBool = !GameFinishBool;
+		}
+			
+	}
 
 	if (GameStartB)
 	{
