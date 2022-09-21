@@ -9,6 +9,7 @@
 #include "MainMouse.h"
 
 
+#include "MiniMapPlayer.h"
 #include "StageMain.h"
 #include "BuildImage.h"
 
@@ -154,6 +155,8 @@ void Builder::Start()
 		ClickRenderer->GetTransform().SetLocalPosition({ 0.f,-5.f,1.f });
 	}
 
+	MiniPlayUnit = GetLevel()->CreateActor<MiniMapPlayer>(OBJECTORDER::UI);
+
 
 	GameEngineInput::GetInst()->CreateKey("RClick", VK_RBUTTON);
 	GameEngineInput::GetInst()->CreateKey("MakeClick", 'B');
@@ -162,6 +165,8 @@ void Builder::Start()
 
 void Builder::Update(float _DeltaTime)
 {
+	MiniPlayUnit->UnitPos = GetTransform().GetWorldPosition();
+
 	if (m_bClickCheck)
 	{
 		MainUI->On();

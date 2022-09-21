@@ -12,6 +12,7 @@ struct MapPoint
 
 
 // Ό³Έν :
+class PlayNormal;
 class DarkTile;
 class HPUnit;
 class HPUnit;
@@ -37,6 +38,14 @@ protected:
 	void Start() override;
 	void Update(float _DeltaTime) override;
 	void End() override;
+
+
+public:
+	PlayNormal* Bicon1;
+	PlayNormal* Bicon2;
+	PlayNormal* Bicon3;
+	bool GameStartB = false;
+	float MonHpLevel = 1.f;
 
 
 public:

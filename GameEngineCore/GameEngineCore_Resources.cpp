@@ -223,11 +223,11 @@ void EngineRenderingPipeLine()
 	}*/
 
 
-	/*{
+	{
 		GameEngineRenderingPipeLine* NewPipe = GameEngineRenderingPipeLine::Create("DarkMapShader");
 		NewPipe->SetVertexShader("DarkMapShader.hlsl");
 		NewPipe->SetPixelShader("DarkMapShader.hlsl");
-	}*/
+	}
 
 
 	{

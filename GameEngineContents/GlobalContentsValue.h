@@ -52,8 +52,8 @@ enum class UNITTYPE
 
 typedef struct UnitInfo
 {
-	int m_Hp;
-	int m_MaxHp;
+	float m_Hp;
+	float m_MaxHp;
 	int Gold;
 	int Dammage;
 

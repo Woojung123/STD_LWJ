@@ -7,6 +7,7 @@
 #include "StageMain.h"
 #include "DarkTile.h"
 
+#include "StageMainCamera.h"
 
 DarkMap::DarkMap()	:
 	m_Bulder(nullptr)
@@ -23,10 +24,22 @@ void DarkMap::Start()
 
 	{
 		Renderer = CreateComponent<GameEngineTextureRenderer>();
-		Renderer->SetTexture("Defen.png");
+		Renderer->SetPipeLine("DarkMapShader");
+		AtlasDataInst.FrameData.PosX = 0.0f;
+		AtlasDataInst.FrameData.PosY = 0.0f;
+		AtlasDataInst.FrameData.SizeX = 1.0f;
+		AtlasDataInst.FrameData.SizeY = 1.0f;
+		AtlasDataInst.PivotPos = float4::ZERO;
+
+		Renderer->ShaderResources.SetConstantBufferLink("AtlasData", AtlasDataInst);
+		Renderer->ShaderResources.SetConstantBufferLink("PixelData", PixelDataInst);
+		//Renderer->ShaderResources.SetConstantBufferLink("RENDEROPTION", &Option, sizeof(Option));
+
+
+		Renderer->SetTexture("Defense.png");
 		Renderer->ScaleToTexture();
-		Renderer->renderOption.Option00 = 3;
-		Renderer->GetPixelData().MulColor = {0.f,0.f,0.f,1.f};
+	
+		
 	}
 
 	float4 WorldPos = GetTransform().GetWorldPosition();
@@ -36,19 +49,41 @@ void DarkMap::Start()
 }
 void DarkMap::Update(float _DeltaTime)
 {
-	for (int i = 0; i < 10; ++i)
+	/*for (int i = 0; i < 10; ++i)
 	{
 		for (int j = 0; j < 10; ++j)
 		{
 			
-			if (MainStage->DTilemap[i][j]->ScreenPos.x >= 400.f)
+			if (MainStage->DTilemap[i][j]->ScreenPos.x > 0 && MainStage->DTilemap[i][j]->ScreenPos.y)
 			{
-				Renderer->GetPixelData().Slice = MainStage->DTilemap[i][j]->ScreenPos;
+
+				float4 iTemp = MainStage->DTilemap[i][j]->ScreenPos;
+				iTemp.y = -iTemp.y;
+				Renderer->GetPixelData().Slice = iTemp;
 			}
 			
 		}
-	}
+	}*/
+
+	//Renderer->renderOption.DeltaTime = _DeltaTime;
+	//sumDelta += _DeltaTime;
+	//Renderer->renderOption.SumDeltaTime = sumDelta;
 
 
+
+
+	float4 BuilderPos = m_Bulder->GetTransform().GetWorldPosition();
+
+
+	float4 Dummy = BuilderPos - M_Camera->GetTransform().GetWorldPosition();
+	Dummy.x += 400.f;
+	Dummy.y -= 300.f;
+
+	
+
+
+	
+	Dummy.y = -Dummy.y;
+	PixelDataInst.Slice = Dummy;
 
 }

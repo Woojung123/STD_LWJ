@@ -114,7 +114,42 @@ SamplerState Smp : register(s0);
 float4 TextureAtlas_PS(Output _Input) : SV_Target0
 {
     
-     if (Option00 == 1)
+
+    if (Option01 == 5)
+    {
+
+        float4 TexColor = Tex.Sample(Smp, _Input.Tex.xy);
+
+        if (TexColor.r == 0.0f && TexColor.y == 0.0f && TexColor.z == 0.0f)
+        {
+            clip(-1);
+        }
+
+        if (TexColor.r >= 0.3f&& TexColor.y >= 0.3f && TexColor.z >= 0.8f)
+        {
+            
+          
+               TexColor.a = alphaTime0;
+      
+
+        }
+
+
+
+        if (TexColor.a == 0)
+        {
+            clip(-1);
+        }
+
+
+        return (TexColor * MulColor) + PlusColor;
+
+    }
+
+
+
+
+    if (Option00 == 1)
     {
         if (_Input.PosLocal.x + 0.5f > Slice.x)
         {

@@ -6,6 +6,8 @@
 class StageMain;
 class MainMouse;
 class BuilderUI;
+
+class MiniMapPlayer;
 class SwarmBullet;
 class GameEngineTextureRenderer;
 class Builder : public UnitBase
@@ -39,14 +41,14 @@ protected:
 	void MoveCheck(float _DeltaTime);
 
 
-	bool Movecheck;
+	
 	GameEngineTextureRenderer* Renderer;
 	SwarmBullet* TestUni;
 	float4 Color;
 	float Reach;
 public:
-
-
+	bool Movecheck;
+	MiniMapPlayer* MiniPlayUnit;
 
 	MainMouse* m_MainMouse;
 

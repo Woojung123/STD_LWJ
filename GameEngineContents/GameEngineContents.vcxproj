@@ -406,6 +406,7 @@
       <SubType>
       </SubType>
     </ClInclude>
+    <ClInclude Include="PlayNormal.h" />
     <ClInclude Include="PoisonEff.h">
       <SubType>
       </SubType>
@@ -864,6 +865,7 @@
       <SubType>
       </SubType>
     </ClCompile>
+    <ClCompile Include="PlayNormal.cpp" />
     <ClCompile Include="PoisonEff.cpp">
       <SubType>
       </SubType>

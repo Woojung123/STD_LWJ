@@ -6,9 +6,9 @@
 #include "TransformHeader.fx"
 #include "RenderOption.fx"
 
-// 0                                                                                                1 
-// 0□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□1
 
+// 0                                                                                                1 
+// 0□□□□□□□
 struct Input
 {
     float4 Pos : POSITION;
@@ -18,6 +18,8 @@ struct Input
     // 인스턴싱 데이터
     uint Index : ROWINDEX;
 };
+
+
 
 struct Output
 {
@@ -97,32 +99,57 @@ cbuffer PixelData : register(b0)
     float4 Slice;
 }
 
+
+
+
+
 Texture2D Tex : register(t0);
 SamplerState Smp : register(s0);
 float4 DarkMapShader_PS(Output _Input) : SV_Target0
 {
-    
-     if (Option00 == 1)
+
+
+
+    if (_Input.PosLocal.x < -0.05 && _Input.PosLocal.y > 0)
     {
-        if (_Input.PosLocal.x + 0.5f > Slice.x)
-        {
-            clip(-1);
-        }
+        clip(-1);
     }
 
 
+   float4 TexColor = Tex.Sample(Smp, _Input.Tex.xy);
+
+   float4 InputPos = float4(_Input.Pos.x, _Input.Pos.y,0.0f,0.0f);
+   float4 SlicePos = float4(Slice.x, Slice.y, 0.0f, 0.0f);
+
+   float len = length(InputPos - SlicePos);
+
+  /* if (len <= 200)
+   {
+       TexColor.a = 0.0f;
+   }
+   else */if (len <= 600.f)
+   {
+      // TexColor.a = 0.5f;
+       TexColor.a = len / 600.f;
+      
+
+   }
+   else
+   {
 
 
-    float4 TexColor = Tex.Sample(Smp, _Input.Tex.xy);
+      // if()
+      /* if (TexColor.a != 0.0f)
+       {
+           TexColor.a = 0.5f;
+       }
+       else
+       {
+           TexColor.a = 1.0f;
+       }*/
 
 
-    if (Option01 == 1)
-    {
-        if (TexColor.r == 0 && TexColor.g == 0 && TexColor.b == 0)
-        {
-            clip(-1);
-        }
-    }
+   }
 
 
 
@@ -132,6 +159,6 @@ float4 DarkMapShader_PS(Output _Input) : SV_Target0
         clip(-1);
     }
 
-  
-    return (Tex.Sample(Smp, _Input.Tex.xy) * MulColor) + PlusColor;
+
+    return (TexColor * MulColor) + PlusColor;
 }

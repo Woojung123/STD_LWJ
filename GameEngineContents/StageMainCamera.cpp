@@ -23,7 +23,7 @@ void StageMainCamera::Start()
 	MiniCameraUI = GetLevel()->CreateActor<MiniCamera>(OBJECTORDER::UI);
 
 
-	GetTransform().SetWorldMove({-1000.f,350.f,0.f});
+	//GetTransform().SetWorldMove({-1000.f,350.f,0.f});
 }
 
 void StageMainCamera::Update(float _DeltaTime)
