@@ -321,6 +321,7 @@
       <SubType>
       </SubType>
     </ClInclude>
+    <ClInclude Include="HellperWindow.h" />
     <ClInclude Include="HighT.h">
       <SubType>
       </SubType>
@@ -781,6 +782,7 @@
       <SubType>
       </SubType>
     </ClCompile>
+    <ClCompile Include="HellperWindow.cpp" />
     <ClCompile Include="HighT.cpp">
       <SubType>
       </SubType>

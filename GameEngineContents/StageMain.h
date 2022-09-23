@@ -10,12 +10,40 @@ struct MapPoint
 
 };
 
+enum  class HellperUnitTYPE
+{
+	NONE,
+	GhostC,
+	DragoonC,
+	MarineC,
+	ZealotC,
+	HydraC,
+	CorsairC,
+	ZeaglingC,
+	HighTB,
+	PhotoB,
+	UltraB,
+	ArbitorB,
+	DarkTB,
+	SunkenB,
+	MutalA,
+	GardianA,
+	CarrierA,
+	RiverA,
+	ArconA,
+	GhostS,
+	DroneS,
+	ProbeS,
+	HydraS,
+
+};
 
 // Ό³Έν :
 class PlayNormal;
 class DarkTile;
 class HPUnit;
 class HPUnit;
+class HellperWindow;
 class StageMain : public GameEngineLevel
 {
 public:
@@ -38,9 +66,13 @@ protected:
 	void Start() override;
 	void Update(float _DeltaTime) override;
 	void End() override;
-
+	
 
 public:
+	HellperWindow* HellperWindowGUI;
+	HellperUnitTYPE Hellpertype = HellperUnitTYPE::NONE;
+
+
 	PlayNormal* Bicon1;
 	PlayNormal* Bicon2;
 	PlayNormal* Bicon3;
@@ -56,6 +88,14 @@ public:
 
 	int Player_Gold = 250;
 	int Player_Gas = 0;
+
+	bool MissionC = false;
+	bool MissionB = false;
+	bool MissionA = false;
+	bool MissionZerg = false;
+	bool MissionPro = false;
+	bool MissionTer = false;
+	bool MissionAir = false;
 
 
 private:

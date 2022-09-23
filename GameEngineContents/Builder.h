@@ -40,7 +40,7 @@ protected:
 
 	void MoveCheck(float _DeltaTime);
 
-
+	void MissionCheck();
 	
 	GameEngineTextureRenderer* Renderer;
 	SwarmBullet* TestUni;
@@ -93,5 +93,6 @@ public:
 	int m_HydraS;
 
 
+	
 };
 

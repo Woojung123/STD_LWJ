@@ -25,6 +25,18 @@ protected:
 
 
 public : 
+
+	GameEngineFontRenderer* FontAMission;
+	GameEngineFontRenderer* FontBMission;
+	GameEngineFontRenderer* FontCMission;
+
+
+	GameEngineUIRenderer* MissionTerRender;
+	GameEngineUIRenderer* MissionProRender;
+	GameEngineUIRenderer* MissionZergRender;
+	GameEngineUIRenderer* MissionAirRender;
+
+
 	StageMain* m_Stage;
 private:
 	GameEngineFontRenderer* Font;

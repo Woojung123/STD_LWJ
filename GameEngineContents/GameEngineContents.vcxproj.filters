@@ -601,6 +601,9 @@
     <ClInclude Include="Recall.h">
       <Filter>00.Actor\04.Bullet\15.Recall</Filter>
     </ClInclude>
+    <ClInclude Include="HellperWindow.h">
+      <Filter>01.Stage</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ContentsCore.cpp">
@@ -957,6 +960,9 @@
     </ClCompile>
     <ClCompile Include="Recall.cpp">
       <Filter>00.Actor\04.Bullet\15.Recall</Filter>
+    </ClCompile>
+    <ClCompile Include="HellperWindow.cpp">
+      <Filter>01.Stage</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

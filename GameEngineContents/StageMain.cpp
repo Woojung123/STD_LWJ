@@ -19,27 +19,6 @@
 #include "corsairMon.h"
 #include "ScoutMon.h"
 
-#include "GhostC.h"
-#include "MarinC.h"
-#include "ZealotC.h"
-#include "CorsairC.h"
-#include "HydraC.h"
-#include "ZerglingC.h"
-#include "GardianC.h"
-#include "HighT.h"
-#include "CannonB.h"
-#include "UltraC.h"
-#include "SunkenC.h"
-#include "DarkTB.h"
-#include "ArbitorB.h"
-#include "MutalA.h"
-#include "Arcon.h"
-#include "River.h"
-#include "Carrier.h"
-#include "GhostS.h"
-#include "DroneS.h"
-#include "ProbeS.h"
-#include "HydraS.h"
 
 #include "Tileobject.h"
 #include "UIMouse.h"
@@ -66,7 +45,7 @@
 #include "TestUI.h"
 #include "MiniMap.h"
 
-
+#include "HellperWindow.h"
 
 StageMain::StageMain() :
 	StartCheck(false),
@@ -86,6 +65,9 @@ StageMain::~StageMain()
 
 void StageMain::Start()
 {
+
+	HellperWindowGUI = GameEngineGUI::CreateGUIWindow<HellperWindow>("MetaAnimationGUI", this);
+	HellperWindowGUI->m_MainSt = this;
 
 	BgmPlayer = GameEngineSound::SoundPlayControl("MainSound.MP3",true);
 	BgmPlayer.PlaySpeed(1.f);
@@ -142,7 +124,7 @@ void StageMain::Start()
 	}
 
 
-
+	
 
 
 	MapP.TurnPoint = float4(-1348.f, 424.f, 1.f, 0.f);
@@ -541,163 +523,6 @@ void StageMain::Start()
 		Tileobject* TestUni = CreateActor<Tileobject>(OBJECTORDER::TileMap);
 		TestUni->GetTransform().SetWorldPosition({ -1226.f,481.f,0.f });
 	}
-
-
-
-
-
-
-
-
-	//РЏДж
-
-	/*{
-		TestUnit* TestUni = CreateActor<TestUnit>(OBJECTORDER::Player);
-		TestUni->GetTransform().SetWorldPosition({ -1050.f,370.f,0.f });
-	}
-
-
-
-	
-	{
-		GhostC* TestUni = CreateActor<GhostC>(OBJECTORDER::Player);
-		TestUni->GetTransform().SetWorldPosition({ -990.f,370.f,0.f });
-	}
-
-	{
-		MarinC* TestUni = CreateActor<MarinC>(OBJECTORDER::Player);
-		TestUni->GetTransform().SetWorldPosition({ -990.f,310.f,0.f });
-	}
-
-	{
-		ZealotC* TestUni = CreateActor<ZealotC>(OBJECTORDER::Player);
-		TestUni->GetTransform().SetWorldPosition({ -1050.f,310.f,0.f });
-	}
-
-	{
-		CorsairC* TestUni = CreateActor<CorsairC>(OBJECTORDER::Player);
-		TestUni->GetTransform().SetWorldPosition({ -1050.f,190.f,0.f });
-	}
-
-
-	{
-		HydraC* TestUni = CreateActor<HydraC>(OBJECTORDER::Player);
-		TestUni->GetTransform().SetWorldPosition({ -990.f,190.f,0.f });
-	}
-
-
-	{
-		ZerglingC* TestUni = CreateActor<ZerglingC>(OBJECTORDER::Player);
-		TestUni->GetTransform().SetWorldPosition({ -870.f,370.f,0.f });
-	}
-
-	{
-		GardianC* TestUni = CreateActor<GardianC>(OBJECTORDER::Player);
-		TestUni->GetTransform().SetWorldPosition({ -870.f,310.f,0.f });
-	}
-	
-	
-	{
-		HighT* TestUni = CreateActor<HighT>(OBJECTORDER::Player);
-		TestUni->GetTransform().SetWorldPosition({ -810.f,310.f,0.f });
-	}
-
-
-	{
-		CannonB* TestUni = CreateActor<CannonB>(OBJECTORDER::Player);
-		TestUni->GetTransform().SetWorldPosition({ -1170.f,370.f,0.f });
-	}
-
-	{
-		UltraC* TestUni = CreateActor<UltraC>(OBJECTORDER::Player);
-		TestUni->GetTransform().SetWorldPosition({ -1170.f,310.f,0.f });
-	}
-
-	{
-		SunkenC* TestUni = CreateActor<SunkenC>(OBJECTORDER::Player);
-		TestUni->GetTransform().SetWorldPosition({ -1230.f,310.f,0.f });
-	}
-
-	{
-		DarkTB* TestUni = CreateActor<DarkTB>(OBJECTORDER::Player);
-		TestUni->GetTransform().SetWorldPosition({ -1230.f,370.f,0.f });
-	}
-
-	
-	{
-		ArbitorB* TestUni = CreateActor<ArbitorB>(OBJECTORDER::Player);
-		TestUni->GetTransform().SetWorldPosition({ -1290.f,370.f,0.f });
-	}
-
-
-
-	{
-		MutalA* TestUni = CreateActor<MutalA>(OBJECTORDER::Player);
-		TestUni->GetTransform().SetWorldPosition({ -1290.f,310.f,0.f });
-	}
-
-
-	
-	{
-		Arcon* TestUni = CreateActor<Arcon>(OBJECTORDER::Player);
-		TestUni->GetTransform().SetWorldPosition({ -810.f,370.f,0.f });
-	}
-
-
-	{
-		River* TestUni = CreateActor<River>(OBJECTORDER::Player);
-		TestUni->GetTransform().SetWorldPosition({ -750.f,370.f,0.f });
-	}
-
-	{
-		Carrier* TestUni = CreateActor<Carrier>(OBJECTORDER::Player);
-		TestUni->GetTransform().SetWorldPosition({ -750.f,310.f,0.f });
-	}
-
-	{
-
-		Carrier* TestUni = CreateActor<Carrier>(OBJECTORDER::Player);
-		TestUni->GetTransform().SetWorldPosition({ -750.f,310.f,0.f });
-		TestUni->m_Type = UNITTYPE::CarrierA;
-
-
-
-		for (int i = 0; i <= 7; ++i)
-		{
-			TestUni->m_Intercep[i] = CreateActor<Intercept>(OBJECTORDER::Player);
-			TestUni->m_Intercep[i]->GetTransform().SetWorldPosition({ -750.f,310.f,0.f });
-			TestUni->m_Intercep[i]->m_Info.Dammage = 20 + UnitBase::AProUpgrade;
-			TestUni->m_Intercep[i]->Mycarrier = TestUni;
-		}
-	}
-
-	{
-		GhostS* TestUni = CreateActor<GhostS>(OBJECTORDER::Player);
-		TestUni->GetTransform().SetWorldPosition({ -810.f,190.f,0.f });
-	}
-
-
-	{
-		DroneS* TestUni = CreateActor<DroneS>(OBJECTORDER::Player);
-		TestUni->GetTransform().SetWorldPosition({ -750.f,190.f,0.f });
-	}
-	
-
-	{
-		ProbeS* TestUni = CreateActor<ProbeS>(OBJECTORDER::Player);
-		TestUni->GetTransform().SetWorldPosition({ -870.f,190.f,0.f });
-	}
-
-
-	{
-		HydraS* TestUni = CreateActor<HydraS>(OBJECTORDER::Player);
-		TestUni->GetTransform().SetWorldPosition({ -870.f,130.f,0.f });
-		TestUni->Off();
-	}
-	*/
-
-
-
 
 
 

@@ -72,6 +72,85 @@ void TestUI::Start()
 
 
 
+	{
+		MissionTerRender = CreateComponent<GameEngineUIRenderer>();
+		MissionTerRender->SetTexture("TerMisson.png");
+		MissionTerRender->ScaleToTexture();
+		MissionTerRender->GetTransform().SetLocalPosition({ -380.f,140.f, -250.f });
+		MissionTerRender->ChangeCamera(CAMERAORDER::UICAMERA);
+		MissionTerRender->Off();
+	}
+
+
+	{
+		MissionProRender = CreateComponent<GameEngineUIRenderer>();
+		MissionProRender->SetTexture("ProMisson.png");
+		MissionProRender->ScaleToTexture();
+		MissionProRender->GetTransform().SetLocalPosition({ -380.f,110.f, -250.f });
+		MissionProRender->ChangeCamera(CAMERAORDER::UICAMERA);
+		MissionProRender->Off();
+	}
+
+
+	{
+		MissionZergRender = CreateComponent<GameEngineUIRenderer>();
+		MissionZergRender->SetTexture("ZergMission.png");
+		MissionZergRender->ScaleToTexture();
+		MissionZergRender->GetTransform().SetLocalPosition({ -380.f,80.f, -250.f });
+		MissionZergRender->ChangeCamera(CAMERAORDER::UICAMERA);
+		MissionZergRender->Off();
+	}
+
+
+	{
+		MissionAirRender = CreateComponent<GameEngineUIRenderer>();
+		MissionAirRender->SetTexture("AirMission.png");
+		MissionAirRender->ScaleToTexture();
+		MissionAirRender->GetTransform().SetLocalPosition({ -380.f,50.f, -250.f });
+		MissionAirRender->ChangeCamera(CAMERAORDER::UICAMERA);
+		MissionAirRender->Off();
+	}
+
+	{
+		FontAMission = CreateComponent<GameEngineFontRenderer>();
+		FontAMission->SetRenderingOrder(10000);
+		FontAMission->SetText("A", "Starcraft");
+		FontAMission->SetColor({ 1.0f, 0.0f, 0.0f, 1.0 });
+		FontAMission->SetSize(30);
+		FontAMission->SetScreenPostion({ 1, 110 });
+		FontAMission->ChangeCamera(CAMERAORDER::UICAMERA);
+		FontAMission->Off();
+	}
+
+
+	{
+		FontBMission = CreateComponent<GameEngineFontRenderer>();
+		FontBMission->SetRenderingOrder(10000);
+		FontBMission->SetText("B", "Starcraft");
+		FontBMission->SetColor({ 0.0f, 0.0f, 1.0f, 1.0 });
+		FontBMission->SetSize(25);
+		FontBMission->SetScreenPostion({ 1, 80 });
+		FontBMission->ChangeCamera(CAMERAORDER::UICAMERA);
+		FontBMission->Off();
+	}
+
+
+
+	{
+		FontCMission = CreateComponent<GameEngineFontRenderer>();
+		FontCMission->SetRenderingOrder(10000);
+		FontCMission->SetText("C", "Starcraft");
+		FontCMission->SetColor({ 0.0f, 1.0f, 0.0f, 1.0 });
+		FontCMission->SetSize(25);
+		FontCMission->SetScreenPostion({ 1, 50 });
+		FontCMission->ChangeCamera(CAMERAORDER::UICAMERA);
+		FontCMission->Off();
+	}
+
+
+
+
+
 }
 
 void TestUI::Update(float _DeltaTime)
@@ -90,6 +169,37 @@ void TestUI::Update(float _DeltaTime)
 	}
 	Font->SetText(std::to_string(m_Stage->Player_Gold) , "±Ã¼­");
 
+
+	if (m_Stage->MissionC)
+	{
+		FontCMission->On();
+	}
+	if (m_Stage->MissionB)
+	{
+		FontBMission->On();
+	}
+	if (m_Stage->MissionA)
+	{
+		FontAMission->On();
+	}
+	if (m_Stage->MissionZerg)
+	{
+
+		MissionZergRender->On();
+	}
+	if (m_Stage->MissionPro)
+	{
+		MissionProRender->On();
+	}
+	if (m_Stage->MissionTer)
+	{
+		MissionTerRender->On();
+	
+	}
+	if (m_Stage->MissionAir)
+	{
+		MissionAirRender->On();
+	}
 
 
 

@@ -168,7 +168,7 @@ void Builder::Update(float _DeltaTime)
 {
 	MiniPlayUnit->UnitPos = GetTransform().GetWorldPosition();
 
-
+	MissionCheck();
 
 	if (m_bClickCheck)
 	{
@@ -288,7 +288,7 @@ void Builder::Update(float _DeltaTime)
 				TestUni->m_Bulder = this;
 				m_bClickCheck = true;
 				TestUni->Buildingtype = GradeType;
-				
+				TestUni->m_MainStage = m_Stage;
 
 			}
 			else
@@ -303,6 +303,7 @@ void Builder::Update(float _DeltaTime)
 				TestUni->m_Bulder = this;
 				m_bClickCheck = true;
 				m_Stage->Player_Gold -= 50;
+				TestUni->m_MainStage = m_Stage;
 			}
 			
 
@@ -388,6 +389,220 @@ void Builder::MoveCheck(float _DeltaTime)
 
 	}
 }
+
+void Builder::MissionCheck()
+{
+
+	m_DraC = 0;
+	m_GhostC = 0;
+	m_MarinC = 0;
+	m_ZealotC = 0;
+	m_HydraC = 0;
+	m_CorsairC = 0;
+	m_ZerglingC = 0;
+	m_HighTB = 0;
+	m_PhotoB = 0;
+	m_UltraB = 0;
+	m_ArbitorB = 0;
+	m_DarkTB = 0;
+	m_SunkenB = 0;
+	m_MutalA = 0;
+	m_GardianA = 0;
+	m_CarrierA = 0;
+	m_RiverA = 0;
+	m_ArconA = 0;
+	m_GhostS = 0;
+	m_DroneS = 0;
+	m_ProbeS = 0;
+	m_HydraS = 0;
+
+
+	std::list<GameEngineActor*> Group = GetLevel()->GetGroup(OBJECTORDER::Player);
+
+
+	auto	iter = Group.begin();
+	auto	iterEnd = Group.end();
+
+	for (; iter != iterEnd; ++iter)
+	{
+		if (((UnitBase*)(*iter))->m_Type == UNITTYPE::DraC)
+		{
+			++m_DraC;
+		}
+		else if (((UnitBase*)(*iter))->m_Type == UNITTYPE::GhostC)
+		{
+			++m_GhostC;
+		}
+		else if (((UnitBase*)(*iter))->m_Type == UNITTYPE::MarinC)
+		{
+			++m_MarinC;
+		}
+		else if (((UnitBase*)(*iter))->m_Type == UNITTYPE::ZealotC)
+		{
+			++m_ZealotC;
+		}
+		else if (((UnitBase*)(*iter))->m_Type == UNITTYPE::HydraC)
+		{
+			++m_HydraC;
+		}
+		else if (((UnitBase*)(*iter))->m_Type == UNITTYPE::CorsairC)
+		{
+			++m_CorsairC;
+		}
+		else if (((UnitBase*)(*iter))->m_Type == UNITTYPE::ZerglingC)
+		{
+			++m_ZerglingC;
+		}
+		else if (((UnitBase*)(*iter))->m_Type == UNITTYPE::HighTB)
+		{
+			++m_HighTB;
+		}
+		else if (((UnitBase*)(*iter))->m_Type == UNITTYPE::PhotoB)
+		{
+			++m_PhotoB;
+		}
+		else if (((UnitBase*)(*iter))->m_Type == UNITTYPE::UltraB)
+		{
+			++m_UltraB;
+		}
+		else if (((UnitBase*)(*iter))->m_Type == UNITTYPE::ArbitorB)
+		{
+			++m_ArbitorB;
+		}
+		else if (((UnitBase*)(*iter))->m_Type == UNITTYPE::DarkTB)
+		{
+			++m_DarkTB;
+		}
+		else if (((UnitBase*)(*iter))->m_Type == UNITTYPE::SunkenB)
+		{
+			++m_SunkenB;
+		}
+		else if (((UnitBase*)(*iter))->m_Type == UNITTYPE::MutalA)
+		{
+			++m_MutalA;
+		}
+		else if (((UnitBase*)(*iter))->m_Type == UNITTYPE::GardianA)
+		{
+			++m_GardianA;
+		}
+		else if (((UnitBase*)(*iter))->m_Type == UNITTYPE::CarrierA)
+		{
+			++m_CarrierA;
+		}
+		else if (((UnitBase*)(*iter))->m_Type == UNITTYPE::RiverA)
+		{
+			++m_RiverA;
+		}
+		else if (((UnitBase*)(*iter))->m_Type == UNITTYPE::ArconA)
+		{
+			++m_ArconA;
+		}
+		else if (((UnitBase*)(*iter))->m_Type == UNITTYPE::GhostS)
+		{
+			++m_GhostS;
+		}
+		else if (((UnitBase*)(*iter))->m_Type == UNITTYPE::DroneS)
+		{
+			++m_DroneS;
+		}
+		else if (((UnitBase*)(*iter))->m_Type == UNITTYPE::ProbeS)
+		{
+
+			++m_ProbeS;
+		}
+		else if (((UnitBase*)(*iter))->m_Type == UNITTYPE::HydraS)
+		{
+			++m_HydraS;
+		}
+
+	}
+
+
+	//C전부
+	if (!m_Stage->MissionC)
+	{
+		if (m_DraC >= 1 && m_GhostC >= 1 && m_MarinC >= 1 && m_ZealotC >= 1
+			&& m_HydraC >= 1 && m_CorsairC >= 1 && m_ZerglingC >= 1)
+		{
+			m_Stage->MissionC = true;
+			m_Stage->Player_Gold += 300;
+		}
+	}
+	if (!m_Stage->MissionB)
+	{
+		//B전부
+		if (m_HighTB >= 1 && m_PhotoB >= 1 && m_UltraB >= 1 && m_ArbitorB >= 1
+			&& m_DarkTB >= 1 && m_SunkenB >= 1)
+		{
+			m_Stage->Player_Gold += 300;
+			m_Stage->MissionB = true;
+		}
+	}
+	if (!m_Stage->MissionA)
+	{
+		//A전부
+		if (m_MutalA >= 1 && m_GardianA >= 1 && m_CarrierA >= 1 && m_RiverA >= 1
+			&& m_ArconA >= 1)
+		{
+			m_Stage->MissionA = true;
+			m_Stage->Player_Gold += 300;
+		}
+	}
+	if (!m_Stage->MissionZerg)
+	{
+
+		//저그만
+		if (m_HydraC >= 1 && m_ZerglingC >= 1 && m_UltraB >= 1 && m_SunkenB >= 1
+			&& m_MutalA >= 1 && m_GardianA >= 1 && m_DroneS >= 1)
+		{
+			m_Stage->Player_Gold += 300;
+			m_Stage->MissionZerg = true;
+		}
+	}
+	if (!m_Stage->MissionPro)
+	{
+		//플토만
+		if (m_DraC >= 1 && m_ZealotC >= 1 && m_CorsairC >= 1 && m_HighTB >= 1
+			&& m_PhotoB >= 1 && m_ArbitorB >= 1 && m_DarkTB >= 1 && m_CarrierA >= 1
+			&& m_RiverA >= 1 && m_ArconA >= 1 && m_ProbeS >= 1)
+		{
+			m_Stage->Player_Gold += 300;
+			m_Stage->MissionPro = true;
+		}
+
+	}
+	if (!m_Stage->MissionTer)
+	{
+
+		//테란만
+		if (m_GhostC >= 1 && m_MarinC >= 1 && m_GhostS >= 1)
+		{
+			m_Stage->Player_Gold += 300;
+			m_Stage->MissionTer = true;
+		}
+	}
+	if (!m_Stage->MissionAir)
+	{
+		//공중만
+
+		if (m_CorsairC >= 1 && m_ArbitorB >= 1 && m_MutalA >= 1 && m_GardianA >= 1
+			&& m_CarrierA >= 1)
+		{
+			m_Stage->Player_Gold += 300;
+			m_Stage->MissionAir = true;
+		}
+	}
+
+
+
+
+
+	
+
+}
+
+
+
 
 
 
