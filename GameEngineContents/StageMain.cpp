@@ -107,9 +107,7 @@ void StageMain::Start()
 		NewPlayer->m_Stage = this;
 	}
 
-	{
-		MiniMap* NewPlayer = CreateActor<MiniMap>(OBJECTORDER::UI);
-	}
+
 	
 
 	
@@ -136,7 +134,12 @@ void StageMain::Start()
 	
 	MapPoint MapP;
 
+	{
+		MiniMap* NewPlayer = CreateActor<MiniMap>(OBJECTORDER::UI);
+		NewPlayer->m_Bulder = mBuilder;
 
+
+	}
 
 
 
@@ -553,118 +556,105 @@ void StageMain::Start()
 		TestUni->GetTransform().SetWorldPosition({ -1050.f,370.f,0.f });
 	}
 
+
+
+	
 	{
-		TestUnit* TestUni = CreateActor<TestUnit>(OBJECTORDER::Player);
-		TestUni->GetTransform().SetWorldPosition({ -1150.f,370.f,0.f });
+		GhostC* TestUni = CreateActor<GhostC>(OBJECTORDER::Player);
+		TestUni->GetTransform().SetWorldPosition({ -990.f,370.f,0.f });
 	}
 
 	{
-		TestUnit* TestUni = CreateActor<TestUnit>(OBJECTORDER::Player);
-		TestUni->GetTransform().SetWorldPosition({ -950.f,370.f,0.f });
+		MarinC* TestUni = CreateActor<MarinC>(OBJECTORDER::Player);
+		TestUni->GetTransform().SetWorldPosition({ -990.f,310.f,0.f });
 	}
 
 	{
-		TestUnit* TestUni = CreateActor<TestUnit>(OBJECTORDER::Player);
-		TestUni->GetTransform().SetWorldPosition({ -850.f,370.f,0.f });
-	}*/
+		ZealotC* TestUni = CreateActor<ZealotC>(OBJECTORDER::Player);
+		TestUni->GetTransform().SetWorldPosition({ -1050.f,310.f,0.f });
+	}
 
-	//
-	//{
-	//	GhostC* TestUni = CreateActor<GhostC>(OBJECTORDER::Player);
-	//	TestUni->GetTransform().SetWorldPosition({ -990.f,370.f,0.f });
-	//}
-
-	//{
-	//	MarinC* TestUni = CreateActor<MarinC>(OBJECTORDER::Player);
-	//	TestUni->GetTransform().SetWorldPosition({ -990.f,310.f,0.f });
-	//}
-
-	//{
-	//	ZealotC* TestUni = CreateActor<ZealotC>(OBJECTORDER::Player);
-	//	TestUni->GetTransform().SetWorldPosition({ -1050.f,310.f,0.f });
-	//}
-
-	//{
-	//	CorsairC* TestUni = CreateActor<CorsairC>(OBJECTORDER::Player);
-	//	TestUni->GetTransform().SetWorldPosition({ -1050.f,190.f,0.f });
-	//}
+	{
+		CorsairC* TestUni = CreateActor<CorsairC>(OBJECTORDER::Player);
+		TestUni->GetTransform().SetWorldPosition({ -1050.f,190.f,0.f });
+	}
 
 
-	//{
-	//	HydraC* TestUni = CreateActor<HydraC>(OBJECTORDER::Player);
-	//	TestUni->GetTransform().SetWorldPosition({ -990.f,190.f,0.f });
-	//}
+	{
+		HydraC* TestUni = CreateActor<HydraC>(OBJECTORDER::Player);
+		TestUni->GetTransform().SetWorldPosition({ -990.f,190.f,0.f });
+	}
 
 
-	//{
-	//	ZerglingC* TestUni = CreateActor<ZerglingC>(OBJECTORDER::Player);
-	//	TestUni->GetTransform().SetWorldPosition({ -870.f,370.f,0.f });
-	//}
+	{
+		ZerglingC* TestUni = CreateActor<ZerglingC>(OBJECTORDER::Player);
+		TestUni->GetTransform().SetWorldPosition({ -870.f,370.f,0.f });
+	}
 
-	//{
-	//	GardianC* TestUni = CreateActor<GardianC>(OBJECTORDER::Player);
-	//	TestUni->GetTransform().SetWorldPosition({ -870.f,310.f,0.f });
-	//}
-	//
-	//
-	//{
-	//	HighT* TestUni = CreateActor<HighT>(OBJECTORDER::Player);
-	//	TestUni->GetTransform().SetWorldPosition({ -810.f,310.f,0.f });
-	//}
+	{
+		GardianC* TestUni = CreateActor<GardianC>(OBJECTORDER::Player);
+		TestUni->GetTransform().SetWorldPosition({ -870.f,310.f,0.f });
+	}
+	
+	
+	{
+		HighT* TestUni = CreateActor<HighT>(OBJECTORDER::Player);
+		TestUni->GetTransform().SetWorldPosition({ -810.f,310.f,0.f });
+	}
 
 
-	//{
-	//	CannonB* TestUni = CreateActor<CannonB>(OBJECTORDER::Player);
-	//	TestUni->GetTransform().SetWorldPosition({ -1170.f,370.f,0.f });
-	//}
+	{
+		CannonB* TestUni = CreateActor<CannonB>(OBJECTORDER::Player);
+		TestUni->GetTransform().SetWorldPosition({ -1170.f,370.f,0.f });
+	}
 
-	//{
-	//	UltraC* TestUni = CreateActor<UltraC>(OBJECTORDER::Player);
-	//	TestUni->GetTransform().SetWorldPosition({ -1170.f,310.f,0.f });
-	//}
+	{
+		UltraC* TestUni = CreateActor<UltraC>(OBJECTORDER::Player);
+		TestUni->GetTransform().SetWorldPosition({ -1170.f,310.f,0.f });
+	}
 
-	//{
-	//	SunkenC* TestUni = CreateActor<SunkenC>(OBJECTORDER::Player);
-	//	TestUni->GetTransform().SetWorldPosition({ -1230.f,310.f,0.f });
-	//}
+	{
+		SunkenC* TestUni = CreateActor<SunkenC>(OBJECTORDER::Player);
+		TestUni->GetTransform().SetWorldPosition({ -1230.f,310.f,0.f });
+	}
 
-	//{
-	//	DarkTB* TestUni = CreateActor<DarkTB>(OBJECTORDER::Player);
-	//	TestUni->GetTransform().SetWorldPosition({ -1230.f,370.f,0.f });
-	//}
+	{
+		DarkTB* TestUni = CreateActor<DarkTB>(OBJECTORDER::Player);
+		TestUni->GetTransform().SetWorldPosition({ -1230.f,370.f,0.f });
+	}
 
-	//
-	//{
-	//	ArbitorB* TestUni = CreateActor<ArbitorB>(OBJECTORDER::Player);
-	//	TestUni->GetTransform().SetWorldPosition({ -1290.f,370.f,0.f });
-	//}
+	
+	{
+		ArbitorB* TestUni = CreateActor<ArbitorB>(OBJECTORDER::Player);
+		TestUni->GetTransform().SetWorldPosition({ -1290.f,370.f,0.f });
+	}
 
 
 
-	//{
-	//	MutalA* TestUni = CreateActor<MutalA>(OBJECTORDER::Player);
-	//	TestUni->GetTransform().SetWorldPosition({ -1290.f,310.f,0.f });
-	//}
+	{
+		MutalA* TestUni = CreateActor<MutalA>(OBJECTORDER::Player);
+		TestUni->GetTransform().SetWorldPosition({ -1290.f,310.f,0.f });
+	}
 
 
-	//
-	//{
-	//	Arcon* TestUni = CreateActor<Arcon>(OBJECTORDER::Player);
-	//	TestUni->GetTransform().SetWorldPosition({ -810.f,370.f,0.f });
-	//}
+	
+	{
+		Arcon* TestUni = CreateActor<Arcon>(OBJECTORDER::Player);
+		TestUni->GetTransform().SetWorldPosition({ -810.f,370.f,0.f });
+	}
 
 
-	//{
-	//	River* TestUni = CreateActor<River>(OBJECTORDER::Player);
-	//	TestUni->GetTransform().SetWorldPosition({ -750.f,370.f,0.f });
-	//}
+	{
+		River* TestUni = CreateActor<River>(OBJECTORDER::Player);
+		TestUni->GetTransform().SetWorldPosition({ -750.f,370.f,0.f });
+	}
 
-	//{
-	//	Carrier* TestUni = CreateActor<Carrier>(OBJECTORDER::Player);
-	//	TestUni->GetTransform().SetWorldPosition({ -750.f,310.f,0.f });
-	//}
+	{
+		Carrier* TestUni = CreateActor<Carrier>(OBJECTORDER::Player);
+		TestUni->GetTransform().SetWorldPosition({ -750.f,310.f,0.f });
+	}
 
-	/*{
+	{
 
 		Carrier* TestUni = CreateActor<Carrier>(OBJECTORDER::Player);
 		TestUni->GetTransform().SetWorldPosition({ -750.f,310.f,0.f });
@@ -679,31 +669,32 @@ void StageMain::Start()
 			TestUni->m_Intercep[i]->m_Info.Dammage = 20 + UnitBase::AProUpgrade;
 			TestUni->m_Intercep[i]->Mycarrier = TestUni;
 		}
-	}*/
+	}
 
-	//{
-	//	GhostS* TestUni = CreateActor<GhostS>(OBJECTORDER::Player);
-	//	TestUni->GetTransform().SetWorldPosition({ -810.f,190.f,0.f });
-	//}
-
-
-	//{
-	//	DroneS* TestUni = CreateActor<DroneS>(OBJECTORDER::Player);
-	//	TestUni->GetTransform().SetWorldPosition({ -750.f,190.f,0.f });
-	//}
-	//
-
-	//{
-	//	ProbeS* TestUni = CreateActor<ProbeS>(OBJECTORDER::Player);
-	//	TestUni->GetTransform().SetWorldPosition({ -870.f,190.f,0.f });
-	//}
+	{
+		GhostS* TestUni = CreateActor<GhostS>(OBJECTORDER::Player);
+		TestUni->GetTransform().SetWorldPosition({ -810.f,190.f,0.f });
+	}
 
 
-	//{
-	//	HydraS* TestUni = CreateActor<HydraS>(OBJECTORDER::Player);
-	//	TestUni->GetTransform().SetWorldPosition({ -870.f,130.f,0.f });
-	//}
-	//
+	{
+		DroneS* TestUni = CreateActor<DroneS>(OBJECTORDER::Player);
+		TestUni->GetTransform().SetWorldPosition({ -750.f,190.f,0.f });
+	}
+	
+
+	{
+		ProbeS* TestUni = CreateActor<ProbeS>(OBJECTORDER::Player);
+		TestUni->GetTransform().SetWorldPosition({ -870.f,190.f,0.f });
+	}
+
+
+	{
+		HydraS* TestUni = CreateActor<HydraS>(OBJECTORDER::Player);
+		TestUni->GetTransform().SetWorldPosition({ -870.f,130.f,0.f });
+		TestUni->Off();
+	}
+	*/
 
 
 
@@ -715,21 +706,25 @@ void StageMain::Start()
 	{
 		UpgradeC* TestUni = CreateActor<UpgradeC>(OBJECTORDER::Player);
 		TestUni->GetTransform().SetWorldPosition({ -508.f,617.f,0.f });
+		TestUni->m_MainStage = this;
 	}
 
 	{
 		UpgradeB* TestUni = CreateActor<UpgradeB>(OBJECTORDER::Player);
 		TestUni->GetTransform().SetWorldPosition({ -353.f,591.f,0.f });
+		TestUni->m_MainStage = this;
 	}
 
 	{
 		UpgradeA* TestUni = CreateActor<UpgradeA>(OBJECTORDER::Player);
 		TestUni->GetTransform().SetWorldPosition({ -508.f,505.f,0.f });
+		TestUni->m_MainStage = this;
 	}
 
 	{
 		UpgradeS* TestUni = CreateActor<UpgradeS>(OBJECTORDER::Player);
 		TestUni->GetTransform().SetWorldPosition({ -372.f,445.f,0.f });
+		TestUni->m_MainStage = this;
 	}
 
 	//NewMainCamera, mBuilder
@@ -814,7 +809,11 @@ void StageMain::Update(float _DeltaTime)
 
 	if (Player_HP != Player_HPRen)
 	{
-		HPRender[Player_HPRen]->Death();
+		if (Player_HPRen <= 0)
+			Player_HPRen = 0;
+
+
+		HPRender[Player_HPRen]->Off();
 		Player_HPRen = Player_HP;
 	}
 
@@ -822,8 +821,10 @@ void StageMain::Update(float _DeltaTime)
 	if (Player_HP < 0)
 	{
 		//게임 패배
-
-		int A = 0;
+		StartCheck = false;
+		StageCount = 30;
+		GameFinishBool = true;
+		
 	}
 
 	if (GameEngineInput::GetInst()->IsDown("FreeCameaOnOff"))

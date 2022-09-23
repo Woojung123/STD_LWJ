@@ -26,6 +26,7 @@ MainMouse::MainMouse()	:
 	,DragRenderer(nullptr)
 	,m_Builder(nullptr)
 	,PlusCheck(false)
+	,SellCheck(false)
 	,Renderer(nullptr)
 	, m_DragUI(nullptr)
 	, m_Stage(0)
@@ -343,6 +344,62 @@ bool MainMouse::AllCollision(GameEngineCollision* _This, GameEngineCollision* _O
 		ClickReset();
 		int Typecount = 0;
 		int Deletcount = 0;
+
+		if (SellCheck)
+		{
+
+
+			_Other->GetActor()->Death();
+			((UnitBase*)_Other->GetActor())->MiniPlayUnit->Death();
+
+			BuildCheck = false;
+			PlusCheck = false;
+			SellCheck = false;
+			
+
+
+			if (_type == UNITTYPE::ProbeS || _type == UNITTYPE::HydraS || _type == UNITTYPE::GhostS
+				|| _type == UNITTYPE::DroneS)
+			{
+				m_Builder->m_Stage->Player_Gold += 800;
+
+
+
+			}
+			else if (_type == UNITTYPE::ZerglingC || _type == UNITTYPE::CorsairC || _type == UNITTYPE::DraC
+				|| _type == UNITTYPE::GhostC || _type == UNITTYPE::HydraC
+				|| _type == UNITTYPE::MarinC || _type == UNITTYPE::ZealotC)
+			{
+
+				m_Builder->m_Stage->Player_Gold += 25;
+
+			}
+			else if (_type == UNITTYPE::ArbitorB || _type == UNITTYPE::DarkTB
+				|| _type == UNITTYPE::HighTB || _type == UNITTYPE::PhotoB
+				|| _type == UNITTYPE::SunkenB || _type == UNITTYPE::UltraB)
+			{
+
+				m_Builder->m_Stage->Player_Gold += 100;
+
+			}
+			else if (_type == UNITTYPE::ArconA || _type == UNITTYPE::CarrierA || _type == UNITTYPE::GardianA
+				|| _type == UNITTYPE::MutalA || _type == UNITTYPE::RiverA)
+			{
+
+				m_Builder->m_Stage->Player_Gold += 300;
+
+			}
+
+
+		
+		
+
+			return true;
+
+		}
+
+
+
 		if (PlusCheck)
 		{
 
@@ -413,7 +470,10 @@ bool MainMouse::AllCollision(GameEngineCollision* _This, GameEngineCollision* _O
 
 
 				_Other->GetActor()->Death();
+
 				((UnitBase*)_Other->GetActor())->MiniPlayUnit->Death();
+
+
 				if (_type == UNITTYPE::ZerglingC || _type == UNITTYPE::CorsairC || _type == UNITTYPE::DraC
 					|| _type == UNITTYPE::GhostC || _type == UNITTYPE::HydraC
 					|| _type == UNITTYPE::MarinC || _type == UNITTYPE::ZealotC)
@@ -461,6 +521,7 @@ bool MainMouse::AllCollision(GameEngineCollision* _This, GameEngineCollision* _O
 	
 		BuildCheck = false;
 		PlusCheck = false;
+		SellCheck = false;
 		((UnitBase*)_Other->GetActor())->m_bClickCheck = true;
 
 		

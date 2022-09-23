@@ -46,7 +46,7 @@ void SGExSmall::Start()
 
 
 	}
-	m_Info.Dammage = 1;
+	m_Info.Dammage = 2;
 
 
 

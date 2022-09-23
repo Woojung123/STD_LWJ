@@ -55,7 +55,7 @@ void CorSplash::Update(float _DeltaTime)
 	{
 		if (TarGet)
 		{
-			((UnitBase*)TarGet)->m_Info.m_Hp -= m_Info.Dammage;;
+			((UnitBase*)TarGet)->m_Info.m_Hp -= m_Info.Dammage ;;
 			DamCheck = true;
 
 		}

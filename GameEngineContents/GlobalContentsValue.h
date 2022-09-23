@@ -55,7 +55,7 @@ typedef struct UnitInfo
 	float m_Hp;
 	float m_MaxHp;
 	int Gold;
-	int Dammage;
+	float Dammage;
 
 
 }UINFO;

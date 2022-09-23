@@ -246,7 +246,7 @@ void UltraC::Update(float _DeltaTime)
 				AttCheck = false;
 				BAniChange = false;
 				
-				((UnitBase*)TarGet)->m_Info.m_Hp -= 50 + UnitBase::BZergUpgrade;
+				((UnitBase*)TarGet)->m_Info.m_Hp -= 70 + UnitBase::BZergUpgrade * 10;
 			}
 			break;
 		}

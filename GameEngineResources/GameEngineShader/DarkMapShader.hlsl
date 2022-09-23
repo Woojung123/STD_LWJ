@@ -123,35 +123,36 @@ float4 DarkMapShader_PS(Output _Input) : SV_Target0
 
    float len = length(InputPos - SlicePos);
 
-  /* if (len <= 200)
+   if (Slice.z >= 80.f)
    {
-       TexColor.a = 0.0f;
-   }
-   else */if (len <= 600.f)
-   {
-      // TexColor.a = 0.5f;
-       TexColor.a = len / 600.f;
-      
-
-   }
-   else
-   {
-
-
-      // if()
-      /* if (TexColor.a != 0.0f)
+       if (len <= 25.f)
        {
-           TexColor.a = 0.5f;
+
+          TexColor.a = len / 25.f;
+         
        }
-       else
-       {
-           TexColor.a = 1.0f;
-       }*/
 
+       if (TexColor.a == 0)
+       {
+           clip(-1);
+       }
+
+
+       return (TexColor * MulColor) + PlusColor;
 
    }
 
 
+      if (len <= 600.f)
+       {
+
+           TexColor.a = len / 600.f;
+
+
+       }
+
+   
+   
 
 
     if (TexColor.a == 0)

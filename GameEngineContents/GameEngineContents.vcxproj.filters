@@ -238,6 +238,9 @@
     <Filter Include="96.Tile">
       <UniqueIdentifier>{42a4e46d-f422-48f6-bb11-a94fa069a653}</UniqueIdentifier>
     </Filter>
+    <Filter Include="00.Actor\04.Bullet\15.Recall">
+      <UniqueIdentifier>{04a59784-c280-432b-b405-a8e02d83a069}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ContentsCore.h">
@@ -595,6 +598,9 @@
     <ClInclude Include="PlayNormal.h">
       <Filter>00.Actor\01.Unit\02.Player\01.Build</Filter>
     </ClInclude>
+    <ClInclude Include="Recall.h">
+      <Filter>00.Actor\04.Bullet\15.Recall</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ContentsCore.cpp">
@@ -948,6 +954,9 @@
     </ClCompile>
     <ClCompile Include="PlayNormal.cpp">
       <Filter>00.Actor\01.Unit\02.Player\01.Build</Filter>
+    </ClCompile>
+    <ClCompile Include="Recall.cpp">
+      <Filter>00.Actor\04.Bullet\15.Recall</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

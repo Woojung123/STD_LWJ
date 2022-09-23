@@ -251,7 +251,7 @@ void DarkTB::Update(float _DeltaTime)
 				AttCheck = false;
 				BAniChange = false;
 
-				((UnitBase*)TarGet)->m_Info.m_Hp -= 50 + UnitBase::BProUpgrade ;
+				((UnitBase*)TarGet)->m_Info.m_Hp -= 70 + UnitBase::BProUpgrade * 10;
 
 			}
 			break;

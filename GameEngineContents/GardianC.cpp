@@ -269,7 +269,7 @@ void GardianC::Update(float _DeltaTime)
 				TestUni->GetTransform().SetWorldPosition(MyPos);
 				TestUni->SetTarGet(TarGet);
 				TestUni->m_Info.Dammage = 80;
-				TestUni->m_Info.Dammage = TestUni->m_Info.Dammage + UnitBase::AZergUpgrade;
+				TestUni->m_Info.Dammage = TestUni->m_Info.Dammage + UnitBase::AZergUpgrade * 10;
 			}
 
 			if (AttCountMax >= (Monsize - 1))

@@ -4,7 +4,7 @@
 #include <GameEngineBase/GameEngineInput.h>
 #include <GameEngineCore/GameEngineLevel.h>
 #include "GlobalContentsValue.h"
-#include"BloodBullet.h"
+#include"Recall.h"
 
 #include "ArbitorBUI.h"
 #include "MiniMapPlayer.h"
@@ -221,15 +221,15 @@ void ArbitorB::Update(float _DeltaTime)
 			
 			if (AttTime >= 1.f)
 			{
-				AttTime -= 5.f;
+				AttTime -= 1.f;
 				
 				BAniChange = false;
 
-				TestUni = GetLevel()->CreateActor<BloodBullet>(OBJECTORDER::Bullet);
-				TestUni->GetTransform().SetWorldPosition(MyPos);
+				TestUni = GetLevel()->CreateActor<Recall>(OBJECTORDER::Bullet);
+				TestUni->GetTransform().SetWorldPosition(TarGet->GetTransform().GetWorldPosition());
 				TestUni->SetTarGet(TarGet);
-				TestUni->m_Info.Dammage = 90 ;
-				TestUni->m_Info.Dammage = TestUni->m_Info.Dammage + UnitBase::BProUpgrade;
+				TestUni->m_Info.Dammage = 1;
+				TestUni->m_Info.Dammage = TestUni->m_Info.Dammage + UnitBase::BProUpgrade / 10;
 
 			}
 

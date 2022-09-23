@@ -2994,6 +2994,10 @@ void ContentsCore::Start()
 
 		GameEngineFolderTexture::Load(Dir.GetFullPath());
 
+		Dir.Move("../Recall");
+
+		GameEngineFolderTexture::Load(Dir.GetFullPath());
+
 	}
 
 	//¿Ã∆Â∆Æ4
@@ -3074,7 +3078,7 @@ void ContentsCore::Start()
 	CreateLevel<StageMain>("Play");
 	ChangeLevel("Title");
 
-	//GameEngineGUI::CreateGUIWindow<GameEngineStatusWindow>("EngineStatus", nullptr);
+	GameEngineGUI::CreateGUIWindow<GameEngineStatusWindow>("EngineStatus", nullptr);
 
 }
 

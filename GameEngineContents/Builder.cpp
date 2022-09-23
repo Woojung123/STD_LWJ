@@ -161,11 +161,14 @@ void Builder::Start()
 	GameEngineInput::GetInst()->CreateKey("RClick", VK_RBUTTON);
 	GameEngineInput::GetInst()->CreateKey("MakeClick", 'B');
 	GameEngineInput::GetInst()->CreateKey("PlusClick", 'A');
+	GameEngineInput::GetInst()->CreateKey("SellClick", 'C');
 }
 
 void Builder::Update(float _DeltaTime)
 {
 	MiniPlayUnit->UnitPos = GetTransform().GetWorldPosition();
+
+
 
 	if (m_bClickCheck)
 	{
@@ -180,6 +183,7 @@ void Builder::Update(float _DeltaTime)
 			{
 				m_MainMouse->BuildCheck = true;
 				m_MainMouse->PlusCheck = false;
+				m_MainMouse->SellCheck = false;
 			}
 		}
 
@@ -188,7 +192,17 @@ void Builder::Update(float _DeltaTime)
 		{
 			m_MainMouse->PlusCheck = true;
 			m_MainMouse->BuildCheck = false;
+			m_MainMouse->SellCheck = false;
 		}
+
+
+		if (true == GameEngineInput::GetInst()->IsDown("SellClick"))
+		{
+			m_MainMouse->PlusCheck = false;
+			m_MainMouse->BuildCheck = false;
+			m_MainMouse->SellCheck = true;
+		}
+
 
 
 	}

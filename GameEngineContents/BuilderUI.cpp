@@ -120,12 +120,26 @@ void BuilderUI::Start()
 
 	}
 
+	{
+		GameEngineUIRenderer* Renderer = CreateComponent<GameEngineUIRenderer>();
+		Renderer->SetTexture("StopUI.png");
+		Renderer->ScaleToTexture();
+		Renderer->GetTransform().SetLocalPosition({ 375.f,-270.f, -250.f });
+		Renderer->ChangeCamera(CAMERAORDER::UICAMERA);
+	}
+
+	{
+		CollisionSell = CreateComponent<GameEngineCollision>();
+		CollisionSell->GetTransform().SetLocalScale({ 36.f, 34.f, 1.f });
+		CollisionSell->GetTransform().SetLocalPosition({ 375.f,-270.f, -250.f });
+		CollisionSell->ChangeOrder(OBJECTORDER::UI);
+
+
+	}
 
 
 
-
-
-
+	
 
 	GameEngineInput::GetInst()->CreateKey("LCClick", VK_LBUTTON);
 
@@ -153,6 +167,11 @@ void BuilderUI::Update(float _DeltaTime)
 	CollisionMake->IsCollision(CollisionType::CT_OBB2D, OBJECTORDER::MouseUI, CollisionType::CT_OBB2D,
 		std::bind(&BuilderUI::MakeCollision, this, std::placeholders::_1, std::placeholders::_2)
 	);
+
+
+	CollisionSell->IsCollision(CollisionType::CT_OBB2D, OBJECTORDER::MouseUI, CollisionType::CT_OBB2D,
+		std::bind(&BuilderUI::SellCollision, this, std::placeholders::_1, std::placeholders::_2)
+	);
 }
 
 
@@ -167,6 +186,7 @@ bool BuilderUI::BuildCollision(GameEngineCollision* _This, GameEngineCollision* 
 			m_Builder->m_bClickCheck = true;
 			m_Builder->m_MainMouse->BuildCheck = true;
 			m_Builder->m_MainMouse->PlusCheck = false;
+			m_Builder->m_MainMouse->SellCheck = false;
 		}
 		
 
@@ -183,8 +203,27 @@ bool BuilderUI::MakeCollision(GameEngineCollision* _This, GameEngineCollision* _
 		m_Builder->m_bClickCheck = true;
 		m_Builder->m_MainMouse->PlusCheck = true;
 		m_Builder->m_MainMouse->BuildCheck = false;
+		m_Builder->m_MainMouse->SellCheck = false;
 	}
 
 	
+	return true;
+}
+
+bool BuilderUI::SellCollision(GameEngineCollision* _This, GameEngineCollision* _Other)
+{
+
+
+	if (true == GameEngineInput::GetInst()->IsDown("LCClick"))
+	{
+		m_Builder->m_bClickCheck = true;
+		m_Builder->m_MainMouse->PlusCheck = false;
+		m_Builder->m_MainMouse->BuildCheck = false;
+		m_Builder->m_MainMouse->SellCheck = true;
+
+	}
+
+
+
 	return true;
 }

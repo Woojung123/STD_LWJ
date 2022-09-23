@@ -38,7 +38,7 @@ void Plaegue::Start()
 		Renderer->CreateFrameAnimationFolder("plaegue", FrameAnimation_DESC("plaegue", 0.05f));
 		Renderer->ChangeFrameAnimation("plaegue");
 		Renderer->AnimationBindEnd("plaegue", &Plaegue::AttEnd, this);
-		Renderer->GetPixelData().MulColor.a = 0.5f;
+		Renderer->GetPixelData().MulColor.a = 0.8f;
 	}
 
 	{
@@ -48,7 +48,7 @@ void Plaegue::Start()
 
 
 	}
-	m_Info.Dammage = 1;
+	m_Info.Dammage = 4;
 
 
 

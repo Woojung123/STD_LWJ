@@ -32,7 +32,7 @@ void UIMouse::Start()
 
 
 	}
-
+	//마우스 지우기
 	ShowCursor(false);
 
 	Renderer->ChangeFrameAnimation("Normal");

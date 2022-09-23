@@ -423,6 +423,7 @@
       <SubType>
       </SubType>
     </ClInclude>
+    <ClInclude Include="Recall.h" />
     <ClInclude Include="River.h">
       <SubType>
       </SubType>
@@ -882,6 +883,7 @@
       <SubType>
       </SubType>
     </ClCompile>
+    <ClCompile Include="Recall.cpp" />
     <ClCompile Include="River.cpp">
       <SubType>
       </SubType>

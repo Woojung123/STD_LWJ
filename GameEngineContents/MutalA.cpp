@@ -292,7 +292,7 @@ void MutalA::Update(float _DeltaTime)
 					TestUni->GetTransform().SetWorldPosition(MyPos);
 					TestUni->SetTarGet(TarGet);
 					TestUni->m_Info.Dammage = 120;
-					TestUni->m_Info.Dammage = TestUni->m_Info.Dammage + UnitBase::AZergUpgrade;
+					TestUni->m_Info.Dammage = TestUni->m_Info.Dammage + UnitBase::AZergUpgrade * 15;
 
 
 					TestUni->TarGet = TarGet2;

@@ -41,7 +41,7 @@ void RiverBullet::Start()
 		Renderer->ChangeFrameAnimation("Scarab0");
 
 	}
-	m_Info.Dammage = 20;
+	m_Info.Dammage = 1;
 }
 
 void RiverBullet::Update(float _DeltaTime)

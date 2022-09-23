@@ -87,7 +87,7 @@ void UpgradeC::Start()
 
 	{
 		Collision = CreateComponent<GameEngineCollision>();
-		Collision->GetTransform().SetLocalScale({ 128.f, 192.f, 1.0f });
+		Collision->GetTransform().SetLocalScale({ 60.f, 60.f, 1.0f });
 		Collision->ChangeOrder(OBJECTORDER::Player);
 		//Collision->Off();
 	}

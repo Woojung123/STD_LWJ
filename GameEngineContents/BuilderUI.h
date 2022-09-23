@@ -27,8 +27,10 @@ public:
 	Builder* m_Builder;
 	GameEngineCollision* CollisionMake;
 	GameEngineCollision* CollisionBuild;
+	GameEngineCollision* CollisionSell;
 	bool BuildCollision(GameEngineCollision* _This, GameEngineCollision* _Other);
 	bool MakeCollision(GameEngineCollision* _This, GameEngineCollision* _Other);
+	bool SellCollision(GameEngineCollision* _This, GameEngineCollision* _Other);
 
 };
 

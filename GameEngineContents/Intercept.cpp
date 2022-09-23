@@ -152,7 +152,10 @@ void Intercept::Update(float _DeltaTime)
 			{
 				AttTime -= 1.f;
 
-				((UnitBase*)TarGet)->m_Info.m_Hp -= m_Info.Dammage;
+				m_Info.Dammage = 30;
+			
+
+				((UnitBase*)TarGet)->m_Info.m_Hp -= m_Info.Dammage + UnitBase::AProUpgrade * 5;
 
 			}
 

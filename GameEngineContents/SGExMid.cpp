@@ -47,7 +47,7 @@ void SGExMid::Start()
 
 
 	}
-	m_Info.Dammage = 1;
+	m_Info.Dammage = 3;
 
 
 

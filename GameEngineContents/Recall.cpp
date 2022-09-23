@@ -1,13 +1,13 @@
 
 
 #include "PreCompile.h"
-#include "Storm.h"
+#include "Recall.h"
 #include "GlobalContentsValue.h"
 #include <GameEngineCore/GameEngineLevel.h>
 
 
 
-Storm::Storm()
+Recall::Recall()
 	: Speed(1000.0f)
 	, Renderer(nullptr)
 	, m_Dir({ 0 })
@@ -17,39 +17,40 @@ Storm::Storm()
 {
 }
 
-Storm::~Storm()
+Recall::~Recall()
 {
 	Death();
 }
 
 
-void Storm::AttEnd(const FrameAnimation_DESC& _Info)
+void Recall::AttEnd(const FrameAnimation_DESC& _Info)
 {
 	BAniChange = true;
 
 }
 
 
-void Storm::Start()
+void Recall::Start()
 {
 
 	GetTransform().SetLocalScale({ 1, 1, 1 });
 	{
 		Renderer = CreateComponent<GameEngineTextureRenderer>();
-		Renderer->GetTransform().SetLocalScale({ 224.f,224.f,1.f });
+		Renderer->GetTransform().SetLocalScale({ 100.f,100.f,1.f });
 		//Renderer->GetTransform().SetWorldPosition({ -1050.f,370.f,0.f });
 
-		Renderer->CreateFrameAnimationFolder("storm", FrameAnimation_DESC("storm", 0.1f));
-		Renderer->ChangeFrameAnimation("storm");
+		Renderer->CreateFrameAnimationFolder("Recall", FrameAnimation_DESC("Recall", 0.05f));
+		Renderer->ChangeFrameAnimation("Recall");
 
-		Renderer->AnimationBindEnd("storm", &Storm::AttEnd, this);
+		Renderer->AnimationBindEnd("Recall", &Recall::AttEnd, this);
+		Renderer->GetPixelData().MulColor.a = 0.8f;
 	}
 
 	m_Info.Dammage = 1;
 
 	{
 		Collision = CreateComponent<GameEngineCollision>();
-		Collision->GetTransform().SetLocalScale({ 224.0f, 224.0f, 1.0f });
+		Collision->GetTransform().SetLocalScale({ 100.f, 100.f, 1.0f });
 		Collision->ChangeOrder(OBJECTORDER::Bullet);
 
 
@@ -57,7 +58,7 @@ void Storm::Start()
 
 
 }
-bool Storm::MonsterCollision(GameEngineCollision* _This, GameEngineCollision* _Other)
+bool Recall::MonsterCollision(GameEngineCollision* _This, GameEngineCollision* _Other)
 {
 
 
@@ -68,7 +69,7 @@ bool Storm::MonsterCollision(GameEngineCollision* _This, GameEngineCollision* _O
 	return false;
 }
 
-void Storm::Update(float _DeltaTime)
+void Recall::Update(float _DeltaTime)
 {
 	if (BAniChange)
 		Death();
@@ -80,7 +81,7 @@ void Storm::Update(float _DeltaTime)
 
 
 	Collision->IsCollision(CollisionType::CT_OBB2D, OBJECTORDER::Monster, CollisionType::CT_OBB2D,
-		std::bind(&Storm::MonsterCollision, this, std::placeholders::_1, std::placeholders::_2)
+		std::bind(&Recall::MonsterCollision, this, std::placeholders::_1, std::placeholders::_2)
 	);
 
 

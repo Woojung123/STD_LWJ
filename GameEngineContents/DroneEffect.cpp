@@ -34,7 +34,7 @@ void DroneEffect::Start()
 		Renderer = CreateComponent<GameEngineTextureRenderer>();
 		Renderer->GetTransform().SetLocalScale({ 128.f,128.f,1.f });
 		//Renderer->GetTransform().SetWorldPosition({ -1050.f,370.f,0.f });
-		Renderer->GetPixelData().MulColor.a = 0.5f;
+		Renderer->GetPixelData().MulColor.a = 0.8f;
 		Renderer->CreateFrameAnimationFolder("Ensare", FrameAnimation_DESC("Ensare", 0.1f));
 		Renderer->ChangeFrameAnimation("Ensare");
 		Renderer->AnimationBindEnd("Ensare", &DroneEffect::AttEnd, this);
@@ -47,7 +47,7 @@ void DroneEffect::Start()
 
 
 	}
-	m_Info.Dammage = 1;
+	m_Info.Dammage = 4;
 
 
 

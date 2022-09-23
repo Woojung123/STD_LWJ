@@ -39,6 +39,7 @@ public:
 	bool StartDragCheck;
 	bool BuildCheck;
 	bool PlusCheck;
+	bool SellCheck;
 	DragUI* m_DragUI;
 	Builder* m_Builder;
 	bool BuildColorCheck;

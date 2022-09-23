@@ -4,7 +4,7 @@
 #include "UnitBase.h"
 // Ό³Έν :
 class ArbitorBUI;
-class BloodBullet;
+class Recall;
 class GameEngineTextureRenderer;
 class ArbitorB : public UnitBase
 {
@@ -36,7 +36,7 @@ protected:
 
 	GameEngineTextureRenderer* BiconRenderer;
 	GameEngineTextureRenderer* Renderer;
-	BloodBullet* TestUni;
+	Recall* TestUni;
 	float4 Color;
 	float Reach;
 public:
