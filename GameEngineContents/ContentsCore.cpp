@@ -2832,6 +2832,116 @@ void ContentsCore::Start()
 
 
 
+	//히드라 공격1
+	{
+		GameEngineDirectory Dir;
+
+		Dir.MoveParentToExitsChildDirectory("ConstantResources");
+		Dir.Move("ConstantResources");
+		Dir.Move("Texture");
+		Dir.Move("Multi");
+		Dir.Move("Effect2");
+		Dir.Move("eHidra");
+	
+
+		Dir.Move("HYAttack0");
+
+		GameEngineFolderTexture::Load(Dir.GetFullPath());
+
+		Dir.Move("../HYAttack1");
+
+		GameEngineFolderTexture::Load(Dir.GetFullPath());
+
+		Dir.Move("../HYAttack2");
+
+		GameEngineFolderTexture::Load(Dir.GetFullPath());
+
+
+		Dir.Move("../HYAttack3");
+
+		GameEngineFolderTexture::Load(Dir.GetFullPath());
+
+		Dir.Move("../HYAttack4");
+
+		GameEngineFolderTexture::Load(Dir.GetFullPath());
+
+		Dir.Move("../HYAttack5");
+
+		GameEngineFolderTexture::Load(Dir.GetFullPath());
+
+	}
+	//히드라 공격2
+	{
+		GameEngineDirectory Dir;
+		Dir.MoveParentToExitsChildDirectory("ConstantResources");
+		Dir.Move("ConstantResources");
+		Dir.Move("Texture");
+		Dir.Move("Multi");
+		Dir.Move("Effect2");
+		Dir.Move("eHidra");
+
+		Dir.Move("HYAttack6");
+
+		GameEngineFolderTexture::Load(Dir.GetFullPath());
+
+		Dir.Move("../HYAttack7");
+
+		GameEngineFolderTexture::Load(Dir.GetFullPath());
+
+
+		Dir.Move("../HYAttack8");
+
+		GameEngineFolderTexture::Load(Dir.GetFullPath());
+
+		Dir.Move("../HYAttack9");
+
+		GameEngineFolderTexture::Load(Dir.GetFullPath());
+
+		Dir.Move("../HYAttack10");
+
+		GameEngineFolderTexture::Load(Dir.GetFullPath());
+
+		Dir.Move("../HYAttack11");
+
+		GameEngineFolderTexture::Load(Dir.GetFullPath());
+
+	}
+
+	//히드라 공격3
+	{
+		GameEngineDirectory Dir;
+
+		Dir.MoveParentToExitsChildDirectory("ConstantResources");
+		Dir.Move("ConstantResources");
+		Dir.Move("Texture");
+		Dir.Move("Multi");
+		Dir.Move("Effect2");
+		Dir.Move("eHidra");
+
+
+		Dir.Move("HYAttack12");
+
+		GameEngineFolderTexture::Load(Dir.GetFullPath());
+
+		Dir.Move("../HYAttack13");
+
+		GameEngineFolderTexture::Load(Dir.GetFullPath());
+
+		Dir.Move("../HYAttack14");
+
+		GameEngineFolderTexture::Load(Dir.GetFullPath());
+
+		Dir.Move("../HYAttack15");
+
+		GameEngineFolderTexture::Load(Dir.GetFullPath());
+
+
+
+	}
+
+
+
+
 	//총알
 	{
 		GameEngineDirectory Dir;

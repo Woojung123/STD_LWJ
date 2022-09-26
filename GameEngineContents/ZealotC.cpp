@@ -4,7 +4,7 @@
 #include <GameEngineBase/GameEngineInput.h>
 #include <GameEngineCore/GameEngineLevel.h>
 #include "GlobalContentsValue.h"
-#include"Sunken.h"
+
 #include "ZealotCUI.h"
 #include "MiniMapPlayer.h"
 
@@ -13,7 +13,6 @@ ZealotC::ZealotC()
 	: Speed(50.0f)
 	, Renderer(nullptr)
 	, Reach(150.f)
-	, TestUni(nullptr)
 	, AttCheck(false)
 	, AttTimeMax(0.5f)
 	, AttTime(0.f)
@@ -31,6 +30,7 @@ ZealotC::~ZealotC()
 void ZealotC::AttEnd(const FrameAnimation_DESC& _Info)
 {
 	AttCheck = true;
+	BAniChange = false;
 	Renderer->ChangeFrameAnimation("zelotStand12");
 	ShadowRenderer->ChangeFrameAnimation("zelotStand12");
 }
@@ -168,7 +168,7 @@ void ZealotC::Start()
 	ClickRenderer->Off();
 	MainUI->Off();
 
-
+	m_Info.m_Hp -= m_Info.Dammage = 20.f;
 
 }
 
@@ -235,10 +235,10 @@ void ZealotC::Update(float _DeltaTime)
 
 				AttCheck = false;
 				BAniChange = false;
-				TestUni = GetLevel()->CreateActor<Sunken>(OBJECTORDER::Bullet);
-				TestUni->GetTransform().SetWorldPosition(TarGetPos);
-				TestUni->TarGet = TarGet;
-				TestUni->m_Info.Dammage = TestUni->m_Info.Dammage + UnitBase::CProUpgrade;
+
+				((UnitBase*)TarGet)->m_Info.m_Hp -= m_Info.Dammage + UnitBase::CProUpgrade;
+
+		
 			}
 
 
@@ -246,9 +246,11 @@ void ZealotC::Update(float _DeltaTime)
 		}
 
 
-		if (MonCount == Monsize)
+		if (MonCount >= Monsize)
 		{
+			
 			AttCheck = false;
+			//AttCheck = true;
 			BAniChange = false;
 			Renderer->ChangeFrameAnimation("zelotStand12");
 			ShadowRenderer->ChangeFrameAnimation("zelotStand12");

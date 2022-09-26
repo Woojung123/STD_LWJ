@@ -4,7 +4,7 @@
 #include "UnitBase.h"
 // Ό³Έν :
 class ZealotCUI;
-class Sunken;
+
 class GameEngineTextureRenderer;
 class ZealotC : public UnitBase
 {
@@ -32,7 +32,7 @@ protected:
 
 	void ChangeAni(float4 _Gopoint, float4 _WorldPos);
 	GameEngineTextureRenderer* Renderer;
-	Sunken* TestUni;
+
 	float4 Color;
 	float Reach;
 public:

@@ -5,7 +5,7 @@
 #include "UnitBase.h"
 // Ό³Έν :
 class HydraCUI;
-class Sunken;
+class HydraBullet;
 class GameEngineTextureRenderer;
 class HydraC : public UnitBase
 {
@@ -33,7 +33,7 @@ protected:
 
 	void ChangeAni(float4 _Gopoint, float4 _WorldPos);
 	GameEngineTextureRenderer* Renderer;
-	Sunken* TestUni;
+	HydraBullet* TestUni;
 	float4 Color;
 	float Reach;
 public:

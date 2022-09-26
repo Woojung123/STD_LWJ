@@ -137,7 +137,7 @@ bool UpgradeSUI::Col_Pro(GameEngineCollision* _This, GameEngineCollision* _Other
 
 	if (true == GameEngineInput::GetInst()->IsDown("LCUpClick"))
 	{
-		if (m_UpC->m_MainStage->Player_Gold < 500)
+		if (m_UpC->m_MainStage->Player_Gold < 150)
 		{
 			return true;
 		}
@@ -160,7 +160,7 @@ bool UpgradeSUI::Col_Ter(GameEngineCollision* _This, GameEngineCollision* _Other
 
 	if (true == GameEngineInput::GetInst()->IsDown("LCUpClick"))
 	{
-		if (m_UpC->m_MainStage->Player_Gold < 500)
+		if (m_UpC->m_MainStage->Player_Gold < 150)
 		{
 			return true;
 		}
@@ -183,7 +183,7 @@ bool UpgradeSUI::Col_Zerg(GameEngineCollision* _This, GameEngineCollision* _Othe
 
 	if (true == GameEngineInput::GetInst()->IsDown("LCUpClick"))
 	{
-		if (m_UpC->m_MainStage->Player_Gold < 500)
+		if (m_UpC->m_MainStage->Player_Gold < 150)
 		{
 			return true;
 		}

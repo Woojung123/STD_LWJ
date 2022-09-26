@@ -199,7 +199,7 @@ void TestUnit::Update(float _DeltaTime)
 		}
 		
 		
-		if (MonCount == Monsize)
+		if (MonCount >= Monsize)
 		{
 			Renderer->ChangeFrameAnimation("DragonStand");
 			ShadowRenderer->ChangeFrameAnimation("DragonStand");

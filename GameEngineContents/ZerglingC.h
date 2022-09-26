@@ -4,7 +4,6 @@
 #include "UnitBase.h"
 // Ό³Έν :
 class ZerglingCUI;
-class Sunken;
 class GameEngineTextureRenderer;
 class ZerglingC : public UnitBase
 {
@@ -28,7 +27,7 @@ protected:
 
 	void ChangeAni(float4 _Gopoint, float4 _WorldPos);
 	GameEngineTextureRenderer* Renderer;
-	Sunken* TestUni;
+	
 	float4 Color;
 	float Reach;
 

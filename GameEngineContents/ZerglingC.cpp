@@ -4,7 +4,7 @@
 #include <GameEngineBase/GameEngineInput.h>
 #include <GameEngineCore/GameEngineLevel.h>
 #include "GlobalContentsValue.h"
-#include"Sunken.h"
+
 #include "ZerglingCUI.h"
 #include "MiniMapPlayer.h"
 
@@ -13,7 +13,6 @@ ZerglingC::ZerglingC()
 	: Speed(50.0f)
 	, Renderer(nullptr)
 	, Reach(150.f)
-	, TestUni(nullptr)
 	, AttCheck(false)
 	, AttTimeMax(0.4f)
 	, AttTime(0.f)
@@ -32,6 +31,7 @@ ZerglingC::~ZerglingC()
 void ZerglingC::AttEnd(const FrameAnimation_DESC& _Info)
 {
 	AttCheck = true;
+	BAniChange = false;
 	Renderer->ChangeFrameAnimation("zerglingMove12");
 	ShadowRenderer->ChangeFrameAnimation("zerglingMove12");
 }
@@ -44,6 +44,8 @@ void ZerglingC::Start()
 	SoundPlayer = GameEngineSound::SoundPlayControl("ZerglingSound.wav", false);
 	SoundPlayer.PlaySpeed(1.f);
 	SoundPlayer.Volume(0.5f);
+
+	m_Info.m_Hp -= m_Info.Dammage = 20.f;
 
 
 	GetTransform().SetLocalScale({ 1, 1, 1 });
@@ -184,6 +186,9 @@ void ZerglingC::Update(float _DeltaTime)
 		MainUI->On();
 		ClickRenderer->On();
 		AttRenderer->On();
+		//AttCheck = false;
+
+		//BAniChange = false;
 	}
 	else
 	{
@@ -239,16 +244,13 @@ void ZerglingC::Update(float _DeltaTime)
 
 				BAniChange = false;
 
-				TestUni = GetLevel()->CreateActor<Sunken>(OBJECTORDER::Bullet);
-				TestUni->GetTransform().SetWorldPosition(TarGetPos);
-				TestUni->TarGet = TarGet;
-				TestUni->m_Info.Dammage = TestUni->m_Info.Dammage + UnitBase::CZergUpgrade;
+				((UnitBase*)TarGet)->m_Info.m_Hp -= m_Info.Dammage + UnitBase::CProUpgrade;
 			}
 			break;
 		}
 
 
-		if (MonCount == Monsize)
+		if (MonCount >= Monsize)
 		{
 			AttCheck = false;
 			BAniChange = false;

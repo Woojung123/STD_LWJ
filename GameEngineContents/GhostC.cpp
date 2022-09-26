@@ -251,7 +251,7 @@ void GhostC::Update(float _DeltaTime)
 		}
 	
 
-		if (MonCount == Monsize)
+		if (MonCount >= Monsize)
 		{
 			AttCheck = false;
 			BAniChange = false;

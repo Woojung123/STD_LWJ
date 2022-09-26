@@ -5,7 +5,7 @@
 #include <GameEngineBase/GameEngineInput.h>
 #include <GameEngineCore/GameEngineLevel.h>
 #include "GlobalContentsValue.h"
-#include"Sunken.h"
+#include"HydraBullet.h"
 #include "HydraCUI.h"
 #include "MiniMapPlayer.h"
 
@@ -33,6 +33,7 @@ HydraC::~HydraC()
 void HydraC::AttEnd(const FrameAnimation_DESC& _Info)
 {
 	AttCheck = true;
+	BAniChange = false;
 	Renderer->ChangeFrameAnimation("hidraMove12");
 	ShadowRenderer->ChangeFrameAnimation("hidraMove12");
 }
@@ -231,17 +232,20 @@ void HydraC::Update(float _DeltaTime)
 
 				AttCheck = false;
 				BAniChange = false;
-				TestUni = GetLevel()->CreateActor<Sunken>(OBJECTORDER::Bullet);
-				TestUni->GetTransform().SetWorldPosition(TarGetPos);
-				TestUni->TarGet = TarGet;
-				TestUni->m_Info.Dammage = TestUni->m_Info.Dammage + UnitBase::CZergUpgrade;
+				TestUni = GetLevel()->CreateActor<HydraBullet>(OBJECTORDER::Bullet);
+				TestUni->GetTransform().SetWorldPosition(MyPos + m_Dir * 10.f);
+				TestUni->ChangeAni(TarGetPos, MyPos, m_Dir);
+				
+				((UnitBase*)TarGet)->m_Info.m_Hp -= 20.f + UnitBase::CProUpgrade;
+
+
 			}
 
 
 			break;
 		}
 
-		if (MonCount == Monsize)
+		if (MonCount >= Monsize)
 		{
 			AttCheck = false;
 			BAniChange = false;
