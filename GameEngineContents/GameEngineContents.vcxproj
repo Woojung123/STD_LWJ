@@ -505,6 +505,7 @@
       <SubType>
       </SubType>
     </ClInclude>
+    <ClInclude Include="StageNewGame.h" />
     <ClInclude Include="StartButton.h">
       <SubType>
       </SubType>
@@ -972,6 +973,7 @@
       <SubType>
       </SubType>
     </ClCompile>
+    <ClCompile Include="StageNewGame.cpp" />
     <ClCompile Include="StartButton.cpp">
       <SubType>
       </SubType>

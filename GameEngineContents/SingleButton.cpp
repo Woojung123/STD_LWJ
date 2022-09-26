@@ -79,7 +79,10 @@ void SingleButton::Update(float _DeltaTime)
 bool SingleButton::Collcheck(GameEngineCollision* _This, GameEngineCollision* _Other)
 {
 	Renderer[1]->On();
-	
+	if (true == GameEngineInput::GetInst()->IsDown("LChangeClick"))
+	{
+		GEngine::ChangeLevel("NewPlay");
+	}
 
 	return true;
 

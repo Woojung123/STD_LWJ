@@ -2,6 +2,7 @@
 #include "ContentsCore.h"
 #include "GameEngineContents/StageLogo.h"
 #include "GameEngineContents/StageMain.h"
+#include "GameEngineContents/StageNewGame.h"
 
 #pragma comment(lib, "GameEngineBase.lib")
 
@@ -3186,6 +3187,7 @@ void ContentsCore::Start()
 
 	CreateLevel<StageLogo>("Title");
 	CreateLevel<StageMain>("Play");
+	CreateLevel<StageNewGame>("NewPlay");
 	ChangeLevel("Title");
 
 	GameEngineGUI::CreateGUIWindow<GameEngineStatusWindow>("EngineStatus", nullptr);

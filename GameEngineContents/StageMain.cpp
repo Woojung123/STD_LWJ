@@ -81,6 +81,7 @@ void StageMain::Start()
 	}
 
 	GameEngineInput::GetInst()->CreateKey("GameFinish", '5');
+	GameEngineInput::GetInst()->CreateKey("DarkMapD", '6');
 
 
 
@@ -177,7 +178,7 @@ void StageMain::Start()
 		NewMainMap = CreateActor<MainMap>(OBJECTORDER::BackGround);
 	}
 
-	DarkMap* NewDarkMap;
+	
 	{
 		NewDarkMap = CreateActor<DarkMap>(OBJECTORDER::BackGround);
 		NewDarkMap->m_Bulder = mBuilder;
@@ -671,6 +672,16 @@ void StageMain::Update(float _DeltaTime)
 		}
 			
 	}
+
+
+	if (GameEngineInput::GetInst()->IsDown("DarkMapD"))
+	{
+		NewDarkMap->Death();
+
+	}
+
+
+	
 
 	if (GameStartB)
 	{

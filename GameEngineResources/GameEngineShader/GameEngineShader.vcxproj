@@ -130,6 +130,7 @@
     <FxCompile Include="Blur.hlsl" />
     <FxCompile Include="Color.hlsl" />
     <FxCompile Include="DarkMapShader.hlsl" />
+    <FxCompile Include="DarkMapShaderTest.hlsl" />
     <FxCompile Include="Debug3D.hlsl" />
     <FxCompile Include="DebugTexture.hlsl" />
     <FxCompile Include="ITextureAtlas.hlsl" />

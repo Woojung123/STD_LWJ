@@ -40,7 +40,7 @@ enum  class HellperUnitTYPE
 
 // Ό³Έν :
 class PlayNormal;
-class DarkTile;
+class DarkMap;
 class HPUnit;
 class HPUnit;
 class HellperWindow;
@@ -84,7 +84,7 @@ public:
 	int Player_HP = 39;
 	int Player_HPRen = 39;
 
-	DarkTile* DTilemap[10][10];
+	DarkMap* NewDarkMap;
 
 	int Player_Gold = 250;
 	int Player_Gas = 0;

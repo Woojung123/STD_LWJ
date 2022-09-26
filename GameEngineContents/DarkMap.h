@@ -4,16 +4,19 @@
 
 
 
-struct DarkPixelData
+struct PixelTData
 {
 	float4 MulColor;
 	float4 PlusColor;
 	float4 Slice;
+	float4 Pos[50][50];
 
-	DarkPixelData()
+
+	PixelTData()
 		: MulColor(float4::WHITE)
 		, PlusColor(float4::ZERO)
 		, Slice(float4::ZERO)
+		, Pos()
 		
 	{
 
@@ -54,14 +57,14 @@ public:
 	StageMainCamera* M_Camera;
 	StageMain* MainStage;
 
-	DarkPixelData PixelDataInst;
+	PixelTData PixelDataInst;
 	DarkAtlasData AtlasDataInst;
 protected:
 	void Start() override;
 	void Update(float _DeltaTime);
 	void End() {}
 	
-	
+	float4 PosTile[50][50];
 	float sumDelta = 0.f;
 private:
 

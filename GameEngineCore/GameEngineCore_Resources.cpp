@@ -230,6 +230,16 @@ void EngineRenderingPipeLine()
 	}
 
 
+
+	{
+		GameEngineRenderingPipeLine* NewPipe = GameEngineRenderingPipeLine::Create("DarkMapShaderTest");
+		NewPipe->SetVertexShader("DarkMapShaderTest.hlsl");
+		NewPipe->SetPixelShader("DarkMapShaderTest.hlsl");
+	}
+
+
+
+
 	{
 		GameEngineRenderingPipeLine* NewPipe = GameEngineRenderingPipeLine::Create("3DDebug");
 		NewPipe->SetInputAssembler1VertexBuffer("Box");

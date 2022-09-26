@@ -51,6 +51,14 @@ void MiniMap::Start()
 void MiniMap::Update(float _DeltaTime)
 {
 
+
+	if (GameEngineInput::GetInst()->IsDown("DarkMapD"))
+	{
+		DMiniRenderer->Off();
+
+	}
+
+
 	float4 BuilderPos = m_Bulder->MiniPlayUnit->Renderer->GetTransform().GetLocalPosition();
 
 
