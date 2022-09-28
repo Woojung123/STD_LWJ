@@ -256,6 +256,12 @@
     <Filter Include="02.Game2\02.Player">
       <UniqueIdentifier>{2093fdd2-1326-48b4-aac6-ba4c6718b714}</UniqueIdentifier>
     </Filter>
+    <Filter Include="00.Actor\04.Bullet\17.TrailBullet">
+      <UniqueIdentifier>{c16d9705-4b4e-4d90-8bf4-0135c8a8ca57}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="00.Actor\01.Unit\02.Player\01.Build\04.Nexus">
+      <UniqueIdentifier>{c4f51a8e-fda1-463c-8178-c6583ee11c57}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ContentsCore.h">
@@ -625,6 +631,18 @@
     <ClInclude Include="StageNewGame.h">
       <Filter>01.Stage</Filter>
     </ClInclude>
+    <ClInclude Include="TrailBullet.h">
+      <Filter>00.Actor\04.Bullet\17.TrailBullet</Filter>
+    </ClInclude>
+    <ClInclude Include="ProbeTrail.h">
+      <Filter>00.Actor\04.Bullet\17.TrailBullet</Filter>
+    </ClInclude>
+    <ClInclude Include="Nexus.h">
+      <Filter>00.Actor\01.Unit\02.Player\01.Build\04.Nexus</Filter>
+    </ClInclude>
+    <ClInclude Include="NexusUI.h">
+      <Filter>00.Actor\01.Unit\02.Player\01.Build\04.Nexus</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ContentsCore.cpp">
@@ -990,6 +1008,18 @@
     </ClCompile>
     <ClCompile Include="StageNewGame.cpp">
       <Filter>01.Stage</Filter>
+    </ClCompile>
+    <ClCompile Include="TrailBullet.cpp">
+      <Filter>00.Actor\04.Bullet\17.TrailBullet</Filter>
+    </ClCompile>
+    <ClCompile Include="ProbeTrail.cpp">
+      <Filter>00.Actor\04.Bullet\17.TrailBullet</Filter>
+    </ClCompile>
+    <ClCompile Include="Nexus.cpp">
+      <Filter>00.Actor\01.Unit\02.Player\01.Build\04.Nexus</Filter>
+    </ClCompile>
+    <ClCompile Include="NexusUI.cpp">
+      <Filter>00.Actor\01.Unit\02.Player\01.Build\04.Nexus</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

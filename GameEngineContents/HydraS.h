@@ -5,6 +5,7 @@
 // Ό³Έν :
 class HydraSUI;
 class Plaegue;
+class DroneBullet;
 class GameEngineTextureRenderer;
 class HydraS : public UnitBase
 {
@@ -33,6 +34,9 @@ protected:
 	HydraSUI* MainUI;
 	void ChangeAni(float4 _Gopoint, float4 _WorldPos);
 	GameEngineTextureRenderer* Renderer;
+
+
+	DroneBullet* TestUni2;
 	Plaegue* TestUni;
 	float4 Color;
 	float Reach;
@@ -42,6 +46,9 @@ public:
 	float	AttTimeMax;
 	float4	m_Dir;
 
+
+
+	bool AttType = false;
 	bool	AttCheck;
 	bool	ListLastCheck;
 };

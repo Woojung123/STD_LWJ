@@ -7,6 +7,8 @@
 #include"Plaegue.h"
 #include "HydraSUI.h"
 #include "MiniMapPlayer.h"
+#include"DroneBullet.h"
+
 
 HydraS::HydraS()
 	: Speed(50.0f)
@@ -244,9 +246,29 @@ void HydraS::Update(float _DeltaTime)
 
 				AttCheck = false;
 				BAniChange = false;
-				TestUni = GetLevel()->CreateActor<Plaegue>(OBJECTORDER::Bullet);
-				TestUni->GetTransform().SetWorldPosition(TarGetPos);
-				//TestUni->TarGet = TarGet;
+
+				if (AttType)
+				{
+					TestUni = GetLevel()->CreateActor<Plaegue>(OBJECTORDER::Bullet);
+					TestUni->GetTransform().SetWorldPosition(TarGetPos);
+					AttType = !AttType;
+				}
+				else
+				{
+					TestUni2 = GetLevel()->CreateActor<DroneBullet>(OBJECTORDER::Bullet);
+					TestUni2->GetTransform().SetWorldPosition(MyPos);
+					TestUni2->SetTarGet(TarGet);
+					AttType = !AttType;
+					
+
+				}
+				
+
+
+				
+				
+
+
 
 			}
 

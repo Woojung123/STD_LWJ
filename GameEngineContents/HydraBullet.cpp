@@ -51,6 +51,9 @@ void HydraBullet::Start()
 		Renderer->AnimationBindEnd("HYAttack14", &HydraBullet::AttEnd, this);
 		Renderer->AnimationBindEnd("HYAttack15", &HydraBullet::AttEnd, this);
 
+
+		Renderer->ChangeFrameAnimation("HYAttack0");
+
 	}
 
 
@@ -59,16 +62,18 @@ void HydraBullet::Start()
 
 void HydraBullet::Update(float _DeltaTime)
 {
-	BAniChange = true;
+
+	
+
+	
 }
 
 void HydraBullet::AttEnd(const FrameAnimation_DESC& _Info)
 {
 
-	if (BAniChange)
-	{
-		Death();
-	}
+
+	Death();
+
 
 }
 

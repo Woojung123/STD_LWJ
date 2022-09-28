@@ -4,7 +4,7 @@
 #include "UnitBase.h"
 // Ό³Έν :
 class DroneSUI;
-class DroneBullet;
+class SwarmBullet;
 class GameEngineTextureRenderer;
 class DroneS : public UnitBase
 {
@@ -34,7 +34,7 @@ protected:
 	GameEngineTextureRenderer* AuraRenderer;
 
 
-	DroneBullet* TestUni;
+	SwarmBullet* TestUni;
 	float4 Color;
 	float Reach;
 public:

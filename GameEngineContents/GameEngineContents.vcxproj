@@ -403,6 +403,14 @@
       <SubType>
       </SubType>
     </ClInclude>
+    <ClInclude Include="Nexus.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="NexusUI.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
     <ClInclude Include="Overload.h">
       <SubType>
       </SubType>
@@ -421,6 +429,10 @@
       </SubType>
     </ClInclude>
     <ClInclude Include="ProbeSUI.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="ProbeTrail.h">
       <SubType>
       </SubType>
     </ClInclude>
@@ -547,6 +559,10 @@
       </SubType>
     </ClInclude>
     <ClInclude Include="Tileobject.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="TrailBullet.h">
       <SubType>
       </SubType>
     </ClInclude>
@@ -869,6 +885,14 @@
       <SubType>
       </SubType>
     </ClCompile>
+    <ClCompile Include="Nexus.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
+    <ClCompile Include="NexusUI.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
     <ClCompile Include="Overload.cpp">
       <SubType>
       </SubType>
@@ -887,6 +911,10 @@
       </SubType>
     </ClCompile>
     <ClCompile Include="ProbeSUI.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
+    <ClCompile Include="ProbeTrail.cpp">
       <SubType>
       </SubType>
     </ClCompile>
@@ -1015,6 +1043,10 @@
       </SubType>
     </ClCompile>
     <ClCompile Include="Tileobject.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
+    <ClCompile Include="TrailBullet.cpp">
       <SubType>
       </SubType>
     </ClCompile>

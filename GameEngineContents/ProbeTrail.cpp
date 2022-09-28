@@ -1,12 +1,13 @@
 
 
+
 #include "PreCompile.h"
-#include "SporeHit.h"
+#include "ProbeTrail.h"
 #include <GameEngineBase/GameEngineInput.h>
 #include <iostream>
 #include <GameEngineCore/GameEngineLevel.h>
 #include <GameEngineCore/GameEngineDefaultRenderer.h>
-SporeHit::SporeHit()
+ProbeTrail::ProbeTrail()
 	: Speed(0.f)
 	, Renderer(nullptr)
 	, m_Dir({ 0 })
@@ -14,41 +15,38 @@ SporeHit::SporeHit()
 {
 }
 
-SporeHit::~SporeHit()
+ProbeTrail::~ProbeTrail()
+{
+
+}
+
+void ProbeTrail::AttEnd(const FrameAnimation_DESC& _Info)
 {
 	Death();
-}
-
-void SporeHit::AttEnd(const FrameAnimation_DESC& _Info)
-{
-	BAniChange = true;
 
 }
 
 
-void SporeHit::Start()
+void ProbeTrail::Start()
 {
 
 	GetTransform().SetLocalScale({ 1, 1, 1 });
 	{
 		Renderer = CreateComponent<GameEngineTextureRenderer>();
-		Renderer->GetTransform().SetLocalScale({ 72.f,72.f,1.f });
+		Renderer->GetTransform().SetLocalScale({ 20.f,20.f,1.f });
 		//Renderer->GetTransform().SetWorldPosition({ -1050.f,370.f,0.f });
 
-		Renderer->CreateFrameAnimationFolder("SporeHit", FrameAnimation_DESC("SporeHit", 0.05f));
-		Renderer->ChangeFrameAnimation("SporeHit");
-		Renderer->AnimationBindEnd("SporeHit", &SporeHit::AttEnd, this);
+		Renderer->CreateFrameAnimationFolder("ScarabM", FrameAnimation_DESC("ScarabM", 0.03f));
+		Renderer->ChangeFrameAnimation("ScarabM");
+		Renderer->AnimationBindEnd("ScarabM", &ProbeTrail::AttEnd, this);
+		Renderer->GetPixelData().MulColor.a = 0.5f;
 	}
-
-
-
 }
 
-void SporeHit::Update(float _DeltaTime)
+void ProbeTrail::Update(float _DeltaTime)
 {
 
-	if (BAniChange)
-		Death();
+
 
 
 	float4 WorldPos = GetTransform().GetWorldPosition();

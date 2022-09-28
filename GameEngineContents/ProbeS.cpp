@@ -8,7 +8,9 @@
 #include"SwarmBullet.h"
 #include "ProbeSUI.h"
 #include "MiniMapPlayer.h"
+#include"TrailBullet.h"
 
+//TrailBullet
 ProbeS::ProbeS()
 	: Speed(50.0f)
 	, Renderer(nullptr)
@@ -215,7 +217,7 @@ void ProbeS::Update(float _DeltaTime)
 
 	for (; iter != iterEnd; ++iter)
 	{
-		GameEngineActor* TarGet = (*iter);
+		TarGet = (*iter);
 		float4 TarGetPos = TarGet->GetTransform().GetWorldPosition();
 		float4 MyPos = GetTransform().GetWorldPosition();
 		float4 Dist = MyPos - TarGetPos;
@@ -238,10 +240,22 @@ void ProbeS::Update(float _DeltaTime)
 
 				BAniChange = false;
 
-				TestUni = GetLevel()->CreateActor<SwarmBullet>(OBJECTORDER::Bullet);
+				/*TestUni = GetLevel()->CreateActor<SwarmBullet>(OBJECTORDER::Bullet);
 				TestUni->GetTransform().SetWorldPosition(MyPos);
 				TestUni->SetTarGet(TarGet);
-				TestUni->m_Info.Dammage = 90;
+				TestUni->m_Info.Dammage = 90;*/
+
+				TrailBullet* TestUni = GetLevel()->CreateActor<TrailBullet>(OBJECTORDER::Bullet);
+				TestUni->GetTransform().SetWorldPosition(MyPos);
+				TestUni->SetTarGet(TarGet);
+				TestUni->m_Probe = this;
+
+
+				TrailBullet* TestUni2 = GetLevel()->CreateActor<TrailBullet>(OBJECTORDER::Bullet);
+				TestUni2->GetTransform().SetWorldPosition(MyPos);
+				TestUni2->SetTarGet(TarGet);
+				TestUni2->m_Probe = this;
+
 
 
 			}

@@ -53,6 +53,14 @@ void PoisonEff::Update(float _DeltaTime)
 	if (TarGet)
 	{
 		float4 TargetPos = TarGet->GetTransform().GetWorldPosition();
+
+		if (TargetPos.x <= -1400.f)
+		{
+			Death();
+		}
+
+
+
 		TargetPos.z = -45.f;
 		GetTransform().SetWorldPosition(TargetPos);
 
@@ -70,11 +78,6 @@ void PoisonEff::Update(float _DeltaTime)
 
 		}
 
-	}
-	else
-	{
-		Death();
-		return;
 	}
 
 

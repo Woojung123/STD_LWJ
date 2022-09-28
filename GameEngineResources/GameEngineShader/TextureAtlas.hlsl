@@ -160,6 +160,18 @@ float4 TextureAtlas_PS(Output _Input) : SV_Target0
 
 
 
+    if (Option00 == 15)
+    {
+        if (_Input.Tex.x  > Slice.x  )
+        {
+            clip(-1);
+        }
+    }
+
+
+
+
+
     float4 TexColor = Tex.Sample(Smp, _Input.Tex.xy);
 
 

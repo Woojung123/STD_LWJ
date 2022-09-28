@@ -37,6 +37,7 @@
 #include "UpgradeA.h"
 #include "UpgradeS.h"
 #include "PlayNormal.h"
+#include "Nexus.h"
 
 
 
@@ -552,6 +553,17 @@ void StageMain::Start()
 		TestUni->GetTransform().SetWorldPosition({ -372.f,445.f,0.f });
 		TestUni->m_MainStage = this;
 	}
+
+	{
+		Nexus* TestUni = CreateActor<Nexus>(OBJECTORDER::Player);
+		TestUni->GetTransform().SetWorldPosition({ -412.f,-240.f,0.f });
+		TestUni->m_MainStage = this;
+	}
+
+
+
+
+
 
 	//NewMainCamera, mBuilder
 	{

@@ -39,6 +39,7 @@ protected:
 	float4 Color;
 	float Reach;
 public:
+	GameEngineActor* TarGet;
 	float	Speed;
 	float	AttTime;
 	float	AttTimeMax;
