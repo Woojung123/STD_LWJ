@@ -17,7 +17,7 @@ ContentsCore::~ContentsCore()
 
 void ContentsCore::Start()
 {
-
+	GameEngineTime::SetLimitFrame(60);
 	
 	// 리소스 로드 시작
 	

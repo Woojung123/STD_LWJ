@@ -3,6 +3,7 @@
 #include <GameEngineCore/GameEngineActor.h>
 
 // Ό³Έν :
+class StageMainCamera;
 class MiniCamera : public GameEngineActor
 {
 public:
@@ -17,7 +18,13 @@ public:
 	MiniCamera& operator=(MiniCamera&& _Other) noexcept = delete;
 public:
 	float4 UnitPos;
+
+
+	StageMainCamera* MailCamera;
+
 	GameEngineUIRenderer* Renderer;
+	bool Collcheck(GameEngineCollision* _This, GameEngineCollision* _Other);
+	GameEngineCollision* Collision;
 protected:
 	void Start() override;
 	void Update(float _DeltaTime);

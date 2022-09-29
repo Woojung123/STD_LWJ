@@ -59,9 +59,8 @@ void GameEngineCore::CoreStart(GameEngineCore* _UserCore)
 	// 엔진 리소스는 완성되어야 합니다.
 	EngineResourcesInitialize();
 
+	// 
 	GameEngineDevice::CreateSwapChain();
-
-
 
 	GameEngineDebug::Debug3DInitialize();
 
@@ -74,11 +73,6 @@ void GameEngineCore::CoreUpdate(GameEngineCore* _UserCore)
 {
 	if (nullptr != NextLevel)
 	{
-		Rectangle(GameEngineWindow::GetInst()->GetHDC()
-			, 0
-			, 0
-			, GameEngineWindow::GetInst()->GetScale().ix(), GameEngineWindow::GetInst()->GetScale().iy());
-
 		if (nullptr != CurrentLevel)
 		{
 			CurrentLevel->ActorLevelEndEvent();
@@ -106,15 +100,17 @@ void GameEngineCore::CoreUpdate(GameEngineCore* _UserCore)
 		MsgBoxAssert("레벨을 지정해주지 않으면 엔진을 시작할수가 업습니다.");
 	}
 
-	GameEngineTime::GetInst()->Update();
 	GameEngineSound::Update();
+	GameEngineTime::GetInst()->Update();
 	float DeltaTime = GameEngineTime::GetDeltaTime();
-
 	GameEngineInput::GetInst()->Update(DeltaTime);
-	// 엔진수준에서 유저가 하고 싶은일.
-	_UserCore->Update(DeltaTime);
 
-	CurrentLevel->LevelUpdate(DeltaTime);
+	if (true == GameEngineTime::IsFrameCheck())
+	{
+		// 엔진수준에서 유저가 하고 싶은일.
+		_UserCore->Update(DeltaTime);
+		CurrentLevel->LevelUpdate(DeltaTime);
+	}
 
 }
 

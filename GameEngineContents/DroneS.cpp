@@ -51,22 +51,22 @@ void DroneS::Start()
 		Renderer->GetTransform().SetLocalScale({ 128.f,128.f,1.f });
 		Renderer->GetTransform().SetLocalPosition({ 0.f,0.f,-2.f });
 
-		Renderer->CreateFrameAnimationFolder("DroneAttack0", FrameAnimation_DESC("DroneAttack0", 0.4f));
-		Renderer->CreateFrameAnimationFolder("DroneAttack1", FrameAnimation_DESC("DroneAttack1", 0.4f));
-		Renderer->CreateFrameAnimationFolder("DroneAttack2", FrameAnimation_DESC("DroneAttack2", 0.4f));
-		Renderer->CreateFrameAnimationFolder("DroneAttack3", FrameAnimation_DESC("DroneAttack3", 0.4f));
-		Renderer->CreateFrameAnimationFolder("DroneAttack4", FrameAnimation_DESC("DroneAttack4", 0.4f));
-		Renderer->CreateFrameAnimationFolder("DroneAttack5", FrameAnimation_DESC("DroneAttack5", 0.4f));
-		Renderer->CreateFrameAnimationFolder("DroneAttack6", FrameAnimation_DESC("DroneAttack6", 0.4f));
-		Renderer->CreateFrameAnimationFolder("DroneAttack7", FrameAnimation_DESC("DroneAttack7", 0.4f));
-		Renderer->CreateFrameAnimationFolder("DroneAttack8", FrameAnimation_DESC("DroneAttack8", 0.4f));
-		Renderer->CreateFrameAnimationFolder("DroneAttack9", FrameAnimation_DESC("DroneAttack9", 0.4f));
-		Renderer->CreateFrameAnimationFolder("DroneAttack10", FrameAnimation_DESC("DroneAttack10",0.4f));
-		Renderer->CreateFrameAnimationFolder("DroneAttack11", FrameAnimation_DESC("DroneAttack11",0.4f));
-		Renderer->CreateFrameAnimationFolder("DroneAttack12", FrameAnimation_DESC("DroneAttack12",0.4f));
-		Renderer->CreateFrameAnimationFolder("DroneAttack13", FrameAnimation_DESC("DroneAttack13",0.4f));
-		Renderer->CreateFrameAnimationFolder("DroneAttack14", FrameAnimation_DESC("DroneAttack14",0.4f));
-		Renderer->CreateFrameAnimationFolder("DroneAttack15", FrameAnimation_DESC("DroneAttack15",0.4f));
+		Renderer->CreateFrameAnimationFolder("DroneAttack0", FrameAnimation_DESC("DroneAttack0", 0.2f));
+		Renderer->CreateFrameAnimationFolder("DroneAttack1", FrameAnimation_DESC("DroneAttack1", 0.2f));
+		Renderer->CreateFrameAnimationFolder("DroneAttack2", FrameAnimation_DESC("DroneAttack2", 0.2f));
+		Renderer->CreateFrameAnimationFolder("DroneAttack3", FrameAnimation_DESC("DroneAttack3", 0.2f));
+		Renderer->CreateFrameAnimationFolder("DroneAttack4", FrameAnimation_DESC("DroneAttack4", 0.2f));
+		Renderer->CreateFrameAnimationFolder("DroneAttack5", FrameAnimation_DESC("DroneAttack5", 0.2f));
+		Renderer->CreateFrameAnimationFolder("DroneAttack6", FrameAnimation_DESC("DroneAttack6", 0.2f));
+		Renderer->CreateFrameAnimationFolder("DroneAttack7", FrameAnimation_DESC("DroneAttack7", 0.2f));
+		Renderer->CreateFrameAnimationFolder("DroneAttack8", FrameAnimation_DESC("DroneAttack8", 0.2f));
+		Renderer->CreateFrameAnimationFolder("DroneAttack9", FrameAnimation_DESC("DroneAttack9", 0.2f));
+		Renderer->CreateFrameAnimationFolder("DroneAttack10", FrameAnimation_DESC("DroneAttack10",0.2f));
+		Renderer->CreateFrameAnimationFolder("DroneAttack11", FrameAnimation_DESC("DroneAttack11",0.2f));
+		Renderer->CreateFrameAnimationFolder("DroneAttack12", FrameAnimation_DESC("DroneAttack12",0.2f));
+		Renderer->CreateFrameAnimationFolder("DroneAttack13", FrameAnimation_DESC("DroneAttack13",0.2f));
+		Renderer->CreateFrameAnimationFolder("DroneAttack14", FrameAnimation_DESC("DroneAttack14",0.2f));
+		Renderer->CreateFrameAnimationFolder("DroneAttack15", FrameAnimation_DESC("DroneAttack15",0.2f));
 		Renderer->CreateFrameAnimationFolder("DroneMove12", FrameAnimation_DESC("DroneMove12", 0.1f));
 
 
@@ -98,22 +98,22 @@ void DroneS::Start()
 		ShadowRenderer = CreateComponent<GameEngineTextureRenderer>();
 		ShadowRenderer->GetTransform().SetLocalScale({ 128.f,128.f,1.f });
 	
-		ShadowRenderer->CreateFrameAnimationFolder("DroneAttack0", FrameAnimation_DESC("DroneAttack0", 0.4f));
-		ShadowRenderer->CreateFrameAnimationFolder("DroneAttack1", FrameAnimation_DESC("DroneAttack1", 0.4f));
-		ShadowRenderer->CreateFrameAnimationFolder("DroneAttack2", FrameAnimation_DESC("DroneAttack2", 0.4f));
-		ShadowRenderer->CreateFrameAnimationFolder("DroneAttack3", FrameAnimation_DESC("DroneAttack3", 0.4f));
-		ShadowRenderer->CreateFrameAnimationFolder("DroneAttack4", FrameAnimation_DESC("DroneAttack4", 0.4f));
-		ShadowRenderer->CreateFrameAnimationFolder("DroneAttack5", FrameAnimation_DESC("DroneAttack5", 0.4f));
-		ShadowRenderer->CreateFrameAnimationFolder("DroneAttack6", FrameAnimation_DESC("DroneAttack6", 0.4f));
-		ShadowRenderer->CreateFrameAnimationFolder("DroneAttack7", FrameAnimation_DESC("DroneAttack7", 0.4f));
-		ShadowRenderer->CreateFrameAnimationFolder("DroneAttack8", FrameAnimation_DESC("DroneAttack8", 0.4f));
-		ShadowRenderer->CreateFrameAnimationFolder("DroneAttack9", FrameAnimation_DESC("DroneAttack9", 0.4f));
-		ShadowRenderer->CreateFrameAnimationFolder("DroneAttack10", FrameAnimation_DESC("DroneAttack10", 0.4f));
-		ShadowRenderer->CreateFrameAnimationFolder("DroneAttack11", FrameAnimation_DESC("DroneAttack11", 0.4f));
-		ShadowRenderer->CreateFrameAnimationFolder("DroneAttack12", FrameAnimation_DESC("DroneAttack12", 0.4f));
-		ShadowRenderer->CreateFrameAnimationFolder("DroneAttack13", FrameAnimation_DESC("DroneAttack13", 0.4f));
-		ShadowRenderer->CreateFrameAnimationFolder("DroneAttack14", FrameAnimation_DESC("DroneAttack14", 0.4f));
-		ShadowRenderer->CreateFrameAnimationFolder("DroneAttack15", FrameAnimation_DESC("DroneAttack15", 0.4f));
+		ShadowRenderer->CreateFrameAnimationFolder("DroneAttack0", FrameAnimation_DESC("DroneAttack0", 0.2f));
+		ShadowRenderer->CreateFrameAnimationFolder("DroneAttack1", FrameAnimation_DESC("DroneAttack1", 0.2f));
+		ShadowRenderer->CreateFrameAnimationFolder("DroneAttack2", FrameAnimation_DESC("DroneAttack2", 0.2f));
+		ShadowRenderer->CreateFrameAnimationFolder("DroneAttack3", FrameAnimation_DESC("DroneAttack3", 0.2f));
+		ShadowRenderer->CreateFrameAnimationFolder("DroneAttack4", FrameAnimation_DESC("DroneAttack4", 0.2f));
+		ShadowRenderer->CreateFrameAnimationFolder("DroneAttack5", FrameAnimation_DESC("DroneAttack5", 0.2f));
+		ShadowRenderer->CreateFrameAnimationFolder("DroneAttack6", FrameAnimation_DESC("DroneAttack6", 0.2f));
+		ShadowRenderer->CreateFrameAnimationFolder("DroneAttack7", FrameAnimation_DESC("DroneAttack7", 0.2f));
+		ShadowRenderer->CreateFrameAnimationFolder("DroneAttack8", FrameAnimation_DESC("DroneAttack8", 0.2f));
+		ShadowRenderer->CreateFrameAnimationFolder("DroneAttack9", FrameAnimation_DESC("DroneAttack9", 0.2f));
+		ShadowRenderer->CreateFrameAnimationFolder("DroneAttack10", FrameAnimation_DESC("DroneAttack10", 0.2f));
+		ShadowRenderer->CreateFrameAnimationFolder("DroneAttack11", FrameAnimation_DESC("DroneAttack11", 0.2f));
+		ShadowRenderer->CreateFrameAnimationFolder("DroneAttack12", FrameAnimation_DESC("DroneAttack12", 0.2f));
+		ShadowRenderer->CreateFrameAnimationFolder("DroneAttack13", FrameAnimation_DESC("DroneAttack13", 0.2f));
+		ShadowRenderer->CreateFrameAnimationFolder("DroneAttack14", FrameAnimation_DESC("DroneAttack14", 0.2f));
+		ShadowRenderer->CreateFrameAnimationFolder("DroneAttack15", FrameAnimation_DESC("DroneAttack15", 0.2f));
 		ShadowRenderer->CreateFrameAnimationFolder("DroneMove12", FrameAnimation_DESC("DroneMove12", 0.1f));
 
 

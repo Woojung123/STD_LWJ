@@ -41,7 +41,7 @@ void MiniMap::Start()
 
 		DMiniRenderer->SetTexture("Sbeacon.png");
 		DMiniRenderer->ScaleToTexture();
-		DMiniRenderer->GetTransform().SetLocalPosition({ -310,-217, -149 });
+		DMiniRenderer->GetTransform().SetLocalPosition({ -310,-217, -249 });
 		DMiniRenderer->ChangeCamera(CAMERAORDER::UICAMERA);
 	
 

@@ -3,6 +3,9 @@
 #include "NexusUI.h"
 #include "UnitBase.h"
 #include "Nexus.h"
+
+#include "Peobe.h"
+
 NexusUI::NexusUI() :
 	m_UpC(nullptr)
 	, Col_ProUpgrade(nullptr)
@@ -124,7 +127,7 @@ void NexusUI::Update(float _DeltaTime)
 		StatusRenderer->Off();
 		UpTime += _DeltaTime;
 
-		ProGressUpRenderer->GetPixelData().Slice.x = UpTime/10.f;
+		ProGressUpRenderer->GetPixelData().Slice.x = UpTime;
 
 		
 		ProbeRender[MakeCount - 1]->On();
@@ -133,10 +136,15 @@ void NexusUI::Update(float _DeltaTime)
 		{
 		
 
-			if (UpTime >= 10.f)
+			if (UpTime >= 1.f)
 			{
 				UpTime = 0.f;
 				ProbeRender[MakeCount - 1]->Off();
+
+				Peobe* TestUni = GetLevel()->CreateActor<Peobe>(OBJECTORDER::Probe);
+				TestUni->GetTransform().SetWorldPosition({ -512.f,-240.f,0.f });
+				TestUni->m_MainStage = m_UpC->m_MainStage;
+
 				--MakeCount;
 			}
 
@@ -172,7 +180,7 @@ bool NexusUI::Col_Pro(GameEngineCollision* _This, GameEngineCollision* _Other)
 			return true;
 		}
 
-		//m_UpC->m_MainStage->Player_Gold -= 150;
+		m_UpC->m_MainStage->Player_Gold -= 150;
 		m_UpC->m_bClickCheck = true;
 
 		++MakeCount;

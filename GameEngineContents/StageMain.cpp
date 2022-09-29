@@ -38,9 +38,10 @@
 #include "UpgradeS.h"
 #include "PlayNormal.h"
 #include "Nexus.h"
+#include "Mineral.h"
 
 
-
+#include "Peobe.h"
 
 #include "MainMouse.h"
 #include "TestUI.h"
@@ -171,7 +172,7 @@ void StageMain::Start()
 		NewMainCamera = CreateActor<StageMainCamera>(OBJECTORDER::Camera);
 		NewMainCamera->GetTransform().SetWorldPosition({ 1022.f,-414.f,0.f });
 	}
-
+	MaMouse->SMainCamera = NewMainCamera;
 	
 
 	MainMap* NewMainMap;
@@ -559,7 +560,18 @@ void StageMain::Start()
 		TestUni->GetTransform().SetWorldPosition({ -412.f,-240.f,0.f });
 		TestUni->m_MainStage = this;
 	}
+	{
+		Mineral* TestUni = CreateActor<Mineral>(OBJECTORDER::Mineral);
+		TestUni->GetTransform().SetWorldPosition({ -1380.f,-240.f,0.f });
+		TestUni->m_MainStage = this;
+	}
 
+	
+	//{
+	//	Peobe* TestUni = CreateActor<Peobe>(OBJECTORDER::Probe);
+	//	TestUni->GetTransform().SetWorldPosition({ -512.f,-240.f,0.f });
+	//	TestUni->m_MainStage = this;
+	//}
 
 
 
@@ -659,9 +671,9 @@ void StageMain::Update(float _DeltaTime)
 	if (Player_HP < 0)
 	{
 		//게임 패배
-		StartCheck = false;
-		StageCount = 30;
-		GameFinishBool = true;
+	//	StartCheck = false;
+	//	StageCount = 30;
+	//	GameFinishBool = true;
 		
 	}
 

@@ -51,7 +51,7 @@ void GameEngineStatusWindow::OnGUI(GameEngineLevel* _Level, float _DeltaTime)
 	int FPS = static_cast<int>(1.0f / _DeltaTime);
 	// printf 형식인데 안씀.
 
-	std::string Name = "FPS : " + std::to_string(FPS);
+	std::string Name = "FPS : " + std::to_string(GameEngineTime::GetFPS());
 	ImGui::Text(Name.c_str());
 
 	if (true == ImGui::Button("CollisionDebugSwtich"))
@@ -77,8 +77,6 @@ void GameEngineStatusWindow::OnGUI(GameEngineLevel* _Level, float _DeltaTime)
 	}
 
 	ImGui::NewLine();
-	
-
 	std::string AllRenderTarget = "AllRenderTarget";
 	ImGui::Text(AllRenderTarget.c_str());
 

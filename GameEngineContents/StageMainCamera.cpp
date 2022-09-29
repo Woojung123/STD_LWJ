@@ -22,7 +22,7 @@ void StageMainCamera::Start()
 	
 	MiniCameraUI = GetLevel()->CreateActor<MiniCamera>(OBJECTORDER::UI);
 
-
+	MiniCameraUI->MailCamera = this;
 	//GetTransform().SetWorldMove({-1000.f,350.f,0.f});
 }
 

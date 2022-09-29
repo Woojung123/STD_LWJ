@@ -11,6 +11,7 @@ class DragUI;
 class Builder;
 class GameEngineTextureRenderer;
 class GameEngineCollision;
+class StageMainCamera;
 class MainMouse : public GameEngineActor
 {
 public:
@@ -35,6 +36,7 @@ public:
 	bool MDragCollision(GameEngineCollision* _This, GameEngineCollision* _Other);
 public:
 	StageMain* m_Stage;
+	StageMainCamera* SMainCamera;
 	std::vector<UnitBase*> vec_DragUnit;
 	bool StartDragCheck;
 	bool BuildCheck;

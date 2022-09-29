@@ -7,7 +7,7 @@
 #include "Builder.h"
 #include "DragUI.h"
 #include "BuildImage.h"
-
+#include "Peobe.h"
 #include "StageMain.h"
 #include "MiniMapPlayer.h"
 
@@ -85,6 +85,7 @@ void MainMouse::Start()
 
 	
 	GameEngineInput::GetInst()->CreateKey("LeftClick", VK_LBUTTON);
+	GameEngineInput::GetInst()->CreateKey("RightClick", VK_RBUTTON);
 	GameEngineInput::GetInst()->CreateKey("BuilderClick", '1');
 
 
@@ -157,8 +158,8 @@ void MainMouse::Update(float _DeltaTime)
 
 	if (true == GameEngineInput::GetInst()->IsDown("LeftClick"))
 	{
-
-		StartDragCheck = true;
+		if(SMainCamera->MiniOnOff == false)
+			StartDragCheck = true;
 
 	}
 
@@ -240,6 +241,10 @@ void MainMouse::Update(float _DeltaTime)
 	);
 
 
+	Collision->IsCollision(CollisionType::CT_OBB2D, OBJECTORDER::Mineral, CollisionType::CT_OBB2D,
+		std::bind(&MainMouse::MonsterCollision, this, std::placeholders::_1, std::placeholders::_2)
+	);
+
 	if (true == Collision->IsCollision(CollisionType::CT_OBB2D, OBJECTORDER::Player, CollisionType::CT_OBB2D))
 	{
 		BuildColorCheck = true;
@@ -282,12 +287,45 @@ void MainMouse::Update(float _DeltaTime)
 
 }
 
+
+//¹Ì³×¶ö
 bool MainMouse::MonsterCollision(GameEngineCollision* _This, GameEngineCollision* _Other)
 {
 
 
 
-	return false;
+	if (true == GameEngineInput::GetInst()->IsDown("RightClick"))
+	{
+
+
+		{
+			std::list<GameEngineActor*> Group = GetLevel()->GetGroup(OBJECTORDER::Probe);
+
+
+			auto	iter = Group.begin();
+			auto	iterEnd = Group.end();
+
+			for (; iter != iterEnd; ++iter)
+			{
+
+				if (((Peobe*)(*iter))->m_bClickCheck)
+				{
+					((Peobe*)(*iter))->MineralCheck = true;
+				}
+				else if (((Peobe*)(*iter))->m_bDragCheck)
+				{
+					((Peobe*)(*iter))->MineralCheck = true;
+				}
+				
+
+			}
+
+
+		}
+
+	}
+
+	return true;
 }
 
 bool MainMouse::PlayerCollision(GameEngineCollision* _This, GameEngineCollision* _Other)
@@ -583,6 +621,25 @@ void MainMouse::DragReset()
 	}
 
 
+
+	{
+		std::list<GameEngineActor*> Group = GetLevel()->GetGroup(OBJECTORDER::Probe);
+
+
+		auto	iter = Group.begin();
+		auto	iterEnd = Group.end();
+
+		for (; iter != iterEnd; ++iter)
+		{
+			((UnitBase*)(*iter))->m_bClickCheck = false;
+			//((UnitBase*)(*iter))->m_bDragCheck = false;
+		}
+
+
+	}
+
+
+
 }
 
 void MainMouse::ClickReset()
@@ -604,6 +661,26 @@ void MainMouse::ClickReset()
 
 
 	}
+
+
+
+	{
+		std::list<GameEngineActor*> Group = GetLevel()->GetGroup(OBJECTORDER::Probe);
+
+
+		auto	iter = Group.begin();
+		auto	iterEnd = Group.end();
+
+		for (; iter != iterEnd; ++iter)
+		{
+			((UnitBase*)(*iter))->m_bClickCheck = false;
+			((UnitBase*)(*iter))->m_bDragCheck = false;
+		}
+
+
+	}
+
+
 
 	vec_DragUnit.clear();
 

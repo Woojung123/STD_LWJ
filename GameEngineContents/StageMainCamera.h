@@ -20,7 +20,7 @@ public:
 
 
 	MiniCamera* MiniCameraUI;
-
+	bool MiniOnOff = false;
 protected:
 	void Start() override;
 	void Update(float _DeltaTime);
