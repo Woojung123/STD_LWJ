@@ -48,7 +48,7 @@ public:
 
 	static inline void SetLimitFrame(unsigned int _Frame)
 	{
-		Inst_->FrameLimit = _Frame;
+		Inst_->FrameLimit =  _Frame;
 		Inst_->FrameTime = 1.0f / Inst_->FrameLimit;
 		Inst_->CurFrameTime = 0.0f;
 	}

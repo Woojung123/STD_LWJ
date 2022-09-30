@@ -95,6 +95,11 @@ void TrailBullet::Update(float _DeltaTime)
 
 
 	}
+	else if (m_Probe->GetTransform().GetWorldPosition().x >= 1400.f)
+	{
+		Death();
+		return;
+	}
 
 
 	Collision->IsCollision(CollisionType::CT_OBB2D, OBJECTORDER::Monster, CollisionType::CT_OBB2D,
@@ -122,8 +127,13 @@ void TrailBullet::Update(float _DeltaTime)
 		if (TargetPos.x <= -1400.f)
 		{
 			Death();
+			return;
 		}
-
+		else if (TargetPos.x >= 1400.f)
+		{
+			Death();
+			return;
+		}
 
 
 		float4 MyPos = GetTransform().GetWorldPosition();
