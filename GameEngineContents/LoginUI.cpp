@@ -26,18 +26,18 @@ void LoginUI::Start()
 		Renderer->GetTransform().SetLocalPosition({ 0.f,0.f,-100.f });
 		Renderer->SetTexture("Logo.png");
 	}
-
+	Death(2.f);
 	
 }
 
 void LoginUI::Update(float _DeltaTime)
 {
 	
-	if (!Deathcheck)
+	/*if (!Deathcheck)
 	{
 		Deathcheck = true;
 		Death(2.f);
-	}
+	}*/
 	
 
 }
