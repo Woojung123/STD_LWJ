@@ -38,12 +38,12 @@ public:
 
 	static inline float GetDeltaTime()
 	{
-		if (0.05f <= Inst_->DeltaTimef)
+		if (0.05f <= Inst_->SumSumDeltaTime)
 		{
-			Inst_->DeltaTimef = 0.05f;
+			Inst_->SumSumDeltaTime = 0.05f;
 		}
 
-		return Inst_->DeltaTimef * Inst_->GlobalScale;
+		return Inst_->SumSumDeltaTime * Inst_->GlobalScale;
 	}
 
 	static inline void SetLimitFrame(unsigned int _Frame)
@@ -103,6 +103,8 @@ private:
 
 	double DeltaTimed;
 	float DeltaTimef;
+	float SumDeltaTime;
+	float SumSumDeltaTime;
 	std::map<int, float> TimeScale_;
 	float GlobalScale;
 

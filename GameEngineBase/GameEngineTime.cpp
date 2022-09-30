@@ -9,6 +9,8 @@ GameEngineTime::GameEngineTime()
 	: GlobalScale(1.0f)
 	, FrameLimit(-1)
 	, FrameUpdate(true)
+	, SumSumDeltaTime(0.f)
+	, SumDeltaTime(0.f)
 {
 	Reset();
 }
@@ -46,9 +48,17 @@ void GameEngineTime::Update()
 
 	CurFrameTime -= DeltaTimef;
 
+	SumDeltaTime += DeltaTimef;
+
+
+
 	if (FrameLimit == -1)
 	{
 		FrameUpdate = true;
+
+		SumSumDeltaTime = SumDeltaTime;
+		SumDeltaTime = 0.f;
+
 
 		if (DeltaTimef >= 0.00001f)
 		{
@@ -66,6 +76,8 @@ void GameEngineTime::Update()
 	}
 	else if (CurFrameTime <= 0.0f)
 	{
+		SumSumDeltaTime = SumDeltaTime;
+		SumDeltaTime = 0.f;
 		FrameUpdate = true;
 		++SumFPSCount;
 
@@ -76,15 +88,10 @@ void GameEngineTime::Update()
 			SumFPS = 0;
 			SumFPSCount = 0;
 		}
-		CurFrameTime += FrameTime;
-		//	FPS = SumFPS / SumFPSCount;
-		//	FrameCheckTime = 1.0f;
-		//	SumFPSCount = 0;
-		//	SumFPS = 0;
-		//}
 
-		//SumDeltaTime = 0.0f;
-		//CurFrameTime += FrameTime;
+
+		CurFrameTime += FrameTime;
+
 	}
 
 

@@ -15,9 +15,7 @@
 
 GameEngineLevel* GameEngineCore::CurrentLevel = nullptr;
 GameEngineLevel* GameEngineCore::NextLevel = nullptr;
-
 std::map<std::string, class GameEngineLevel*> GameEngineCore::AllLevels;
-
 
 GameEngineCore::GameEngineCore()
 {
@@ -103,13 +101,15 @@ void GameEngineCore::CoreUpdate(GameEngineCore* _UserCore)
 	GameEngineSound::Update();
 	GameEngineTime::GetInst()->Update();
 	float DeltaTime = GameEngineTime::GetDeltaTime();
-	GameEngineInput::GetInst()->Update(DeltaTime);
+	
 
 
 	//프레임 제한 느리면 오류?
-	//if (true == GameEngineTime::IsFrameCheck())
+	if (true == GameEngineTime::IsFrameCheck())
 	{
+		
 		// 엔진수준에서 유저가 하고 싶은일.
+		GameEngineInput::GetInst()->Update(DeltaTime);
 		_UserCore->Update(DeltaTime);
 		CurrentLevel->LevelUpdate(DeltaTime);
 	}

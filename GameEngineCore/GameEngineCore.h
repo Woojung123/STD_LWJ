@@ -26,11 +26,14 @@ public:
 		return CurrentLevel;
 	}
 
-
 protected:
 	virtual std::string GetWindowTitle() { return "MainWindow"; }
 	virtual float4 StartWindowSize() { return { 1280.0f, 720.0f }; };
 	virtual float4 StartWindowPosition() { return { -2000,0 }; };
+
+
+
+
 
 	// 너희들이 간섭할수 있는 내용.
 	virtual void Start() = 0;
@@ -63,7 +66,6 @@ private:
 	static std::map<std::string, class GameEngineLevel*> AllLevels;
 	static GameEngineLevel* CurrentLevel;
 	static GameEngineLevel* NextLevel;
-
 	static void EngineResourcesInitialize();
 	static void EngineResourcesDestroy();
 
