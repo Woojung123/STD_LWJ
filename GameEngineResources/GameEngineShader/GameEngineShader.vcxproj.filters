@@ -14,5 +14,6 @@
     <FxCompile Include="ITextureAtlas.hlsl" />
     <FxCompile Include="DarkMapShader.hlsl" />
     <FxCompile Include="DarkMapShaderTest.hlsl" />
+    <FxCompile Include="TsetWave.hlsl" />
   </ItemGroup>
 </Project>

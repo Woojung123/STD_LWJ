@@ -3159,6 +3159,20 @@ void ContentsCore::Start()
 		GameEngineFolderTexture::Load(Dir.GetFullPath());
 
 
+		Dir.Move("../ScrollUL");
+		GameEngineFolderTexture::Load(Dir.GetFullPath());
+
+		Dir.Move("../ScrollUR");
+		GameEngineFolderTexture::Load(Dir.GetFullPath());
+
+		Dir.Move("../ScrollDL");
+		GameEngineFolderTexture::Load(Dir.GetFullPath());
+
+		Dir.Move("../ScrollDR");
+		GameEngineFolderTexture::Load(Dir.GetFullPath());
+
+
+
 	}
 
 

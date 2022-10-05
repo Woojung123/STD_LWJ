@@ -1,12 +1,10 @@
 
 #include "PreCompile.h"
 #include "StageNewGame.h"
-
+#include "WaveTest.h"
 
 #include "Enums.h"
-//#include <GameEngineCore/GEngine.h>
-//#include <GameEngineCore/GameEngineCameraActor.h>
-//#include <GameEngineBase/GameEngineInput.h>
+
 
 StageNewGame::StageNewGame()
 {
@@ -27,7 +25,9 @@ void StageNewGame::Start()
 
 
 
-	
+	//{
+	//	WaveTest* TestUni = CreateActor<WaveTest>(OBJECTORDER::TileMap);
+	//}
 
 }
 

@@ -110,7 +110,7 @@ float4 DarkMapShader_PS(Output _Input) : SV_Target0
 
 
 
-    if (_Input.PosLocal.x < -0.05 && _Input.PosLocal.y > 0)
+    if (_Input.PosLocal.x < -0.05 && _Input.PosLocal.y > -0.3)
     {
         clip(-1);
     }

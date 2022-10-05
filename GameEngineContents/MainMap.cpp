@@ -7,7 +7,7 @@
 MainMap::MainMap()
 {
 }
-\
+
 MainMap::~MainMap()
 {
 }

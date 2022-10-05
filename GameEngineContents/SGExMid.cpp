@@ -55,7 +55,7 @@ void SGExMid::Start()
 
 bool SGExMid::MonsterCollision(GameEngineCollision* _This, GameEngineCollision* _Other)
 {
-
+	m_Info.Dammage = 3;
 
 	GameEngineActor* Dest = _Other->GetActor();
 

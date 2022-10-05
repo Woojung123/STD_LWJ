@@ -56,7 +56,7 @@ void DroneEffect::Start()
 
 bool DroneEffect::MonsterCollision(GameEngineCollision* _This, GameEngineCollision* _Other)
 {
-
+	m_Info.Dammage = 4;
 
 	GameEngineActor* Dest = _Other->GetActor();
 

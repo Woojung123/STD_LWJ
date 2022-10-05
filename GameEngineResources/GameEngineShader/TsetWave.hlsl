@@ -6,9 +6,9 @@
 #include "TransformHeader.fx"
 #include "RenderOption.fx"
 
-
 // 0                                                                                                1 
-// 0□□□□□□□
+// 0□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□1
+
 struct Input
 {
     float4 Pos : POSITION;
@@ -18,8 +18,6 @@ struct Input
     // 인스턴싱 데이터
     uint Index : ROWINDEX;
 };
-
-
 
 struct Output
 {
@@ -38,7 +36,7 @@ struct Output
 // 0010
 // 0001
 
-cbuffer AtlasData : register(b1)
+cbuffer WaveAtlasData : register(b1)
 {
     float2 TextureFramePos;
     float2 TextureFrameSize;
@@ -46,14 +44,30 @@ cbuffer AtlasData : register(b1)
 };
 
 
-Output DarkMapShaderTest_VS(Input _Input)
+Output TsetWave_VS(Input _Input)
 {
-    
+    // -0.5, 0.5,     0.5 0.5
+    // 0.5, 0.5,     0.5 0.5
+
     Output NewOutPut = (Output)0;
     _Input.Pos += PivotPos;
     NewOutPut.Pos = mul(_Input.Pos, WorldViewProjection);
     NewOutPut.PosLocal = _Input.Pos;
 
+
+
+    //TEXCOORD = UV ?
+    // 
+    // 버텍스가 몇번째 버텍스 인지 알수가 없다.
+    // NewOutPut.Tex
+    // 00    10
+
+    //// 10    11
+
+    //TextureFrameSize.x -= 0.5f;
+    //TextureFrameSize.y -= 0.5f;
+    //TextureFramePos.x -= 0.5f;
+    //TextureFramePos.y -= 0.5f;
 
     NewOutPut.Tex.x = (_Input.Tex.x * TextureFrameSize.x) + TextureFramePos.x;
     NewOutPut.Tex.y = (_Input.Tex.y * TextureFrameSize.y) + TextureFramePos.y;
@@ -63,7 +77,7 @@ Output DarkMapShaderTest_VS(Input _Input)
 
 
 
-Output DarkMapShaderTest_VSINST(Input _Input)
+Output TsetWave_VSINST(Input _Input)
 {
     // -0.5, 0.5,     0.5 0.5
     // 0.5, 0.5,     0.5 0.5
@@ -92,89 +106,21 @@ Output DarkMapShaderTest_VSINST(Input _Input)
 
 
 
-cbuffer PixelTData : register(b0)
+cbuffer PixelWData : register(b0)
 {
     float4 MulColor;
     float4 PlusColor;
     float4 Slice;
-    float4 Pos[50][50];
 }
-
-
-
-
 
 Texture2D Tex : register(t0);
 SamplerState Smp : register(s0);
-float4 DarkMapShaderTest_PS(Output _Input) : SV_Target0
+float4 TsetWave_PS(Output _Input) : SV_Target0
 {
+    
 
 
-
-    if (_Input.PosLocal.x < -0.05 && _Input.PosLocal.y > -0.3)
-    {
-        clip(-1);
-    }
-
-
-   float4 TexColor = Tex.Sample(Smp, _Input.Tex.xy);
-
-   float4 InputPos = float4(_Input.Pos.x, _Input.Pos.y,0.0f,0.0f);
-   float4 SlicePos = float4(Slice.x, Slice.y, 0.0f, 0.0f);
-
-   float len = length(InputPos - SlicePos);
-
-  
-
-
-   for (int i = 0; i < 50; ++i)
-   {
-       for (int j = 0; j < 50; ++j)
-       {
-
-           float4 TarGetPos = Pos[i][j];
-
-
-
-          if (TarGetPos.z <= 10.f)
-           {
-               TarGetPos.z = 0.f;
-
-               float len2 = length(InputPos - TarGetPos);
-
-               if (len2 <= 300.f)
-               {
-
-                   TexColor.a = 0.5f;
-
-
-               }
-           }
-
-
-
-       }
-
-   }
-
-     if (len <= 350.f)
-   {
-
-       TexColor.a = len / 700.f;
-
-
-   }
-
-
-    //if (len <= 400.f)
-    //{
-
-    //   // TexColor.a = 0.5f;
-    //    clip(-1);
-
-    //}
-
-   
+    float4 TexColor = Tex.Sample(Smp, _Input.Tex.xy);
 
 
 
@@ -183,6 +129,6 @@ float4 DarkMapShaderTest_PS(Output _Input) : SV_Target0
         clip(-1);
     }
 
-
-    return (TexColor * MulColor) + PlusColor;
+  
+    return (Tex.Sample(Smp, _Input.Tex.xy) * MulColor) + PlusColor;
 }

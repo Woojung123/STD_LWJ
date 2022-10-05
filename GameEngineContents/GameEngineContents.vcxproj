@@ -626,6 +626,10 @@
       <SubType>
       </SubType>
     </ClInclude>
+    <ClInclude Include="WaveTest.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
     <ClInclude Include="ZealotC.h">
       <SubType>
       </SubType>
@@ -1115,6 +1119,10 @@
       </SubType>
     </ClCompile>
     <ClCompile Include="UpgradeSUI.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
+    <ClCompile Include="WaveTest.cpp">
       <SubType>
       </SubType>
     </ClCompile>

@@ -140,6 +140,7 @@
     <FxCompile Include="TextureAtlas.hlsl" />
     <FxCompile Include="TextureAtlas_Inst.hlsl" />
     <FxCompile Include="TransformHeader.fx" />
+    <FxCompile Include="TsetWave.hlsl" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -652,6 +652,9 @@
     <ClInclude Include="Mineral.h">
       <Filter>00.Actor\01.Unit\02.Player\04.Probe</Filter>
     </ClInclude>
+    <ClInclude Include="WaveTest.h">
+      <Filter>02.Game2\02.Player</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ContentsCore.cpp">
@@ -1035,6 +1038,9 @@
     </ClCompile>
     <ClCompile Include="Mineral.cpp">
       <Filter>00.Actor\01.Unit\02.Player\04.Probe</Filter>
+    </ClCompile>
+    <ClCompile Include="WaveTest.cpp">
+      <Filter>02.Game2\02.Player</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

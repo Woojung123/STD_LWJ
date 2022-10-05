@@ -238,6 +238,14 @@ void EngineRenderingPipeLine()
 	}
 
 
+	//{
+	//	GameEngineRenderingPipeLine* NewPipe = GameEngineRenderingPipeLine::Create("TsetWave");
+	//	NewPipe->SetVertexShader("TsetWave.hlsl");
+	//	NewPipe->SetPixelShader("TsetWave.hlsl");
+	//}
+
+
+
 
 
 	{
