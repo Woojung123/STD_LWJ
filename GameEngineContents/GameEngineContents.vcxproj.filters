@@ -655,6 +655,9 @@
     <ClInclude Include="WaveTest.h">
       <Filter>02.Game2\02.Player</Filter>
     </ClInclude>
+    <ClInclude Include="MouseEff.h">
+      <Filter>00.Actor\01.Unit\02.Player\02.Builder</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ContentsCore.cpp">
@@ -1041,6 +1044,9 @@
     </ClCompile>
     <ClCompile Include="WaveTest.cpp">
       <Filter>02.Game2\02.Player</Filter>
+    </ClCompile>
+    <ClCompile Include="MouseEff.cpp">
+      <Filter>00.Actor\01.Unit\02.Player\02.Builder</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

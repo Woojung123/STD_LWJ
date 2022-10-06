@@ -16,7 +16,7 @@ DraBall::DraBall()
 
 DraBall::~DraBall()
 {
-	Death();
+
 }
 
 void DraballStart(const FrameAnimation_DESC& _Info)

@@ -131,6 +131,11 @@ void UltraMon::Update(float _DeltaTime)
 	else
 	{
 
+		MonSHRenderer->GetPixelData().Slice.x = 0.f;
+
+
+
+
 		float HPLen = ((float)m_Info.m_Hp / (float)m_Info.m_MaxHp);// / 100.f;
 		HPLen = HPLen + HPLen;
 		MonHPRenderer->GetPixelData().Slice.x = HPLen;

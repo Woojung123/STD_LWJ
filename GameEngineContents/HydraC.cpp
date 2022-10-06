@@ -236,7 +236,12 @@ void HydraC::Update(float _DeltaTime)
 				TestUni->GetTransform().SetWorldPosition(MyPos + m_Dir * 10.f);
 				TestUni->ChangeAni(TarGetPos, MyPos, m_Dir);
 				
-				((UnitBase*)TarGet)->m_Info.m_Hp -= 20.f + UnitBase::CProUpgrade;
+				((UnitBase*)TarGet)->m_Info.m_Hp -= 20.f + UnitBase::CZergUpgrade;
+
+
+				ShootPlayer = GameEngineSound::SoundPlayControl("ZBrAtt00.wav", false);
+				ShootPlayer.PlaySpeed(1.f);
+				ShootPlayer.Volume(0.2f);
 
 
 			}

@@ -21,6 +21,7 @@ RiverBoom::~RiverBoom()
 void RiverBoom::AttEnd(const FrameAnimation_DESC& _Info)
 {
 	BAniChange = true;
+	Renderer->Off();
 
 }
 

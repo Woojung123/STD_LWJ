@@ -256,7 +256,9 @@ void ProbeS::Update(float _DeltaTime)
 				TestUni2->SetTarGet(TarGet);
 				TestUni2->m_Probe = this;
 
-
+				ShootPlayer = GameEngineSound::SoundPlayControl("ProbeShoot.wav", false);
+				ShootPlayer.PlaySpeed(1.f);
+				ShootPlayer.Volume(0.3f);
 
 			}
 

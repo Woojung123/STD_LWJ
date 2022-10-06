@@ -24,7 +24,7 @@ protected:
 	void Start() override;
 	void Update(float _DeltaTime);
 	void End() {}
-
+	GameEngineSoundPlayer SoundPlayer;
 	GameEngineTextureRenderer* Renderer;
 	void AttEnd(const FrameAnimation_DESC& _Info);
 	bool	BAniChange;

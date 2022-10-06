@@ -11,6 +11,7 @@
 #include "StageMain.h"
 #include "MiniMapPlayer.h"
 
+#include "UIMouse.h"
 
 
 
@@ -248,7 +249,7 @@ void MainMouse::Update(float _DeltaTime)
 	if (true == Collision->IsCollision(CollisionType::CT_OBB2D, OBJECTORDER::Player, CollisionType::CT_OBB2D))
 	{
 		BuildColorCheck = true;
-
+		m_UIMouse->UnitCol = true;
 	}
 	else
 	{
@@ -257,6 +258,7 @@ void MainMouse::Update(float _DeltaTime)
 			ClickReset();
 		}
 		BuildColorCheck = false;
+		m_UIMouse->UnitCol = false;
 	}
 
 

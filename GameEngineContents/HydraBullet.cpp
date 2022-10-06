@@ -74,6 +74,7 @@ void HydraBullet::AttEnd(const FrameAnimation_DESC& _Info)
 
 	Death();
 
+	Renderer->Off();
 
 }
 

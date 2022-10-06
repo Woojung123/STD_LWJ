@@ -18,6 +18,8 @@ public:
 	UIMouse& operator=(UIMouse&& _Other) noexcept = delete;
 public:
 	
+	bool UnitCol;
+
 	float4 UnitPos;
 	GameEngineUIRenderer* Renderer;
 	GameEngineCollision* Collision;

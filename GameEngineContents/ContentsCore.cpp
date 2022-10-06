@@ -74,6 +74,23 @@ void ContentsCore::Start()
 
 	}
 
+	{
+
+		GameEngineDirectory Dir;
+		Dir.MoveParentToExitsChildDirectory("ConstantResources");
+		Dir.Move("ConstantResources");
+		Dir.Move("NewSound");
+
+		// 폴더안에 모든 이미지 파일을 찾는다.
+		std::vector<GameEngineFile> AllImageFileList = Dir.GetAllFile();
+
+		for (size_t i = 0; i < AllImageFileList.size(); i++)
+		{
+			GameEngineSound::LoadRessource(AllImageFileList[i].GetFullPath());
+		}
+
+	}
+
 
 	{
 		GameEngineDirectory Dir;
@@ -3041,6 +3058,8 @@ void ContentsCore::Start()
 
 	}
 
+
+
 	//이펙트2
 	{
 		GameEngineDirectory Dir;
@@ -3171,6 +3190,9 @@ void ContentsCore::Start()
 		Dir.Move("../ScrollDR");
 		GameEngineFolderTexture::Load(Dir.GetFullPath());
 
+		
+		Dir.Move("../Click");
+		GameEngineFolderTexture::Load(Dir.GetFullPath());
 
 
 	}

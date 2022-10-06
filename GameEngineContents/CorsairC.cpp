@@ -47,6 +47,7 @@ void CorsairC::Start()
 	SoundPlayer.Volume(0.5f);
 
 
+	
 
 	GetTransform().SetLocalScale({ 1, 1, 1 });
 	{
@@ -238,6 +239,10 @@ void CorsairC::Update(float _DeltaTime)
 				TestUni = GetLevel()->CreateActor<CorSplash>(OBJECTORDER::Bullet);
 				TestUni->GetTransform().SetWorldPosition(TarGetPos);
 				TestUni->m_Info.Dammage = TestUni->m_Info.Dammage + UnitBase::CProUpgrade;
+
+
+				((UnitBase*)TarGet)->m_Info.m_Hp -= 20.f + UnitBase::CProUpgrade;
+
 
 			}
 			break;

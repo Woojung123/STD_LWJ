@@ -237,7 +237,9 @@ void ZealotC::Update(float _DeltaTime)
 				BAniChange = false;
 
 				((UnitBase*)TarGet)->m_Info.m_Hp -= m_Info.Dammage + UnitBase::CProUpgrade;
-
+				ShootPlayer = GameEngineSound::SoundPlayControl("ZealotAttS.wav", false);
+				ShootPlayer.PlaySpeed(1.f);
+				ShootPlayer.Volume(0.2f);
 		
 			}
 

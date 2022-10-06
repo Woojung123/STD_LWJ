@@ -26,6 +26,7 @@ Recall::~Recall()
 void Recall::AttEnd(const FrameAnimation_DESC& _Info)
 {
 	BAniChange = true;
+	Renderer->Off();
 
 }
 

@@ -99,15 +99,18 @@ void StageMain::Start()
 
 
 
-		UIMouse* C_UIMouse = CreateActor<UIMouse>(OBJECTORDER::UI);
+	
 
-
-
-
+	UIMouse* C_UIMouse = CreateActor<UIMouse>(OBJECTORDER::UI);
+	
 	
 	
 	MainMouse* MaMouse = CreateActor<MainMouse>(OBJECTORDER::Mouse);
 	MaMouse->m_Stage = this;
+	MaMouse->m_UIMouse = C_UIMouse;
+
+
+
 
 	
 	Builder* mBuilder = CreateActor<Builder>(OBJECTORDER::Player);
@@ -1160,6 +1163,11 @@ void StageMain::Stage6(float _DeltaTime)
 				TestUni->SetCheckPoinr(*iter);
 			}
 
+			SoundPlayer = GameEngineSound::SoundPlayControl("CorBossSound.wav", false);
+			SoundPlayer.PlaySpeed(1.f);
+			SoundPlayer.Volume(1.f);
+
+
 		}
 
 		++MonCount;
@@ -1445,6 +1453,12 @@ void StageMain::Stage12(float _DeltaTime)
 			{
 				TestUni->SetCheckPoinr(*iter);
 			}
+
+
+			SoundPlayer = GameEngineSound::SoundPlayControl("ScoutBossSound.wav", false);
+			SoundPlayer.PlaySpeed(1.f);
+			SoundPlayer.Volume(1.f);
+
 
 		}
 
@@ -1735,6 +1749,13 @@ void StageMain::Stage18(float _DeltaTime)
 			{
 				TestUni->SetCheckPoinr(*iter);
 			}
+
+
+			SoundPlayer = GameEngineSound::SoundPlayControl("ZergBoss1S.wav", false);
+			SoundPlayer.PlaySpeed(1.f);
+			SoundPlayer.Volume(1.f);
+
+
 
 		}
 
@@ -2027,6 +2048,12 @@ void StageMain::Stage24(float _DeltaTime)
 				TestUni->SetCheckPoinr(*iter);
 			}
 
+
+			SoundPlayer = GameEngineSound::SoundPlayControl("ZerGBossUlS.wav", false);
+			SoundPlayer.PlaySpeed(1.f);
+			SoundPlayer.Volume(1.f);
+
+
 		}
 
 		++MonCount;
@@ -2076,6 +2103,14 @@ void StageMain::Stage25(float _DeltaTime)
 			{
 				TestUni->SetCheckPoinr(*iter);
 			}
+
+
+
+			SoundPlayer = GameEngineSound::SoundPlayControl("ZergBoss2S.wav", false);
+			SoundPlayer.PlaySpeed(1.f);
+			SoundPlayer.Volume(1.f);
+
+
 
 		}
 

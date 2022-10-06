@@ -245,7 +245,11 @@ void UltraC::Update(float _DeltaTime)
 
 				AttCheck = false;
 				BAniChange = false;
-				
+
+				SoundPlayer = GameEngineSound::SoundPlayControl("UlAtt2S.wav", false);
+				SoundPlayer.PlaySpeed(1.f);
+				SoundPlayer.Volume(0.2f);
+
 				((UnitBase*)TarGet)->m_Info.m_Hp -= 70 + UnitBase::BZergUpgrade * 10;
 			}
 			break;

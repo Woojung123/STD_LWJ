@@ -391,6 +391,7 @@
       <SubType>
       </SubType>
     </ClInclude>
+    <ClInclude Include="MouseEff.h" />
     <ClInclude Include="MutalA.h">
       <SubType>
       </SubType>
@@ -885,6 +886,7 @@
       <SubType>
       </SubType>
     </ClCompile>
+    <ClCompile Include="MouseEff.cpp" />
     <ClCompile Include="MutalA.cpp">
       <SubType>
       </SubType>

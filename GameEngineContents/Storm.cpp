@@ -26,12 +26,17 @@ Storm::~Storm()
 void Storm::AttEnd(const FrameAnimation_DESC& _Info)
 {
 	BAniChange = true;
+	Renderer->Off();
 
 }
 
 
 void Storm::Start()
 {
+	ShootPlayer = GameEngineSound::SoundPlayControl("StormSound.wav", false);
+	ShootPlayer.PlaySpeed(1.f);
+	ShootPlayer.Volume(0.2f);
+
 
 	GetTransform().SetLocalScale({ 1, 1, 1 });
 	{

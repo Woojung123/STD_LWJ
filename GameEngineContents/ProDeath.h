@@ -25,7 +25,7 @@ protected:
 	void End() {}
 
 	GameEngineTextureRenderer* Renderer;
-
+	GameEngineSoundPlayer SoundPlayer;
 	void AttEnd(const FrameAnimation_DESC& _Info);
 	bool	BAniChange;
 

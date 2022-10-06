@@ -22,6 +22,7 @@ MutalEff::~MutalEff()
 void MutalEff::AttEnd(const FrameAnimation_DESC& _Info)
 {
 	BAniChange = true;
+	Renderer->Off();
 
 }
 

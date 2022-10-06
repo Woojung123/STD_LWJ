@@ -114,6 +114,8 @@ private:
 	int StageCount;
 
 
+	GameEngineSoundPlayer SoundPlayer;
+
 
 private:
 	void Stage1(float _DeltaTime) ;

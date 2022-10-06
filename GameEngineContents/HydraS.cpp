@@ -263,6 +263,9 @@ void HydraS::Update(float _DeltaTime)
 
 				}
 				
+				ShootPlayer = GameEngineSound::SoundPlayControl("HydraAttS.wav", false);
+				ShootPlayer.PlaySpeed(1.f);
+				ShootPlayer.Volume(0.2f);
 
 
 				

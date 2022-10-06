@@ -231,6 +231,10 @@ void ArbitorB::Update(float _DeltaTime)
 				TestUni->m_Info.Dammage = 1;
 				TestUni->m_Info.Dammage = TestUni->m_Info.Dammage + UnitBase::BProUpgrade / 10;
 
+
+				ShootPlayer = GameEngineSound::SoundPlayControl("RecallSound.wav", false);
+				ShootPlayer.PlaySpeed(1.f);
+				ShootPlayer.Volume(0.2f);
 			}
 
 

@@ -23,6 +23,7 @@ public:
 
 public:
 	GameEngineSoundPlayer SoundPlayer;
+	GameEngineSoundPlayer ShootPlayer;
 	UINFO	m_Info;
 	UNITTYPE m_Type;
 	MiniMapUnit* MiniUnit;

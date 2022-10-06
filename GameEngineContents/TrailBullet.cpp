@@ -56,7 +56,7 @@ void TrailBullet::Start()
 
 	{
 		Collision = CreateComponent<GameEngineCollision>();
-		Collision->GetTransform().SetLocalScale({ 20.0f, 20.0f, 1.0f });
+		Collision->GetTransform().SetLocalScale({ 40.0f, 40.0f, 1.0f });
 		Collision->ChangeOrder(OBJECTORDER::Bullet);
 
 

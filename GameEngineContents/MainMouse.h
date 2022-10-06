@@ -12,6 +12,7 @@ class Builder;
 class GameEngineTextureRenderer;
 class GameEngineCollision;
 class StageMainCamera;
+class UIMouse;
 class MainMouse : public GameEngineActor
 {
 public:
@@ -46,6 +47,8 @@ public:
 	Builder* m_Builder;
 	bool BuildColorCheck;
 
+
+	UIMouse* m_UIMouse;
 	float4 m_DragStartPos;
 	float4 m_DragEndPos;
 

@@ -22,6 +22,7 @@ Plaegue::~Plaegue()
 void Plaegue::AttEnd(const FrameAnimation_DESC& _Info)
 {
 	BAniChange = true;
+	Renderer->Off();
 
 }
 

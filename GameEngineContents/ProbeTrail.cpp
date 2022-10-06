@@ -23,6 +23,7 @@ ProbeTrail::~ProbeTrail()
 void ProbeTrail::AttEnd(const FrameAnimation_DESC& _Info)
 {
 	Death();
+	Renderer->Off();
 
 }
 

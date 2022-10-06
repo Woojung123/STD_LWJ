@@ -7,7 +7,7 @@
 #include"CorSplash.h"
 #include "BuilderUI.h"
 #include "MainMouse.h"
-
+#include "MouseEff.h"
 
 #include "MiniMapPlayer.h"
 #include "StageMain.h"
@@ -384,6 +384,13 @@ void Builder::MoveCheck(float _DeltaTime)
 		Movecheck = true;
 		
 		
+
+		MouseEff* TestUni2 = GetLevel()->CreateActor<MouseEff>(OBJECTORDER::Bullet);
+		TestUni2->GetTransform().SetWorldPosition(WorldPos);
+		
+		
+
+
 		ChangeAni(WorldPos, MyPos);
 
 

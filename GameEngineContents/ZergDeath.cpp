@@ -27,6 +27,9 @@ void ZergDeath::AttEnd(const FrameAnimation_DESC& _Info)
 
 void ZergDeath::Start()
 {
+	SoundPlayer = GameEngineSound::SoundPlayControl("ZDeath.wav", false);
+	SoundPlayer.PlaySpeed(1.f);
+	SoundPlayer.Volume(0.2f);
 
 	GetTransform().SetLocalScale({ 1, 1, 1 });
 	{

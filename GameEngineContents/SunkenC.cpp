@@ -194,7 +194,7 @@ void SunkenC::Update(float _DeltaTime)
 			{
 				TestUni = GetLevel()->CreateActor<Sunken>(OBJECTORDER::Bullet);
 				TestUni->GetTransform().SetWorldPosition(TarGetPos);
-				TestUni->m_Info.Dammage = 40 + UnitBase::BZergUpgrade * 3;
+				((UnitBase*)TarGet)->m_Info.m_Hp -= 40.f + UnitBase::BZergUpgrade * 3;
 
 
 			}

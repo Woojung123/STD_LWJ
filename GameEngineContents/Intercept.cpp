@@ -143,7 +143,13 @@ void Intercept::Update(float _DeltaTime)
 
 		if (TarGet != nullptr)
 		{
-
+			if (soundcheck)
+			{	
+				ShootPlayer = GameEngineSound::SoundPlayControl("InterShoot.wav", false);
+				ShootPlayer.PlaySpeed(1.f);
+				ShootPlayer.Volume(0.1f);
+				soundcheck = false;
+			}
 
 			AttCheck = true;
 			AttTime += _DeltaTime;
@@ -194,6 +200,9 @@ void Intercept::Update(float _DeltaTime)
 			{
 				MVcheck = true;
 
+				//ShootPlayer = GameEngineSound::SoundPlayControl("InterShoot.wav", false);
+				//ShootPlayer.PlaySpeed(1.f);
+				//ShootPlayer.Volume(0.5f);
 			}
 
 
@@ -233,7 +242,7 @@ void Intercept::Update(float _DeltaTime)
 		{
 			
 			AttCheck = false;
-
+			soundcheck = true;
 
 			float4 WorldPos2 = GetTransform().GetWorldPosition();
 			GetTransform().SetWorldPosition({ WorldPos2.x , WorldPos2.y , -18.f, WorldPos2.w });

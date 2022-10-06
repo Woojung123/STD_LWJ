@@ -298,6 +298,13 @@ void MutalA::Update(float _DeltaTime)
 					TestUni->TarGet = TarGet2;
 					TestUni->TarGet2 = TarGet3;
 					TestUni->TarGet3 = TarGet4;
+
+
+					SoundPlayer = GameEngineSound::SoundPlayControl("ZMuFir00.wav", false);
+					SoundPlayer.PlaySpeed(1.f);
+					SoundPlayer.Volume(0.2f);
+
+
 				}
 				
 			}

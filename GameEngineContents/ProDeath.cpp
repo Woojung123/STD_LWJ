@@ -27,6 +27,10 @@ void ProDeath::AttEnd(const FrameAnimation_DESC& _Info)
 
 void ProDeath::Start()
 {
+	SoundPlayer = GameEngineSound::SoundPlayControl("ProMonDead.wav", false);
+	SoundPlayer.PlaySpeed(1.f);
+	SoundPlayer.Volume(0.2f);
+
 
 	GetTransform().SetLocalScale({ 1, 1, 1 });
 	{

@@ -22,7 +22,7 @@ RiverBullet::RiverBullet()
 
 RiverBullet::~RiverBullet()
 {
-	Death();
+	
 }
 
 

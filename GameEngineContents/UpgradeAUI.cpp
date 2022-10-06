@@ -135,6 +135,10 @@ bool UpgradeAUI::Col_Pro(GameEngineCollision* _This, GameEngineCollision* _Other
 	{
 		if (m_UpC->m_MainStage->Player_Gold < 100)
 		{
+			SoundPlayer = GameEngineSound::SoundPlayControl("NoMiNeral.wav", false);
+			SoundPlayer.PlaySpeed(1.f);
+			SoundPlayer.Volume(0.5f);
+
 			return true;
 		}
 
@@ -158,6 +162,10 @@ bool UpgradeAUI::Col_Ter(GameEngineCollision* _This, GameEngineCollision* _Other
 	{
 		if (m_UpC->m_MainStage->Player_Gold < 100)
 		{
+			SoundPlayer = GameEngineSound::SoundPlayControl("NoMiNeral.wav", false);
+			SoundPlayer.PlaySpeed(1.f);
+			SoundPlayer.Volume(0.5f);
+
 			return true;
 		}
 
@@ -181,6 +189,10 @@ bool UpgradeAUI::Col_Zerg(GameEngineCollision* _This, GameEngineCollision* _Othe
 	{
 		if (m_UpC->m_MainStage->Player_Gold < 100)
 		{
+			SoundPlayer = GameEngineSound::SoundPlayControl("NoMiNeral.wav", false);
+			SoundPlayer.PlaySpeed(1.f);
+			SoundPlayer.Volume(0.5f);
+
 			return true;
 		}
 

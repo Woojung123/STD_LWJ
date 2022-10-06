@@ -42,7 +42,7 @@ public:
 	float4	m_Dir;
 
 
-
+	bool	soundcheck = false;
 	bool	BAniChange;
 	bool	AttCheck;
 	bool	MVcheck = true;

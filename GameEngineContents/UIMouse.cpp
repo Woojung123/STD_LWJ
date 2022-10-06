@@ -6,6 +6,7 @@
 
 UIMouse::UIMouse() :
 	Renderer(nullptr)
+	, UnitCol(false)
 {
 }
 
@@ -40,7 +41,7 @@ void UIMouse::Start()
 
 	}
 	//마우스 지우기
-	//ShowCursor(false);
+	ShowCursor(false);
 
 	Renderer->ChangeFrameAnimation("Normal");
 	Renderer->ChangeCamera(CAMERAORDER::UICAMERA);
@@ -59,66 +60,78 @@ void UIMouse::Update(float _DeltaTime)
 	MousePos.z = -300.f;
 
 
-
-	if (MousePos.y >= 300 && MousePos.x  <= 400.f && MousePos.x  >= -400.f)
+	if (UnitCol)
 	{
-		MousePos.y = 300.f;
-		Renderer->ChangeFrameAnimation("ScrollU");
-	}
-	else if (MousePos.y <= -300 && MousePos.x <= 400.f && MousePos.x >= -400.f)
-	{
-		MousePos.y = -300.f;
-		Renderer->ChangeFrameAnimation("ScrollD");
-	}
-
-	else if (MousePos.x >= 400.f && MousePos.y <= 300 && MousePos.y >= -300 )
-	{
-		MousePos.x = 400.f;
-		Renderer->ChangeFrameAnimation("ScrollR");
-	}
-	else if (MousePos.x <= -400.f && MousePos.y <= 300 && MousePos.y >= -300)
-	{
-		MousePos.x = -400.f;
-		Renderer->ChangeFrameAnimation("ScrollL");
-	}
 
 
-	else if (MousePos.y <= -300 && MousePos.x >= 400.f)
-	{
-		MousePos.y = -300.f;
-		MousePos.x = 400.f;
-		Renderer->ChangeFrameAnimation("ScrollDR");
-	}
+			Renderer->ChangeFrameAnimation("MagAlly");
 
-	else if (MousePos.y <= -300.f && MousePos.x <= -400.f)
-	{
-		MousePos.y = -300.f;
-		MousePos.x = -400.f;
-		Renderer->ChangeFrameAnimation("ScrollDL");
-	}
-	else if (MousePos.y >= 300 && MousePos.x >= 400.f)
-	{
-		MousePos.y = 300.f;
-		MousePos.x = 400.f;
-		Renderer->ChangeFrameAnimation("ScrollUR");
-	}
-
-	else if (MousePos.y >= 300.f && MousePos.x <= -400.f)
-	{
-		MousePos.y = 300.f;
-		MousePos.x = -400.f;
-
-		Renderer->ChangeFrameAnimation("ScrollUL");
-	}
-
-
-
-	if (MousePos.x >= -395.f && MousePos.x <= 395.f &&
-		MousePos.y >= -295.f && MousePos.y <= 295.f)
-	{
-		Renderer->ChangeFrameAnimation("Normal");
 
 	}
+	else
+	{
+		if (MousePos.y >= 300 && MousePos.x <= 400.f && MousePos.x >= -400.f)
+		{
+			MousePos.y = 300.f;
+			Renderer->ChangeFrameAnimation("ScrollU");
+		}
+		else if (MousePos.y <= -300 && MousePos.x <= 400.f && MousePos.x >= -400.f)
+		{
+			MousePos.y = -300.f;
+			Renderer->ChangeFrameAnimation("ScrollD");
+		}
+
+		else if (MousePos.x >= 400.f && MousePos.y <= 300 && MousePos.y >= -300)
+		{
+			MousePos.x = 400.f;
+			Renderer->ChangeFrameAnimation("ScrollR");
+		}
+		else if (MousePos.x <= -400.f && MousePos.y <= 300 && MousePos.y >= -300)
+		{
+			MousePos.x = -400.f;
+			Renderer->ChangeFrameAnimation("ScrollL");
+		}
+
+
+		else if (MousePos.y <= -300 && MousePos.x >= 400.f)
+		{
+			MousePos.y = -300.f;
+			MousePos.x = 400.f;
+			Renderer->ChangeFrameAnimation("ScrollDR");
+		}
+
+		else if (MousePos.y <= -300.f && MousePos.x <= -400.f)
+		{
+			MousePos.y = -300.f;
+			MousePos.x = -400.f;
+			Renderer->ChangeFrameAnimation("ScrollDL");
+		}
+		else if (MousePos.y >= 300 && MousePos.x >= 400.f)
+		{
+			MousePos.y = 300.f;
+			MousePos.x = 400.f;
+			Renderer->ChangeFrameAnimation("ScrollUR");
+		}
+
+		else if (MousePos.y >= 300.f && MousePos.x <= -400.f)
+		{
+			MousePos.y = 300.f;
+			MousePos.x = -400.f;
+
+			Renderer->ChangeFrameAnimation("ScrollUL");
+		}
+
+
+
+		if (MousePos.x >= -395.f && MousePos.x <= 395.f &&
+			MousePos.y >= -295.f && MousePos.y <= 295.f)
+		{
+			Renderer->ChangeFrameAnimation("Normal");
+
+		}
+
+	}
+
 
 
 	Renderer->GetTransform().SetLocalPosition(MousePos);
