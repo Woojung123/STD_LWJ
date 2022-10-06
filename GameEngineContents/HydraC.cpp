@@ -239,9 +239,6 @@ void HydraC::Update(float _DeltaTime)
 				((UnitBase*)TarGet)->m_Info.m_Hp -= 20.f + UnitBase::CZergUpgrade;
 
 
-				ShootPlayer = GameEngineSound::SoundPlayControl("ZBrAtt00.wav", false);
-				ShootPlayer.PlaySpeed(1.f);
-				ShootPlayer.Volume(0.2f);
 
 
 			}
