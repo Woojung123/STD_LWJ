@@ -1443,7 +1443,7 @@ void StageMain::Stage12(float _DeltaTime)
 		{
 			ScoutMon* TestUni = CreateActor<ScoutMon>(OBJECTORDER::Monster);
 			TestUni->m_Info.m_Hp = 9000 * MonHpLevel;
-			TestUni->m_Info.m_MaxHp = 6000 * MonHpLevel;
+			TestUni->m_Info.m_MaxHp = 9000 * MonHpLevel;
 			TestUni->m_Info.Gold = 8;
 			TestUni->m_MainStage = this;
 			auto	iter = CheckPoint.begin();
